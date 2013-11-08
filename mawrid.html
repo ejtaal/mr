@@ -1,0 +1,1628 @@
+﻿<html><head><title>Arabic Almanac</title>
+<link rel="shortcut icon" href="aa.ico" />
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+<style>
+body { width: 100%; background-color: #DDD; }
+#chapters_index, #chapter_contents, table.navtable { width: 100%; }
+#chapter_contents { font-family: Simplified Arabic; }
+body, div { margin: 0; padding: 0; }
+/*
+table.navtable td { min-width: 10%; }
+a { color: black; text-decoration: none; }
+*/
+.navtable a, #settings_container a { color: black; text-decoration: none; }
+.indexbutton { 
+	margin: 0; padding: 0;
+	padding-right: 15px;
+	padding-left: 15px;
+	font-size: xx-large;
+	width: 100%; background-color: silver;
+	}
+.book_toggle { 
+	width: 100%; background-color: silver;
+	font-size: x-large; 
+	/*
+	text-align: right; 
+	*/
+	padding-top: 1px; padding-bottom: 1px; 
+	}
+.button { 
+	width: 100%; background-color: silver;
+	font-size: large; text-align: center; 
+	padding-top: 7px; padding-bottom: 7px; 
+	}
+.small_button { 
+	width: 100%; background-color: silver;
+	text-align: center; 
+	}
+
+hr { margin: 5px; }
+
+.column_indicator { width: 100% }
+.column_indicator td { margin: 2; padding: 2; background-color: gray; }
+.act  { background-color: blue; }
+.index_table td { 
+	font-size: xx-large; 
+	text-align: center; 
+	}
+
+/*
+.green-gradient {
+	margin: 2px;
+	background-image: -webkit-linear-gradient(top,rgb(0,90,0),rgb(0,255,0));
+	background-image:    -moz-linear-gradient(top,rgb(0,90,0),rgb(0,255,0));
+	background-image:     -ms-linear-gradient(top,rgb(0,90,0),rgb(0,255,0));
+	background-image:      -o-linear-gradient(top,rgb(0,90,0),rgb(0,255,0));
+}
+*/
+
+.rainbow {
+	/* padding: 2px;*/
+	margin: 2px;
+	/* Make a rainbow gradient */
+	/*
+	background-image: -o-linear-gradient(top,rgb(255,0,0),rgb(0,0,255));
+	background-image: -o-linear-gradient(top,rgb(255,0,0),rgb(0,255,0) 50%,rgb(0,0,255));
+	*/
+	background-image: -o-linear-gradient(top,rgb(255,0,0),rgb(0,255,0) 50%,rgb(0,0,255));
+}
+
+/*
+<meta name='viewport' content='width=device-width, initial-scale=1.0'/>  
+*/
+
+.column {
+	width: 98%;
+	overflow: hidden;
+}
+
+#settings_container,#hw3_toggle,#ll_toggle,#uqw_toggle,#la_toggle,#ls_toggle,#ha_toggle,#sg_toggle,#hw4_toggle,#br_toggle,#pr_toggle,#aan_toggle,#imn_toggle,#umr_toggle,#ums_toggle,#vi_toggle,#mgf_toggle,#ulq_toggle,#uqa_toggle,#umj_toggle,#kaz_toggle { display: none; }
+#settings_container { border: solid white 5px; }
+#settings_2 td { border-bottom: solid white 1px; }
+
+#hw4_col1,#hw4_col2,#pr_col1,#pr_col2,#hw3_col1,#hw3_col2,#ha_col1,#ha_col2,#sg_col1,#sg_col2,#aan_col1,#aan_col2,#imn_col1,#imn_col2,#umr_col1,#umr_col2,#ums_col1,#ums_col2,#kaz_col1,#kaz_col2 {
+	position: relative;
+	width: 200%;
+}
+
+#aan_col1 {
+	left: -2%; /* fix for AAN */ 
+}
+
+#aan_col2 {
+	width: 210%; /* fix for AAN */ 
+}
+
+#imn_col1 {
+	left: -2%; /* fix for IMN */ 
+}
+
+#imn_col2 {
+	width: 210%; /* fix for IMN */ 
+}
+
+#ums_col1 {
+	left: -2%; /* TODO: check for ums */ 
+}
+
+#ums_col2 {
+	width: 210%; /* TODO: check for ums */ 
+}
+
+#umr_col1 {
+	left: -2%; /* TODO: check for UMR */ 
+}
+
+#umr_col2 {
+	width: 210%; /* TODO: check for UMR */ 
+}
+
+#ha_col2 {
+	left: 0%;
+}
+
+#hw4_col2,#pr_col2,#hw3_col2,#ha_col1,#sg_col2,#aan_col2,#imn_col2,#umr_col2,#ums_col2,#kaz_col2 {
+	right: 100%;
+}
+
+#ll_col1,#ll_col2,#ll_col3,#ls_col1,#ls_col2,#ls_col3,#umj_col1,#umj_col2,#umj_col3,#uqw_col1,#uqw_col2,#uqw_col3,#la_col1,#la_col2,#la_col3 {
+	position: relative;
+	width: 285%;
+}
+
+#ll_col2,#ls_col2,#uqw_col2,#la_col2,#umj_col2 {
+/*
+	right: 100%;
+	right: 200%;
+	left: -185%;
+*/
+	left: -95%;
+}
+
+#ll_col3,#ls_col3,#uqw_col1,#la_col1,#umj_col1 {
+	left: -185%;
+	right: 100%;
+}
+
+#penrice         .navtable td div, #pr_toggle,  .PR_color , #pr_status_line  { background-color: orchid; }
+#brill           .navtable td div, #br_toggle,  .BR_color , #br_status_line  { background-color: magenta; }
+#mgfarid         .navtable td div, #mgf_toggle, .MGF_color, #mgf_status_line { background-color: orange; }
+#ulughaat        .navtable td div, #ulq_toggle, .ULQ_color, #ulq_status_line { background-color: orange; }
+#uqalfaaz        .navtable td div, #uqa_toggle, .UQA_color, #uqa_status_line { background-color: orange; }
+#aanadwi         .navtable td div, #aan_toggle, .AAN_color, #aan_status_line { background-color: slateblue; }
+#idmunawir       .navtable td div, #imn_toggle, .IMN_color, #imn_status_line { background-color: Moccasin; }
+#verbalidioms    .navtable td div, #vi_toggle,  .VI_color,  #vi_status_line  { background-color: violet; }
+#steingass       .navtable td div, #sg_toggle,  .SG_color , #sg_status_line  { background-color: turquoise; }
+#hanswehr3       .navtable td div, #hw3_toggle, .HW3_color, #hw3_status_line { background-color: coral; }
+#hanswehr4       .navtable td div, #hw4_toggle, .HW4_color, #hw4_status_line { background-color: salmon; }
+#laneslexicon    .navtable td div, #ll_toggle,  .LL_color , #ll_status_line  { background-color: lawngreen; }
+#laneslexiconsup .navtable td div, #ls_toggle,  .LS_color , #ls_status_line  { background-color: palegreen; }
+#hava            .navtable td div, #ha_toggle,  .HA_color , #ha_status_line  { background-color: gold; }
+#uqaamoos        .navtable td div, #uqw_toggle, .UQW_color, #uqw_status_line { background-color: MediumSeaGreen; }
+#lisanularab     .navtable td div, #la_toggle,  .LA_color,  #la_status_line  { background-color: Lavender; }
+#urdumufraadaat  .navtable td div, #umr_toggle, .UMR_color, #umr_status_line { background-color: teal; }
+#urdumukhtaar    .navtable td div, #ums_toggle, .UMS_color, #ums_status_line { background-color: royalblue; }
+#umunjid         .navtable td div, #umj_toggle, .UMJ_color, #umj_status_line { background-color: LightSteelBlue; }
+#kazir           .navtable td div, #kaz_toggle, .KAZ_color, #kaz_status_line { background-color: Green; }
+
+
+#pr_wideviewimg  { border: 3px solid orchid; }
+#br_wideviewimg  { border: 3px solid magenta; }
+#mgf_wideviewimg { border: 3px solid orange; }
+#ulq_wideviewimg { border: 3px solid orange; }
+#uqa_wideviewimg { border: 3px solid orange; }
+#aan_wideviewimg { border: 3px solid slateblue; }
+#imn_wideviewimg { border: 3px solid Moccasin; }
+#vi_wideviewimg  { border: 3px solid violet; }
+#sg_wideviewimg  { border: 3px solid turquoise; }
+#hw3_wideviewimg { border: 3px solid coral; }
+#hw4_wideviewimg { border: 3px solid salmon; }
+#ll_wideviewimg  { border: 3px solid lawngreen; }
+#ls_wideviewimg  { border: 3px solid palegreen; }
+#ha_wideviewimg  { border: 3px solid gold; }
+#uqw_wideviewimg { border: 3px solid MediumSeaGreen; }
+#la_wideviewimg  { border: 3px solid Lavender; }
+#umr_wideviewimg { border: 3px solid teal; }
+#ums_wideviewimg { border: 3px solid royalblue; }
+#umj_wideviewimg { border: 3px solid LightSteelBlue; }
+#kaz_wideviewimg { border: 3px solid Green; }
+
+
+/*
+*/
+
+</style>
+
+<script id="book-template" type="text/x-jquery-tmpl">
+
+<!-- Start of book {$name} -->
+ <div id="${key}">
+	<div class='book_toggle' id='{$key}_toggle' onclick="javascript:hide_book('{$key}', false);"> Show {$name} [_] </div>
+	<div id='{$key}_page'>
+	<table class='navtable'>
+	<tr>
+		<td> <a href='javascript:shift_page("{$key}", -1)'<div class='button'>&larr;</div></a> </td>
+		<td> <div class='button'>{$name}</div></td>
+		<td> <a href="javascript:hide_book( '{$key}', true);"><div class='button'>hide</div></a> </td>
+		<td> <a href='javascript:shift_page("{$key}", 1)'><div class='button'>&rarr;</div></a> </td>
+	</tr>
+	</table>
+<span class='status_line' id='hw4_status_line'></span>
+<div class='narrowview' id='hw4_narrowview'>
+	<div class='column' id='{$col1_div_id}'>
+		<img id='{$col1_img_id}' onClick='javascript:searchandgo()'>
+	</div>
+	<hr>
+	<div class='column' id='{$col2_div_id}'>
+		<img id='{$col1_img_id}' onClick='javascript:searchandgo()'>
+	</div>
+	<hr>
+	<div class='column' id='{$col3_div_id}'>
+		<img id='{$col1_img_id}' onClick='javascript:searchandgo()'>
+	</div>
+</div>
+<div id='{$key}_wideview'>
+	<img class='wideview' id='{$key}_wideviewimg' onClick='javascript:searchandgo()'>
+</div>
+<table class='navtable'>
+<tr>
+	<td> <a href='javascript:shift_page("{$key}", -1)'><div class='button'>&larr;</div></a> </td>
+	<td> <a href='javascript:shift_page("{$key}", 1)' ><div class='button'>&rarr;</div></a> </td>
+</tr>
+</table>
+</div>
+<!-- End of book {$name} -->
+
+</script>
+<script id="setting-presets" type="text/x-jquery-tmpl">
+	<td>
+	<a href="javascript:set_order_preset('{$key}')"><div class='button'>{$name}</div></a>
+</script>
+<script id="ltr-3-column-template" type="text/x-jquery-tmpl">
+</script>
+<script id="rtl-2-column-template" type="text/x-jquery-tmpl">
+</script>
+<script id="rtl-3-column-template" type="text/x-jquery-tmpl">
+</script>
+
+<!-- Google Analytics stuff: -->
+<script type="text/javascript">
+var _gaq = _gaq || [];
+_gaq.push(['_setAccount', 'UA-34010688-1']);
+_gaq.push(['_setDomainName', 'ejtaal.net']);
+_gaq.push(['_trackPageview']);
+(function() {
+  if ('file:' != document.location.protocol) {
+	  var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
+	  ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
+	  var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
+
+	  var aw = document.createElement('script');
+	  aw.type = 'text/javascript'; ga.async = true;
+	  aw.src = 'jslib/awstats_misc_tracker.js';
+	  var s2 = document.getElementsByTagName('script')[0]; 
+	  s2.parentNode.insertBefore(aw, s2);
+	}
+})();
+</script>
+<meta name='viewport' content='width=device-width'/>  
+</head>
+<body>
+
+<table class='navtable'>
+<tr>
+	<td><a href='javascript:toggle_settings()' title='Settings menu'><div class='button' ><span style='border-top: 3px solid black; border-bottom: 3px solid black;'><b>&mdash;&mdash;&mdash;</b></span></div></a></td>
+	<td><a href='readme.html' title='More information about this website'><div class='button'>About</div></a></td>
+	<td><a href='javascript:toggle_view()' title='Toggle between mobile (column view) and desktop (full page) view'><div class='button'>Mobile</div></a></td>
+	<td><a href='javascript:toggle_fitwidth()' title='Toggle to have pages fit to your browser window'><div class='button'>|&larr;&rarr;|</div></a></td>
+	<td><a href='javascript:searchandgo()' title='Lookup root letters'><div class='button'>Search</div></a></td>
+</tr>
+</table>
+
+<!--
+ &plusmn;
+<hr>
+<a href="http://ejtaal.net/donate/" >
+<div style='margin: 1%; width: 100%; height: 5%; color: white; background-color: navy; border: 1 solid white;'>
+<center>
+::: Please donate if you like this page, click here :::
+</center>
+</div>
+<small>
+</small>
+-->
+<center>
+<span id='statusbar'></span>
+<span id='searchbar'></span>
+<span id='version'></span> | Viewing mode: <em><span id='currentmode'></span></em>.
+<br>
+<a href="/donate" style="width: 100%; color: steelblue; border: 1px solid navy;">
+ ۩۞۩ --- Please donate --- ۩۞۩
+</a>
+<div id=debug>
+</div>
+</center>
+
+<center>
+
+<div id='settings_container'>
+	<b>Settings</b><br>
+	
+	Choose the order in which you want the available books displayed:<br>
+	<div id='settings_presets'>
+	</div>
+	You can also choose from these presets:
+	<table><tr id="settings-list">
+	<td>
+<!--
+	<td class=".dev">
+	<a href="javascript:set_order_preset('dev')"><div class='button'>Dev</div></a>
+-->
+	</tr></table>
+	<br>
+
+<!--
+	<div id='settings'>
+		<select id=setbook1></select><br>
+		<select id=setbook2></select><br>
+		<select id=setbook3></select><br>
+		<select id=setbook4></select><br>
+		<select id=setbook5></select><br>
+	</div>
+-->
+	<a href='javascript:save_settings()'><div class='button'>Save</div></a>
+	<hr>
+</div>
+
+<div id='all_books'>
+<!--
+All books go here
+-->
+</div>
+
+<!--
+-->
+<hr>
+<table class='navtable'>
+<tr>
+	<td><a href='javascript:toggle_settings()' title='Settings menu'><div class='button' ><span style='border-top: 3px solid black; border-bottom: 3px solid black;'><b>&mdash;</b></span></div></a></td>
+	<td><a href='readme.html' title='More information about this website'><div class='button'>About</div></a></td>
+	<td><a href='javascript:toggle_view()' title='Toggle between mobile (column view) and desktop (full page) view'><div class='button'>Mobile</div></a></td>
+	<td><a href='javascript:toggle_fitwidth()' title='Toggle to have pages fit to your browser window'><div class='button'>|&larr;&rarr;|</div></a></td>
+	<td><a href='javascript:searchandgo()' title='Lookup root letters'><div class='button'>Search</div></a></td>
+</tr>
+</table>
+
+<!--
+http://www.openjs.com/scripts/events/keyboard_shortcuts/
+-->
+<script type="text/javascript" src="jslib/jquery.js"></script>
+<script type="text/javascript" src="jslib/jquery.ba-hashchange.min.js"></script>
+<script type="text/javascript" src="jslib/shortcut.js"></script>
+<script type="text/javascript" src="jslib/jquery.tmpl.js"></script>
+
+<script type="text/javascript" src="mawrid-conf.js"></script>
+<script>
+
+// Some global vars that we need:
+var debugmode = true; 
+var version = "0.1";
+var title_text = "Mawrid Reader" + " v" + version;
+var toggle = 1;
+
+// Initiate books array with extra needed vars:
+for (var key in books) {
+	debug(key)
+	books[key]["current"] = books[key]["wanted"] = books[key]["offset"];
+	var book = books[key]
+	for (var prop in book)
+		if (book.hasOwnProperty(prop)) debug(key + "." + prop + " = " + book[prop])
+}
+var initial_book_order = presets["default"];
+var aa_book_order = initial_book_order;
+
+var toggle_view_auto = 1;
+var toggle_view_mode;
+var fitwidth = false;
+var last_input = "";
+var searched_word = "";
+// This is the base directory under which all image directories will be placed:
+var img_base_dir = "img/";
+
+// Only allow .dev classes to show up when we're not live:
+// Make not allow it in file: either ? TODO
+if ( (document.location.hostname == "localhost") || (document.location.hostname == "abd.ejtaal.net") || (window.location.protocol=='file:') ) 
+  $(".dev").show();
+
+
+// Setup shortcuts:
+shortcut.add("F",function() { searchandgo(); });
+shortcut.add("V",function() { toggle_view(); });
+
+shortcut.add("Z",function() { visible_book_shift( -1); });
+shortcut.add("D",function() { visible_book_shift( -1); });
+shortcut.add("Left",function() { visible_book_shift( -1); });
+shortcut.add("X",function() { visible_book_shift( 1); });
+shortcut.add("G",function() { visible_book_shift( 1); });
+shortcut.add("Right",function() { visible_book_shift( 1); });
+shortcut.add("P",function() { testing123(); });
+shortcut.add("W",function() { toggle_fitwidth(); });
+
+
+function move_to_top( id) {
+	$('#'+id).parent.prepend($('#'+id));
+	/*
+	var content = $('#'+id);
+	var parent = content.parentNode;
+	parent.insertBefore(content, parent.firstChild);
+	
+	var aa_book_order = "";
+	$('#all_books').children().each(function(){
+		var kid = $(this);
+	 	//debug( kid.attr('id'));
+		aa_book_order += kid.attr('id') + ",";
+	 	//i++;
+	});
+	setCookie('aa_book_order', aa_book_order, 365);
+	*/
+}
+
+function hide_book( target, should_hide) {
+	for (var key in books) {
+		if ( key == target) {
+			debug( "hide: " + key + "=" should_hide)
+			books[target]["should_hide"] = should_hide;
+			if ( should_hide) hide_show( key+'_page', key+'_toggle');
+			else              hide_show( key+'_toggle', key+'_page');
+		}
+	}
+	build_hash();
+}
+
+function hideme_show( hideobj, showobj) {
+  hideobj.style.display = "none";
+  //document.getElementById(showobj).style.display = "block";
+	$("#"+showobj).show('fast');
+}
+
+function hide_id( id, scrollto) {
+  //document.getElementById( id).style.display = "none";
+	//debug( 'hiding ' + id);
+	$("#"+id).hide('fast');
+	if (scrollto) {
+		//debug( 'scrolling to: ' +id);
+		$(window).scrollTop( $("#"+id).offset().top);
+	}
+}
+
+function hide_show( hideid, showid, scrollto) {
+	$("#"+hideid).hide('fast');
+	$("#"+showid).show('fast');
+	if (scrollto) {
+		//debug( 'scrolling to: ' +showid);
+		$(window).scrollTop( $("#"+showid).offset().top);
+	}
+}
+
+function set_hash( s) {
+	hide_id('about');
+	window.location.hash = s;
+	setCookie( "aa_last_hash", window.location.hash, 365);
+}
+function build_hash() {
+	var new_hash = "#"
+	var i, vis_books_order = current_order.split(',')
+	if (vis_books_order.length > 0)
+		for (i = 0; i < vis_books_order.length; i++)
+			new_hash += books[vis_books_order[i]]["wanted"]
+	debug("new_hash = " + new_hash);
+
+	window.location.hash = new_hash;
+	setCookie( "aa_last_hash", window.location.hash, 365);
+}
+
+function set_title() {
+	var title = "";
+	var i = 1;
+	//TODO: in order of books displayed:
+	if ( searched_word == "" ) {
+		$('#all_books').children().each(function(){
+			var id = $(this).attr('id');
+	 		//debug( id);
+			var add_text = "";
+			if ( ! books[id]["should_hide"]) add_text = id + ": " + books[id]["index"][books[id]["current"]]
+			if ( add_text != "") 
+				if ( title != "") title += " / " + add_text;
+				else title = add_text;
+		});
+	}
+	else title = "Search: " + searched_word;
+	if (title != "") title += " - ";
+	title += title_text;
+  if ('file:' == document.location.protocol) {
+		title = "[L] " + title;
+	}
+	//alert( title);
+	document.title = title;
+}
+
+function parse_hash() {
+	var hashstring = window.location.hash.replace(/^#/,'');
+	var i, vars = hashstring.split(','); 
+	if (vars.length > 0) { 
+	    // Variables present in hash 
+			var hide_following = false
+	    for (i = vars.length - 1; i >= 0; i--) { 
+	       keyValuePair = variables[i].split('='); 
+					//alert( "Var found: " + keyValuePair[0] + ' = ' + keyValuePair[1] );
+					var key = keyValuePair[0];
+					var value = keyValuePair[1];
+					//debug( "Var found: " + keyValuePair[0] + ' = ' + keyValuePair[1] );
+					if ( key == "Q" || key == "q" ) { do_search(value); }
+					else if ( key == "SEARCH" || key == "search" ) { searchandgo(); }
+					else if ( key == "HIDE" { hide_following = true;; }
+					else {
+						books[key]["wanted"] = books[key]["current'] = parseInt(value)
+						books[key]["should_hide"] = 0
+						move_to_top(key);
+					}
+
+					if ( book == "BR_HIDE" && ! br_hide ) { br_hide = true; hide_show( 'brill', 'br_toggle'); }
+					if ( book == "MGF_HIDE" && ! mgf_hide ) { mgf_hide = true; hide_show( 'mgfarid', 'mgf_toggle'); }
+					if ( book == "ULQ_HIDE" && ! ulq_hide ) { ulq_hide = true; hide_show( 'ulughaat', 'ulq_toggle'); }
+					if ( book == "UQA_HIDE" && ! uqa_hide ) { uqa_hide = true; hide_show( 'uqalfaaz', 'uqa_toggle'); }
+					if ( book == "PR_HIDE" && ! pr_hide ) { pr_hide = true; hide_show( 'penrice', 'pr_toggle'); }
+					if ( book == "UQW_HIDE" && ! uqw_hide ) { uqw_hide = true; hide_show( 'uqaamoos', 'uqw_toggle'); }
+					if ( book == "LA_HIDE" && ! la_hide ) { la_hide = true; hide_show( 'lisanularab', 'la_toggle'); }
+					if ( book == "UMR_HIDE" && ! umr_hide ) { umr_hide = true; hide_show( 'urdumufraadaat', 'umr_toggle'); }
+					if ( book == "UMS_HIDE" && ! ums_hide ) { ums_hide = true; hide_show( 'urdumukhtaar', 'ums_toggle'); }
+					if ( book == "UMJ_HIDE" && ! umj_hide ) { umj_hide = true; hide_show( 'umunjid', 'umj_toggle'); }
+					if ( book == "KAZ_HIDE" && ! kaz_hide ) { kaz_hide = true; hide_show( 'kazir', 'kaz_toggle'); }
+
+					}
+	}
+	else { 
+		alert ('Nothing found');
+	    // No variables in the hash 
+	} 
+					//debug( "cur_ll_vol, cur_ll_page: " + cur_ll_vol +", "+ cur_ll_page);
+					//debug( "cur_hw3_page: " + cur_hw3_page);
+	display_images();
+	set_title();
+}
+
+function shift_page( book, offset) {
+	hide_id('about');
+	if ( book == "HW4") { 
+		req_hw4_page = cur_hw4_page + offset;
+		$(window).scrollTop( $("#hanswehr4").offset().top);
+	}
+	if ( book == "AAN") { 
+		req_aan_page = cur_aan_page + offset;
+		$(window).scrollTop( $("#aanadwi").offset().top);
+	}
+	if ( book == "IMN") { 
+		req_imn_page = cur_imn_page + offset;
+		$(window).scrollTop( $("#idmunawir").offset().top);
+	}
+	if ( book == "VI") { 
+		req_vi_page = cur_vi_page + offset;
+		$(window).scrollTop( $("#verbalidioms").offset().top);
+	}
+	if ( book == "HW3") { 
+		req_hw3_page = cur_hw3_page + offset;
+		$(window).scrollTop( $("#hanswehr3").offset().top);
+	}
+	if ( book == "HA") { 
+		req_ha_page = cur_ha_page + offset;
+		$(window).scrollTop( $("#hava").offset().top);
+	}
+	if ( book == "SG") { 
+		req_sg_page = cur_sg_page + offset;
+		$(window).scrollTop( $("#steingass").offset().top);
+	}
+	if ( book == "BR") { 
+		req_br_page = cur_br_page + offset;
+		$(window).scrollTop( $("#brill").offset().top);
+	}
+	if ( book == "MGF") { 
+		req_mgf_page = cur_mgf_page + offset;
+		$(window).scrollTop( $("#mgfarid").offset().top);
+	}
+	if ( book == "ULQ") { 
+		req_ulq_page = cur_ulq_page + offset;
+		$(window).scrollTop( $("#ulughaat").offset().top);
+	}
+	if ( book == "UQA") { 
+		req_uqa_page = cur_uqa_page + offset;
+		$(window).scrollTop( $("#uqalfaaz").offset().top);
+	}
+	if ( book == "PR") { 
+		req_pr_page = cur_pr_page + offset;
+		$(window).scrollTop( $("#penrice").offset().top);
+	}
+	if ( book == "LL") {
+		var req_ll = ll_validate_vol_page( cur_ll_vol, cur_ll_page + offset);
+		req_ll_vol = req_ll[0];
+		req_ll_page = req_ll[1];
+		$(window).scrollTop( $("#laneslexicon").offset().top);
+	}
+	if ( book == "LS") { 
+		req_ls_page = cur_ls_page + offset;
+		$(window).scrollTop( $("#laneslexiconsup").offset().top);
+	}
+	if ( book == "UQW") { 
+		req_uqw_page = cur_uqw_page + offset;
+		$(window).scrollTop( $("#uqaamoos").offset().top);
+	}
+	if ( book == "LA") { 
+		req_la_page = cur_la_page + offset;
+		$(window).scrollTop( $("#lisanularab").offset().top);
+	}
+	if ( book == "UMR") { 
+		req_umr_page = cur_umr_page + offset;
+		$(window).scrollTop( $("#urdumufraadaat").offset().top);
+	}
+	if ( book == "UMS") { 
+		req_ums_page = cur_ums_page + offset;
+		$(window).scrollTop( $("#urdumukhtaar").offset().top);
+	}
+	if ( book == "UMJ") { 
+		req_umj_page = cur_umj_page + offset;
+		$(window).scrollTop( $("#umunjid").offset().top);
+	}
+	if ( book == "KAZ") { 
+		req_kaz_page = cur_kaz_page + offset;
+		$(window).scrollTop( $("#kazir").offset().top);
+	}
+	//debug( book + cur_ll_vol + "_" + req_ll_page);
+	searched_word = "";
+	build_hash();
+	//parse_hash();
+}
+
+function percentVisible( elem)
+{
+	// This returns how many % of the screen contains element 'elem'
+	if ( $(elem).css('display') == "none" ) return 0;
+  var docViewTop = $(window).scrollTop();
+  var docViewBottom = docViewTop + $(window).height();
+
+  var elemTop = $(elem).offset().top;
+  var elemBottom = elemTop + $(elem).height();
+	//debug( $(elem).height());
+	var perc_vis = 0;
+
+	// The only assumption here is that the element spans more than 1 screen height
+	if ( elemTop <= docViewTop && elemBottom >= docViewBottom) perc_vis = 100;
+	else if ( elemBottom < docViewTop || elemTop > docViewBottom) perc_vis = 0;
+	else if ( elemTop >= docViewTop ) perc_vis = (docViewBottom-elemTop) * 100  / $(window).height();
+	else if ( elemBottom <= docViewBottom ) perc_vis = ( elemBottom-docViewTop) * 100 / $(window).height();
+	
+	//debug( perc_vis);
+  
+	return perc_vis;
+}
+
+function visible_book_shift( offset) {
+	if ( percentVisible("#hanswehr3") > 50) shift_page( 'HW3', offset);
+	else if ( percentVisible("#hanswehr4") > 50) shift_page( 'HW4', offset);
+	else if ( percentVisible("#aanadwi") > 50) shift_page( 'AAN', offset);
+	else if ( percentVisible("#idmunawir") > 50) shift_page( 'IMN', offset);
+	else if ( percentVisible("#verbalidioms") > 50) shift_page( 'VI', offset);
+	else if ( percentVisible("#laneslexicon") > 50) shift_page( 'LL', offset);
+	else if ( percentVisible("#laneslexiconsup") > 50) shift_page( 'LS', offset);
+	else if ( percentVisible("#hava") > 50) shift_page( 'HA', offset);
+	else if ( percentVisible("#steingass") > 50) shift_page( 'SG', offset);
+	else if ( percentVisible("#brill") > 50) shift_page( 'BR', offset);
+	else if ( percentVisible("#mgfarid") > 50) shift_page( 'MGF', offset);
+	else if ( percentVisible("#ulughaat") > 50) shift_page( 'ULQ', offset);
+	else if ( percentVisible("#uqalfaaz") > 50) shift_page( 'UQA', offset);
+	else if ( percentVisible("#penrice") > 50) shift_page( 'PR', offset);
+	else if ( percentVisible("#uqaamoos") > 50) shift_page( 'UQW', offset);
+	else if ( percentVisible("#lisanularab") > 50) shift_page( 'LA', offset);
+	else if ( percentVisible("#urdumufraadaat") > 50) shift_page( 'UMR', offset);
+	else if ( percentVisible("#urdumukhtaar") > 50) shift_page( 'UMS', offset);
+	else if ( percentVisible("#umunjid") > 50) shift_page( 'UMJ', offset);
+	else if ( percentVisible("#kazir") > 50) shift_page( 'KAZ', offset);
+}
+
+
+function display_images() {
+	//ll_display_page( page);
+	//debug ( ll_get_img_url( page));
+	//document.getElementById("ll-narrow").src = ll_get_img_url( cur_ll_vol, cur_ll_page);
+	// TODO: jQuery-fy the stuff below
+
+	if ( ! hw4_hide) {	
+		//document.getElementById("hw4_load_status_line").innerHTML = "<br>Loading . . .";
+		var hw4_img_url = img_base_dir + hw4_get_img_url( cur_hw4_page);
+		// Clear image if it's being changed so it's clearer to user that a new imagine
+		// is being downloaded
+		if ( $("#hw4_col1").attr('src') != hw4_img_url) {
+			$("#hw4_col1").attr('src', '');
+			$("#hw4_col2").attr('src', '');
+			$("#hw4_wideviewimg").attr('src', '');
+		}
+		document.getElementById("hw4_col1").src = 
+			document.getElementById("hw4_col2").src = 
+			document.getElementById("hw4_wideviewimg").src = hw4_img_url;
+		document.getElementById("hw4_status_line").innerHTML = 
+			" <b>" + hw4[cur_hw4_page] + "</b> | " +
+			"Hans Wehr (4), page " + (cur_hw4_page-hw4_offset+1) + 
+			" <small>(of " + (hw4.length-1-hw4_offset) + ") " +
+			"</small>"
+			;
+	}
+
+	if ( ! vi_hide) {	
+		//document.getElementById("vi_load_status_line").innerHTML = "<br>Loading . . .";
+		var vi_img_url = img_base_dir + vi_get_img_url( cur_vi_page);
+		// VI doesn't have columns
+		if ( $("#vi_wideviewimg").attr('src') != vi_img_url) {
+			$("#vi_wideviewimg").attr('src', '');
+		}
+		/* // VI doesn't have columns
+		document.getElementById("vi_col1").src = 
+			document.getElementById("vi_col2").src = 
+		*/
+			document.getElementById("vi_wideviewimg").src = vi_img_url;
+		document.getElementById("vi_status_line").innerHTML = 
+			" <b>" + vi[cur_vi_page] + "</b> | " +
+			"Verbal Idioms, page " + (cur_vi_page-vi_offset+1) + 
+			" <small>(of " + (vi.length-1-vi_offset) + ") " +
+			"</small>"
+			;
+	}
+
+	if ( ! aan_hide) {	
+		//document.getElementById("aan_load_status_line").innerHTML = "<br>Loading . . .";
+		var aan_img_url = img_base_dir + aan_get_img_url( cur_aan_page);
+		// Clear image if it's being changed so it's clearer to user that a new imagine
+		// is being downloaded
+		if ( $("#aan_col1").attr('src') != aan_img_url) {
+			$("#aan_col1").attr('src', '');
+			$("#aan_col2").attr('src', '');
+			$("#aan_wideviewimg").attr('src', '');
+		}
+		document.getElementById("aan_col1").src = 
+			document.getElementById("aan_col2").src = 
+			document.getElementById("aan_wideviewimg").src = aan_img_url;
+		document.getElementById("aan_status_line").innerHTML = 
+			" <b>" + aan[cur_aan_page] + "</b> | " +
+			"AA Nadwi, page " + (cur_aan_page-aan_offset+1) + 
+			" <small>(of " + (aan.length-1-aan_offset) + ") " +
+			"</small>"
+			;
+	}
+
+	if ( ! imn_hide) {	
+		//document.getElementById("imn_load_status_line").innerHTML = "<br>Loading . . .";
+		var imn_img_url = img_base_dir + imn_get_img_url( cur_imn_page);
+		// Clear image if it's being changed so it's clearer to user that a new imagine
+		// is being downloaded
+		if ( $("#imn_col1").attr('src') != imn_img_url) {
+			$("#imn_col1").attr('src', '');
+			$("#imn_col2").attr('src', '');
+			$("#imn_wideviewimg").attr('src', '');
+		}
+		document.getElementById("imn_col1").src = 
+			document.getElementById("imn_col2").src = 
+			document.getElementById("imn_wideviewimg").src = imn_img_url;
+		document.getElementById("imn_status_line").innerHTML = 
+			" <b>" + imn[cur_imn_page] + "</b> | " +
+			"ID Munawir, page " + (cur_imn_page-imn_offset+1) + 
+			" <small>(of " + (imn.length-1-imn_offset) + ") " +
+			"</small>"
+			;
+	}
+
+	if ( ! kaz_hide) {	
+		//document.getElementById("imn_load_status_line").innerHTML = "<br>Loading . . .";
+		var kaz_img_url = img_base_dir + kaz_get_img_url( cur_kaz_page);
+		// Clear image if it's being changed so it's clearer to user that a new imagine
+		// is being downloaded
+		if ( $("#kaz_col1").attr('src') != kaz_img_url) {
+			$("#kaz_col1").attr('src', '');
+			$("#kaz_col2").attr('src', '');
+			$("#kaz_wideviewimg").attr('src', '');
+		}
+		document.getElementById("kaz_col1").src = 
+			document.getElementById("kaz_col2").src = 
+			document.getElementById("kaz_wideviewimg").src = kaz_img_url;
+		document.getElementById("kaz_status_line").innerHTML = 
+			" <b>" + kaz[cur_kaz_page] + "</b> | " +
+			"Kazimirski, page " + (cur_kaz_page-kaz_offset+1) + 
+			" <small>(of " + (kaz.length-1-kaz_offset) + ") " +
+			"</small>"
+			;
+	}
+
+	if ( ! umr_hide) {	
+		//document.getElementById("umr_load_status_line").innerHTML = "<br>Loading . . .";
+		var umr_img_url = img_base_dir + umr_get_img_url( cur_umr_page);
+		// Clear image if it's being changed so it's clearer to user that a new imagine
+		// is being downloaded
+		if ( $("#umr_col1").attr('src') != umr_img_url) {
+			$("#umr_col1").attr('src', '');
+			$("#umr_col2").attr('src', '');
+			$("#umr_wideviewimg").attr('src', '');
+		}
+		document.getElementById("umr_col1").src = 
+			document.getElementById("umr_col2").src = 
+			document.getElementById("umr_wideviewimg").src = umr_img_url;
+		document.getElementById("umr_status_line").innerHTML = 
+			" <b>" + umr[cur_umr_page] + "</b> | " +
+			"Urdu Mufraadaat Alfaaz al Qur'an by ar Raghib, page " + (cur_umr_page-umr_offset+1) + 
+			" <small>(of " + (umr.length-1-umr_offset) + ") " +
+			"</small>"
+			;
+	}
+
+	if ( ! ums_hide) {	
+		//document.getElementById("ums_load_status_line").innerHTML = "<br>Loading . . .";
+		var ums_img_url = img_base_dir + ums_get_img_url( cur_ums_page);
+		// Clear image if it's being changed so it's clearer to user that a new imagine
+		// is being downloaded
+		if ( $("#ums_col1").attr('src') != ums_img_url) {
+			$("#ums_col1").attr('src', '');
+			$("#ums_col2").attr('src', '');
+			$("#ums_wideviewimg").attr('src', '');
+		}
+		document.getElementById("ums_col1").src = 
+			document.getElementById("ums_col2").src = 
+			document.getElementById("ums_wideviewimg").src = ums_img_url;
+		document.getElementById("ums_status_line").innerHTML = 
+			" <b>" + ums[cur_ums_page] + "</b> | " +
+			"Urdu Mukhtaar us Sihah, page " + (cur_ums_page-ums_offset+1) + 
+			" <small>(of " + (ums.length-1-ums_offset) + ") " +
+			"</small>"
+			;
+	}
+
+	if ( ! hw3_hide) {	
+		//document.getElementById("hw3_load_status_line").innerHTML = "<br>Loading . . .";
+		var hw3_img_url = img_base_dir + hw3_get_img_url( cur_hw3_page);
+		if ( $("#hw3_col1").attr('src') != hw3_img_url) {
+			$("#hw3_col1").attr('src', '');
+			$("#hw3_col2").attr('src', '');
+			$("#hw3_wideviewimg").attr('src', '');
+		}
+		document.getElementById("hw3_col1").src = 
+			document.getElementById("hw3_col2").src = 
+			document.getElementById("hw3_wideviewimg").src = hw3_img_url;
+		document.getElementById("hw3_status_line").innerHTML = 
+			" <b>" + hw3[cur_hw3_page] + "</b> | " +
+			"Hans Wehr (3), page " + (cur_hw3_page-hw3_offset+1) + 
+			" <small>(of " + (hw3.length-1-hw3_offset) + ") " +
+			"</small>"
+			;
+	}
+
+	if ( ! ha_hide) {	
+		//document.getElementById("ha_load_status_line").innerHTML = "<br>Loading . . .";
+		var ha_img_url = img_base_dir + ha_get_img_url( cur_ha_page);
+		if ( $("#ha_col1").attr('src') != ha_img_url) {
+			$("#ha_col1").attr('src', '');
+			$("#ha_col2").attr('src', '');
+			$("#ha_wideviewimg").attr('src', '');
+		}
+		document.getElementById("ha_col1").src = 
+			document.getElementById("ha_col2").src = 
+			document.getElementById("ha_wideviewimg").src = ha_img_url;
+		document.getElementById("ha_status_line").innerHTML = 
+			" <b>" + ha_p[cur_ha_page] + "</b> | " +
+			"Hava, page " + (cur_ha_page-ha_offset+1) + 
+			" <small>(of " + (ha_p.length-1-ha_offset) + ") " +
+			"</small>"
+			;
+	}
+
+	if ( ! sg_hide) {	
+		//document.getElementById("sg_load_status_line").innerHTML = "<br>Loading . . .";
+		var sg_img_url = img_base_dir + sg_get_img_url( cur_sg_page);
+		if ( $("#sg_col1").attr('src') != sg_img_url) {
+			$("#sg_col1").attr('src', '');
+			$("#sg_col2").attr('src', '');
+			$("#sg_wideviewimg").attr('src', '');
+		}
+		document.getElementById("sg_col1").src = 
+			document.getElementById("sg_col2").src = 
+			document.getElementById("sg_wideviewimg").src = sg_img_url;
+		document.getElementById("sg_status_line").innerHTML = 
+			" <b>" + sg[cur_sg_page] + "</b> | " +
+			"Steingass, page " + (cur_sg_page-sg_offset+1) + 
+			" <small>(of " + (sg.length-1-sg_offset) + ") " +
+			"</small>"
+			;
+	}
+
+	if ( ! br_hide) {	
+		//document.getElementById("br_load_status_line").innerHTML = "<br>Loading . . .";
+		var br_img_url = img_base_dir + br_get_img_url( cur_br_page);
+		// Brill doesn't have columns
+		if ( $("#br_wideviewimg").attr('src') != br_img_url) {
+			$("#br_wideviewimg").attr('src', '');
+		}
+		/*
+		document.getElementById("br_col1").src = 
+			document.getElementById("br_col2").src = 
+		*/
+			document.getElementById("br_wideviewimg").src = br_img_url;
+		document.getElementById("br_status_line").innerHTML = 
+			" <b>" + br[cur_br_page] + "</b> | " +
+			"Brill, page " + (cur_br_page-br_offset+1) + 
+			" <small>(of " + (br.length-1-br_offset) + ") " +
+			"</small>"
+			;
+	}
+
+	if ( ! mgf_hide) {	
+		//document.getElementById("mgf_load_status_line").innerHTML = "<br>Loading . . .";
+		var mgf_img_url = img_base_dir + mgf_get_img_url( cur_mgf_page);
+		// MGF doesn't have columns
+		if ( $("#mgf_wideviewimg").attr('src') != mgf_img_url) {
+			$("#mgf_wideviewimg").attr('src', '');
+		}
+		/*
+		document.getElementById("mgf_col1").src = 
+			document.getElementById("mgf_col2").src = 
+		*/
+			document.getElementById("mgf_wideviewimg").src = mgf_img_url;
+		document.getElementById("mgf_status_line").innerHTML = 
+			" <b>" + mgf[cur_mgf_page] + "</b> | " +
+			"MG Farid, page " + (cur_mgf_page-mgf_offset+1) + 
+			" <small>(of " + (mgf.length-1-mgf_offset) + ") " +
+			"</small>"
+			;
+	}
+	
+	if ( ! ulq_hide) {	
+		//document.getElementById("ulq_load_status_line").innerHTML = "<br>Loading . . .";
+		var ulq_img_url = img_base_dir + ulq_get_img_url( cur_ulq_page);
+		// ULQ doesn't have columns
+		if ( $("#ulq_wideviewimg").attr('src') != ulq_img_url) {
+			$("#ulq_wideviewimg").attr('src', '');
+		}
+		/*
+		document.getElementById("ulq_col1").src = 
+			document.getElementById("ulq_col2").src = 
+		*/
+			document.getElementById("ulq_wideviewimg").src = ulq_img_url;
+		document.getElementById("ulq_status_line").innerHTML = 
+			" <b>" + ulq[cur_ulq_page] + "</b> | " +
+			"Urdu: Lughaat ul Qur'aan, by GA Parwez, page " + (cur_ulq_page-ulq_offset+1) + 
+			" <small>(of " + (ulq.length-1-ulq_offset) + ") " +
+			"</small>"
+			;
+	}
+
+	if ( ! uqa_hide) {	
+		//document.getElementById("uqa_load_status_line").innerHTML = "<br>Loading . . .";
+		var uqa_img_url = img_base_dir + uqa_get_img_url( cur_uqa_page);
+		// UQA doesn't have columns
+		if ( $("#uqa_wideviewimg").attr('src') != uqa_img_url) {
+			$("#uqa_wideviewimg").attr('src', '');
+		}
+		/*
+		document.getElementById("uqa_col1").src = 
+			document.getElementById("uqa_col2").src = 
+		*/
+			document.getElementById("uqa_wideviewimg").src = uqa_img_url;
+		document.getElementById("uqa_status_line").innerHTML = 
+			" <b>" + uqa[cur_uqa_page] + "</b> | " +
+			"Urdu: Qaamoos alfaaz o Istelehaat e Qur'an, page " + (cur_uqa_page-uqa_offset+1) + 
+			" <small>(of " + (uqa.length-1-uqa_offset) + ") " +
+			"</small>"
+			;
+	}
+
+	if ( ! pr_hide) {	
+		//document.getElementById("pr_load_status_line").innerHTML = "<br>Loading . . .";
+		var pr_img_url = img_base_dir + pr_get_img_url( cur_pr_page);
+		if ( $("#pr_col1").attr('src') != pr_img_url) {
+			$("#pr_col1").attr('src', '');
+			$("#pr_col2").attr('src', '');
+			$("#pr_wideviewimg").attr('src', '');
+		}
+		document.getElementById("pr_col1").src = 
+			document.getElementById("pr_col2").src = 
+			document.getElementById("pr_wideviewimg").src = pr_img_url;
+		document.getElementById("pr_status_line").innerHTML = 
+			" <b>" + pr[cur_pr_page] + "</b> | " +
+			"Penrice, page " + (cur_pr_page-pr_offset+1) + 
+			" <small>(of " + (pr.length-1-pr_offset) + ") " +
+			"</small>"
+			;
+	}
+
+	if ( ! ll_hide) {	
+		//document.getElementById("ll_load_status_line").innerHTML = "<br>Loading . . .";
+		var ll_img_url = img_base_dir + ll_get_img_url( cur_ll_vol, cur_ll_page);
+		if ( $("#ll_col1").attr('src') != ll_img_url) {
+			$("#ll_col1").attr('src', '');
+			$("#ll_col2").attr('src', '');
+			$("#ll_wideviewimg").attr('src', '');
+		}
+		document.getElementById("ll_col1").src = 
+			document.getElementById("ll_col2").src = 
+			document.getElementById("ll_col3").src = 
+			document.getElementById("ll_wideviewimg").src = ll_img_url;
+		document.getElementById("ll_status_line").innerHTML = 
+			" <b>" + ll_p[get_ll_page( cur_ll_vol, cur_ll_page)] + "</b> | " +
+			"Lane's Lexicon: Vol. " + cur_ll_vol + ", page " + cur_ll_page + 
+			" <small>(of " + ll_volumes[cur_ll_vol-1] + ") = page " + get_ll_page( cur_ll_vol, cur_ll_page)  +
+			" of " + (ll_p.length-1) + ".</small>"
+			;
+		//debug ( document.getElementById("ll_col1").src );
+	}
+
+	if ( ! uqw_hide) {	
+		//document.getElementById("ll_load_status_line").innerHTML = "<br>Loading . . .";
+		var uqw_img_url = img_base_dir + uqw_get_img_url( cur_uqw_page);
+		if ( $("#uqw_col1").attr('src') != uqw_img_url) {
+			$("#uqw_col1").attr('src', '');
+			$("#uqw_col2").attr('src', '');
+			$("#uqw_wideviewimg").attr('src', '');
+		}
+		document.getElementById("uqw_col1").src = 
+			document.getElementById("uqw_col2").src = 
+			document.getElementById("uqw_col3").src = 
+			document.getElementById("uqw_wideviewimg").src = uqw_img_url;
+		document.getElementById("uqw_status_line").innerHTML = 
+			" <b>" + uqw[cur_uqw_page] + "</b> | " +
+			"Urdu Qaamoos ul Waheed, page " + cur_uqw_page + 
+			" <small>(of " + (uqw.length) + ".</small>"
+			;
+		//debug ( document.getElementById("ll_col1").src );
+	}
+
+	if ( ! la_hide) {	
+		//document.getElementById("ll_load_status_line").innerHTML = "<br>Loading . . .";
+		var la_img_url = img_base_dir + la_get_img_url( cur_la_page);
+		if ( $("#la_col1").attr('src') != la_img_url) {
+			$("#la_col1").attr('src', '');
+			$("#la_col2").attr('src', '');
+			$("#la_wideviewimg").attr('src', '');
+		}
+		document.getElementById("la_col1").src = 
+			document.getElementById("la_col2").src = 
+			document.getElementById("la_col3").src = 
+			document.getElementById("la_wideviewimg").src = la_img_url;
+		document.getElementById("la_status_line").innerHTML = 
+			" <b>" + la[cur_la_page] + "</b> | " +
+			"Lisanul Arab, page " + cur_la_page + 
+			" <small>(of " + (la.length) + ".</small>"
+			;
+		//debug ( document.getElementById("ll_col1").src );
+	}
+
+	if ( ! umj_hide) {	
+		//document.getElementById("ll_load_status_line").innerHTML = "<br>Loading . . .";
+		var umj_img_url = img_base_dir + umj_get_img_url( cur_umj_page);
+		if ( $("#umj_col1").attr('src') != umj_img_url) {
+			$("#umj_col1").attr('src', '');
+			$("#umj_col2").attr('src', '');
+			$("#umj_wideviewimg").attr('src', '');
+		}
+		document.getElementById("umj_col1").src = 
+			document.getElementById("umj_col2").src = 
+			document.getElementById("umj_col3").src = 
+			document.getElementById("umj_wideviewimg").src = umj_img_url;
+		document.getElementById("umj_status_line").innerHTML = 
+			" <b>" + umj[cur_umj_page] + "</b> | " +
+			"Urdu al-Munjid, page " + cur_umj_page + 
+			" <small>(of " + (umj.length) + ".</small>"
+			;
+		//debug ( document.getElementById("ll_col1").src );
+	}
+
+	if ( ! ls_hide) {	
+		//document.getElementById("ls_load_status_line").innerHTML = "<br>Loading . . .";
+		var ls_img_url = img_base_dir + ls_get_img_url( cur_ls_page);
+		if ( $("#ls_col1").attr('src') != ls_img_url) {
+			$("#ls_col1").attr('src', '');
+			$("#ls_col2").attr('src', '');
+			$("#ls_wideviewimg").attr('src', '');
+		}
+		document.getElementById("ls_col1").src = 
+			document.getElementById("ls_col2").src = 
+			document.getElementById("ls_col3").src = 
+			document.getElementById("ls_wideviewimg").src = ls_img_url;
+		document.getElementById("ls_status_line").innerHTML = 
+			" <b>" + ls_p[cur_ls_page] + "</b> | " +
+			"LL supplement, page " + cur_ls_page + 
+			" <small>(of " + ls_p.length + ") " +
+			"</small>"
+			;
+		//debug( hw3_img_url);
+	}
+}
+
+function debug( text) {
+	if(debugmode) { document.getElementById("debug").innerHTML += "<br> [" + text + "] "; } 
+}
+
+// http://constc.blogspot.com/2008/07/undeclared-undefined-null-in-javascript.html
+function isUndefined(x) { return x == null && x !== null; }
+
+function first_page_load() {
+
+	if ( $(document.body).width() < 750){ toggle = 2; } 
+	else { toggle = 1; }
+	toggle_view();
+	
+	// first sort out the book order
+	var saved_book_order = getCookie('aa_book_order');
+	//alert('test');
+	//debug('aa_book_order in cookie = ' + saved_book_order);
+	if ( isUndefined(saved_book_order) || saved_book_order == "" || saved_book_order === null )
+		aa_book_order = initial_book_order;
+	else
+		aa_book_order = saved_book_order;
+	//debug('using aa_book_order: ' + aa_book_order);
+	set_book_order();
+
+	
+	// Set default hash value, and show About if this appears to be the first visit
+	if ( window.location.hash.replace(/^#/,'') == "") { 
+		var aa_last_hash = getCookie("aa_last_hash");
+		//debug( aa_last_hash);
+		if ( isUndefined(aa_last_hash) || aa_last_hash == "") {
+			window.location.hash = starting_hash;
+			//toggle_about();
+			//parse_hash();
+		} else {
+			window.location.hash = aa_last_hash;
+		}
+	} else parse_hash();
+		
+	var aa_fitwidth = getCookie("aa_fitwidth");
+	if ( ! isUndefined(aa_fitwidth)) {
+		fitwidth = aa_fitwidth;
+	}
+
+	set_fitwidth();
+	init_settings();
+}
+
+function set_book_order() {
+	var book_array = aa_book_order.split(',');
+	for ( i = book_array.length - 1; i >= 0; i--) {
+		//debug( book_array[i]);
+		if ( book_array[i] != "" ) {
+			//debug( book_array[i]);
+			// Check if it exists (using .length seems the way to do this), 
+			// as user may have data from the previous version in their cookie
+			if ( $('#'+book_array[i]).length > 0 ) {
+				var content = document.getElementById(book_array[i]);
+				var parent = content.parentNode;
+				parent.insertBefore(content, parent.firstChild);
+			}
+			//debug( book_array[i]);
+		}
+	}
+	setCookie('aa_book_order', aa_book_order, 365);
+}
+
+function init_settings() {
+	var available_books = ["HW4","LL","LS","BR","PR","SG","HA","HW3","AAN", "IMN", "VI", "MGF", "UQW", "LA", "UMR", "UMS", "UMJ", "ULQ", "UQA", "KAZ"];
+	var table_html = "<table><tr>\n";
+	for (var row = 0; row <= available_books.length; row++) {
+		//var rowpp = row + 1;
+		for (var book = 0 ; book < available_books.length; book++) {
+			//var bookpp = book + 1;
+			if (book == 0) {
+				table_html += "<tr>";
+				if (row == 0) table_html += "<td>";
+				else  table_html += "<td>" + row;
+			}
+
+			if (row == 0) {
+				table_html += "<th class='" + available_books[book] + "_color'><b>" + available_books[book] + "</b>";
+			} else {
+				table_html += "<td class='" + available_books[book] + "_color'><input type='radio' name='setbook" + row + "' value='" + available_books[book] + "'>";
+			}
+		}
+	}
+	table_html += "</table>";
+	//console.debug(table_html);
+	$("#settings_2").html(table_html);
+
+	update_settings_order( aa_book_order);
+
+	$("#version").append(title_text);
+}
+
+function update_settings_order( order_toset) {
+	var book_array = order_toset.split(',');
+	for ( i = book_array.length - 1; i >= 0; i--) {
+		var j = i + 1;
+		$("input[name=setbook"+j+"][value=" + book_array[i] + "]").prop('checked', true);
+	}
+}
+
+function set_order_preset( preset_requested) {
+	var new_book_order = initial_book_order;
+	if ( preset_requested == "quran")  new_book_order = "BR,AAN,MGF,VI,PR,LL,LS,SG,HW4,UQW,LA,UMR,UMS,UMJ,ULQ,UQA,HA,HW3,IMN,KAZ";
+	if ( preset_requested == "modern") new_book_order = "HW4,SG,LL,LS,HA,BR,PR,MGF,HW3,AAN,VI,UQW,LA,UMR,UMS,UMJ,ULQ,UQA,IMN,KAZ";
+	if ( preset_requested == "dev") new_book_order = "KAZ,UQA,ULQ,IMN,LA,UMS,UMR,UQW,UMJ,MGF,VI,AAN,HW4,SG,BR,PR,LL,LS,HA,HW3";
+	if ( preset_requested == "urdu") new_book_order = "UQW,UMR,UMS,UMJ,ULQ,UQA,HW4,LL,LS,MGF,VI,AAN,SG,BR,PR,HA,HW3,LA,IMN,KAZ";
+	if ( preset_requested == "indo") new_book_order = "IMN,UQW,UMR,UMS,UMJ,ULQ,UQA,HW4,LL,LS,MGF,VI,AAN,SG,BR,PR,HA,HW3,LA,KAZ";
+	if ( preset_requested == "french") new_book_order = "KAZ,HW4,SG,LL,LS,HA,BR,PR,MGF,HW3,AAN,VI,UQW,LA,UMR,UMS,UMJ,ULQ,UQA,IMN";
+	// Default is above already
+	// if ( preset_requested == "default")
+	update_settings_order( new_book_order);
+}
+
+function save_settings() {
+	var new_book_order = "";
+	for ( i = 1; i <= 19; i++ ) new_book_order += $('input[name = "setbook' + i + '"]:checked').val() + ',';
+	new_book_order += $('input[name = "setbook20"]:checked').val();
+	//new_book_order += $("#setbook8").val();
+	//debug(new_book_order);
+	aa_book_order = new_book_order;
+	set_book_order();
+	toggle_settings();
+}
+
+function testing123() {
+	var i = 1;
+	$('#all_books').children().each(function(){
+	 var kid = $(this);
+	 debug( kid.attr('id'));
+	 i++;
+	});
+
+	/*
+	for (i=0; i< $('#all_books').children().size(); i++) {
+		debug( i);
+		debug( $('#all_books').children()[i].attr('id'));
+	}
+	$(e.target).children().each(function(){
+	 var kid = $(this);
+	  console.log(kid, kid.attr('id'), kid.attr('class'));
+		});
+		*/
+	//debug( $('#all_books').children().attr('id').each() );
+	
+	//debug( isScrolledIntoView("#hanswehr"));
+//scroll_to_id( 'll_status_line');
+//parse_hash();
+//document.getElementById("renderedsite").innerHTML = "";
+// document.getElementById("renderedsite").innerHTML = document.getElementById("testinput").innerHTML;
+	
+}
+
+
+function showindex() {
+	document.getElementById("chapters_index").innerHTML = '<hr>';
+	for (var i = 0; i < chapters.length; i++) {
+		document.getElementById("chapters_index").innerHTML += 
+			"<a href='javascript:showchap(" + i + ")'><span class='indexbutton'> " +
+			chapters[i][0] + " </span></a>\n";
+	}
+	document.getElementById("about").style['display'] = 'none';
+	scroll( 0, 0);
+}
+
+function showcurchap() { showchap( getchap(cur_page)) };
+function showchap( chap) {
+	var end;
+	document.getElementById("chapters_index").innerHTML = '';
+	document.getElementById("chapter_contents").innerHTML = '<hr>';
+	if ( chap == chapters.length - 1 ) { end = items.length + offset; }
+	else { end = chapters[chap+1][1]; }
+	//alert( 'end = ' + end );
+	for (var i = chapters[chap][1]; i < end; i++) {
+		var header_index = i - offset;
+		var append = '';
+		if ( header_index < 0) { append = 'page ' + i; }
+		else { append = items[header_index]; } 
+		document.getElementById("chapter_contents").innerHTML += 
+			"<a href='#" + i + "'><span class='indexbutton'> " +
+			append + " </span></a>\n";
+	}
+	document.getElementById("about").style['display'] = 'none';
+	scroll( 0, 0);
+}
+
+
+function toggle_fitwidth() {
+
+	if ( toggle_view_mode == 1) {
+	  if ( fitwidth == false) {
+			fitwidth = true;
+		} else { 
+			fitwidth = false;
+		}
+	}
+	setCookie('aa_fitwidth', fitwidth, 365);
+	set_fitwidth();
+}
+
+function set_fitwidth() {
+	if ( toggle_view_mode == 1) {
+		var mw = '';
+	  if ( fitwidth == false) {
+			$("#currentmode").html('full width');
+		} else { 
+			mw = '99%';
+			$("#currentmode").html('fit width');
+		}
+ 		$('.wideview').each(function(index) {
+				$(this).css('max-width', mw);
+    });
+		$("#br_wideviewimg").css('max-width', mw);
+		$("#vi_wideviewimg").css('max-width', mw); // TODO: Need or not?
+		$("#mgf_wideviewimg").css('max-width', mw);// TODO: Need or not?
+		$("#ulq_wideviewimg").css('max-width', mw);// TODO: Need or not?
+		$("#uqa_wideviewimg").css('max-width', mw);// TODO: Need or not?
+		//debug("br_wideview: " + $("#br_wideview").css('max-width'));
+	}
+}
+
+function toggle_view() {
+	// TODO: JQuery-fy this silliness:
+	toggle_view_auto = 0;
+	if (toggle == 1) {
+		$(".narrowview").hide();
+		$(".wideview").show();
+		$("#br_wideviewimg").css('max-width', '');
+		$("#mgf_wideviewimg").css('max-width', ''); // TODO: Need or not?
+		$("#ulq_wideviewimg").css('max-width', ''); // TODO: Need or not?
+		$("#uqa_wideviewimg").css('max-width', ''); // TODO: Need or not?
+		$("#vi_wideviewimg").css('max-width', '');
+		$("#currentmode").html("Desktop (full page)");
+		toggle_view_mode = 1;
+		toggle = 2;
+	} else {
+		$(".narrowview").show();
+		$(".wideview").hide();
+		$("#br_wideviewimg").css('max-width', '99%');
+		$("#mgf_wideviewimg").css('max-width', '99%'); // TODO: Need or not?
+		$("#ulq_wideviewimg").css('max-width', '99%'); // TODO: Need or not?
+		$("#uqa_wideviewimg").css('max-width', '99%'); // TODO: Need or not?
+		$("#vi_wideviewimg").css('max-width', '99%');
+		$("#currentmode").html("Mobile (column)");
+		toggle = 1;
+		toggle_view_mode = 2;
+	}
+
+	//setCookie( "toggle_view_auto", toggle_view_auto, 365);
+	setCookie( "aa_last_view_mode", toggle_view_mode, 365);
+	set_fitwidth();
+}
+
+// Bind the event.
+$(window).hashchange( function(){
+	// Alerts every time the hash changes!
+	//alert( location.hash );
+	parse_hash();
+})
+
+/*
+*/
+
+function toggle_settings() {
+		$('#settings_container').toggle('fast');
+}
+
+
+function searchandgo() {
+	//var search = document.getElementById('search').value;
+	var input = prompt( "Enter root letters in english or arabic to search (see About section)", last_input);
+	if ( ! isUndefined( input))
+		do_search( input);
+}
+
+function do_search( input) {
+	var search = input;
+	last_input = input;
+	// TODO: converting all forms of alif and hamza                                             
+	// (ء, آ, أ, ؤ, إ, ئ, ا) to a single character ء
+	// أكل
+	// Here's a funny hamza, what is it?
+	// ha_p[25]="ءدب";
+	// The same should be done for both forms of yaa (ي, ى)
+	/*
+		Perform search and replace mostly according to the Arabic Chat Alphabet:
+		http://en.wikipedia.org/wiki/Arabic_chat_alphabet
+	search = search.replace(//gi,"");
+	*/
+	// Normalize alifs and yas, not sure if this is right yet?
+	// The first character (hamza above alif) is different from the second one, different code page?
+	// From android: ء ٱ آ إ
+	search = search.replace(/[إآٱأءﺀﺀﺁﺃﺅﺇﺉ]/g,"ا");
+	search = search.replace(/[ﻯ]/g,"ي");
+	// Firstly the letters that take IMHO 2 letters to transliterate
+	search = search.replace(/th/g,"ث");
+	search = search.replace(/gh/g,"غ");
+	search = search.replace(/[gG]/g,"غ");
+	search = search.replace(/kh/g,"خ");
+	search = search.replace(/sh/g,"ش");
+	search = search.replace(/\$/g,"ش");
+	search = search.replace(/dh/g,"ذ");
+	search = search.replace(/\*/g,"ذ");
+	// Hmm, make the following case insensitive and assign different letters to different cases:
+	search = search.replace(/d/g,"د");
+	search = search.replace(/D/g,"ض");
+	search = search.replace(/z/g,"ز");
+	search = search.replace(/Z/g,"ظ");
+	search = search.replace(/s/g,"س");
+	search = search.replace(/S/g,"ص");
+	search = search.replace(/t/g,"ت");
+	search = search.replace(/T/g,"ط");
+	search = search.replace(/h/g,"ه");
+	search = search.replace(/H/g,"ح");
+	// Not much iktilaaf over these I guess:
+	search = search.replace(/[xX]/g,"خ");
+	search = search.replace(/[vV]/g,"ث");
+	search = search.replace(/[aA]/g,"ا");
+	search = search.replace(/[bB]/g,"ب");
+	search = search.replace(/[jJ]/g,"ج");
+	search = search.replace(/[7]/g,"ح");
+	search = search.replace(/[rR]/g,"ر");
+	search = search.replace(/[3]/g,"ع");
+	search = search.replace(/[eE]/g,"ع");
+	search = search.replace(/[fF]/g,"ف");
+	search = search.replace(/[qQ]/g,"ق");
+	search = search.replace(/[kK]/g,"ك");
+	search = search.replace(/[lL]/g,"ل");
+	search = search.replace(/[mM]/g,"م");
+	search = search.replace(/[nN]/g,"ن");
+	search = search.replace(/[wW]/g,"و");
+	search = search.replace(/[yY]/g,"ي");
+	// debug( "Searching for: " + search);
+	// Headers 
+	req_sg_page = binarySearch( sg, search, 0);
+	req_br_page = binarySearch( br, search, 0);
+	req_mgf_page = binarySearch( mgf, search, 0);
+	req_ulq_page = binarySearch( ulq, search, 0);
+	req_uqa_page = binarySearch( uqa, search, 0);
+	req_pr_page = binarySearch( pr, search, 0);
+	req_ha_page = binarySearch( ha_p, search, 0);
+	// Fudge was set to -1, but this often leads to the wrong page
+	req_hw3_page = binarySearch( hw3, search, 0);
+	req_hw4_page = binarySearch( hw4, search, 0);
+	req_aan_page = binarySearch( aan, search, 0);
+	req_imn_page = binarySearch( imn, search, 0);
+	req_umr_page = binarySearch( umr, search, 0);
+	req_ums_page = binarySearch( ums, search, 0);
+	req_umj_page = binarySearch( umj, search, 0);
+	req_vi_page  = binarySearch( vi, search, 0);
+	req_uqw_page  = binarySearch( uqw, search, 0);
+	req_la_page  = binarySearch( la, search, 0);
+	req_kaz_page  = binarySearch( kaz, search, 0);
+	req_ll = get_ll_volume_page( binarySearch( ll_p, search, -1));
+	req_ll_vol = req_ll[0];
+	req_ll_page = req_ll[1];
+	req_ls_page = binarySearch( ls_p, search, -1);	
+	if ( req_ls_page < 3) {
+		// Nothing useful found, hide it:
+		document.getElementById("ls_search_status").innerHTML =
+			"Not found in supplement | ";
+		hide_show( 'laneslexiconsup', 'ls_toggle');
+		
+	} else document.getElementById("ls_search_status").innerHTML = "";
+
+	document.getElementById("searchbar").innerHTML = 
+		"Searched for: <strong>" + input + "</strong> (" + search + ") |";
+	
+	// set searched_word first because build_hash() will lead to set_title() where it is used
+	searched_word = search;
+
+	build_hash();
+	//parse_hash();
+	
+}
+
+function load_imgs( page_num) {
+	if ( page_num < 0 ) { page_num = 0; }
+	if ( page_num > total_pages ) { page_num = total_pages - 1; }
+	//alert( page_num);
+	setCookie( "last_page", page_num, 31);
+	document.getElementById("chapters_index").innerHTML = '';
+	document.getElementById("chapter_contents").innerHTML = '';
+	document.getElementById("a_prev").href = '#' + (page_num-1);
+	document.getElementById("a_next").href = '#' + parseInt(parseInt(page_num)+1);
+	document.getElementById("a_prev2").href = '#' + (page_num-1);
+	document.getElementById("a_next2").href = '#' + parseInt(parseInt(page_num)+1);
+	//document.getElementById("a_prev").href = '?page=' + (page_num-1);
+	//document.getElementById("a_next").href = '?page=' + parseInt(parseInt(page_num)+1);
+	document.getElementById("statusbar").innerHTML = 
+		"Hans Wehr - chapter <em class='small_button'><a href='javascript:showcurchap()'>" +
+		chapters[getchap(page_num)][0] +
+		"</a></em> - page " 
+		+ "<input type=text size=5 onkeypress=\"checkKey(event)\" id=input_no value='" + (page_num-offset+1) + "'>"
+		+ " : " +
+		"<strong>" + items[page_num-offset] + "</strong>"
+		;
+
+	//+ page_num 
+	document.title = 'p. ' + page_num + ' (' + items[page_num-offset] + ') - Hans Wehr';
+	var imgs = document.getElementsByTagName("img"); 
+	var img_url = Math.floor(page_num/100) + "/hw-" + page_num + ".gif"; //img[i].src is the reference to the image. 
+	for (var i = 0, l = imgs.length; i < l; i++) { 
+		imgs[i].src = img_url;
+		imgs[i].style['display'] = 'block';
+	}
+	scroll( 0, 0);
+	cur_page = page_num;
+	//alert( 'done loading');
+}
+
+function checkKey(e) {
+    var charCode;
+    
+    if(e && e.which){
+        charCode = e.which;
+    }else if(window.event){
+        e = window.event;
+        charCode = e.keyCode;
+    }
+
+    if(charCode == 13) {
+			self.document.location.hash = parseInt(document.getElementById("input_no").value) + offset - 1;
+			//load_imgs( document.getElementById("input_no").value);
+    }
+}
+
+function getCookie(c_name) {
+	// Local Storage is the way of the future
+	/*
+	var i,x,y,ARRcookies=document.cookie.split(";");
+	for (i=0;i<ARRcookies.length;i++) {
+  	x=ARRcookies[i].substr(0,ARRcookies[i].indexOf("="));
+  	y=ARRcookies[i].substr(ARRcookies[i].indexOf("=")+1);
+  	x=x.replace(/^\s+|\s+$/g,"");
+  	if (x==c_name) { return unescape(y); }
+  }
+	*/
+	return localStorage.getItem(c_name);
+}
+
+function setCookie(c_name,value,exdays)
+{
+	// Local Storage is the way of the future
+	var exdate=new Date();
+	exdate.setDate(exdate.getDate() + exdays);
+	var c_value=escape(value) + ((exdays==null) ? "" : "; expires="+exdate.toUTCString());
+	document.cookie=c_name + "=" + c_value;
+	localStorage.setItem(c_name, value);
+}
+
+//Copyright 2009 Nicholas C. Zakas. All rights reserved.
+//MIT-Licensed, see source file
+function binarySearch(items, value, exact_match_fudge){
+		/*
+			exact_match_fudge is the offset to return when an exact
+			match is found. By default we track back at least 20 places
+			to find the first occurance, however do we then return
+			the first occurance or the one before?
+			exact_match_fudge = 0 means yes (the former)
+			exact_match_fudge = -1 means the one before
+		*/
+
+    // debug('items: ' + items + 'value: ' + value + 'exact_match_fudge: ' + exact_match_fudge); 
+		value = value.replace( /\s*/g, "");
+
+    var startIndex  = 0,
+        stopIndex   = items.length - 1,
+        middle      = Math.floor((stopIndex + startIndex)/2),
+				retval = 0;
+
+    loop_count = 0;
+    while(items[middle] != value && startIndex < stopIndex && loop_count < 100){
+        debug(middle+'='+items[middle]); 
+        loop_count++; // abd shomad: Temporary countermeasure to prevent endless looping (due to index is not defined). 
+        //adjust search area
+        if (value < items[middle]){
+            stopIndex = middle - 1;
+        } else if (value > items[middle]){
+            startIndex = middle + 1;
+        }
+
+        //recalculate middle
+        middle = Math.floor((stopIndex + startIndex)/2);
+    }
+		if ( middle == 0) retval = 0;
+		if ( items[middle] == value) {
+			// Trace back to a max of 20 items to get the first occurance of items[middle] == value
+			for (i = 1; i < 20; i++) {
+				if ( items[middle-i] != value) {
+					// Give the first match if searching for the start of a chapter
+					if ( value.length == 1 && exact_match_fudge == -1)
+						retval = middle-i+2+exact_match_fudge;
+					else 
+						retval = middle-i+1+exact_match_fudge;
+					break;
+				}
+				
+			}
+		} else {
+    	//return (items[middle] != value) ? -1 : middle;
+    	//return (items[middle] > value && middle > 0) ? middle-1 : middle;
+    	//retval = (value > items[middle]) ? middle+1+exact_match_fudge : middle+exact_match_fudge;
+    	if (value > items[middle]) retval = middle+1+exact_match_fudge;
+			else retval = middle+exact_match_fudge;
+		}
+		//debug( 'search = ' + value + ' retval = ' + retval + ' which is: ' + items[retval]);
+		return retval;
+}
+
+// Do page_load once
+first_page_load();
+
+//==========================================================
+/* The javascript graveyard:
+*/
+
+</script>
+<!-- awstats statistics collection script 
+<script language=javascript src="jslib/awstats_misc_tracker.js"></script>
+/awstats statistics collection script -->
+<noscript><img src="jslib/awstats_misc_tracker.js?nojs=y" height=0 width=0 border=0 style="display: none"></noscript>
+
+</body>
+</html>
