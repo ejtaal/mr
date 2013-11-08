@@ -1,4 +1,4 @@
-﻿<html><head><title>Arabic Almanac</title>
+﻿<html><head><title>Mawrid Reader</title>
 <link rel="shortcut icon" href="aa.ico" />
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
 <style>
@@ -197,48 +197,56 @@ hr { margin: 5px; }
 
 <!-- Start of book {$name} -->
  <div id="${key}">
-	<div class='book_toggle' id='{$key}_toggle' onclick="javascript:hide_book('{$key}', false);"> Show {$name} [_] </div>
-	<div id='{$key}_page'>
+	<div class='book_toggle' id='${key}_toggle' onclick="javascript:hide_book('${key}', false);"> Show ${name} [_] </div>
+	<div id='${key}_page'>
 	<table class='navtable'>
 	<tr>
-		<td> <a href='javascript:shift_page("{$key}", -1)'<div class='button'>&larr;</div></a> </td>
-		<td> <div class='button'>{$name}</div></td>
-		<td> <a href="javascript:hide_book( '{$key}', true);"><div class='button'>hide</div></a> </td>
-		<td> <a href='javascript:shift_page("{$key}", 1)'><div class='button'>&rarr;</div></a> </td>
+		<td> <a href='javascript:shift_page("${key}", -1)'<div class='button'>&larr;</div></a> </td>
+		<td> <div class='button'>${name}</div></td>
+		<td> <a href="javascript:hide_book( '${key}', true);"><div class='button'>hide</div></a> </td>
+		<td> <a href='javascript:shift_page("${key}", 1)'><div class='button'>&rarr;</div></a> </td>
 	</tr>
 	</table>
 <span class='status_line' id='hw4_status_line'></span>
 <div class='narrowview' id='hw4_narrowview'>
-	<div class='column' id='{$col1_div_id}'>
-		<img id='{$col1_img_id}' onClick='javascript:searchandgo()'>
+	<div class='column' id='${col1_div_id}'>
+		<img id='${col1_img_id}' onClick='javascript:searchandgo()'>
 	</div>
 	<hr>
-	<div class='column' id='{$col2_div_id}'>
-		<img id='{$col1_img_id}' onClick='javascript:searchandgo()'>
+	<div class='column' id='${col2_div_id}'>
+		<img id='${col1_img_id}' onClick='javascript:searchandgo()'>
 	</div>
 	<hr>
-	<div class='column' id='{$col3_div_id}'>
-		<img id='{$col1_img_id}' onClick='javascript:searchandgo()'>
+	<div class='column' id='${col3_div_id}'>
+		<img id='${col1_img_id}' onClick='javascript:searchandgo()'>
 	</div>
 </div>
-<div id='{$key}_wideview'>
-	<img class='wideview' id='{$key}_wideviewimg' onClick='javascript:searchandgo()'>
+<div id='${key}_wideview'>
+	<img class='wideview' id='${key}_wideviewimg' onClick='javascript:searchandgo()'>
 </div>
 <table class='navtable'>
 <tr>
-	<td> <a href='javascript:shift_page("{$key}", -1)'><div class='button'>&larr;</div></a> </td>
-	<td> <a href='javascript:shift_page("{$key}", 1)' ><div class='button'>&rarr;</div></a> </td>
+	<td> <a href='javascript:shift_page("${key}", -1)'><div class='button'>&larr;</div></a> </td>
+	<td> <a href='javascript:shift_page("${key}", 1)' ><div class='button'>&rarr;</div></a> </td>
 </tr>
 </table>
 </div>
-<!-- End of book {$name} -->
+<!-- End of book ${name} -->
 
 </script>
 <script id="setting-presets" type="text/x-jquery-tmpl">
 	<td>
-	<a href="javascript:set_order_preset('{$key}')"><div class='button'>{$name}</div></a>
+	<a href="javascript:set_order_preset('${key}')"><div class='button'>${name}</div></a>
 </script>
-<script id="ltr-3-column-template" type="text/x-jquery-tmpl">
+<script id="settings-row" type="text/x-jquery-tmpl">
+<tr id="${key}_setting">
+<td>${key}<td>${name}
+<td><a href='javascript:move("${key}",0)'><div class='button'>top</div></a>
+<td><a href='javascript:move("${key}",-1)'><div class='button'>up</div></a>
+<td><a href='javascript:move("${key}",1)'><div class='button'>down</div></a>
+<td><a href='javascript:move("${key}",999)'><div class='button'>bot</div></a>
+</tr>
+
 </script>
 <script id="rtl-2-column-template" type="text/x-jquery-tmpl">
 </script>
@@ -312,13 +320,14 @@ _gaq.push(['_trackPageview']);
 	<div id='settings_presets'>
 	</div>
 	You can also choose from these presets:
-	<table><tr id="settings-list">
-	<td>
+	<table>
+	<tbody id="settings-list">
+	</tbody>
 <!--
 	<td class=".dev">
 	<a href="javascript:set_order_preset('dev')"><div class='button'>Dev</div></a>
 -->
-	</tr></table>
+	</table>
 	<br>
 
 <!--
@@ -377,6 +386,18 @@ for (var key in books) {
 	var book = books[key]
 	for (var prop in book)
 		if (book.hasOwnProperty(prop)) debug(key + "." + prop + " = " + book[prop])
+	$( "#book-template" ).tmpl( books[key]).appendTo( "#all_books" );
+	$("#"+key+"_toggle").hide()
+	$( "#settings-row" ).tmpl( books[key]).appendTo( "#settings_rows" );
+	$.getScript( books[key]["index-js"], function( data, textStatus, jqxhr ) {
+	  console.log( data ); // Data returned
+	  console.log( textStatus ); // Success
+	  console.log( jqxhr.status ); // 200
+	  console.log( "Load was performed." );
+		books[key]["index"] = eval(key);
+	});
+	// Move the index into the books object
+	//books[key]["index"] = 
 }
 var initial_book_order = presets["default"];
 var aa_book_order = initial_book_order;
@@ -409,8 +430,24 @@ shortcut.add("P",function() { testing123(); });
 shortcut.add("W",function() { toggle_fitwidth(); });
 
 
-function move_to_top( id) {
-	$('#'+id).parent.prepend($('#'+id));
+function move( id, where) {
+	if ( where == 0) { 
+		// Move to top
+		$('#'+id).parent.prepend($('#'+id));
+	}
+	else if (where >= books.length) { 
+		// Move to bottom
+		$('#'+id).parent.append($('#'+id));
+	}
+	else if (where == -1) {
+		// Move one up
+		$('#'+id).parent.insertBefore($('#'+id).parent().prev());
+	}
+	else if (where == 1) {
+		// Move one down
+		$('#'+id).parent.insertAfter($('#'+id).parent().next());
+	}
+
 	/*
 	var content = $('#'+id);
 	var parent = content.parentNode;
@@ -430,7 +467,7 @@ function move_to_top( id) {
 function hide_book( target, should_hide) {
 	for (var key in books) {
 		if ( key == target) {
-			debug( "hide: " + key + "=" should_hide)
+			debug( "hide: " + key + "=" + should_hide)
 			books[target]["should_hide"] = should_hide;
 			if ( should_hide) hide_show( key+'_page', key+'_toggle');
 			else              hide_show( key+'_toggle', key+'_page');
@@ -471,10 +508,13 @@ function set_hash( s) {
 }
 function build_hash() {
 	var new_hash = "#"
-	var i, vis_books_order = current_order.split(',')
-	if (vis_books_order.length > 0)
-		for (i = 0; i < vis_books_order.length; i++)
-			new_hash += books[vis_books_order[i]]["wanted"]
+	var i, books_order = current_order.split(',')
+	if (books_order.length > 0)
+		for (i = 0; i < books_order.length; i++) {
+			new_hash += books_order[i] + "="
+			if (books[books_order[i]]["should_hide"] == 1) new_hash += "h"
+			new_hash += books[books_order[i]]["wanted"]
+		}
 	debug("new_hash = " + new_hash);
 
 	window.location.hash = new_hash;
@@ -510,135 +550,45 @@ function parse_hash() {
 	var hashstring = window.location.hash.replace(/^#/,'');
 	var i, vars = hashstring.split(','); 
 	if (vars.length > 0) { 
-	    // Variables present in hash 
-			var hide_following = false
-	    for (i = vars.length - 1; i >= 0; i--) { 
-	       keyValuePair = variables[i].split('='); 
-					//alert( "Var found: " + keyValuePair[0] + ' = ' + keyValuePair[1] );
-					var key = keyValuePair[0];
-					var value = keyValuePair[1];
-					//debug( "Var found: " + keyValuePair[0] + ' = ' + keyValuePair[1] );
-					if ( key == "Q" || key == "q" ) { do_search(value); }
-					else if ( key == "SEARCH" || key == "search" ) { searchandgo(); }
-					else if ( key == "HIDE" { hide_following = true;; }
-					else {
-						books[key]["wanted"] = books[key]["current'] = parseInt(value)
-						books[key]["should_hide"] = 0
-						move_to_top(key);
+	  // Variables present in hash 
+		var hide_following = false
+	  for (i = vars.length - 1; i >= 0; i--) { 
+	    keyValuePair = vars[i].split('='); 
+			//alert( "Var found: " + keyValuePair[0] + ' = ' + keyValuePair[1] );
+			var key = keyValuePair[0];
+			var value = keyValuePair[1];
+			//debug( "Var found: " + keyValuePair[0] + ' = ' + keyValuePair[1] );
+			if ( key == "Q" || key == "q" ) { do_search(value); }
+			else if ( key == "SEARCH" || key == "search" ) { searchandgo(); }
+			else {
+				if ( books.hasOwnProperty(key)) {
+					books[key]["should_hide"] = 0
+					if (value.match( /^h/ )) {
+						books[key]["should_hide"] = 1
+						hide_show( key+'_page', key+'_toggle');
+						value = value.replace(/^h/, '')
 					}
-
-					if ( book == "BR_HIDE" && ! br_hide ) { br_hide = true; hide_show( 'brill', 'br_toggle'); }
-					if ( book == "MGF_HIDE" && ! mgf_hide ) { mgf_hide = true; hide_show( 'mgfarid', 'mgf_toggle'); }
-					if ( book == "ULQ_HIDE" && ! ulq_hide ) { ulq_hide = true; hide_show( 'ulughaat', 'ulq_toggle'); }
-					if ( book == "UQA_HIDE" && ! uqa_hide ) { uqa_hide = true; hide_show( 'uqalfaaz', 'uqa_toggle'); }
-					if ( book == "PR_HIDE" && ! pr_hide ) { pr_hide = true; hide_show( 'penrice', 'pr_toggle'); }
-					if ( book == "UQW_HIDE" && ! uqw_hide ) { uqw_hide = true; hide_show( 'uqaamoos', 'uqw_toggle'); }
-					if ( book == "LA_HIDE" && ! la_hide ) { la_hide = true; hide_show( 'lisanularab', 'la_toggle'); }
-					if ( book == "UMR_HIDE" && ! umr_hide ) { umr_hide = true; hide_show( 'urdumufraadaat', 'umr_toggle'); }
-					if ( book == "UMS_HIDE" && ! ums_hide ) { ums_hide = true; hide_show( 'urdumukhtaar', 'ums_toggle'); }
-					if ( book == "UMJ_HIDE" && ! umj_hide ) { umj_hide = true; hide_show( 'umunjid', 'umj_toggle'); }
-					if ( book == "KAZ_HIDE" && ! kaz_hide ) { kaz_hide = true; hide_show( 'kazir', 'kaz_toggle'); }
-
-					}
+					books[key]["wanted"] = books[key]["current"] = parseInt(value)
+					move_to_top(key);
+					move_to_top(key+"_setting");
+				}
+			}
+		}
 	}
 	else { 
 		alert ('Nothing found');
-	    // No variables in the hash 
+	  // No variables in the hash 
 	} 
-					//debug( "cur_ll_vol, cur_ll_page: " + cur_ll_vol +", "+ cur_ll_page);
-					//debug( "cur_hw3_page: " + cur_hw3_page);
 	display_images();
 	set_title();
 }
 
 function shift_page( book, offset) {
 	hide_id('about');
-	if ( book == "HW4") { 
-		req_hw4_page = cur_hw4_page + offset;
-		$(window).scrollTop( $("#hanswehr4").offset().top);
-	}
-	if ( book == "AAN") { 
-		req_aan_page = cur_aan_page + offset;
-		$(window).scrollTop( $("#aanadwi").offset().top);
-	}
-	if ( book == "IMN") { 
-		req_imn_page = cur_imn_page + offset;
-		$(window).scrollTop( $("#idmunawir").offset().top);
-	}
-	if ( book == "VI") { 
-		req_vi_page = cur_vi_page + offset;
-		$(window).scrollTop( $("#verbalidioms").offset().top);
-	}
-	if ( book == "HW3") { 
-		req_hw3_page = cur_hw3_page + offset;
-		$(window).scrollTop( $("#hanswehr3").offset().top);
-	}
-	if ( book == "HA") { 
-		req_ha_page = cur_ha_page + offset;
-		$(window).scrollTop( $("#hava").offset().top);
-	}
-	if ( book == "SG") { 
-		req_sg_page = cur_sg_page + offset;
-		$(window).scrollTop( $("#steingass").offset().top);
-	}
-	if ( book == "BR") { 
-		req_br_page = cur_br_page + offset;
-		$(window).scrollTop( $("#brill").offset().top);
-	}
-	if ( book == "MGF") { 
-		req_mgf_page = cur_mgf_page + offset;
-		$(window).scrollTop( $("#mgfarid").offset().top);
-	}
-	if ( book == "ULQ") { 
-		req_ulq_page = cur_ulq_page + offset;
-		$(window).scrollTop( $("#ulughaat").offset().top);
-	}
-	if ( book == "UQA") { 
-		req_uqa_page = cur_uqa_page + offset;
-		$(window).scrollTop( $("#uqalfaaz").offset().top);
-	}
-	if ( book == "PR") { 
-		req_pr_page = cur_pr_page + offset;
-		$(window).scrollTop( $("#penrice").offset().top);
-	}
-	if ( book == "LL") {
-		var req_ll = ll_validate_vol_page( cur_ll_vol, cur_ll_page + offset);
-		req_ll_vol = req_ll[0];
-		req_ll_page = req_ll[1];
-		$(window).scrollTop( $("#laneslexicon").offset().top);
-	}
-	if ( book == "LS") { 
-		req_ls_page = cur_ls_page + offset;
-		$(window).scrollTop( $("#laneslexiconsup").offset().top);
-	}
-	if ( book == "UQW") { 
-		req_uqw_page = cur_uqw_page + offset;
-		$(window).scrollTop( $("#uqaamoos").offset().top);
-	}
-	if ( book == "LA") { 
-		req_la_page = cur_la_page + offset;
-		$(window).scrollTop( $("#lisanularab").offset().top);
-	}
-	if ( book == "UMR") { 
-		req_umr_page = cur_umr_page + offset;
-		$(window).scrollTop( $("#urdumufraadaat").offset().top);
-	}
-	if ( book == "UMS") { 
-		req_ums_page = cur_ums_page + offset;
-		$(window).scrollTop( $("#urdumukhtaar").offset().top);
-	}
-	if ( book == "UMJ") { 
-		req_umj_page = cur_umj_page + offset;
-		$(window).scrollTop( $("#umunjid").offset().top);
-	}
-	if ( book == "KAZ") { 
-		req_kaz_page = cur_kaz_page + offset;
-		$(window).scrollTop( $("#kazir").offset().top);
-	}
-	//debug( book + cur_ll_vol + "_" + req_ll_page);
+	books[book]["wanted"] = books[book]["current"] + offset;
+	$(window).scrollTop( $("#"+book).offset().top);
 	searched_word = "";
 	build_hash();
-	//parse_hash();
 }
 
 function percentVisible( elem)
@@ -665,28 +615,20 @@ function percentVisible( elem)
 }
 
 function visible_book_shift( offset) {
-	if ( percentVisible("#hanswehr3") > 50) shift_page( 'HW3', offset);
-	else if ( percentVisible("#hanswehr4") > 50) shift_page( 'HW4', offset);
-	else if ( percentVisible("#aanadwi") > 50) shift_page( 'AAN', offset);
-	else if ( percentVisible("#idmunawir") > 50) shift_page( 'IMN', offset);
-	else if ( percentVisible("#verbalidioms") > 50) shift_page( 'VI', offset);
-	else if ( percentVisible("#laneslexicon") > 50) shift_page( 'LL', offset);
-	else if ( percentVisible("#laneslexiconsup") > 50) shift_page( 'LS', offset);
-	else if ( percentVisible("#hava") > 50) shift_page( 'HA', offset);
-	else if ( percentVisible("#steingass") > 50) shift_page( 'SG', offset);
-	else if ( percentVisible("#brill") > 50) shift_page( 'BR', offset);
-	else if ( percentVisible("#mgfarid") > 50) shift_page( 'MGF', offset);
-	else if ( percentVisible("#ulughaat") > 50) shift_page( 'ULQ', offset);
-	else if ( percentVisible("#uqalfaaz") > 50) shift_page( 'UQA', offset);
-	else if ( percentVisible("#penrice") > 50) shift_page( 'PR', offset);
-	else if ( percentVisible("#uqaamoos") > 50) shift_page( 'UQW', offset);
-	else if ( percentVisible("#lisanularab") > 50) shift_page( 'LA', offset);
-	else if ( percentVisible("#urdumufraadaat") > 50) shift_page( 'UMR', offset);
-	else if ( percentVisible("#urdumukhtaar") > 50) shift_page( 'UMS', offset);
-	else if ( percentVisible("#umunjid") > 50) shift_page( 'UMJ', offset);
-	else if ( percentVisible("#kazir") > 50) shift_page( 'KAZ', offset);
+	for (var key in books) 
+		if ( percentVisible("#"+key) > 50) { shift_page( key, offset); break }
 }
 
+function get_img_url( book) {
+	var page = books[book]["current"]
+	if (page < 1) books[book]["current"] = page = 1
+	if (page > books[book]["index"].length)
+		books[book]["current"] = page = books[book]["index"].length - 1
+	var str = "" + page
+	var pad = "0000"
+	prefixed_page = pad.substring(0, pad.length - str.length) + str
+	return img_base_dir + book + "/" + book + "-" + prefixed_page + ".png"
+}
 
 function display_images() {
 	//ll_display_page( page);
@@ -694,410 +636,27 @@ function display_images() {
 	//document.getElementById("ll-narrow").src = ll_get_img_url( cur_ll_vol, cur_ll_page);
 	// TODO: jQuery-fy the stuff below
 
-	if ( ! hw4_hide) {	
-		//document.getElementById("hw4_load_status_line").innerHTML = "<br>Loading . . .";
-		var hw4_img_url = img_base_dir + hw4_get_img_url( cur_hw4_page);
+	for (var key in books) 
+		if ( ! books[key]["should_hide"]) {	
+			var img_url = get_img_url(key)
 		// Clear image if it's being changed so it's clearer to user that a new imagine
 		// is being downloaded
-		if ( $("#hw4_col1").attr('src') != hw4_img_url) {
-			$("#hw4_col1").attr('src', '');
-			$("#hw4_col2").attr('src', '');
-			$("#hw4_wideviewimg").attr('src', '');
+			var status_string = 
+				" <b>" + books[key]["index"][books[key]["current"]] + "</b> | " +
+				books[key]["name"] + ", page " + (books[key]["current"] - books[key]["offset"] + 1) + 
+				" <small>(of " + (books[key]["index"].length-1-books[key]["offset"]) + ") " +
+				"</small>"
+			if ( $("#"+key+"_col1").attr('src') != img_url) {
+				$("#"+key+"_col1").attr('src', '');
+				$("#"+key+"_col2").attr('src', '');
+				$("#"+key+"_wideviewimg").attr('src', '');
+				$("#"+key+"_col1").attr('src', img_url);
+				$("#"+key+"_col2").attr('src', img_url);
+				$("#"+key+"_wideviewimg").attr('src', img_url);
+				$("#"+key+"_wideviewimg").html( status_string);
+			}
 		}
-		document.getElementById("hw4_col1").src = 
-			document.getElementById("hw4_col2").src = 
-			document.getElementById("hw4_wideviewimg").src = hw4_img_url;
-		document.getElementById("hw4_status_line").innerHTML = 
-			" <b>" + hw4[cur_hw4_page] + "</b> | " +
-			"Hans Wehr (4), page " + (cur_hw4_page-hw4_offset+1) + 
-			" <small>(of " + (hw4.length-1-hw4_offset) + ") " +
-			"</small>"
-			;
 	}
-
-	if ( ! vi_hide) {	
-		//document.getElementById("vi_load_status_line").innerHTML = "<br>Loading . . .";
-		var vi_img_url = img_base_dir + vi_get_img_url( cur_vi_page);
-		// VI doesn't have columns
-		if ( $("#vi_wideviewimg").attr('src') != vi_img_url) {
-			$("#vi_wideviewimg").attr('src', '');
-		}
-		/* // VI doesn't have columns
-		document.getElementById("vi_col1").src = 
-			document.getElementById("vi_col2").src = 
-		*/
-			document.getElementById("vi_wideviewimg").src = vi_img_url;
-		document.getElementById("vi_status_line").innerHTML = 
-			" <b>" + vi[cur_vi_page] + "</b> | " +
-			"Verbal Idioms, page " + (cur_vi_page-vi_offset+1) + 
-			" <small>(of " + (vi.length-1-vi_offset) + ") " +
-			"</small>"
-			;
-	}
-
-	if ( ! aan_hide) {	
-		//document.getElementById("aan_load_status_line").innerHTML = "<br>Loading . . .";
-		var aan_img_url = img_base_dir + aan_get_img_url( cur_aan_page);
-		// Clear image if it's being changed so it's clearer to user that a new imagine
-		// is being downloaded
-		if ( $("#aan_col1").attr('src') != aan_img_url) {
-			$("#aan_col1").attr('src', '');
-			$("#aan_col2").attr('src', '');
-			$("#aan_wideviewimg").attr('src', '');
-		}
-		document.getElementById("aan_col1").src = 
-			document.getElementById("aan_col2").src = 
-			document.getElementById("aan_wideviewimg").src = aan_img_url;
-		document.getElementById("aan_status_line").innerHTML = 
-			" <b>" + aan[cur_aan_page] + "</b> | " +
-			"AA Nadwi, page " + (cur_aan_page-aan_offset+1) + 
-			" <small>(of " + (aan.length-1-aan_offset) + ") " +
-			"</small>"
-			;
-	}
-
-	if ( ! imn_hide) {	
-		//document.getElementById("imn_load_status_line").innerHTML = "<br>Loading . . .";
-		var imn_img_url = img_base_dir + imn_get_img_url( cur_imn_page);
-		// Clear image if it's being changed so it's clearer to user that a new imagine
-		// is being downloaded
-		if ( $("#imn_col1").attr('src') != imn_img_url) {
-			$("#imn_col1").attr('src', '');
-			$("#imn_col2").attr('src', '');
-			$("#imn_wideviewimg").attr('src', '');
-		}
-		document.getElementById("imn_col1").src = 
-			document.getElementById("imn_col2").src = 
-			document.getElementById("imn_wideviewimg").src = imn_img_url;
-		document.getElementById("imn_status_line").innerHTML = 
-			" <b>" + imn[cur_imn_page] + "</b> | " +
-			"ID Munawir, page " + (cur_imn_page-imn_offset+1) + 
-			" <small>(of " + (imn.length-1-imn_offset) + ") " +
-			"</small>"
-			;
-	}
-
-	if ( ! kaz_hide) {	
-		//document.getElementById("imn_load_status_line").innerHTML = "<br>Loading . . .";
-		var kaz_img_url = img_base_dir + kaz_get_img_url( cur_kaz_page);
-		// Clear image if it's being changed so it's clearer to user that a new imagine
-		// is being downloaded
-		if ( $("#kaz_col1").attr('src') != kaz_img_url) {
-			$("#kaz_col1").attr('src', '');
-			$("#kaz_col2").attr('src', '');
-			$("#kaz_wideviewimg").attr('src', '');
-		}
-		document.getElementById("kaz_col1").src = 
-			document.getElementById("kaz_col2").src = 
-			document.getElementById("kaz_wideviewimg").src = kaz_img_url;
-		document.getElementById("kaz_status_line").innerHTML = 
-			" <b>" + kaz[cur_kaz_page] + "</b> | " +
-			"Kazimirski, page " + (cur_kaz_page-kaz_offset+1) + 
-			" <small>(of " + (kaz.length-1-kaz_offset) + ") " +
-			"</small>"
-			;
-	}
-
-	if ( ! umr_hide) {	
-		//document.getElementById("umr_load_status_line").innerHTML = "<br>Loading . . .";
-		var umr_img_url = img_base_dir + umr_get_img_url( cur_umr_page);
-		// Clear image if it's being changed so it's clearer to user that a new imagine
-		// is being downloaded
-		if ( $("#umr_col1").attr('src') != umr_img_url) {
-			$("#umr_col1").attr('src', '');
-			$("#umr_col2").attr('src', '');
-			$("#umr_wideviewimg").attr('src', '');
-		}
-		document.getElementById("umr_col1").src = 
-			document.getElementById("umr_col2").src = 
-			document.getElementById("umr_wideviewimg").src = umr_img_url;
-		document.getElementById("umr_status_line").innerHTML = 
-			" <b>" + umr[cur_umr_page] + "</b> | " +
-			"Urdu Mufraadaat Alfaaz al Qur'an by ar Raghib, page " + (cur_umr_page-umr_offset+1) + 
-			" <small>(of " + (umr.length-1-umr_offset) + ") " +
-			"</small>"
-			;
-	}
-
-	if ( ! ums_hide) {	
-		//document.getElementById("ums_load_status_line").innerHTML = "<br>Loading . . .";
-		var ums_img_url = img_base_dir + ums_get_img_url( cur_ums_page);
-		// Clear image if it's being changed so it's clearer to user that a new imagine
-		// is being downloaded
-		if ( $("#ums_col1").attr('src') != ums_img_url) {
-			$("#ums_col1").attr('src', '');
-			$("#ums_col2").attr('src', '');
-			$("#ums_wideviewimg").attr('src', '');
-		}
-		document.getElementById("ums_col1").src = 
-			document.getElementById("ums_col2").src = 
-			document.getElementById("ums_wideviewimg").src = ums_img_url;
-		document.getElementById("ums_status_line").innerHTML = 
-			" <b>" + ums[cur_ums_page] + "</b> | " +
-			"Urdu Mukhtaar us Sihah, page " + (cur_ums_page-ums_offset+1) + 
-			" <small>(of " + (ums.length-1-ums_offset) + ") " +
-			"</small>"
-			;
-	}
-
-	if ( ! hw3_hide) {	
-		//document.getElementById("hw3_load_status_line").innerHTML = "<br>Loading . . .";
-		var hw3_img_url = img_base_dir + hw3_get_img_url( cur_hw3_page);
-		if ( $("#hw3_col1").attr('src') != hw3_img_url) {
-			$("#hw3_col1").attr('src', '');
-			$("#hw3_col2").attr('src', '');
-			$("#hw3_wideviewimg").attr('src', '');
-		}
-		document.getElementById("hw3_col1").src = 
-			document.getElementById("hw3_col2").src = 
-			document.getElementById("hw3_wideviewimg").src = hw3_img_url;
-		document.getElementById("hw3_status_line").innerHTML = 
-			" <b>" + hw3[cur_hw3_page] + "</b> | " +
-			"Hans Wehr (3), page " + (cur_hw3_page-hw3_offset+1) + 
-			" <small>(of " + (hw3.length-1-hw3_offset) + ") " +
-			"</small>"
-			;
-	}
-
-	if ( ! ha_hide) {	
-		//document.getElementById("ha_load_status_line").innerHTML = "<br>Loading . . .";
-		var ha_img_url = img_base_dir + ha_get_img_url( cur_ha_page);
-		if ( $("#ha_col1").attr('src') != ha_img_url) {
-			$("#ha_col1").attr('src', '');
-			$("#ha_col2").attr('src', '');
-			$("#ha_wideviewimg").attr('src', '');
-		}
-		document.getElementById("ha_col1").src = 
-			document.getElementById("ha_col2").src = 
-			document.getElementById("ha_wideviewimg").src = ha_img_url;
-		document.getElementById("ha_status_line").innerHTML = 
-			" <b>" + ha_p[cur_ha_page] + "</b> | " +
-			"Hava, page " + (cur_ha_page-ha_offset+1) + 
-			" <small>(of " + (ha_p.length-1-ha_offset) + ") " +
-			"</small>"
-			;
-	}
-
-	if ( ! sg_hide) {	
-		//document.getElementById("sg_load_status_line").innerHTML = "<br>Loading . . .";
-		var sg_img_url = img_base_dir + sg_get_img_url( cur_sg_page);
-		if ( $("#sg_col1").attr('src') != sg_img_url) {
-			$("#sg_col1").attr('src', '');
-			$("#sg_col2").attr('src', '');
-			$("#sg_wideviewimg").attr('src', '');
-		}
-		document.getElementById("sg_col1").src = 
-			document.getElementById("sg_col2").src = 
-			document.getElementById("sg_wideviewimg").src = sg_img_url;
-		document.getElementById("sg_status_line").innerHTML = 
-			" <b>" + sg[cur_sg_page] + "</b> | " +
-			"Steingass, page " + (cur_sg_page-sg_offset+1) + 
-			" <small>(of " + (sg.length-1-sg_offset) + ") " +
-			"</small>"
-			;
-	}
-
-	if ( ! br_hide) {	
-		//document.getElementById("br_load_status_line").innerHTML = "<br>Loading . . .";
-		var br_img_url = img_base_dir + br_get_img_url( cur_br_page);
-		// Brill doesn't have columns
-		if ( $("#br_wideviewimg").attr('src') != br_img_url) {
-			$("#br_wideviewimg").attr('src', '');
-		}
-		/*
-		document.getElementById("br_col1").src = 
-			document.getElementById("br_col2").src = 
-		*/
-			document.getElementById("br_wideviewimg").src = br_img_url;
-		document.getElementById("br_status_line").innerHTML = 
-			" <b>" + br[cur_br_page] + "</b> | " +
-			"Brill, page " + (cur_br_page-br_offset+1) + 
-			" <small>(of " + (br.length-1-br_offset) + ") " +
-			"</small>"
-			;
-	}
-
-	if ( ! mgf_hide) {	
-		//document.getElementById("mgf_load_status_line").innerHTML = "<br>Loading . . .";
-		var mgf_img_url = img_base_dir + mgf_get_img_url( cur_mgf_page);
-		// MGF doesn't have columns
-		if ( $("#mgf_wideviewimg").attr('src') != mgf_img_url) {
-			$("#mgf_wideviewimg").attr('src', '');
-		}
-		/*
-		document.getElementById("mgf_col1").src = 
-			document.getElementById("mgf_col2").src = 
-		*/
-			document.getElementById("mgf_wideviewimg").src = mgf_img_url;
-		document.getElementById("mgf_status_line").innerHTML = 
-			" <b>" + mgf[cur_mgf_page] + "</b> | " +
-			"MG Farid, page " + (cur_mgf_page-mgf_offset+1) + 
-			" <small>(of " + (mgf.length-1-mgf_offset) + ") " +
-			"</small>"
-			;
-	}
-	
-	if ( ! ulq_hide) {	
-		//document.getElementById("ulq_load_status_line").innerHTML = "<br>Loading . . .";
-		var ulq_img_url = img_base_dir + ulq_get_img_url( cur_ulq_page);
-		// ULQ doesn't have columns
-		if ( $("#ulq_wideviewimg").attr('src') != ulq_img_url) {
-			$("#ulq_wideviewimg").attr('src', '');
-		}
-		/*
-		document.getElementById("ulq_col1").src = 
-			document.getElementById("ulq_col2").src = 
-		*/
-			document.getElementById("ulq_wideviewimg").src = ulq_img_url;
-		document.getElementById("ulq_status_line").innerHTML = 
-			" <b>" + ulq[cur_ulq_page] + "</b> | " +
-			"Urdu: Lughaat ul Qur'aan, by GA Parwez, page " + (cur_ulq_page-ulq_offset+1) + 
-			" <small>(of " + (ulq.length-1-ulq_offset) + ") " +
-			"</small>"
-			;
-	}
-
-	if ( ! uqa_hide) {	
-		//document.getElementById("uqa_load_status_line").innerHTML = "<br>Loading . . .";
-		var uqa_img_url = img_base_dir + uqa_get_img_url( cur_uqa_page);
-		// UQA doesn't have columns
-		if ( $("#uqa_wideviewimg").attr('src') != uqa_img_url) {
-			$("#uqa_wideviewimg").attr('src', '');
-		}
-		/*
-		document.getElementById("uqa_col1").src = 
-			document.getElementById("uqa_col2").src = 
-		*/
-			document.getElementById("uqa_wideviewimg").src = uqa_img_url;
-		document.getElementById("uqa_status_line").innerHTML = 
-			" <b>" + uqa[cur_uqa_page] + "</b> | " +
-			"Urdu: Qaamoos alfaaz o Istelehaat e Qur'an, page " + (cur_uqa_page-uqa_offset+1) + 
-			" <small>(of " + (uqa.length-1-uqa_offset) + ") " +
-			"</small>"
-			;
-	}
-
-	if ( ! pr_hide) {	
-		//document.getElementById("pr_load_status_line").innerHTML = "<br>Loading . . .";
-		var pr_img_url = img_base_dir + pr_get_img_url( cur_pr_page);
-		if ( $("#pr_col1").attr('src') != pr_img_url) {
-			$("#pr_col1").attr('src', '');
-			$("#pr_col2").attr('src', '');
-			$("#pr_wideviewimg").attr('src', '');
-		}
-		document.getElementById("pr_col1").src = 
-			document.getElementById("pr_col2").src = 
-			document.getElementById("pr_wideviewimg").src = pr_img_url;
-		document.getElementById("pr_status_line").innerHTML = 
-			" <b>" + pr[cur_pr_page] + "</b> | " +
-			"Penrice, page " + (cur_pr_page-pr_offset+1) + 
-			" <small>(of " + (pr.length-1-pr_offset) + ") " +
-			"</small>"
-			;
-	}
-
-	if ( ! ll_hide) {	
-		//document.getElementById("ll_load_status_line").innerHTML = "<br>Loading . . .";
-		var ll_img_url = img_base_dir + ll_get_img_url( cur_ll_vol, cur_ll_page);
-		if ( $("#ll_col1").attr('src') != ll_img_url) {
-			$("#ll_col1").attr('src', '');
-			$("#ll_col2").attr('src', '');
-			$("#ll_wideviewimg").attr('src', '');
-		}
-		document.getElementById("ll_col1").src = 
-			document.getElementById("ll_col2").src = 
-			document.getElementById("ll_col3").src = 
-			document.getElementById("ll_wideviewimg").src = ll_img_url;
-		document.getElementById("ll_status_line").innerHTML = 
-			" <b>" + ll_p[get_ll_page( cur_ll_vol, cur_ll_page)] + "</b> | " +
-			"Lane's Lexicon: Vol. " + cur_ll_vol + ", page " + cur_ll_page + 
-			" <small>(of " + ll_volumes[cur_ll_vol-1] + ") = page " + get_ll_page( cur_ll_vol, cur_ll_page)  +
-			" of " + (ll_p.length-1) + ".</small>"
-			;
-		//debug ( document.getElementById("ll_col1").src );
-	}
-
-	if ( ! uqw_hide) {	
-		//document.getElementById("ll_load_status_line").innerHTML = "<br>Loading . . .";
-		var uqw_img_url = img_base_dir + uqw_get_img_url( cur_uqw_page);
-		if ( $("#uqw_col1").attr('src') != uqw_img_url) {
-			$("#uqw_col1").attr('src', '');
-			$("#uqw_col2").attr('src', '');
-			$("#uqw_wideviewimg").attr('src', '');
-		}
-		document.getElementById("uqw_col1").src = 
-			document.getElementById("uqw_col2").src = 
-			document.getElementById("uqw_col3").src = 
-			document.getElementById("uqw_wideviewimg").src = uqw_img_url;
-		document.getElementById("uqw_status_line").innerHTML = 
-			" <b>" + uqw[cur_uqw_page] + "</b> | " +
-			"Urdu Qaamoos ul Waheed, page " + cur_uqw_page + 
-			" <small>(of " + (uqw.length) + ".</small>"
-			;
-		//debug ( document.getElementById("ll_col1").src );
-	}
-
-	if ( ! la_hide) {	
-		//document.getElementById("ll_load_status_line").innerHTML = "<br>Loading . . .";
-		var la_img_url = img_base_dir + la_get_img_url( cur_la_page);
-		if ( $("#la_col1").attr('src') != la_img_url) {
-			$("#la_col1").attr('src', '');
-			$("#la_col2").attr('src', '');
-			$("#la_wideviewimg").attr('src', '');
-		}
-		document.getElementById("la_col1").src = 
-			document.getElementById("la_col2").src = 
-			document.getElementById("la_col3").src = 
-			document.getElementById("la_wideviewimg").src = la_img_url;
-		document.getElementById("la_status_line").innerHTML = 
-			" <b>" + la[cur_la_page] + "</b> | " +
-			"Lisanul Arab, page " + cur_la_page + 
-			" <small>(of " + (la.length) + ".</small>"
-			;
-		//debug ( document.getElementById("ll_col1").src );
-	}
-
-	if ( ! umj_hide) {	
-		//document.getElementById("ll_load_status_line").innerHTML = "<br>Loading . . .";
-		var umj_img_url = img_base_dir + umj_get_img_url( cur_umj_page);
-		if ( $("#umj_col1").attr('src') != umj_img_url) {
-			$("#umj_col1").attr('src', '');
-			$("#umj_col2").attr('src', '');
-			$("#umj_wideviewimg").attr('src', '');
-		}
-		document.getElementById("umj_col1").src = 
-			document.getElementById("umj_col2").src = 
-			document.getElementById("umj_col3").src = 
-			document.getElementById("umj_wideviewimg").src = umj_img_url;
-		document.getElementById("umj_status_line").innerHTML = 
-			" <b>" + umj[cur_umj_page] + "</b> | " +
-			"Urdu al-Munjid, page " + cur_umj_page + 
-			" <small>(of " + (umj.length) + ".</small>"
-			;
-		//debug ( document.getElementById("ll_col1").src );
-	}
-
-	if ( ! ls_hide) {	
-		//document.getElementById("ls_load_status_line").innerHTML = "<br>Loading . . .";
-		var ls_img_url = img_base_dir + ls_get_img_url( cur_ls_page);
-		if ( $("#ls_col1").attr('src') != ls_img_url) {
-			$("#ls_col1").attr('src', '');
-			$("#ls_col2").attr('src', '');
-			$("#ls_wideviewimg").attr('src', '');
-		}
-		document.getElementById("ls_col1").src = 
-			document.getElementById("ls_col2").src = 
-			document.getElementById("ls_col3").src = 
-			document.getElementById("ls_wideviewimg").src = ls_img_url;
-		document.getElementById("ls_status_line").innerHTML = 
-			" <b>" + ls_p[cur_ls_page] + "</b> | " +
-			"LL supplement, page " + cur_ls_page + 
-			" <small>(of " + ls_p.length + ") " +
-			"</small>"
-			;
-		//debug( hw3_img_url);
-	}
-}
 
 function debug( text) {
 	if(debugmode) { document.getElementById("debug").innerHTML += "<br> [" + text + "] "; } 
@@ -1112,6 +671,7 @@ function first_page_load() {
 	else { toggle = 1; }
 	toggle_view();
 	
+	/*
 	// first sort out the book order
 	var saved_book_order = getCookie('aa_book_order');
 	//alert('test');
@@ -1122,6 +682,7 @@ function first_page_load() {
 		aa_book_order = saved_book_order;
 	//debug('using aa_book_order: ' + aa_book_order);
 	set_book_order();
+	*/
 
 	
 	// Set default hash value, and show About if this appears to be the first visit
@@ -1142,10 +703,16 @@ function first_page_load() {
 		fitwidth = aa_fitwidth;
 	}
 
+
+
+
+
+
 	set_fitwidth();
-	init_settings();
+	//init_settings();
 }
 
+/*
 function set_book_order() {
 	var book_array = aa_book_order.split(',');
 	for ( i = book_array.length - 1; i >= 0; i--) {
@@ -1164,11 +731,11 @@ function set_book_order() {
 	}
 	setCookie('aa_book_order', aa_book_order, 365);
 }
+*/
 
 function init_settings() {
-	var available_books = ["HW4","LL","LS","BR","PR","SG","HA","HW3","AAN", "IMN", "VI", "MGF", "UQW", "LA", "UMR", "UMS", "UMJ", "ULQ", "UQA", "KAZ"];
 	var table_html = "<table><tr>\n";
-	for (var row = 0; row <= available_books.length; row++) {
+	for (var row = 0; row <= books.length; row++) {
 		//var rowpp = row + 1;
 		for (var book = 0 ; book < available_books.length; book++) {
 			//var bookpp = book + 1;

@@ -15,7 +15,7 @@ var presets = {
 
 var books = {
 	"kz": {
-		"index-js": "mw-kz-index.js",
+		"index-js": "mw-kz-index.js?2",
 		"color": "Red",
 		"direction": "ltr",
 		"columns": "2",
