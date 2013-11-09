@@ -7,7 +7,7 @@ body { width: 100%; background-color: #DDD; }
 #chapter_contents { font-family: Simplified Arabic; }
 body, div { margin: 0; padding: 0; }
 /*
-table.navtable td { min-width: 10%; }
+table.navtable .button { min-width: 30%; padding: 0;}
 a { color: black; text-decoration: none; }
 */
 .navtable a, #settings_container a { color: black; text-decoration: none; }
@@ -18,6 +18,15 @@ a { color: black; text-decoration: none; }
 	font-size: xx-large;
 	width: 100%; background-color: silver;
 	}
+
+#settings-table td {
+	width: 30%;
+}
+
+.settings-row .button {
+	width: 20%;
+}
+
 .book_toggle { 
 	width: 100%; background-color: silver;
 	font-size: x-large; 
@@ -81,6 +90,11 @@ hr { margin: 5px; }
 #settings_2 td { border-bottom: solid white 1px; }
 
 #hw4_col1,#hw4_col2,#pr_col1,#pr_col2,#hw3_col1,#hw3_col2,#ha_col1,#ha_col2,#sg_col1,#sg_col2,#aan_col1,#aan_col2,#imn_col1,#imn_col2,#umr_col1,#umr_col2,#ums_col1,#ums_col2,#kaz_col1,#kaz_col2 {
+	position: relative;
+	width: 200%;
+}
+
+.image_column {
 	position: relative;
 	width: 200%;
 }
@@ -197,28 +211,28 @@ hr { margin: 5px; }
 
 <!-- Start of book {$name} -->
  <div id="${key}">
-	<div class='book_toggle' id='${key}_toggle' onclick="javascript:hide_book('${key}', false);"> Show ${name} [_] </div>
+	<div class='book_toggle ${key}_color' id='${key}_toggle' onclick="javascript:hide_book_build('${key}', false);"> Show ${name} [_] </div>
 	<div id='${key}_page'>
 	<table class='navtable'>
 	<tr>
-		<td> <a href='javascript:shift_page("${key}", -1)'<div class='button'>&larr;</div></a> </td>
-		<td> <div class='button'>${name}</div></td>
-		<td> <a href="javascript:hide_book( '${key}', true);"><div class='button'>hide</div></a> </td>
-		<td> <a href='javascript:shift_page("${key}", 1)'><div class='button'>&rarr;</div></a> </td>
+		<td> <a href='javascript:shift_page("${key}", -1)'><div class='button ${key}_color'>&larr;</div></a> </td>
+		<td> <div class='button ${key}_color'>${name}</div></td>
+		<td> <a href="javascript:hide_book_build( '${key}', true);"><div class='button ${key}_color'>hide</div></a> </td>
+		<td> <a href='javascript:shift_page("${key}", 1)'><div class='button ${key}_color'>&rarr;</div></a> </td>
 	</tr>
 	</table>
-<span class='status_line' id='hw4_status_line'></span>
-<div class='narrowview' id='hw4_narrowview'>
+<span class='status_line ${key}_color' id='${key}_status_line'>status</span>
+<div class='narrowview ${key}_color' id='${key}_narrowview'>
 	<div class='column' id='${col1_div_id}'>
-		<img id='${col1_img_id}' onClick='javascript:searchandgo()'>
+		<img class='image_column col${col1_id}' id='${key}_col${col1_id}' onClick='javascript:searchandgo()'>
 	</div>
 	<hr>
 	<div class='column' id='${col2_div_id}'>
-		<img id='${col1_img_id}' onClick='javascript:searchandgo()'>
+		<img class='image_column col${col2_id}' id='${key}_col${col2_id}' onClick='javascript:searchandgo()'>
 	</div>
 	<hr>
 	<div class='column' id='${col3_div_id}'>
-		<img id='${col1_img_id}' onClick='javascript:searchandgo()'>
+		<img class='image_column col${col3_id}' id='${key}_col${col3_id}' onClick='javascript:searchandgo()'>
 	</div>
 </div>
 <div id='${key}_wideview'>
@@ -226,11 +240,13 @@ hr { margin: 5px; }
 </div>
 <table class='navtable'>
 <tr>
-	<td> <a href='javascript:shift_page("${key}", -1)'><div class='button'>&larr;</div></a> </td>
-	<td> <a href='javascript:shift_page("${key}", 1)' ><div class='button'>&rarr;</div></a> </td>
+	<td> <a href='javascript:shift_page("${key}", -1)'><div class='button ${key}_color'>&larr;</div></a> </td>
+	<td> <a href='javascript:shift_page("${key}", 1)' ><div class='button ${key}_color'>&rarr;</div></a> </td>
 </tr>
 </table>
 </div>
+<hr>
+<hr>
 <!-- End of book ${name} -->
 
 </script>
@@ -238,13 +254,17 @@ hr { margin: 5px; }
 	<td>
 	<a href="javascript:set_order_preset('${key}')"><div class='button'>${name}</div></a>
 </script>
+<script id="preset-cell" type="text/x-jquery-tmpl">
+<td><a href='javascript:set_order_preset("${key}")'><div class='button ${key}_color'>${name}</div></a>
+</script>
 <script id="settings-row" type="text/x-jquery-tmpl">
-<tr id="${key}_setting">
-<td>${key}<td>${name}
-<td><a href='javascript:move("${key}",0)'><div class='button'>top</div></a>
-<td><a href='javascript:move("${key}",-1)'><div class='button'>up</div></a>
-<td><a href='javascript:move("${key}",1)'><div class='button'>down</div></a>
-<td><a href='javascript:move("${key}",999)'><div class='button'>bot</div></a>
+<tr class="settings-row ${key}_color" id="${key}_setting">
+<td>${name} <small>(${key})</small>
+<td><a href='javascript:move_build("${key}",0)'><div class='button ${key}_color'>↟</div></a>
+<td><a href='javascript:move_build("${key}",-1)'><div class='button ${key}_color'>↑</div></a>
+<td><a href='javascript:move_build("${key}",1)'><div class='button ${key}_color'>↓</div></a>
+<td><a href='javascript:move_build("${key}",999)'><div class='button ${key}_color'>↡</div></a>
+<td><a href='javascript:toggle_hide( "${key}")'><div class='hide-button ${key}_color'>H</div></a>
 </tr>
 
 </script>
@@ -320,13 +340,17 @@ _gaq.push(['_trackPageview']);
 	<div id='settings_presets'>
 	</div>
 	You can also choose from these presets:
-	<table>
-	<tbody id="settings-list">
+	<table id="settings_table">
+	<tbody id="settings_rows">
 	</tbody>
 <!--
 	<td class=".dev">
 	<a href="javascript:set_order_preset('dev')"><div class='button'>Dev</div></a>
 -->
+	</table>
+	<table id="presets_table">
+	<tr id="preset-cells">
+	</tr>
 	</table>
 	<br>
 
@@ -374,33 +398,54 @@ http://www.openjs.com/scripts/events/keyboard_shortcuts/
 <script>
 
 // Some global vars that we need:
-var debugmode = true; 
+var debugmode = false; 
 var version = "0.1";
 var title_text = "Mawrid Reader" + " v" + version;
 var toggle = 1;
+var starting_hash = "#";
 
 // Initiate books array with extra needed vars:
+for (var key in presets)
+	$( "#preset-cell" ).tmpl( presets[key]).appendTo( "#preset-cells" );
+
 for (var key in books) {
-	debug(key)
+	//debug(key)
 	books[key]["current"] = books[key]["wanted"] = books[key]["offset"];
+	// The following will also depend on 'ltr' or 'rtl' direction
+	books[key]["col1_id"] = 1
+	books[key]["col2_id"] = 2
+	if ( books[key]['columns'] == 3) {
+		// Do some magic
+	}
+	else {
+		
+	}
 	var book = books[key]
-	for (var prop in book)
-		if (book.hasOwnProperty(prop)) debug(key + "." + prop + " = " + book[prop])
+//	for (var prop in book)
+//		if (book.hasOwnProperty(prop)) debug(key + "." + prop + " = " + book[prop])
 	$( "#book-template" ).tmpl( books[key]).appendTo( "#all_books" );
 	$("#"+key+"_toggle").hide()
 	$( "#settings-row" ).tmpl( books[key]).appendTo( "#settings_rows" );
+	starting_hash += key + '=' + books[key]["offset"] + ',';
+	$("."+key+"_color").css('background-color', books[key]["color"])
+	$("#"+key+"_wideviewimg").css('border', '3px solid ' + books[key]["color"])
+	/*
 	$.getScript( books[key]["index-js"], function( data, textStatus, jqxhr ) {
 	  console.log( data ); // Data returned
 	  console.log( textStatus ); // Success
 	  console.log( jqxhr.status ); // 200
-	  console.log( "Load was performed." );
-		books[key]["index"] = eval(key);
+	  books[key]["index"] = eval(key);
+	  console.log( "Load of "+books[key]["index-js"]+" was performed, # of records: " + books[key]["index"].length);
+	  debug( "Load of "+books[key]["index-js"]+" was performed, # of records: " + books[key]["index"].length);
 	});
 	// Move the index into the books object
 	//books[key]["index"] = 
+	*/
 }
+starting_hash = starting_hash.replace(/,$/,'')
+debug("starting_hash = " + starting_hash)
 var initial_book_order = presets["default"];
-var aa_book_order = initial_book_order;
+//var aa_book_order = initial_book_order;
 
 var toggle_view_auto = 1;
 var toggle_view_mode;
@@ -430,50 +475,64 @@ shortcut.add("P",function() { testing123(); });
 shortcut.add("W",function() { toggle_fitwidth(); });
 
 
-function move( id, where) {
-	if ( where == 0) { 
-		// Move to top
-		$('#'+id).parent.prepend($('#'+id));
-	}
-	else if (where >= books.length) { 
-		// Move to bottom
-		$('#'+id).parent.append($('#'+id));
-	}
-	else if (where == -1) {
-		// Move one up
-		$('#'+id).parent.insertBefore($('#'+id).parent().prev());
-	}
-	else if (where == 1) {
-		// Move one down
-		$('#'+id).parent.insertAfter($('#'+id).parent().next());
-	}
+function move_build( id, where) {
+	move( id, where)
+	build_hash()
+}
 
-	/*
-	var content = $('#'+id);
-	var parent = content.parentNode;
-	parent.insertBefore(content, parent.firstChild);
-	
-	var aa_book_order = "";
-	$('#all_books').children().each(function(){
-		var kid = $(this);
-	 	//debug( kid.attr('id'));
-		aa_book_order += kid.attr('id') + ",";
-	 	//i++;
-	});
-	setCookie('aa_book_order', aa_book_order, 365);
-	*/
+function move( id, where) {
+
+	var objects = [ '#'+id, '#'+id+"_setting"];
+	for (i = 0; i < objects.length; i++) {
+		obj = objects[i]
+		if ( where == 0) { 
+			// Move to top
+			//debug( "moving "+obj+" to top")
+			$(obj).parent().prepend($(obj));
+		}
+		else if (where >= Object.keys(books).length ) { 
+			//debug( "moving "+obj+" to bottom")
+			$(obj).parent().append($(obj));
+			//$('#all_objs').append($(obj));
+			//$(obj).remove().insertAfter($("#all_objs div:last"));
+			//$("#all_objs" .row:first").remove().insertAfter($("#container .row:last));
+		}
+		else if (where == -1) {
+			// Move one up
+			//debug( "moving "+obj+" 1 up")
+			$(obj).after( $(obj).prev() );
+		}
+		else if (where == 1) {
+			// Move one down
+			//debug( "moving "+obj+" 1 down")
+			$(obj).before( $(obj).next() );
+		}
+	}
+}
+
+function toggle_hide( book) {
+	if ( books[book]["should_hide"] == 1)
+		books[book]["should_hide"] = 0
+	else books[book]["should_hide"] = 1
+	build_hash()
+}
+
+function hide_book_build( target, should_hide) {
+	hide_book( target, should_hide)
+	build_hash()
 }
 
 function hide_book( target, should_hide) {
-	for (var key in books) {
-		if ( key == target) {
-			debug( "hide: " + key + "=" + should_hide)
-			books[target]["should_hide"] = should_hide;
-			if ( should_hide) hide_show( key+'_page', key+'_toggle');
-			else              hide_show( key+'_toggle', key+'_page');
-		}
+	debug( "hide: " + target + "=" + should_hide)
+	books[target]["should_hide"] = should_hide;
+	if ( should_hide) {
+		hide_show( target+'_page', target+'_toggle');
+		$("#"+target+"_setting .hide-button").css('border','3px solid black')
 	}
-	build_hash();
+	else {
+		hide_show( target+'_toggle', target+'_page');
+		$("#"+target+"_setting .hide-button").css('border','')
+	}
 }
 
 function hideme_show( hideobj, showobj) {
@@ -508,17 +567,25 @@ function set_hash( s) {
 }
 function build_hash() {
 	var new_hash = "#"
+
+	$('#all_books').children().each(function(){
+		var book = $(this).attr('id');
+ 		//debug( id);
+			new_hash += book + "="
+			if (books[book]["should_hide"] == 1) new_hash += "h"
+			new_hash += books[book]["wanted"] + ','
+/*
 	var i, books_order = current_order.split(',')
 	if (books_order.length > 0)
 		for (i = 0; i < books_order.length; i++) {
-			new_hash += books_order[i] + "="
-			if (books[books_order[i]]["should_hide"] == 1) new_hash += "h"
-			new_hash += books[books_order[i]]["wanted"]
 		}
+*/
+	})
+	new_hash = new_hash.replace(/,$/,'')
 	debug("new_hash = " + new_hash);
 
 	window.location.hash = new_hash;
-	setCookie( "aa_last_hash", window.location.hash, 365);
+	setCookie( "mr_last_hash", window.location.hash, 365);
 }
 
 function set_title() {
@@ -565,12 +632,13 @@ function parse_hash() {
 					books[key]["should_hide"] = 0
 					if (value.match( /^h/ )) {
 						books[key]["should_hide"] = 1
-						hide_show( key+'_page', key+'_toggle');
 						value = value.replace(/^h/, '')
 					}
+					hide_book( key, books[key]["should_hide"]);
+					
 					books[key]["wanted"] = books[key]["current"] = parseInt(value)
-					move_to_top(key);
-					move_to_top(key+"_setting");
+					move(key,0);
+					//move_to_top(key+"_setting");
 				}
 			}
 		}
@@ -620,6 +688,7 @@ function visible_book_shift( offset) {
 }
 
 function get_img_url( book) {
+	//debug( "get_img_url( " + book +")")
 	var page = books[book]["current"]
 	if (page < 1) books[book]["current"] = page = 1
 	if (page > books[book]["index"].length)
@@ -627,7 +696,8 @@ function get_img_url( book) {
 	var str = "" + page
 	var pad = "0000"
 	prefixed_page = pad.substring(0, pad.length - str.length) + str
-	return img_base_dir + book + "/" + book + "-" + prefixed_page + ".png"
+	return img_base_dir + books[book]["image-prefix"] + "/" + Math.floor(page/100) + "/" +
+		books[book]["image-prefix"] + "-" + prefixed_page + ".png"
 }
 
 function display_images() {
@@ -653,13 +723,17 @@ function display_images() {
 				$("#"+key+"_col1").attr('src', img_url);
 				$("#"+key+"_col2").attr('src', img_url);
 				$("#"+key+"_wideviewimg").attr('src', img_url);
-				$("#"+key+"_wideviewimg").html( status_string);
+				$("#"+key+"_status_line").html( status_string);
 			}
 		}
 	}
 
 function debug( text) {
-	if(debugmode) { document.getElementById("debug").innerHTML += "<br> [" + text + "] "; } 
+	str = (new Date()).getTime()+" - [" + text + "] "
+	if (debugmode) { 
+	  document.getElementById("debug").innerHTML += "<br>" + str
+	} 
+	console.log(str)
 }
 
 // http://constc.blogspot.com/2008/07/undeclared-undefined-null-in-javascript.html
@@ -687,14 +761,15 @@ function first_page_load() {
 	
 	// Set default hash value, and show About if this appears to be the first visit
 	if ( window.location.hash.replace(/^#/,'') == "") { 
-		var aa_last_hash = getCookie("aa_last_hash");
-		//debug( aa_last_hash);
-		if ( isUndefined(aa_last_hash) || aa_last_hash == "") {
+		var mr_last_hash = getCookie("mr_last_hash");
+		debug( mr_last_hash);
+		if ( isUndefined(mr_last_hash) || mr_last_hash == "" || mr_last_hash == null) {
+			debug('hash = empty, first visit?')
 			window.location.hash = starting_hash;
 			//toggle_about();
 			//parse_hash();
 		} else {
-			window.location.hash = aa_last_hash;
+			window.location.hash = mr_last_hash;
 		}
 	} else parse_hash();
 		
@@ -769,20 +844,22 @@ function update_settings_order( order_toset) {
 	}
 }
 
-function set_order_preset( preset_requested) {
-	var new_book_order = initial_book_order;
-	if ( preset_requested == "quran")  new_book_order = "BR,AAN,MGF,VI,PR,LL,LS,SG,HW4,UQW,LA,UMR,UMS,UMJ,ULQ,UQA,HA,HW3,IMN,KAZ";
-	if ( preset_requested == "modern") new_book_order = "HW4,SG,LL,LS,HA,BR,PR,MGF,HW3,AAN,VI,UQW,LA,UMR,UMS,UMJ,ULQ,UQA,IMN,KAZ";
-	if ( preset_requested == "dev") new_book_order = "KAZ,UQA,ULQ,IMN,LA,UMS,UMR,UQW,UMJ,MGF,VI,AAN,HW4,SG,BR,PR,LL,LS,HA,HW3";
-	if ( preset_requested == "urdu") new_book_order = "UQW,UMR,UMS,UMJ,ULQ,UQA,HW4,LL,LS,MGF,VI,AAN,SG,BR,PR,HA,HW3,LA,IMN,KAZ";
-	if ( preset_requested == "indo") new_book_order = "IMN,UQW,UMR,UMS,UMJ,ULQ,UQA,HW4,LL,LS,MGF,VI,AAN,SG,BR,PR,HA,HW3,LA,KAZ";
-	if ( preset_requested == "french") new_book_order = "KAZ,HW4,SG,LL,LS,HA,BR,PR,MGF,HW3,AAN,VI,UQW,LA,UMR,UMS,UMJ,ULQ,UQA,IMN";
-	// Default is above already
-	// if ( preset_requested == "default")
-	update_settings_order( new_book_order);
+function set_order_preset( preset) {
+	var i, order = presets[preset]['order'].split(',')
+
+	for (var key in books) books[key]['should_hide'] = 1
+
+	if (order.length > 0) {
+	  for (i = order.length - 1; i >= 0; i--) {
+			hide_book( order[i], false)
+			move( order[i], 0)
+		}
+	}
+	build_hash()
 }
 
 function save_settings() {
+	/*
 	var new_book_order = "";
 	for ( i = 1; i <= 19; i++ ) new_book_order += $('input[name = "setbook' + i + '"]:checked').val() + ',';
 	new_book_order += $('input[name = "setbook20"]:checked').val();
@@ -790,6 +867,7 @@ function save_settings() {
 	//debug(new_book_order);
 	aa_book_order = new_book_order;
 	set_book_order();
+	*/
 	toggle_settings();
 }
 
@@ -895,29 +973,19 @@ function toggle_view() {
 	if (toggle == 1) {
 		$(".narrowview").hide();
 		$(".wideview").show();
-		$("#br_wideviewimg").css('max-width', '');
-		$("#mgf_wideviewimg").css('max-width', ''); // TODO: Need or not?
-		$("#ulq_wideviewimg").css('max-width', ''); // TODO: Need or not?
-		$("#uqa_wideviewimg").css('max-width', ''); // TODO: Need or not?
-		$("#vi_wideviewimg").css('max-width', '');
 		$("#currentmode").html("Desktop (full page)");
 		toggle_view_mode = 1;
 		toggle = 2;
 	} else {
 		$(".narrowview").show();
 		$(".wideview").hide();
-		$("#br_wideviewimg").css('max-width', '99%');
-		$("#mgf_wideviewimg").css('max-width', '99%'); // TODO: Need or not?
-		$("#ulq_wideviewimg").css('max-width', '99%'); // TODO: Need or not?
-		$("#uqa_wideviewimg").css('max-width', '99%'); // TODO: Need or not?
-		$("#vi_wideviewimg").css('max-width', '99%');
 		$("#currentmode").html("Mobile (column)");
 		toggle = 1;
 		toggle_view_mode = 2;
 	}
 
 	//setCookie( "toggle_view_auto", toggle_view_auto, 365);
-	setCookie( "aa_last_view_mode", toggle_view_mode, 365);
+	setCookie( "mr_last_view_mode", toggle_view_mode, 365);
 	set_fitwidth();
 }
 
@@ -1000,41 +1068,14 @@ function do_search( input) {
 	search = search.replace(/[nN]/g,"ن");
 	search = search.replace(/[wW]/g,"و");
 	search = search.replace(/[yY]/g,"ي");
-	// debug( "Searching for: " + search);
-	// Headers 
-	req_sg_page = binarySearch( sg, search, 0);
-	req_br_page = binarySearch( br, search, 0);
-	req_mgf_page = binarySearch( mgf, search, 0);
-	req_ulq_page = binarySearch( ulq, search, 0);
-	req_uqa_page = binarySearch( uqa, search, 0);
-	req_pr_page = binarySearch( pr, search, 0);
-	req_ha_page = binarySearch( ha_p, search, 0);
-	// Fudge was set to -1, but this often leads to the wrong page
-	req_hw3_page = binarySearch( hw3, search, 0);
-	req_hw4_page = binarySearch( hw4, search, 0);
-	req_aan_page = binarySearch( aan, search, 0);
-	req_imn_page = binarySearch( imn, search, 0);
-	req_umr_page = binarySearch( umr, search, 0);
-	req_ums_page = binarySearch( ums, search, 0);
-	req_umj_page = binarySearch( umj, search, 0);
-	req_vi_page  = binarySearch( vi, search, 0);
-	req_uqw_page  = binarySearch( uqw, search, 0);
-	req_la_page  = binarySearch( la, search, 0);
-	req_kaz_page  = binarySearch( kaz, search, 0);
-	req_ll = get_ll_volume_page( binarySearch( ll_p, search, -1));
-	req_ll_vol = req_ll[0];
-	req_ll_page = req_ll[1];
-	req_ls_page = binarySearch( ls_p, search, -1);	
-	if ( req_ls_page < 3) {
-		// Nothing useful found, hide it:
-		document.getElementById("ls_search_status").innerHTML =
-			"Not found in supplement | ";
-		hide_show( 'laneslexiconsup', 'ls_toggle');
-		
-	} else document.getElementById("ls_search_status").innerHTML = "";
+	debug( "Searching for: " + search);
+	for (var key in books)
+		books[key]["wanted"] = binarySearch( books[key]['index'], search, 0);
 
-	document.getElementById("searchbar").innerHTML = 
-		"Searched for: <strong>" + input + "</strong> (" + search + ") |";
+	// Headers 
+
+	$("#searchbar").html(
+		"Searched for: <strong>" + input + "</strong> (" + search + ") |")
 	
 	// set searched_word first because build_hash() will lead to set_title() where it is used
 	searched_word = search;
@@ -1141,7 +1182,7 @@ function binarySearch(items, value, exact_match_fudge){
 
     loop_count = 0;
     while(items[middle] != value && startIndex < stopIndex && loop_count < 100){
-        debug(middle+'='+items[middle]); 
+        //debug(middle+'='+items[middle]); 
         loop_count++; // abd shomad: Temporary countermeasure to prevent endless looping (due to index is not defined). 
         //adjust search area
         if (value < items[middle]){
