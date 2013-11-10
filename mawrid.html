@@ -19,8 +19,18 @@ a { color: black; text-decoration: none; }
 	width: 100%; background-color: silver;
 	}
 
+#settings-table, #settings-table tr {
+	table-layout: fixed;
+	width: 100%;
+}
+
+#settings_rows td {
+	width: 20%;
+	text-align: center;
+}
+
 #settings-table td {
-	width: 30%;
+	//width: 30%;
 }
 
 .settings-row .button {
@@ -49,43 +59,13 @@ hr { margin: 5px; }
 
 .column_indicator { width: 100% }
 .column_indicator td { margin: 2; padding: 2; background-color: gray; }
-.act  { background-color: blue; }
-.index_table td { 
-	font-size: xx-large; 
-	text-align: center; 
-	}
-
-/*
-.green-gradient {
-	margin: 2px;
-	background-image: -webkit-linear-gradient(top,rgb(0,90,0),rgb(0,255,0));
-	background-image:    -moz-linear-gradient(top,rgb(0,90,0),rgb(0,255,0));
-	background-image:     -ms-linear-gradient(top,rgb(0,90,0),rgb(0,255,0));
-	background-image:      -o-linear-gradient(top,rgb(0,90,0),rgb(0,255,0));
-}
-*/
-
-.rainbow {
-	/* padding: 2px;*/
-	margin: 2px;
-	/* Make a rainbow gradient */
-	/*
-	background-image: -o-linear-gradient(top,rgb(255,0,0),rgb(0,0,255));
-	background-image: -o-linear-gradient(top,rgb(255,0,0),rgb(0,255,0) 50%,rgb(0,0,255));
-	*/
-	background-image: -o-linear-gradient(top,rgb(255,0,0),rgb(0,255,0) 50%,rgb(0,0,255));
-}
-
-/*
-<meta name='viewport' content='width=device-width, initial-scale=1.0'/>  
-*/
 
 .column {
 	width: 98%;
 	overflow: hidden;
 }
 
-#settings_container,#hw3_toggle,#ll_toggle,#uqw_toggle,#la_toggle,#ls_toggle,#ha_toggle,#sg_toggle,#hw4_toggle,#br_toggle,#pr_toggle,#aan_toggle,#imn_toggle,#umr_toggle,#ums_toggle,#vi_toggle,#mgf_toggle,#ulq_toggle,#uqa_toggle,#umj_toggle,#kaz_toggle { display: none; }
+#settings_container { display: none; }
 #settings_container { border: solid white 5px; }
 #settings_2 td { border-bottom: solid white 1px; }
 
@@ -94,116 +74,13 @@ hr { margin: 5px; }
 	width: 200%;
 }
 
-.image_column {
-	position: relative;
-	width: 200%;
-}
+.2col, .2col_1, 2col_2 { position: relative; width: 200%; }
+.2col_2 { right: 100%; }
 
-#aan_col1 {
-	left: -2%; /* fix for AAN */ 
-}
+.3col, .3col_1, 3col_2 { position: relative; width: 285%; }
+.3col_2 { left: -95%; }
+.3col_3 { left: -95%; }
 
-#aan_col2 {
-	width: 210%; /* fix for AAN */ 
-}
-
-#imn_col1 {
-	left: -2%; /* fix for IMN */ 
-}
-
-#imn_col2 {
-	width: 210%; /* fix for IMN */ 
-}
-
-#ums_col1 {
-	left: -2%; /* TODO: check for ums */ 
-}
-
-#ums_col2 {
-	width: 210%; /* TODO: check for ums */ 
-}
-
-#umr_col1 {
-	left: -2%; /* TODO: check for UMR */ 
-}
-
-#umr_col2 {
-	width: 210%; /* TODO: check for UMR */ 
-}
-
-#ha_col2 {
-	left: 0%;
-}
-
-#hw4_col2,#pr_col2,#hw3_col2,#ha_col1,#sg_col2,#aan_col2,#imn_col2,#umr_col2,#ums_col2,#kaz_col2 {
-	right: 100%;
-}
-
-#ll_col1,#ll_col2,#ll_col3,#ls_col1,#ls_col2,#ls_col3,#umj_col1,#umj_col2,#umj_col3,#uqw_col1,#uqw_col2,#uqw_col3,#la_col1,#la_col2,#la_col3 {
-	position: relative;
-	width: 285%;
-}
-
-#ll_col2,#ls_col2,#uqw_col2,#la_col2,#umj_col2 {
-/*
-	right: 100%;
-	right: 200%;
-	left: -185%;
-*/
-	left: -95%;
-}
-
-#ll_col3,#ls_col3,#uqw_col1,#la_col1,#umj_col1 {
-	left: -185%;
-	right: 100%;
-}
-
-#penrice         .navtable td div, #pr_toggle,  .PR_color , #pr_status_line  { background-color: orchid; }
-#brill           .navtable td div, #br_toggle,  .BR_color , #br_status_line  { background-color: magenta; }
-#mgfarid         .navtable td div, #mgf_toggle, .MGF_color, #mgf_status_line { background-color: orange; }
-#ulughaat        .navtable td div, #ulq_toggle, .ULQ_color, #ulq_status_line { background-color: orange; }
-#uqalfaaz        .navtable td div, #uqa_toggle, .UQA_color, #uqa_status_line { background-color: orange; }
-#aanadwi         .navtable td div, #aan_toggle, .AAN_color, #aan_status_line { background-color: slateblue; }
-#idmunawir       .navtable td div, #imn_toggle, .IMN_color, #imn_status_line { background-color: Moccasin; }
-#verbalidioms    .navtable td div, #vi_toggle,  .VI_color,  #vi_status_line  { background-color: violet; }
-#steingass       .navtable td div, #sg_toggle,  .SG_color , #sg_status_line  { background-color: turquoise; }
-#hanswehr3       .navtable td div, #hw3_toggle, .HW3_color, #hw3_status_line { background-color: coral; }
-#hanswehr4       .navtable td div, #hw4_toggle, .HW4_color, #hw4_status_line { background-color: salmon; }
-#laneslexicon    .navtable td div, #ll_toggle,  .LL_color , #ll_status_line  { background-color: lawngreen; }
-#laneslexiconsup .navtable td div, #ls_toggle,  .LS_color , #ls_status_line  { background-color: palegreen; }
-#hava            .navtable td div, #ha_toggle,  .HA_color , #ha_status_line  { background-color: gold; }
-#uqaamoos        .navtable td div, #uqw_toggle, .UQW_color, #uqw_status_line { background-color: MediumSeaGreen; }
-#lisanularab     .navtable td div, #la_toggle,  .LA_color,  #la_status_line  { background-color: Lavender; }
-#urdumufraadaat  .navtable td div, #umr_toggle, .UMR_color, #umr_status_line { background-color: teal; }
-#urdumukhtaar    .navtable td div, #ums_toggle, .UMS_color, #ums_status_line { background-color: royalblue; }
-#umunjid         .navtable td div, #umj_toggle, .UMJ_color, #umj_status_line { background-color: LightSteelBlue; }
-#kazir           .navtable td div, #kaz_toggle, .KAZ_color, #kaz_status_line { background-color: Green; }
-
-
-#pr_wideviewimg  { border: 3px solid orchid; }
-#br_wideviewimg  { border: 3px solid magenta; }
-#mgf_wideviewimg { border: 3px solid orange; }
-#ulq_wideviewimg { border: 3px solid orange; }
-#uqa_wideviewimg { border: 3px solid orange; }
-#aan_wideviewimg { border: 3px solid slateblue; }
-#imn_wideviewimg { border: 3px solid Moccasin; }
-#vi_wideviewimg  { border: 3px solid violet; }
-#sg_wideviewimg  { border: 3px solid turquoise; }
-#hw3_wideviewimg { border: 3px solid coral; }
-#hw4_wideviewimg { border: 3px solid salmon; }
-#ll_wideviewimg  { border: 3px solid lawngreen; }
-#ls_wideviewimg  { border: 3px solid palegreen; }
-#ha_wideviewimg  { border: 3px solid gold; }
-#uqw_wideviewimg { border: 3px solid MediumSeaGreen; }
-#la_wideviewimg  { border: 3px solid Lavender; }
-#umr_wideviewimg { border: 3px solid teal; }
-#ums_wideviewimg { border: 3px solid royalblue; }
-#umj_wideviewimg { border: 3px solid LightSteelBlue; }
-#kaz_wideviewimg { border: 3px solid Green; }
-
-
-/*
-*/
 
 </style>
 
@@ -224,15 +101,15 @@ hr { margin: 5px; }
 <span class='status_line ${key}_color' id='${key}_status_line'>status</span>
 <div class='narrowview ${key}_color' id='${key}_narrowview'>
 	<div class='column' id='${col1_div_id}'>
-		<img class='image_column col${col1_id}' id='${key}_col${col1_id}' onClick='javascript:searchandgo()'>
+		<img class='image_column ${columns}col_${col1_id}' id='${key}_col${col1_id}' onClick='javascript:searchandgo()'>
 	</div>
 	<hr>
 	<div class='column' id='${col2_div_id}'>
-		<img class='image_column col${col2_id}' id='${key}_col${col2_id}' onClick='javascript:searchandgo()'>
+		<img class='image_column ${columns}col_${col2_id}' id='${key}_col${col2_id}' onClick='javascript:searchandgo()'>
 	</div>
 	<hr>
 	<div class='column' id='${col3_div_id}'>
-		<img class='image_column col${col3_id}' id='${key}_col${col3_id}' onClick='javascript:searchandgo()'>
+		<img class='image_column ${columns}col_${col3_id}' id='${key}_col${col3_id}' onClick='javascript:searchandgo()'>
 	</div>
 </div>
 <div id='${key}_wideview'>
@@ -260,10 +137,10 @@ hr { margin: 5px; }
 <script id="settings-row" type="text/x-jquery-tmpl">
 <tr class="settings-row ${key}_color" id="${key}_setting">
 <td>${name} <small>(${key})</small>
-<td><a href='javascript:move_build("${key}",0)'><div class='button ${key}_color'>↟</div></a>
-<td><a href='javascript:move_build("${key}",-1)'><div class='button ${key}_color'>↑</div></a>
-<td><a href='javascript:move_build("${key}",1)'><div class='button ${key}_color'>↓</div></a>
-<td><a href='javascript:move_build("${key}",999)'><div class='button ${key}_color'>↡</div></a>
+<td><a href='javascript:move_build("${key}",0)'><div class='button, ${key}_color'>&uArr;</div></a>
+<td><a href='javascript:move_build("${key}",-1)'><div class='button, ${key}_color'>&uarr;</div></a>
+<td><a href='javascript:move_build("${key}",1)'><div class='button, ${key}_color'>&darr;</div></a>
+<td><a href='javascript:move_build("${key}",999)'><div class='button, ${key}_color'>&dArr;</div></a>
 <td><a href='javascript:toggle_hide( "${key}")'><div class='hide-button ${key}_color'>H</div></a>
 </tr>
 
@@ -308,16 +185,6 @@ _gaq.push(['_trackPageview']);
 </table>
 
 <!--
- &plusmn;
-<hr>
-<a href="http://ejtaal.net/donate/" >
-<div style='margin: 1%; width: 100%; height: 5%; color: white; background-color: navy; border: 1 solid white;'>
-<center>
-::: Please donate if you like this page, click here :::
-</center>
-</div>
-<small>
-</small>
 -->
 <center>
 <span id='statusbar'></span>
@@ -325,7 +192,7 @@ _gaq.push(['_trackPageview']);
 <span id='version'></span> | Viewing mode: <em><span id='currentmode'></span></em>.
 <br>
 <a href="/donate" style="width: 100%; color: steelblue; border: 1px solid navy;">
- ۩۞۩ --- Please donate --- ۩۞۩
+ ۩۞۩ -Please donate ۩۞۩
 </a>
 <div id=debug>
 </div>
@@ -340,6 +207,11 @@ _gaq.push(['_trackPageview']);
 	<div id='settings_presets'>
 	</div>
 	You can also choose from these presets:
+	<table id="presets_table">
+	<tr id="preset-cells">
+	</tr>
+	</table>
+	<hr>
 	<table id="settings_table">
 	<tbody id="settings_rows">
 	</tbody>
@@ -348,33 +220,17 @@ _gaq.push(['_trackPageview']);
 	<a href="javascript:set_order_preset('dev')"><div class='button'>Dev</div></a>
 -->
 	</table>
-	<table id="presets_table">
-	<tr id="preset-cells">
-	</tr>
-	</table>
 	<br>
 
 <!--
-	<div id='settings'>
-		<select id=setbook1></select><br>
-		<select id=setbook2></select><br>
-		<select id=setbook3></select><br>
-		<select id=setbook4></select><br>
-		<select id=setbook5></select><br>
-	</div>
 -->
 	<a href='javascript:save_settings()'><div class='button'>Save</div></a>
 	<hr>
 </div>
 
 <div id='all_books'>
-<!--
-All books go here
--->
 </div>
 
-<!--
--->
 <hr>
 <table class='navtable'>
 <tr>
@@ -394,6 +250,7 @@ http://www.openjs.com/scripts/events/keyboard_shortcuts/
 <script type="text/javascript" src="jslib/shortcut.js"></script>
 <script type="text/javascript" src="jslib/jquery.tmpl.js"></script>
 
+<script type="text/javascript" src="mawrid-indexes.js"></script>
 <script type="text/javascript" src="mawrid-conf.js"></script>
 <script>
 
@@ -411,15 +268,29 @@ for (var key in presets)
 for (var key in books) {
 	//debug(key)
 	books[key]["current"] = books[key]["wanted"] = books[key]["offset"];
-	// The following will also depend on 'ltr' or 'rtl' direction
+	// Set up the right column order for viewing on mobiles
 	books[key]["col1_id"] = 1
 	books[key]["col2_id"] = 2
-	if ( books[key]['columns'] == 3) {
-		// Do some magic
+	books[key]["col3_id"] = 3
+	if ( books[key]['columns'] == 1) {
+		$( books[key]['columns']+'col_2').hide()
+		$( books[key]['columns']+'col_3').hide()
 	}
-	else {
-		
+	else if ( books[key]['columns'] == 2) {
+		$( books[key]['columns']+'col_3').hide()
+		if ( books[key]['direction'] == 'rtl') {
+			books[key]["col1_id"] = 2
+			books[key]["col2_id"] = 1
+		}
 	}
+	else if ( books[key]['columns'] == 3) {
+		if ( books[key]['direction'] == 'rtl') {
+			books[key]["col1_id"] = 3
+			books[key]["col2_id"] = 2
+			books[key]["col3_id"] = 1
+		}
+	}
+
 	var book = books[key]
 //	for (var prop in book)
 //		if (book.hasOwnProperty(prop)) debug(key + "." + prop + " = " + book[prop])
@@ -429,18 +300,6 @@ for (var key in books) {
 	starting_hash += key + '=' + books[key]["offset"] + ',';
 	$("."+key+"_color").css('background-color', books[key]["color"])
 	$("#"+key+"_wideviewimg").css('border', '3px solid ' + books[key]["color"])
-	/*
-	$.getScript( books[key]["index-js"], function( data, textStatus, jqxhr ) {
-	  console.log( data ); // Data returned
-	  console.log( textStatus ); // Success
-	  console.log( jqxhr.status ); // 200
-	  books[key]["index"] = eval(key);
-	  console.log( "Load of "+books[key]["index-js"]+" was performed, # of records: " + books[key]["index"].length);
-	  debug( "Load of "+books[key]["index-js"]+" was performed, # of records: " + books[key]["index"].length);
-	});
-	// Move the index into the books object
-	//books[key]["index"] = 
-	*/
 }
 starting_hash = starting_hash.replace(/,$/,'')
 debug("starting_hash = " + starting_hash)
@@ -485,6 +344,7 @@ function move( id, where) {
 	var objects = [ '#'+id, '#'+id+"_setting"];
 	for (i = 0; i < objects.length; i++) {
 		obj = objects[i]
+		//$(obj).fadeOut({ duration: 100})
 		if ( where == 0) { 
 			// Move to top
 			//debug( "moving "+obj+" to top")
@@ -507,6 +367,7 @@ function move( id, where) {
 			//debug( "moving "+obj+" 1 down")
 			$(obj).before( $(obj).next() );
 		}
+		//$(obj).fadeIn({ duration: 100})
 	}
 }
 
@@ -523,7 +384,7 @@ function hide_book_build( target, should_hide) {
 }
 
 function hide_book( target, should_hide) {
-	debug( "hide: " + target + "=" + should_hide)
+	//debug( "hide: " + target + "=" + should_hide)
 	books[target]["should_hide"] = should_hide;
 	if ( should_hide) {
 		hide_show( target+'_page', target+'_toggle');
@@ -574,12 +435,6 @@ function build_hash() {
 			new_hash += book + "="
 			if (books[book]["should_hide"] == 1) new_hash += "h"
 			new_hash += books[book]["wanted"] + ','
-/*
-	var i, books_order = current_order.split(',')
-	if (books_order.length > 0)
-		for (i = 0; i < books_order.length; i++) {
-		}
-*/
 	})
 	new_hash = new_hash.replace(/,$/,'')
 	debug("new_hash = " + new_hash);
@@ -745,20 +600,6 @@ function first_page_load() {
 	else { toggle = 1; }
 	toggle_view();
 	
-	/*
-	// first sort out the book order
-	var saved_book_order = getCookie('aa_book_order');
-	//alert('test');
-	//debug('aa_book_order in cookie = ' + saved_book_order);
-	if ( isUndefined(saved_book_order) || saved_book_order == "" || saved_book_order === null )
-		aa_book_order = initial_book_order;
-	else
-		aa_book_order = saved_book_order;
-	//debug('using aa_book_order: ' + aa_book_order);
-	set_book_order();
-	*/
-
-	
 	// Set default hash value, and show About if this appears to be the first visit
 	if ( window.location.hash.replace(/^#/,'') == "") { 
 		var mr_last_hash = getCookie("mr_last_hash");
@@ -778,35 +619,8 @@ function first_page_load() {
 		fitwidth = aa_fitwidth;
 	}
 
-
-
-
-
-
 	set_fitwidth();
-	//init_settings();
 }
-
-/*
-function set_book_order() {
-	var book_array = aa_book_order.split(',');
-	for ( i = book_array.length - 1; i >= 0; i--) {
-		//debug( book_array[i]);
-		if ( book_array[i] != "" ) {
-			//debug( book_array[i]);
-			// Check if it exists (using .length seems the way to do this), 
-			// as user may have data from the previous version in their cookie
-			if ( $('#'+book_array[i]).length > 0 ) {
-				var content = document.getElementById(book_array[i]);
-				var parent = content.parentNode;
-				parent.insertBefore(content, parent.firstChild);
-			}
-			//debug( book_array[i]);
-		}
-	}
-	setCookie('aa_book_order', aa_book_order, 365);
-}
-*/
 
 function init_settings() {
 	var table_html = "<table><tr>\n";
@@ -897,39 +711,6 @@ function testing123() {
 //document.getElementById("renderedsite").innerHTML = "";
 // document.getElementById("renderedsite").innerHTML = document.getElementById("testinput").innerHTML;
 	
-}
-
-
-function showindex() {
-	document.getElementById("chapters_index").innerHTML = '<hr>';
-	for (var i = 0; i < chapters.length; i++) {
-		document.getElementById("chapters_index").innerHTML += 
-			"<a href='javascript:showchap(" + i + ")'><span class='indexbutton'> " +
-			chapters[i][0] + " </span></a>\n";
-	}
-	document.getElementById("about").style['display'] = 'none';
-	scroll( 0, 0);
-}
-
-function showcurchap() { showchap( getchap(cur_page)) };
-function showchap( chap) {
-	var end;
-	document.getElementById("chapters_index").innerHTML = '';
-	document.getElementById("chapter_contents").innerHTML = '<hr>';
-	if ( chap == chapters.length - 1 ) { end = items.length + offset; }
-	else { end = chapters[chap+1][1]; }
-	//alert( 'end = ' + end );
-	for (var i = chapters[chap][1]; i < end; i++) {
-		var header_index = i - offset;
-		var append = '';
-		if ( header_index < 0) { append = 'page ' + i; }
-		else { append = items[header_index]; } 
-		document.getElementById("chapter_contents").innerHTML += 
-			"<a href='#" + i + "'><span class='indexbutton'> " +
-			append + " </span></a>\n";
-	}
-	document.getElementById("about").style['display'] = 'none';
-	scroll( 0, 0);
 }
 
 
@@ -1085,57 +866,6 @@ function do_search( input) {
 	
 }
 
-function load_imgs( page_num) {
-	if ( page_num < 0 ) { page_num = 0; }
-	if ( page_num > total_pages ) { page_num = total_pages - 1; }
-	//alert( page_num);
-	setCookie( "last_page", page_num, 31);
-	document.getElementById("chapters_index").innerHTML = '';
-	document.getElementById("chapter_contents").innerHTML = '';
-	document.getElementById("a_prev").href = '#' + (page_num-1);
-	document.getElementById("a_next").href = '#' + parseInt(parseInt(page_num)+1);
-	document.getElementById("a_prev2").href = '#' + (page_num-1);
-	document.getElementById("a_next2").href = '#' + parseInt(parseInt(page_num)+1);
-	//document.getElementById("a_prev").href = '?page=' + (page_num-1);
-	//document.getElementById("a_next").href = '?page=' + parseInt(parseInt(page_num)+1);
-	document.getElementById("statusbar").innerHTML = 
-		"Hans Wehr - chapter <em class='small_button'><a href='javascript:showcurchap()'>" +
-		chapters[getchap(page_num)][0] +
-		"</a></em> - page " 
-		+ "<input type=text size=5 onkeypress=\"checkKey(event)\" id=input_no value='" + (page_num-offset+1) + "'>"
-		+ " : " +
-		"<strong>" + items[page_num-offset] + "</strong>"
-		;
-
-	//+ page_num 
-	document.title = 'p. ' + page_num + ' (' + items[page_num-offset] + ') - Hans Wehr';
-	var imgs = document.getElementsByTagName("img"); 
-	var img_url = Math.floor(page_num/100) + "/hw-" + page_num + ".gif"; //img[i].src is the reference to the image. 
-	for (var i = 0, l = imgs.length; i < l; i++) { 
-		imgs[i].src = img_url;
-		imgs[i].style['display'] = 'block';
-	}
-	scroll( 0, 0);
-	cur_page = page_num;
-	//alert( 'done loading');
-}
-
-function checkKey(e) {
-    var charCode;
-    
-    if(e && e.which){
-        charCode = e.which;
-    }else if(window.event){
-        e = window.event;
-        charCode = e.keyCode;
-    }
-
-    if(charCode == 13) {
-			self.document.location.hash = parseInt(document.getElementById("input_no").value) + offset - 1;
-			//load_imgs( document.getElementById("input_no").value);
-    }
-}
-
 function getCookie(c_name) {
 	// Local Storage is the way of the future
 	/*
@@ -1162,7 +892,7 @@ function setCookie(c_name,value,exdays)
 
 //Copyright 2009 Nicholas C. Zakas. All rights reserved.
 //MIT-Licensed, see source file
-function binarySearch(items, value, exact_match_fudge){
+function binarySearch(items, value, exact_match_fudge, new_chapter_for_letter){
 		/*
 			exact_match_fudge is the offset to return when an exact
 			match is found. By default we track back at least 20 places
@@ -1170,9 +900,14 @@ function binarySearch(items, value, exact_match_fudge){
 			the first occurance or the one before?
 			exact_match_fudge = 0 means yes (the former)
 			exact_match_fudge = -1 means the one before
+
+			TODO: new_chapter_for_letter, if set, will make searches return the
+			next page of what it would normally would return, since the
+			new letter starts on the page where the first root with that
+			letter occurs also.
 		*/
 
-    // debug('items: ' + items + 'value: ' + value + 'exact_match_fudge: ' + exact_match_fudge); 
+    //debug('items: ' + items + 'value: ' + value + 'exact_match_fudge: ' + exact_match_fudge); 
 		value = value.replace( /\s*/g, "");
 
     var startIndex  = 0,
@@ -1182,7 +917,7 @@ function binarySearch(items, value, exact_match_fudge){
 
     loop_count = 0;
     while(items[middle] != value && startIndex < stopIndex && loop_count < 100){
-        //debug(middle+'='+items[middle]); 
+        debug(middle+'='+items[middle]); 
         loop_count++; // abd shomad: Temporary countermeasure to prevent endless looping (due to index is not defined). 
         //adjust search area
         if (value < items[middle]){
@@ -1193,8 +928,10 @@ function binarySearch(items, value, exact_match_fudge){
 
         //recalculate middle
         middle = Math.floor((stopIndex + startIndex)/2);
+        debug("Recalculated middle: " +middle+'='+items[middle]); 
     }
 		if ( middle == 0) retval = 0;
+		if ( middle > items.length-1) middle = items.length-1;
 		if ( items[middle] == value) {
 			// Trace back to a max of 20 items to get the first occurance of items[middle] == value
 			for (i = 1; i < 20; i++) {
@@ -1215,7 +952,7 @@ function binarySearch(items, value, exact_match_fudge){
     	if (value > items[middle]) retval = middle+1+exact_match_fudge;
 			else retval = middle+exact_match_fudge;
 		}
-		//debug( 'search = ' + value + ' retval = ' + retval + ' which is: ' + items[retval]);
+		debug( 'search = ' + value + ' retval = ' + retval + ' which is: ' + items[retval]);
 		return retval;
 }
 
