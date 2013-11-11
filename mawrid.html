@@ -34,7 +34,7 @@ a { color: black; text-decoration: none; }
 }
 
 .settings-row .button {
-	width: 20%;
+	min-width: 10%;
 }
 
 .book_toggle { 
@@ -74,7 +74,9 @@ hr { margin: 5px; }
 	width: 200%;
 }
 
-.2col, .2col_1, 2col_2 { position: relative; width: 200%; }
+.1col, .2col_1 { position: relative; width: 95%; }
+
+.2col, .2col_1, 2col_2 { position: relative; width: 190%; }
 .2col_2 { right: 100%; }
 
 .3col, .3col_1, 3col_2 { position: relative; width: 285%; }
@@ -141,7 +143,7 @@ hr { margin: 5px; }
 <td><a href='javascript:move_build("${key}",-1)'><div class='button, ${key}_color'>&uarr;</div></a>
 <td><a href='javascript:move_build("${key}",1)'><div class='button, ${key}_color'>&darr;</div></a>
 <td><a href='javascript:move_build("${key}",999)'><div class='button, ${key}_color'>&dArr;</div></a>
-<td><a href='javascript:toggle_hide( "${key}")'><div class='hide-button ${key}_color'>H</div></a>
+<td><a href='javascript:toggle_hide( "${key}")'><div class='button, hide-button, ${key}_color'>H</div></a>
 </tr>
 
 </script>
@@ -607,6 +609,8 @@ function first_page_load() {
 		if ( isUndefined(mr_last_hash) || mr_last_hash == "" || mr_last_hash == null) {
 			debug('hash = empty, first visit?')
 			window.location.hash = starting_hash;
+			// Then set the books to default order
+			set_order_preset("default");
 			//toggle_about();
 			//parse_hash();
 		} else {
@@ -850,9 +854,9 @@ function do_search( input) {
 	search = search.replace(/[wW]/g,"و");
 	search = search.replace(/[yY]/g,"ي");
 	debug( "Searching for: " + search);
-	for (var key in books)
-		books[key]["wanted"] = binarySearch( books[key]['index'], search, 0);
-
+	for (var key in books) { debug("searching: "+key)
+		books[key]["wanted"] = binarySearch( books[key]['index'], search, 0)
+	}
 	// Headers 
 
 	$("#searchbar").html(
@@ -916,15 +920,14 @@ function binarySearch(items, value, exact_match_fudge, new_chapter_for_letter){
 				retval = 0;
 
     loop_count = 0;
-    while(items[middle] != value && startIndex < stopIndex && loop_count < 100){
+    while(items[middle] != value && startIndex < stopIndex && (stopIndex-startIndex) > 2 && loop_count < 100){
         debug(middle+'='+items[middle]); 
         loop_count++; // abd shomad: Temporary countermeasure to prevent endless looping (due to index is not defined). 
         //adjust search area
-        if (value < items[middle]){
-            stopIndex = middle - 1;
-        } else if (value > items[middle]){
-            startIndex = middle + 1;
-        }
+        if (value < items[middle]) stopIndex = middle - 1;
+        if (value > items[middle]) startIndex = middle + 1;
+				
+				if (loop_count > 98) alert("something fishy, loopcount = 99!");
 
         //recalculate middle
         middle = Math.floor((stopIndex + startIndex)/2);
@@ -949,8 +952,8 @@ function binarySearch(items, value, exact_match_fudge, new_chapter_for_letter){
     	//return (items[middle] != value) ? -1 : middle;
     	//return (items[middle] > value && middle > 0) ? middle-1 : middle;
     	//retval = (value > items[middle]) ? middle+1+exact_match_fudge : middle+exact_match_fudge;
-    	if (value > items[middle]) retval = middle+1+exact_match_fudge;
-			else retval = middle+exact_match_fudge;
+    	if (value > items[middle] && value.length == 1) retval = middle+1
+			else retval = middle
 		}
 		debug( 'search = ' + value + ' retval = ' + retval + ' which is: ' + items[retval]);
 		return retval;
