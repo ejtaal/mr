@@ -26,7 +26,7 @@ var books = {
 		"index": uqw, "direction": "rtl", "columns": "3",
 		"offset": 106, "startpage": 106, "image-prefix": "uqw" },
 	"umr": { "name": "Mufradaat Alfaaz al-Quran (Urdu)", "color": "lawngreen",
-		"index": umr, "direction": "ltr", "columns": "2",
+		"index": umr, "direction": "rtl", "columns": "2",
 		"offset": 26, "startpage": 26, "image-prefix": "umr" },
 	"ums": { "name": "Mukhtaar as-Sahih", "color": "gold",
 		"index": ums, "direction": "rtl", "columns": "2",
