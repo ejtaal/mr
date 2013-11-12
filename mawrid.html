@@ -69,19 +69,21 @@ hr { margin: 5px; }
 #settings_container { border: solid white 5px; }
 #settings_2 td { border-bottom: solid white 1px; }
 
+/*
 #hw4_col1,#hw4_col2,#pr_col1,#pr_col2,#hw3_col1,#hw3_col2,#ha_col1,#ha_col2,#sg_col1,#sg_col2,#aan_col1,#aan_col2,#imn_col1,#imn_col2,#umr_col1,#umr_col2,#ums_col1,#ums_col2,#kaz_col1,#kaz_col2 {
 	position: relative;
 	width: 200%;
 }
+*/
 
-.1col, .2col_1 { position: relative; width: 95%; }
+.cols_1, .cols_2_1 { position: relative; width: 95%; }
 
-.2col, .2col_1, 2col_2 { position: relative; width: 190%; }
-.2col_2 { right: 100%; }
+.cols_2, .cols_2_1, .cols_2_2 { position: relative; width: 190%; }
+.cols_2_2 { right: 90%; }
 
-.3col, .3col_1, 3col_2 { position: relative; width: 285%; }
-.3col_2 { left: -95%; }
-.3col_3 { left: -95%; }
+.cols_3, .cols_3_1, .cols_3_2, .cols_3_3 { position: relative; width: 285%; }
+.cols_3_2 { left: -95%; }
+.cols_3_3 { right: 185%; }
 
 
 </style>
@@ -103,15 +105,15 @@ hr { margin: 5px; }
 <span class='status_line ${key}_color' id='${key}_status_line'>status</span>
 <div class='narrowview ${key}_color' id='${key}_narrowview'>
 	<div class='column' id='${col1_div_id}'>
-		<img class='image_column ${columns}col_${col1_id}' id='${key}_col${col1_id}' onClick='javascript:searchandgo()'>
+		<img class='image_column, cols_${columns}, cols_${columns}_${col1_id}' id='${key}_col${col1_id}' onClick='javascript:searchandgo()'>
 	</div>
 	<hr>
 	<div class='column' id='${col2_div_id}'>
-		<img class='image_column ${columns}col_${col2_id}' id='${key}_col${col2_id}' onClick='javascript:searchandgo()'>
+		<img class='image_column, cols_${columns}, cols_${columns}_${col2_id}' id='${key}_col${col2_id}' onClick='javascript:searchandgo()'>
 	</div>
 	<hr>
 	<div class='column' id='${col3_div_id}'>
-		<img class='image_column ${columns}col_${col3_id}' id='${key}_col${col3_id}' onClick='javascript:searchandgo()'>
+		<img class='image_column, cols_${columns}, cols_${columns}_${col3_id}' id='${key}_col${col3_id}' onClick='javascript:searchandgo()'>
 	</div>
 </div>
 <div id='${key}_wideview'>
@@ -143,7 +145,7 @@ hr { margin: 5px; }
 <td><a href='javascript:move_build("${key}",-1)'><div class='button, ${key}_color'>&uarr;</div></a>
 <td><a href='javascript:move_build("${key}",1)'><div class='button, ${key}_color'>&darr;</div></a>
 <td><a href='javascript:move_build("${key}",999)'><div class='button, ${key}_color'>&dArr;</div></a>
-<td><a href='javascript:toggle_hide( "${key}")'><div class='button, hide-button, ${key}_color'>H</div></a>
+<td><a href='javascript:toggle_hide( "${key}")'><div class='button, ${key}_color' id='${key}_hidebutton'>H</div></a>
 </tr>
 
 </script>
@@ -275,7 +277,7 @@ for (var key in books) {
 	books[key]["col2_id"] = 2
 	books[key]["col3_id"] = 3
 	if ( books[key]['columns'] == 1) {
-		$( books[key]['columns']+'col_2').hide()
+		$( '#' + key+'col_2').hide()
 		$( books[key]['columns']+'col_3').hide()
 	}
 	else if ( books[key]['columns'] == 2) {
@@ -303,6 +305,12 @@ for (var key in books) {
 	$("."+key+"_color").css('background-color', books[key]["color"])
 	$("#"+key+"_wideviewimg").css('border', '3px solid ' + books[key]["color"])
 }
+
+for (var key in books) {
+	if ( books[key]['columns'] < 2) $( '#' + key+'_col2').hide()
+	if ( books[key]['columns'] < 3) $( '#' + key+'_col3').hide()
+}
+
 starting_hash = starting_hash.replace(/,$/,'')
 debug("starting_hash = " + starting_hash)
 var initial_book_order = presets["default"];
@@ -390,11 +398,11 @@ function hide_book( target, should_hide) {
 	books[target]["should_hide"] = should_hide;
 	if ( should_hide) {
 		hide_show( target+'_page', target+'_toggle');
-		$("#"+target+"_setting .hide-button").css('border','3px solid black')
+		$("#"+target+"_hidebutton").css('border','3px solid black')
 	}
 	else {
 		hide_show( target+'_toggle', target+'_page');
-		$("#"+target+"_setting .hide-button").css('border','')
+		$("#"+target+"_hidebutton").css('border','')
 	}
 }
 
@@ -576,9 +584,11 @@ function display_images() {
 			if ( $("#"+key+"_col1").attr('src') != img_url) {
 				$("#"+key+"_col1").attr('src', '');
 				$("#"+key+"_col2").attr('src', '');
+				$("#"+key+"_col3").attr('src', '');
 				$("#"+key+"_wideviewimg").attr('src', '');
 				$("#"+key+"_col1").attr('src', img_url);
 				$("#"+key+"_col2").attr('src', img_url);
+				$("#"+key+"_col3").attr('src', img_url);
 				$("#"+key+"_wideviewimg").attr('src', img_url);
 				$("#"+key+"_status_line").html( status_string);
 			}
@@ -920,12 +930,17 @@ function binarySearch(items, value, exact_match_fudge, new_chapter_for_letter){
 				retval = 0;
 
     loop_count = 0;
-    while(items[middle] != value && startIndex < stopIndex && (stopIndex-startIndex) > 2 && loop_count < 100){
+    while(items[middle] != value && startIndex < stopIndex && loop_count < 100){
         debug(middle+'='+items[middle]); 
         loop_count++; // abd shomad: Temporary countermeasure to prevent endless looping (due to index is not defined). 
         //adjust search area
         if (value < items[middle]) stopIndex = middle - 1;
         if (value > items[middle]) startIndex = middle + 1;
+				if (middle != 0 && value < items[middle] && value > items[middle-1]) {
+					// This is really the page we want
+					debug( "wanted page encountered on path traversing binary branches")
+					break
+				}
 				
 				if (loop_count > 98) alert("something fishy, loopcount = 99!");
 
