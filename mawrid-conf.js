@@ -1,12 +1,19 @@
 var presets = {
 	"modern": { "name": "Modern", "order": "hw4,sg,ll,ls,ha" },
-	"default": { "name": "Default", "order": "hw4,ll,ls,la,sg,kz" },
+	"default": { "name": "Default", "order": "hw4,ll,ls,la,sg,ha,br,pr,aan,mgf,vi,kz" },
 	"urdu": { "name": "Urdu", "order": "uqw,umr,ums,umj,ulq,uqa" },
-	"quran": { "name": "Quran", "order": "br,aan,mgf,vi,pr,ll,ls,la" },
+	"quran": { "name": "Quran", "order": "br,pr,aan,mgf,vi,ll,ls,la,umr,ulq,uqa" },
 	"ll_ls": { "name": "LL only", "order": "ll,ls" },
+	"arabic": { "name": "Arabic only", "order": "la" },
+	"english": { "name": "English only", "order": "hw4,ll,ls,sg,ha" },
 	"fr": { "name": "French", "order": "kz" },
 	"my": { "name": "Malay", "order": "mr,mn" },
 	"in": { "name": "Indonesian", "order": "mn,mr" }
+}
+
+var project = {
+	"info": "The largest collection of Arabic Root based dictionaries, all on one page!",
+	"intro": "Arabic Roots"
 }
 
 /*
@@ -65,7 +72,7 @@ var books = {
 	"mn": { "name": "al Munawwir (Indonesian)", "color": "Moccasin",
 		"index": mn, "direction": "rtl", "columns": "2",
 		"offset": 1, "startpage": 1, "image-prefix": "imn" },
-	"vq": { "name": "Vocab of Quran", "color": "slateblue",
+	"aan": { "name": "Vocab of Quran by A.A. Nadwi", "color": "slateblue",
 		"index": vq, "direction": "rtl", "columns": "2",
 		"offset": 24, "startpage": 24, "image-prefix": "aan" },
 	"la": { "name": "Lisan al-Arab (Arabic)", "color": "Goldenrod",

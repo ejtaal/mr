@@ -49,11 +49,15 @@ a { color: black; text-decoration: none; }
 	*/
 	padding-top: 1px; padding-bottom: 1px; 
 	}
-.button { 
-	width: 100%; background-color: silver;
+.button, .presetbutton { 
+	background-color: silver;
 	font-size: large; text-align: center; 
 	padding-top: 7px; padding-bottom: 7px; 
 	}
+	
+.button { width: 100%; }
+.presetbutton { min-width: 25%; padding: 3px; margin: 5px; }
+
 .small_button { 
 	width: 100%; background-color: silver;
 	text-align: center; 
@@ -140,17 +144,21 @@ hr { margin: 5px; }
 	<a href="javascript:set_order_preset('${key}')"><div class='button'>${name}</div></a>
 </script>
 <script id="preset-cell" type="text/x-jquery-tmpl">
-<td><a href='javascript:set_order_preset("${key}")'><div class='button ${key}_color'>${name}</div></a>
+<a href='javascript:set_order_preset("${key}")' class='presetbutton ${key}_color'>${name}</a>
 </script>
+<!--
+
+-->
 <script id="settings-row" type="text/x-jquery-tmpl">
 <tr class="settings-row, ${key}_color" id="${key}_setting">
 <td>${name} <small>(${key})</small>
-<td><a href='javascript:move_build("${key}","top")'><div class='button, ${key}_color'>&uArr;</div></a>
-<td><a href='javascript:move_build("${key}","up")'><div class='button, ${key}_color'>&uarr;</div></a>
-<td><a href='javascript:move_build("${key}","down")'><div class='button, ${key}_color'>&darr;</div></a>
-<td><a href='javascript:move_build("${key}","bottom")'><div class='button, ${key}_color'>&dArr;</div></a>
-<td><a href='javascript:toggle_hide( "${key}")'><div class='button, ${key}_color' id='${key}_hidebutton'>H</div></a>
+<td><a href='javascript:move_build("${key}","top")'  title='Move this book to the top'><div class='button, ${key}_color'>&uArr;</div></a>
+<td><a href='javascript:move_build("${key}","up")'   title='Move this book up one place'><div class='button, ${key}_color'>&uarr;</div></a>
+<td><a href='javascript:move_build("${key}","down")'  title='Move this book down one place'><div class='button, ${key}_color'>&darr;</div></a>
+<td><a href='javascript:move_build("${key}","bottom")' title='Move this book to the bottom'><div class='button, ${key}_color'>&dArr;</div></a>
+<td><a href='javascript:toggle_hide( "${key}")' title='Hide this book'><div class='button, ${key}_color' id='${key}_hidebutton'>H</div></a>
 </tr>
+
 
 </script>
 <script id="rtl-2-column-template" type="text/x-jquery-tmpl">
@@ -200,7 +208,7 @@ _gaq.push(['_trackPageview']);
 <span id='version'></span> | Viewing mode: <em><span id='currentmode'></span></em>.
 <br>
 <a href="/donate" style="width: 100%; color: steelblue; border: 1px solid navy;">
- ۩۞۩ -Please donate ۩۞۩
+ ۩۞۩ Please donate ۩۞۩
 </a>
 <div id=debug>
 </div>
@@ -214,11 +222,15 @@ _gaq.push(['_trackPageview']);
 	Choose the order in which you want the available books displayed:<br>
 	<div id='settings_presets'>
 	</div>
-	You can also choose from these presets:
+	You can also choose from these presets:<br>
+	<span id="preset-cells">
+	</span>
+<!--
 	<table id="presets_table">
 	<tr id="preset-cells">
 	</tr>
 	</table>
+-->
 	<hr>
 	<table id="settings_table">
 	<tbody id="settings_rows">
@@ -230,8 +242,6 @@ _gaq.push(['_trackPageview']);
 	</table>
 	<br>
 
-<!--
--->
 	<a href='javascript:save_settings()'><div class='button'>Save</div></a>
 	<hr>
 </div>
