@@ -19,21 +19,25 @@ a { color: black; text-decoration: none; }
 	width: 100%; background-color: silver;
 	}
 
-#settings-table, #settings-table tr {
+#settings_table, #settings-table tr {
 	table-layout: fixed;
 	width: 100%;
 }
 
-#settings_rows td {
-	width: 20%;
+#settings_table td {
+	width: 15%;
 	text-align: center;
 }
+/*
 
 #settings-table td {
 	//width: 30%;
 }
-
 .settings-row .button {
+	min-width: 10%;
+}
+*/
+.settings-row td {
 	min-width: 10%;
 }
 
@@ -67,9 +71,9 @@ hr { margin: 5px; }
 
 #settings_container { display: none; }
 #settings_container { border: solid white 5px; }
-#settings_2 td { border-bottom: solid white 1px; }
 
 /*
+#settings_2 td { border-bottom: solid white 1px; }
 #hw4_col1,#hw4_col2,#pr_col1,#pr_col2,#hw3_col1,#hw3_col2,#ha_col1,#ha_col2,#sg_col1,#sg_col2,#aan_col1,#aan_col2,#imn_col1,#imn_col2,#umr_col1,#umr_col2,#ums_col1,#ums_col2,#kaz_col1,#kaz_col2 {
 	position: relative;
 	width: 200%;
@@ -139,12 +143,12 @@ hr { margin: 5px; }
 <td><a href='javascript:set_order_preset("${key}")'><div class='button ${key}_color'>${name}</div></a>
 </script>
 <script id="settings-row" type="text/x-jquery-tmpl">
-<tr class="settings-row ${key}_color" id="${key}_setting">
+<tr class="settings-row, ${key}_color" id="${key}_setting">
 <td>${name} <small>(${key})</small>
-<td><a href='javascript:move_build("${key}",0)'><div class='button, ${key}_color'>&uArr;</div></a>
-<td><a href='javascript:move_build("${key}",-1)'><div class='button, ${key}_color'>&uarr;</div></a>
-<td><a href='javascript:move_build("${key}",1)'><div class='button, ${key}_color'>&darr;</div></a>
-<td><a href='javascript:move_build("${key}",999)'><div class='button, ${key}_color'>&dArr;</div></a>
+<td><a href='javascript:move_build("${key}","top")'><div class='button, ${key}_color'>&uArr;</div></a>
+<td><a href='javascript:move_build("${key}","up")'><div class='button, ${key}_color'>&uarr;</div></a>
+<td><a href='javascript:move_build("${key}","down")'><div class='button, ${key}_color'>&darr;</div></a>
+<td><a href='javascript:move_build("${key}","bottom")'><div class='button, ${key}_color'>&dArr;</div></a>
 <td><a href='javascript:toggle_hide( "${key}")'><div class='button, ${key}_color' id='${key}_hidebutton'>H</div></a>
 </tr>
 
@@ -355,24 +359,24 @@ function move( id, where) {
 	for (i = 0; i < objects.length; i++) {
 		obj = objects[i]
 		//$(obj).fadeOut({ duration: 100})
-		if ( where == 0) { 
+		if ( where == "top" ) { 
 			// Move to top
 			//debug( "moving "+obj+" to top")
 			$(obj).parent().prepend($(obj));
 		}
-		else if (where >= Object.keys(books).length ) { 
+		else if (where == "bottom" ) { 
 			//debug( "moving "+obj+" to bottom")
 			$(obj).parent().append($(obj));
 			//$('#all_objs').append($(obj));
 			//$(obj).remove().insertAfter($("#all_objs div:last"));
 			//$("#all_objs" .row:first").remove().insertAfter($("#container .row:last));
 		}
-		else if (where == -1) {
+		else if (where == "up" ) {
 			// Move one up
 			//debug( "moving "+obj+" 1 up")
 			$(obj).after( $(obj).prev() );
 		}
-		else if (where == 1) {
+		else if (where == "down") {
 			// Move one down
 			//debug( "moving "+obj+" 1 down")
 			$(obj).before( $(obj).next() );
@@ -502,7 +506,7 @@ function parse_hash() {
 					hide_book( key, books[key]["should_hide"]);
 					
 					books[key]["wanted"] = books[key]["current"] = parseInt(value)
-					move(key,0);
+					move(key, "top");
 					//move_to_top(key+"_setting");
 				}
 			}
@@ -600,7 +604,9 @@ function debug( text) {
 	if (debugmode) { 
 	  document.getElementById("debug").innerHTML += "<br>" + str
 	} 
-	console.log(str)
+	// Thank you IE for not creating the console element until debug tools
+	// are opened!
+	if (window.console) console.log(str)
 }
 
 // http://constc.blogspot.com/2008/07/undeclared-undefined-null-in-javascript.html
@@ -680,7 +686,7 @@ function set_order_preset( preset) {
 	if (order.length > 0) {
 	  for (i = order.length - 1; i >= 0; i--) {
 			hide_book( order[i], false)
-			move( order[i], 0)
+			move( order[i], "top")
 		}
 	}
 	build_hash()
@@ -807,6 +813,7 @@ function searchandgo() {
 }
 
 function do_search( input) {
+	if ( isUndefined( input) || input === null) return
 	var search = input;
 	last_input = input;
 	// TODO: converting all forms of alif and hamza                                             
