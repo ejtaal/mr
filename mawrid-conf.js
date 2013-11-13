@@ -4,8 +4,8 @@ var presets = {
 	"urdu": { "name": "Urdu", "order": "uqw,umr,ums,umj,ulq,uqa" },
 	"quran": { "name": "Quran", "order": "br,pr,aan,mgf,vi,ll,ls,la,umr,ulq,uqa" },
 	"ll_ls": { "name": "LL only", "order": "ll,ls" },
-	"arabic": { "name": "Arabic only", "order": "la" },
-	"english": { "name": "English only", "order": "hw4,ll,ls,sg,ha" },
+	"arabic": { "name": "Arabic", "order": "la" },
+	"english": { "name": "English", "order": "hw4,ll,ls,sg,ha" },
 	"fr": { "name": "French", "order": "kz" },
 	"my": { "name": "Malay", "order": "mr,mn" },
 	"in": { "name": "Indonesian", "order": "mn,mr" }
