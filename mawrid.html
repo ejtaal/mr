@@ -99,7 +99,7 @@ hr { margin: 5px; }
 <script id="book-template" type="text/x-jquery-tmpl">
 
 <!-- Start of book {$name} -->
- <div id="${key}">
+ <div id="${key}" class='book'>
 	<div class='book_toggle ${key}_color' id='${key}_toggle' onclick="javascript:hide_book_build('${key}', false);"> Show ${name} [_] </div>
 	<div id='${key}_page'>
 	<table class='navtable'>
@@ -113,19 +113,19 @@ hr { margin: 5px; }
 <span class='status_line ${key}_color' id='${key}_status_line'>status</span>
 <div class='narrowview ${key}_color' id='${key}_narrowview'>
 	<div class='column' id='${col1_div_id}'>
-		<img class='image_column, cols_${columns}, cols_${columns}_${col1_id}' id='${key}_col${col1_id}' onClick='javascript:searchandgo()'>
+		<img class='image_column cols_${columns} cols_${columns}_${col1_id} swipe' id='${key}_col${col1_id}'>
 	</div>
 	<hr>
 	<div class='column' id='${col2_div_id}'>
-		<img class='image_column, cols_${columns}, cols_${columns}_${col2_id}' id='${key}_col${col2_id}' onClick='javascript:searchandgo()'>
+		<img class='image_column swipe cols_${columns} cols_${columns}_${col2_id}' id='${key}_col${col2_id}'>
 	</div>
 	<hr>
 	<div class='column' id='${col3_div_id}'>
-		<img class='image_column, cols_${columns}, cols_${columns}_${col3_id}' id='${key}_col${col3_id}' onClick='javascript:searchandgo()'>
+		<img class='image_column swipe cols_${columns} cols_${columns}_${col3_id}' id='${key}_col${col3_id}'>
 	</div>
 </div>
 <div id='${key}_wideview'>
-	<img class='wideview' id='${key}_wideviewimg' onClick='javascript:searchandgo()'>
+	<img class='wideview swipe' id='${key}_wideviewimg'>
 </div>
 <table class='navtable'>
 <tr>
@@ -147,6 +147,7 @@ hr { margin: 5px; }
 <a href='javascript:set_order_preset("${key}")' class='presetbutton ${key}_color'>${name}</a>
 </script>
 <!--
+	<img class='wideview' id='${key}_wideviewimg' onClick='javascript:searchandgo()'>
 
 -->
 <script id="settings-row" type="text/x-jquery-tmpl">
@@ -267,6 +268,9 @@ http://www.openjs.com/scripts/events/keyboard_shortcuts/
 <script type="text/javascript" src="jslib/jquery.ba-hashchange.min.js"></script>
 <script type="text/javascript" src="jslib/shortcut.js"></script>
 <script type="text/javascript" src="jslib/jquery.tmpl.js"></script>
+<script type="text/javascript" src="jslib/jquery.cookie.js"></script>
+<script type="text/javascript" src="jslib/jquery.total-storage.min.js"></script>
+<script type="text/javascript" src="jslib/jquery.touchSwipe.min.js"></script>
 
 <script type="text/javascript" src="mawrid-indexes.js"></script>
 <script type="text/javascript" src="mawrid-conf.js"></script>
@@ -324,6 +328,31 @@ for (var key in books) {
 	if ( books[key]['columns'] < 2) $( '#' + key+'_col2').hide()
 	if ( books[key]['columns'] < 3) $( '#' + key+'_col3').hide()
 }
+
+$(function() {
+	$(".swipe").swipe({
+		swipeLeft:  shift_the_page,
+		swipeRight: shift_the_page, 
+		swipe:      shift_the_page,
+	  tap:function(event, target) {
+			//var pid = $(this).parent().attr("id");
+	    debug("You tapped" );
+			searchandgo();
+	  },
+		allowPageScroll:"auto" 
+	});
+
+	function shift_the_page(event, direction) {
+		//var pid = $(this).parent().parent().parent().attr("id");
+		var pid = $(this).closest("div.book").attr("id");
+	  //$(this).text("You swiped " + direction );
+	  debug("You swiped " + direction + ' on ' + pid);
+	  //alert("You swiped " + direction + ' on ' + pid);
+		if ( direction == 'right') shift_page( pid, -1);
+		if ( direction == 'left') shift_page( pid, 1);
+	}
+});
+
 
 starting_hash = starting_hash.replace(/,$/,'')
 debug("starting_hash = " + starting_hash)
@@ -818,12 +847,12 @@ function toggle_settings() {
 function searchandgo() {
 	//var search = document.getElementById('search').value;
 	var input = prompt( "Enter root letters in english or arabic to search (see About section)", last_input);
-	if ( ! isUndefined( input))
+	if ( ! isUndefined( input) && input != "")
 		do_search( input);
 }
 
 function do_search( input) {
-	if ( isUndefined( input) || input === null) return
+	if ( isUndefined( input) || input === null || input == "") return
 	var search = input;
 	last_input = input;
 	// TODO: converting all forms of alif and hamza                                             
@@ -908,7 +937,7 @@ function getCookie(c_name) {
   	if (x==c_name) { return unescape(y); }
   }
 	*/
-	return localStorage.getItem(c_name);
+	return $.totalStorage( c_name)
 }
 
 function setCookie(c_name,value,exdays)
@@ -919,6 +948,7 @@ function setCookie(c_name,value,exdays)
 	var c_value=escape(value) + ((exdays==null) ? "" : "; expires="+exdate.toUTCString());
 	document.cookie=c_name + "=" + c_value;
 	localStorage.setItem(c_name, value);
+	$.totalStorage( c_name, value);
 }
 
 //Copyright 2009 Nicholas C. Zakas. All rights reserved.

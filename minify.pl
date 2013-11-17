@@ -1,4 +1,12 @@
 #!/usr/bin/env perl
+# Very simple JS minifier for my specific needs:
+# === Turns: ===
+# var a=[]
+# for (i=0;i<=2;i++) a[i] = ''
+# a[3]='c'
+# a[4]='d'
+# === Into: ===
+# a=['','','','c','d']
 
 my $var = "";
 my $array = "";
