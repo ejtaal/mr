@@ -1,0 +1,91 @@
+var presets = {
+	"modern": { "name": "Modern", "order": "hw4,sg,ll,ls,ha" },
+	"default": { "name": "Default", "order": "hw4,ll,ls,la,sg,ha,br,pr,aan,mgf,vi,kz,uqw,umr,ums,umj,ulq,uqa" },
+	"urdu": { "name": "Urdu", "order": "uqw,umr,ums,umj,ulq,uqa" },
+	"quran": { "name": "Quran", "order": "br,pr,aan,mgf,vi,ll,ls,la,umr,ulq,uqa" },
+	"ll_ls": { "name": "LL only", "order": "ll,ls" },
+	"arabic": { "name": "Arabic", "order": "la" },
+	"english": { "name": "English", "order": "hw4,ll,ls,sg,ha,br,pr,aan,vi,mgf" },
+	"fr": { "name": "French", "order": "kz" },
+	"my": { "name": "Malay", "order": "mr,mn" },
+	"in": { "name": "Indonesian", "order": "mn,mr" }
+}
+
+var project = {
+	"info": "The largest collection of Arabic Root based dictionaries, all on one page!",
+	"intro": "Arabic Roots"
+}
+
+/*
+	"": { "name": "", "color": "",
+		"index": , "direction": "ltr", "columns": "2",
+		"offset": , "startpage": , "image-prefix": "" },
+*/
+
+var books = {
+	"ulq": { "name": "Lughaat al-Quran (Urdu)", "color": "skyblue",
+		"index": ulq, "direction": "rtl", "columns": "1",
+		"offset": 247, "startpage": 247, "image-prefix": "ulq" },
+	"uqa": { "name": "Alfaaz Istilihaat al-Quran (Urdu)", "color": "steelblue",
+		"index": uqa, "direction": "rtl", "columns": "1",
+		"offset": 17, "startpage": 17, "image-prefix": "uqa" },
+	"uqw": { "name": "Qamoos al-Waheed (Urdu)", "color": "Salmon",
+		"index": uqw, "direction": "rtl", "columns": "3",
+		"offset": 106, "startpage": 106, "image-prefix": "uqw" },
+	"umr": { "name": "Mufradaat Alfaaz al-Quran (Urdu)", "color": "lawngreen",
+		"index": umr, "direction": "rtl", "columns": "2",
+		"offset": 26, "startpage": 26, "image-prefix": "umr" },
+	"ums": { "name": "Mukhtaar as-Sahih", "color": "gold",
+		"index": ums, "direction": "rtl", "columns": "2",
+		"offset": 14, "startpage": 14, "image-prefix": "ums" },
+	"umj": { "name": "al-Munjid (Urdu)", "color": "slateblue",
+		"index": umj, "direction": "rtl", "columns": "3",
+		"offset": 34, "startpage": 34, "image-prefix": "umj" },
+	"mgf": { "name": "Dict. of Quran by M.G. Farid", "color": "orange",
+		"index": mgf, "direction": "ltr", "columns": "1",
+		"offset": 33, "startpage": 33, "image-prefix": "mgf" },
+	"br": { "name": "Brill", "color": "magenta",
+		"index": br, "direction": "ltr", "columns": "1",
+		"offset": 26, "startpage": 26, "image-prefix": "br" },
+	"pr": { "name": "Dict. and Glos of Quran by Penrice", "color": "orchid",
+		"index": pr, "direction": "ltr", "columns": "2",
+		"offset": 9, "startpage": 9, "image-prefix": "pr" },
+	"ll": { "name": "Lane's Lexicon", "color": "lawngreen",
+		// inc. supplement: var ll_volumes = [404, 473, 446, 481, 504, 259, 277, 318];
+		// but without supplement:
+		"volumes": [404, 473, 446, 481, 504, 259, 277, 234], 
+		"new_chapter_for_letter": true,
+		"index": ll, "direction": "ltr", "columns": "3",
+		"offset": 38, "startpage": 38, "image-prefix": "ll" },
+	"ls": { "name": "LL Suplement", "color": "palegreen",
+		"index": ls, "direction": "ltr", "columns": "3",
+		"offset": 1, "startpage": 1, "image-prefix": "ls" },
+	"sg": { "name": "Steingass", "color": "turquoise",
+		"index": sg, "direction": "ltr", "columns": "2",
+		"offset": 20, "startpage": 20, "image-prefix": "sg" },
+	"ha": { "name": "Hava", "color": "gold",
+		"index": ha, "direction": "rtl", "columns": "2",
+		"offset": 21, "startpage": 21, "image-prefix": "ha" },
+	"vi": { "name": "Verbal Idoms of Quran", "color": "violet",
+		"index": vi, "direction": "ltr", "columns": "1",
+		"offset": 51, "startpage": 51, "image-prefix": "vi" },
+	"mn": { "name": "al Munawwir (Indonesian)", "color": "Moccasin",
+		"index": mn, "direction": "rtl", "columns": "2",
+		"offset": 1, "startpage": 1, "image-prefix": "imn" },
+	"aan": { "name": "Vocab of Quran by A.A. Nadwi", "color": "slateblue",
+		"index": vq, "direction": "rtl", "columns": "2",
+		"offset": 24, "startpage": 24, "image-prefix": "aan" },
+	"la": { "name": "Lisan al-Arab (Arabic)", "color": "Goldenrod",
+		"index": la, "direction": "rtl", "columns": "3",
+		"offset": 1, "startpage": 1, "image-prefix": "la" },
+	"kz": { "name": "Kazirski (French)", "color": "PaleGoldenrod", 
+		"index": kz, "direction": "ltr", "columns": "2", 
+		"offset": 10, "startpage": 10, "image-prefix": "kaz" },
+	"mr": { "name": "Marbawi (Malay/Jawi)", "color": "Tan", 
+		"index": mr, "direction": "rtl", "columns": "2", 
+		"offset": 25, "startpage": 25, "image-prefix": "mar" },
+	"hw4": { "name": "Hans Wehr 4th ed.", "color": "Salmon",
+		"index": hw4, "direction": "ltr", "columns": "2",
+		"offset": 14, "startpage": 14, "image-prefix": "hw4" }
+}
+
