@@ -347,8 +347,13 @@ $(function(){
 		if ( event.type == 'swipeleft') shift_page( pid, 1);
   }
 
+	parse_hash();
 	$( window ).hashchange(function() {
 		parse_hash();
+	});
+
+	$(".swipe").click(function(){
+		searchandgo()
 	});
 });
 
