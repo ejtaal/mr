@@ -18,6 +18,9 @@ var project = {
 var books = {
 	"maw": { "name": "al-Mawrid, 7th ed.", "color": "Salmon",
 		"index": maw, "direction": "rtl", "columns": "2",
-		"offset": 17, "startpage": 17, "image-prefix": "maw" }
+		"offset": 17, "startpage": 17, "image-prefix": "maw" },
+	"lqn": { "name": "Lughaat ul-Quran (Urdu)", "color": "Lawngreen",
+		"index": maw, "direction": "rtl", "columns": "2",
+		"offset": 22, "startpage": 22, "image-prefix": "lqn" }
 }
 
