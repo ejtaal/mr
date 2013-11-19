@@ -574,7 +574,11 @@ function parse_hash() {
 					hide_book( key, books[key]["should_hide"]);
 					
 					books[key]["wanted"] = books[key]["current"] = parseInt(value)
-					move(key, "top");
+					// all this moving, is it necessary?
+					book_index = $('#'+key).index()
+					debug("index: " + book_index + ", arrayindex = " + i)
+					// Only move books around if order has changed:
+					if ( book_index != i) move(key, "top");
 					//move_to_top(key+"_setting");
 				}
 			}
