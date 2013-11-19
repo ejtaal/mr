@@ -1,6 +1,6 @@
 var presets = {
 	"modern": { "name": "Modern", "order": "hw4,sg,ll,ls,ha" },
-	"default": { "name": "Default", "order": "hw4,ll,ls,la,sg,ha,br,pr,aan,mgf,vi,kz,uqw,umr,ums,umj,ulq,uqa" },
+	"default": { "name": "Default", "order": "hw4,ll,ls,la,sg,ha,br,pr,aan,mgf,vi,kz,uqw,umr,ums,umj,ulq,uqa,mr,mn" },
 	"urdu": { "name": "Urdu", "order": "uqw,umr,ums,umj,ulq,uqa" },
 	"quran": { "name": "Quran", "order": "br,pr,aan,mgf,vi,ll,ls,la,umr,ulq,uqa" },
 	"ll_ls": { "name": "LL only", "order": "ll,ls" },
@@ -13,7 +13,8 @@ var presets = {
 
 var project = {
 	"info": "The largest collection of Arabic Root based dictionaries, all on one page!",
-	"intro": "Arabic Roots"
+	"intro": "Arabic Roots",
+	"prefix": "aa5_"
 }
 
 /*

@@ -263,14 +263,18 @@ _gaq.push(['_trackPageview']);
 
 <!--
 http://www.openjs.com/scripts/events/keyboard_shortcuts/
--->
+<script type="text/javascript" src="jslib/jquery.touchSwipe.min.js"></script>
 <script type="text/javascript" src="jslib/jquery.js"></script>
 <script type="text/javascript" src="jslib/jquery.ba-hashchange.min.js"></script>
+<script type="text/javascript" src="jslib/jquery.mobile.swipeonly.min.js"></script>
+-->
+<script type="text/javascript" src="jslib/jquery-1.10.2.min.js"></script>
+<script type="text/javascript" src="jslib/jquery-migrate-1.2.1.min.js"></script>
 <script type="text/javascript" src="jslib/shortcut.js"></script>
 <script type="text/javascript" src="jslib/jquery.tmpl.js"></script>
 <script type="text/javascript" src="jslib/jquery.cookie.js"></script>
 <script type="text/javascript" src="jslib/jquery.total-storage.min.js"></script>
-<script type="text/javascript" src="jslib/jquery.touchSwipe.min.js"></script>
+<script type="text/javascript" src="jslib/jquery.mobile-1.3.2.min.js"></script>
 
 <script type="text/javascript" src="mawrid-indexes.js"></script>
 <script type="text/javascript" src="mawrid-conf.js"></script>
@@ -329,6 +333,26 @@ for (var key in books) {
 	if ( books[key]['columns'] < 3) $( '#' + key+'_col3').hide()
 }
 
+$(function(){
+  // Bind the swipeHandler callback function to the swipe event on div.box
+  $( ".swipe" ).on( "swiperight", swipe_it);
+  $( ".swipe" ).on( "swipeleft", swipe_it );
+ 
+  // Callback function references the event target and adds the 'swipe' class to it
+  function swipe_it( event ){
+		var pid = $(event.target).closest("div.book").attr("id");
+		debug("JQM Swipe event for img under "+pid+":");
+		console.log(event);
+		if ( event.type == 'swiperight') shift_page( pid, -1);
+		if ( event.type == 'swipeleft') shift_page( pid, 1);
+  }
+
+	$( window ).hashchange(function() {
+		parse_hash();
+	});
+});
+
+/*
 $(function() {
 	$(".swipe").swipe({
 		swipeLeft:  shift_the_page,
@@ -339,7 +363,7 @@ $(function() {
 	    debug("You tapped" );
 			searchandgo();
 	  },
-		allowPageScroll:"auto" 
+		allowPageScroll:"vertical" 
 	});
 
 	function shift_the_page(event, direction) {
@@ -352,7 +376,7 @@ $(function() {
 		if ( direction == 'left') shift_page( pid, 1);
 	}
 });
-
+*/
 
 starting_hash = starting_hash.replace(/,$/,'')
 debug("starting_hash = " + starting_hash)
@@ -477,7 +501,7 @@ function hide_show( hideid, showid, scrollto) {
 function set_hash( s) {
 	hide_id('about');
 	window.location.hash = s;
-	setCookie( "aa_last_hash", window.location.hash, 365);
+	setCookie( project["prefix"]+"last_hash", window.location.hash, 365);
 }
 function build_hash() {
 	var new_hash = "#"
@@ -493,7 +517,7 @@ function build_hash() {
 	debug("new_hash = " + new_hash);
 
 	window.location.hash = new_hash;
-	setCookie( "mr_last_hash", window.location.hash, 365);
+	setCookie( project["prefix"]+"last_hash", window.location.hash, 365);
 }
 
 function set_title() {
@@ -659,7 +683,7 @@ function first_page_load() {
 	
 	// Set default hash value, and show About if this appears to be the first visit
 	if ( window.location.hash.replace(/^#/,'') == "") { 
-		var mr_last_hash = getCookie("mr_last_hash");
+		var mr_last_hash = getCookie( project["prefix"]+"last_hash");
 		debug( mr_last_hash);
 		if ( isUndefined(mr_last_hash) || mr_last_hash == "" || mr_last_hash == null) {
 			debug('hash = empty, first visit?')
@@ -673,7 +697,7 @@ function first_page_load() {
 		}
 	} else parse_hash();
 		
-	var aa_fitwidth = getCookie("aa_fitwidth");
+	var aa_fitwidth = getCookie( project["prefix"]+"fitwidth");
 	if ( ! isUndefined(aa_fitwidth)) {
 		fitwidth = aa_fitwidth;
 	}
@@ -782,7 +806,7 @@ function toggle_fitwidth() {
 			fitwidth = false;
 		}
 	}
-	setCookie('aa_fitwidth', fitwidth, 365);
+	setCookie( project["prefix"]+'fitwidth', fitwidth, 365);
 	set_fitwidth();
 }
 
@@ -825,10 +849,11 @@ function toggle_view() {
 	}
 
 	//setCookie( "toggle_view_auto", toggle_view_auto, 365);
-	setCookie( "mr_last_view_mode", toggle_view_mode, 365);
+	setCookie( project["prefix"]+"last_view_mode", toggle_view_mode, 365);
 	set_fitwidth();
 }
 
+/*
 // Bind the event.
 $(window).hashchange( function(){
 	// Alerts every time the hash changes!
@@ -836,7 +861,6 @@ $(window).hashchange( function(){
 	parse_hash();
 })
 
-/*
 */
 
 function toggle_settings() {
@@ -942,12 +966,14 @@ function getCookie(c_name) {
 
 function setCookie(c_name,value,exdays)
 {
+	/*
 	// Local Storage is the way of the future
 	var exdate=new Date();
 	exdate.setDate(exdate.getDate() + exdays);
 	var c_value=escape(value) + ((exdays==null) ? "" : "; expires="+exdate.toUTCString());
 	document.cookie=c_name + "=" + c_value;
 	localStorage.setItem(c_name, value);
+	*/
 	$.totalStorage( c_name, value);
 }
 
