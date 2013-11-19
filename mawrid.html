@@ -612,8 +612,8 @@ function percentVisible( elem)
   var elemTop = $(elem).offset().top;
   var elemBottom = elemTop + $(elem).height();
 	//debug( $(elem).height());
-	debug( 'docViewTop = ' + docViewTop + ', docViewBottom = ' + docViewBottom)
-	debug( 'elem id = ' + $(elem).attr('id') + ', elemTop = ' + elemTop + ', elemBottom = ' + elemBottom)
+	//debug( 'docViewTop = ' + docViewTop + ', docViewBottom = ' + docViewBottom)
+	//debug( 'elem id = ' + $(elem).attr('id') + ', elemTop = ' + elemTop + ', elemBottom = ' + elemBottom)
 	var perc_vis = 0;
 
 	// The only assumption here is that the element spans more than 1 screen height
@@ -622,7 +622,7 @@ function percentVisible( elem)
 	else if ( elemTop >= docViewTop ) perc_vis = (docViewBottom-elemTop) * 100  / $(window).height();
 	else if ( elemBottom <= docViewBottom ) perc_vis = ( elemBottom-docViewTop) * 100 / $(window).height();
 	
-	debug( '=> % = ' + perc_vis + '?');
+	//debug( '=> % = ' + perc_vis + '?');
   
 	return perc_vis;
 }
