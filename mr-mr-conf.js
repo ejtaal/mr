@@ -1,7 +1,7 @@
 var presets = {
-	"default": { "name": "Default", "order": "maw,lq" },
+	"default": { "name": "Default", "order": "maw,lqn" },
 	"english": { "name": "English", "order": "maw" },
-	"urdu": { "name": "Urdu", "order": "lq" }
+	"urdu": { "name": "Urdu", "order": "lqn" }
 }
 
 var project = {
