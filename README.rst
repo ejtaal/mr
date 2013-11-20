@@ -272,7 +272,7 @@ Here are some links to get you started (TODO: Remaining morphology links for SG,
 Browser support
 ===============
 
-We aim to make this website compatible with all major current desktop and mobile/table browsers, like Chrome, Firefox, Internet Explorer and Opera.
+I aim to make this website compatible with all major current desktop and mobile/tablet browsers, like Chrome, Firefox and Opera. However, I recommend against using Internet Explorer as this browser gives inconsistent behaviour when using this website.
 
 Should work on most smart phones & tablets!
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~

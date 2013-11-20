@@ -330,7 +330,10 @@ for (var key in books) {
 	if ( books[key]['columns'] < 3) $( '#' + key+'_col3').hide()
 }
 
+/*
 $(function(){
+});
+*/
   // Bind the swipeHandler callback function to the swipe event on div.box
   $( ".swipe" ).on( "swiperight", swipe_it);
   $( ".swipe" ).on( "swipeleft", swipe_it );
@@ -344,15 +347,14 @@ $(function(){
 		if ( event.type == 'swipeleft') shift_page( pid, 1);
   }
 
-	parse_hash();
 	$( window ).hashchange(function() {
 		parse_hash();
 	});
+	parse_hash();
 
 	$(".swipe").click(function(){
 		searchandgo()
 	});
-});
 
 /*
 $(function() {
@@ -591,6 +593,9 @@ function parse_hash() {
 
 function shift_page( book, offset) {
 	hide_id('about');
+	debug( 'offset = ' + offset + 
+			", wanted = " + books[book]["wanted"] + 
+			", current = " + books[book]["current"]);
 	books[book]["wanted"] = books[book]["current"] + offset;
 	$(window).scrollTop( $("#"+book).offset().top);
 	searched_word = "";
