@@ -193,8 +193,8 @@ This is a modern and compact Arabic English dictionary. It is arranged according
 Urdu
 ****
 
-LQN: Lughaat ul-Quran (Urdu)
-----------------------------
+LQN: Lughaat ul-Quran by Abdur Rasheed Noumani (Urdu)
+-----------------------------------------------------
 
 The largest Arabic Urdu Dictionary of The Qur'an of about 2161 pages, but it is arranged according to words instead of roots. It gives meanings and explanations of the words along with brief grammatical information. It has explained some of the important words in great detail. 
 
