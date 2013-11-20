@@ -186,9 +186,9 @@ Alphabetical dictionaries
 English
 *******
 
-MAW: al-Mawrid 7th ed.
-----------------------
-The well know dictionary
+MAW: al-Mawrid 7th ed. by Rowhi Baalbaki 
+----------------------------------------
+This is a modern and compact Arabic English dictionary. It is arranged according to words instead of roots and is a great resource for both beginners as well as advanced learners of Modern Arabic. 
 
 Urdu
 ****
