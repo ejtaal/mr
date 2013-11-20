@@ -78,11 +78,6 @@ hr { margin: 5px; }
 #settings_container { border: solid white 5px; }
 
 /*
-#settings_2 td { border-bottom: solid white 1px; }
-#hw4_col1,#hw4_col2,#pr_col1,#pr_col2,#hw3_col1,#hw3_col2,#ha_col1,#ha_col2,#sg_col1,#sg_col2,#aan_col1,#aan_col2,#imn_col1,#imn_col2,#umr_col1,#umr_col2,#ums_col1,#ums_col2,#kaz_col1,#kaz_col2 {
-	position: relative;
-	width: 200%;
-}
 */
 
 .cols_1, .cols_1_1 { max-width: 95%; }
@@ -268,6 +263,7 @@ http://www.openjs.com/scripts/events/keyboard_shortcuts/
 <script type="text/javascript" src="jslib/jquery.js"></script>
 <script type="text/javascript" src="jslib/jquery.ba-hashchange.min.js"></script>
 <script type="text/javascript" src="jslib/jquery.mobile.swipeonly.min.js"></script>
+<script type="text/javascript" src="jslib/jquery-1.10.2.js"></script>
 -->
 <script type="text/javascript" src="jslib/jquery-1.10.2.min.js"></script>
 <script type="text/javascript" src="jslib/jquery-migrate-1.2.1.min.js"></script>
@@ -283,8 +279,8 @@ http://www.openjs.com/scripts/events/keyboard_shortcuts/
 
 // Some global vars that we need:
 var debugmode = false; 
-var version = "0.1";
-var title_text = "Mawrid Reader" + " v" + version;
+var version = "1.0";
+var title_text = project["title"] + " - powered by Mawrid Reader" + " v" + version;
 var toggle = 1;
 var starting_hash = "#";
 
@@ -678,7 +674,13 @@ function display_images() {
 	}
 
 function debug( text) {
-	str = (new Date()).getTime()+" - [" + text + "] "
+	var time = new Date().getTime();
+	var date = new Date(time);
+	var msecs = time % 1000;
+	var time_info = date.toString().replace(/(..:..) /,"$1"+"."+msecs+" ")
+	
+	var str = time_info + " - [" + text + "] "
+
 	if (debugmode) { 
 	  document.getElementById("debug").innerHTML += "<br>" + str
 	} 

@@ -1,8 +1,8 @@
 var presets = {
 	"modern": { "name": "Modern", "order": "hw4,sg,ll,ls,ha" },
-	"default": { "name": "Default", "order": "hw4,ll,ls,la,sg,ha,br,pr,aan,mgf,vi,kz,uqw,umr,ums,umj,ulq,uqa,mr,mn" },
-	"urdu": { "name": "Urdu", "order": "uqw,umr,ums,umj,ulq,uqa" },
-	"quran": { "name": "Quran", "order": "br,pr,aan,mgf,vi,ll,ls,la,umr,ulq,uqa" },
+	"default": { "name": "Default", "order": "hw4,ll,ls,la,sg,ha,br,pr,aan,mgf,vi,kz,mr,mn,uqw,umr,ums,umj,ulq,uqa,uqq" },
+	"urdu": { "name": "Urdu", "order": "uqw,umr,ums,umj,ulq,uqa,uqq" },
+	"quran": { "name": "Quran", "order": "br,pr,aan,mgf,vi,ll,ls,la,umr,ulq,uqa,uqq" },
 	"ll_ls": { "name": "LL only", "order": "ll,ls" },
 	"arabic": { "name": "Arabic", "order": "la" },
 	"english": { "name": "English", "order": "hw4,ll,ls,sg,ha,br,pr,aan,vi,mgf" },
@@ -13,7 +13,8 @@ var presets = {
 
 var project = {
 	"info": "The largest collection of Arabic Root based dictionaries, all on one page!",
-	"intro": "Arabic Roots",
+	"intro": "Arabic Almanac",
+	"title": "Arabic Almanac",
 	"prefix": "aa5_"
 }
 
@@ -24,6 +25,9 @@ var project = {
 */
 
 var books = {
+	"uqq": { "name": "Translation of AAN (Urdu)", "color": "palegreen",
+		"index": uqq, "direction": "rtl", "columns": "3",
+		"offset": 2, "startpage": 2, "image-prefix": "uqq" },
 	"ulq": { "name": "Lughaat al-Quran (Urdu)", "color": "skyblue",
 		"index": ulq, "direction": "rtl", "columns": "1",
 		"offset": 247, "startpage": 247, "image-prefix": "ulq" },

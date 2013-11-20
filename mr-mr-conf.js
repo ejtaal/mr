@@ -7,6 +7,7 @@ var presets = {
 var project = {
 	"info": "Search through al-Mawrid online",
 	"intro": "Mawrid Reader",
+	"title": "al-Mawrid",
 	"prefix": "mr_"
 }
 

@@ -48,6 +48,9 @@ Books currently included
 Root based dictionaries
 ~~~~~~~~~~~~~~~~~~~~~~~
 
+English
+*******
+
 
 HW: Hans Wehr
 -------------
@@ -115,6 +118,9 @@ MGF: Dictionary Of The Holy Quran, by Malik Ghulam Farid, M.A
 Caution: This dictionary was written by a Qadiani / Ahmadiyah.
 However, the dictionary is useful and bias is very limited, it discusses mainly the basic root meaning in detail and also gives effects in shade when some other particles or words are combined with a derivative of such root and it contains unique and useful material on roots.  
 
+Urdu
+****
+
 UQW: Urdu Qaamoos ul Waheed
 --------------------------------------------------
 
@@ -135,13 +141,23 @@ UMJ: Urdu al Munjid
 
 This is the Urdu translation by Ismat abu Saleem of the famous Arabic dictionary al Munjid written by Fr. Louis Ma’luf al-Yassu’i and Fr. Bernard Tottel al-Yassu’i, which has been printed, published, and distributed by a Catholic printing house since 1908. The Arabic dictionary has received some criticism from Muslim Scholars though it is still used widely. Though this is an Urdu translation by a Muslim and appears to have removed many of the concerns, still caution is advised. In Urdu, Al Munjid has been the source of 3 books. Misbaah ul Lughaat was actually based on this dictionary in which the translator removed some content and added some of his own content. The edition used in Almanac is claimed to be the 1st complete Urdu translation of Al Munjid.
 
+Arabic
+******
+
 LA: Lisan al-'Arab
 -----------------------
 The Lisān al-ʿArab (لسان العرب, "The Arab Tongue") was completed by Ibn Manzur in 1290. Occupying 20 printed book volumes (in the most frequently cited edition), it is the most well-known dictionary of the Arabic language,[3] as well as one of the most comprehensive. Ibn Manzur compiled it from other sources, to a large degree.
 
+Indonesion / Malaysian
+**********************
+
 IMN: Indonesia, Al-Munawwir, Kamus Arab-Indonesia Terlengkap, oleh KH. Ahmad Warson Munawwir
 --------------------------------------------------------------------------------------------
 Kamus Al-Munawwir merupakan sebuah kamus bahasa Arab-Indonesia yang merupakan kamus bahasa Arab terlengkap, paling tebal dan legendaris di Indonesia. Kamus ini telah banyak digunakan oleh para penuntut ilmu (thullabul Ilmi) untuk mengetahui arti kosakata Arab ke dalam bahasa Indonesia juga sebagai acuan pada bendahara kosakata terjemahan kitab kuning. Kamus ini termasuk kategori best seller, karena telah dicetak berulangkali dan dicetak sekitar 10 ribu-15 ribu eksemplar pertahun. Untuk melengkapinya kamus ini kemudian diikuti edisi Indonesia-Arab-nya. Link: http://id.wikipedia.org/wiki/Al-Munawwir_(kamus)
+
+MAR: Kamus Idris Al-Marbawi (Arabic-Malay) 
+-------------------------------------------
+Compiled by Sheikh Muhammad Idris Abdul Rauf Al-Marbawia, a Malay scholar born in Saudi Arabia. He spent most of his life facilitating the efforts of learning the Arabic books in many madrasa in Malaysia and finally in Al Azhar University in Egypt. Then, he began to compile the Arabic/Malay dictionary or more recognizable as Kamus Idris al-Marbawi, published in 1937. 
 
 ULQ: Urdu Lughaat ul Qur'an by GA Parwez
 ----------------------------------------
@@ -151,30 +167,36 @@ UQA: Qaamoos alfaaz o Istelehaat e Qur'an
 ----------------------------------------- 
 This dictionary is extracted from the notes on words given in the large Urdu Tafseer of The Qur'an Tadabbur e Qur'an by Amin Ahsan Islahi. The focus appears to be on giving meaning based on usage of the word in language.
 
-KAZ: Kazimirski, French Dictionnaire Arabe-Francais
----------------------------------------------------
-This work has been the standard dictionary for translation of Arabic into French for many years. It contains most of the known roots of the Arabic language and also includes the dialects of Algiers and Morocco. Albert de Biberstein Kazimirski (1808-1887) was a lexicographer of repute in the nineteenth century. Among his many accomplishments was the translation of the Quran into French and the production of multiple dictionaries.
-
 UQQ: Urdu Qaamoos Alfaaz al Qur'an al Kareem
 --------------------------------------------
 
 Urdu Translation of Vocabulary of The Holy Qur'an by Abdullah Abbas Nadwi. Gives meanings of the roots and their related words. A brief yet useful book. Also gives brief grammatical notes. 
 
-MAR: Kamus Idris Al-Marbawi (Arabic-Malay) 
--------------------------------------------
-Compiled by Sheikh Muhammad Idris Abdul Rauf Al-Marbawia, a Malay scholar born in Saudi Arabia. He spent most of his life facilitating the efforts of learning the Arabic books in many madrasa in Malaysia and finally in Al Azhar University in Egypt. Then, he began to compile the Arabic/Malay dictionary or more recognizable as Kamus Idris al-Marbawi, published in 1937. 
+French
+******
+
+KAZ: Kazimirski, French Dictionnaire Arabe-Francais
+---------------------------------------------------
+This work has been the standard dictionary for translation of Arabic into French for many years. It contains most of the known roots of the Arabic language and also includes the dialects of Algiers and Morocco. Albert de Biberstein Kazimirski (1808-1887) was a lexicographer of repute in the nineteenth century. Among his many accomplishments was the translation of the Quran into French and the production of multiple dictionaries.
+
 
 Alphabetical dictionaries
 ~~~~~~~~~~~~~~~~~~~~~~~~~
+
+English
+*******
 
 MAW: al-Mawrid 7th ed.
 ----------------------
 The well know dictionary
 
+Urdu
+****
+
 LQN: Lughaat ul-Quran (Urdu)
 ----------------------------
 
-A translation of AAN.
+The largest Arabic Urdu Dictionary of The Qur'an of about 2161 pages, but it is arranged according to words instead of roots. It gives meanings and explanations of the words along with brief grammatical information. It has explained some of the important words in great detail. 
 
 
 How to use
