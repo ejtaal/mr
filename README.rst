@@ -1,7 +1,6 @@
+**Mawrid Reader: Arabic dictionary interface**
 
-Please read below for the latest news, planned updates and more
-background information on the Mawrid Reader website which can be found here:
-`http://ejtaal.net/aa <http://ejtaal.net/aa>`_ and `http://ejtaal.net/mr <http://ejtaal.net/mr>`_.
+Please read below for the latest news, planned updates, download instructions and more background information on this website and the dictionaries used.
 
 .. contents::
 .. sectnum::
@@ -16,20 +15,21 @@ Latest news
 
     - LA: Lisan al-'Arab, by Ibn Manzur
     - MAR: Marbawi: Arabic - Malaysian dictionary
-    - IMN: Indonesia: Kamus Al-Munawwir, Arab-Indonesia Terlengkap, oleh KH. Ahmad Warson Munawwir
+    - IMN: Indonesian: Kamus Al-Munawwir, Arab-Indonesia Terlengkap, oleh KH. Ahmad Warson Munawwir
     - KAZ: Kazimirski, French Dictionnaire Arabe-Francais
     - UQQ: Urdu Qamoos Alfaaz al-Quran: A translation of Vocabulary Of The Holy Quran by Dr Abdullah Abbas Nadwi
     - ULQ: Lughaat ul Qur'an by GA Parwez
     - UQA: Qaamoos alfaaz o Istelehaat e Qur'an
+    - UQQ: Lughat al Quran, an urdu translation of AAN: Vocabulary of the Holy Quran.
     - MAW: al-Mawrid 7th edtion.
-    - LQN: Lughat al Quran, an urdu translation of AAN: Vocabulary of the Holy Quran.
+    - LQN: LQN: Lughaat ul-Quran by Abdur Rasheed Noumani (Urdu)
   
-    The website is now split up in two components, one for root based dictionaries (formerly known as Arabic Almanac) and one for dictionaries that are arranged alphabetically. You can find them here:
+    The website is now split up in two parts, one dedicated to root based dictionaries (formerly known as Arabic Almanac) and one for dictionaries that are arranged alphabetically. You can find them here:
     
     - Root based (Hans Wehr, Lanes Lexicon, etc): `http://ejtaal.net/aa <http://ejtaal.net/aa>`_ 
     - Alphabetical (al-Mawrid, etc) `http://ejtaal.net/mr <http://ejtaal.net/mr>`_
     
-    The new version now has an improved settings screen, which allows better book re-ordering when using the site on mobile devices. You can now also skip to the next or previous page using a swiping action of the finger on mobile and tablet browsers.
+    The new version now has an improved settings screen, which allows better book re-ordering when using the site on mobile devices. You can now also skip to the next or previous page using a swiping action on mobile and tablet browsers as you do in many other apps.
    
 
 What is the Mawrid Reader
@@ -38,7 +38,7 @@ What is the Mawrid Reader
 It is a HTML/JavaScript app for both desktop and mobile use that allows
 looking up Arabic roots in Hans Wehr, Lane's Lexicon and other books simultaneously.
 
-Additionally, you may download the entire contents to your hard disk or
+Additionally, you may download the entire website to your hard disk or
 smart phone's sd card, for fast offline usage. Read below for more
 information on downloading and installing it.
 
@@ -252,6 +252,8 @@ There are also some keyboard shortcuts you can use:
    back 1 page: left arrow, d or z
    forward 1 page: right arrow, g or x
    </pre>
+   
+Use swiping actions to the left and right to skip to the next or previous pages if you're using the app on a phone or tablet.
 
 Click on the 3 bar button on the top left to bring up a menu which allows you to change the order in which the books are displayed.
 
@@ -298,29 +300,26 @@ your phone's SD card or your desktop PC for super fast access. Download
 link:
 
 -  **Main download site @ archive.org:**
-   `Arabic\_Almanac\_v4.0.zip <http://ia700803.us.archive.org/2/items/ArabicAlmanac/Arabic_Almanac_v4.0.zip>`_
--  Secondary backup site: `here <../Arabic_Almanac_v4.0.zip>`_\ 
+   `Arabic\_Almanac\_v5.0.zip <http://ia700803.us.archive.org/2/items/ArabicAlmanac/Arabic_Almanac_v5.0.zip>`_
+-  Secondary backup site: `here <../Arabic_Almanac_v5.0.zip>`_\ 
 
-The size is about 1.3 GB. The zip file contains a folder named "aa"
+The size is about 2.9 GB. The zip file contains two folders, one named "aa" and one "mr"
 which you should place somewhere on your PC's drive or on your phone's
 SD card. For desktops you should then be able to do "File->Open" and
-select the index.html file within the "aa" folder. On smart phones &
+select the index.html file within the "aa" or "mr" folder for root based or alphabetical dictionaries respectively. On smart phones &
 tablets there are 2 ways you could try to get it installed: 1) Install the free Opera browser (the full one, not the Mini) to go the following url:
 `file://localhost/sdcard <file://localhost/sdcard>`_, then locate the
-"aa" folder and click on index.html or 2) Install the free Astro file manager and navigate to the aa folder that you've extracted from the zip file onto the sdcard. Tap the index.html file and it will either open in your default browser or you can choose any of the installed browser to open the file. Once in your browser you can bookmark it for quick access.
+"aa" or "mr" folder and click on index.html or 2) Install the free Astro file manager and navigate to the aa or mr folder that you've extracted from the zip file onto the sdcard. Tap the index.html file and it will either open in your default browser or you can choose any of the installed browser to open the file. Once in your browser you can bookmark it for quick access. I've found the Dolpin browser to have the best performance, but the Chrome or Firefox browsers should work as well.
 
 Future plans / Feedback
 =======================
 
-- Enhancements as well as bugs are now recorded in the Github issue list: `AA issues <https://github.com/ejtaal/aa/issues>`_
+- Enhancements as well as bugs are now recorded in the Github issue list: `Mawrid Reader issues <https://github.com/ejtaal/mr/issues>`_
 
-
-In order to include a book I would need an index of the page headers. I
-have set up a page where you can input page headers easily, it has
-already been used successfully by several volunteers for completing the
-index of the Steingass book. Contact me at ejtaal@gmail.com for more
-details. You can also contact me if you wish to discuss a custom made
+Contact me at ejtaal@gmail.com for more details on how to help with adding further books.. You can also contact me if you wish to discuss a custom made
 version featuring your own books.
+
+I'm planning to start work soon insha Allah on a text based Arabic dictionary, you can follow my progress on Github at the `Mabhath <https://github.com/ejtaal/mabhath>`_ project. It will feature a re-designed layout and I aim to include as many dictionaries as can be found in a text format. Contact me if you have any suggestions.
 
    
 Older news
