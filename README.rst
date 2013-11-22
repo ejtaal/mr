@@ -134,12 +134,25 @@ This is the Urdu translation of the very famous and useful Mufraadaat Alfaaz al 
 UMS: Urdu Mukhtaar us Sihah
 ---------------------------
 
-Mukhtaar us Sihaah written by al Raazi is a highly condensed abridgement of As Sihaah by Al-Jawhary with minor additions by him. Mostly words used in the Qur'an or Hadith were chosen by al Raazi in this book. This is Urdu translation of the book. 
+Mukhtaar us Sihaah written by al Raazi is a highly condensed abridgement of As Sihaah by Al-Jawhary with minor additions by him. Many words used in the Qur'an or Hadith were chosen by al Raazi for inclusion in this book. This is the Urdu translation of the book. 
 
 UMJ: Urdu al Munjid
 -----------------------
 
-This is the Urdu translation by Ismat abu Saleem of the famous Arabic dictionary al Munjid written by Fr. Louis Ma’luf al-Yassu’i and Fr. Bernard Tottel al-Yassu’i, which has been printed, published, and distributed by a Catholic printing house since 1908. The Arabic dictionary has received some criticism from Muslim Scholars though it is still used widely. Though this is an Urdu translation by a Muslim and appears to have removed many of the concerns, still caution is advised. In Urdu, Al Munjid has been the source of 3 books. Misbaah ul Lughaat was actually based on this dictionary in which the translator removed some content and added some of his own content. The edition used in Almanac is claimed to be the 1st complete Urdu translation of Al Munjid.
+This is the Urdu translation by Ismat abu Saleem of the famous Arabic dictionary al Munjid written by Fr. Louis Ma’luf al-Yassu’i and Fr. Bernard Tottel al-Yassu’i, which has been printed, published, and distributed by a Catholic printing house since 1908. The Arabic dictionary has received some criticism from Muslim Scholars though it is still widely used. Though this is an Urdu translation by a Muslim and appears to have removed many of the concerns, caution is still advised. In Urdu, Al Munjid has been the source of 3 books. Misbaah ul Lughaat was actually based on this dictionary in which the translator removed some content and added some of his own content. The edition used in Almanac is claimed to be the 1st complete Urdu translation of Al Munjid.
+
+ULQ: Urdu Lughaat ul Qur'an by GA Parwez
+----------------------------------------
+This Arabic Urdu dictionary of the Qur'an has quoted material from some important works and many entries contain useful material. However, since the author is a Sunnah rejector, he has inserted baseless material in a few of the roots. Caution is advised. It contains some rare and useful material but this caution and his bias should be kept in mind.
+
+UQA: Qaamoos alfaaz o Istelehaat e Qur'an
+----------------------------------------- 
+This dictionary is extracted from the notes on words given in the large Urdu Tafseer of The Qur'an Tadabbur e Qur'an by Amin Ahsan Islahi. The focus appears to be on giving meaning based on usage of the word in language.
+
+UQQ: Urdu Qaamoos Alfaaz al Qur'an al Kareem
+--------------------------------------------
+
+Urdu Translation of Vocabulary of The Holy Qur'an by Abdullah Abbas Nadwi. Gives meanings of the roots and their related words. A brief yet useful book. Also gives brief grammatical notes. 
 
 Arabic
 ******
@@ -159,18 +172,6 @@ MAR: Kamus Idris Al-Marbawi (Arabic-Malay)
 -------------------------------------------
 Compiled by Sheikh Muhammad Idris Abdul Rauf Al-Marbawia, a Malay scholar born in Saudi Arabia. He spent most of his life facilitating the efforts of learning the Arabic books in many madrasa in Malaysia and finally in Al Azhar University in Egypt. Then, he began to compile the Arabic/Malay dictionary or more recognizable as Kamus Idris al-Marbawi, published in 1937. 
 
-ULQ: Urdu Lughaat ul Qur'an by GA Parwez
-----------------------------------------
-This Arabic Urdu dictionary of the Qur'an has quoted material from some important works and many entries contain useful material. But since the author is a Sunnah rejector, he has inserted baseless material in few of the roots. Caution is advised. It contains some rare and useful material but this caution and his bias should be kept in mind.
-
-UQA: Qaamoos alfaaz o Istelehaat e Qur'an
------------------------------------------ 
-This dictionary is extracted from the notes on words given in the large Urdu Tafseer of The Qur'an Tadabbur e Qur'an by Amin Ahsan Islahi. The focus appears to be on giving meaning based on usage of the word in language.
-
-UQQ: Urdu Qaamoos Alfaaz al Qur'an al Kareem
---------------------------------------------
-
-Urdu Translation of Vocabulary of The Holy Qur'an by Abdullah Abbas Nadwi. Gives meanings of the roots and their related words. A brief yet useful book. Also gives brief grammatical notes. 
 
 French
 ******

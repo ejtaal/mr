@@ -25,7 +25,7 @@ var project = {
 */
 
 var books = {
-	"uqq": { "name": "Translation of AAN (Urdu)", "color": "palegreen",
+	"uqq": { "name": "Qaamoos Alfaaz al Qur'an (Urdu)", "color": "palegreen",
 		"index": uqq, "direction": "rtl", "columns": "3",
 		"offset": 2, "startpage": 2, "image-prefix": "uqq" },
 	"ulq": { "name": "Lughaat al-Quran (Urdu)", "color": "skyblue",
