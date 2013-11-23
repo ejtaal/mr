@@ -280,7 +280,8 @@ http://www.openjs.com/scripts/events/keyboard_shortcuts/
 // Some global vars that we need:
 var debugmode = false; 
 var version = "1.0";
-var title_text = project["title"] + " - powered by Mawrid Reader" + " v" + version;
+var title_text = project["title"] + " v" + project["version"] + " - powered by Mawrid Reader" + " v" + version;
+$("#version").append(title_text);
 var toggle = 1;
 var starting_hash = "#";
 
@@ -761,7 +762,6 @@ function init_settings() {
 
 	update_settings_order( aa_book_order);
 
-	$("#version").append(title_text);
 }
 
 function update_settings_order( order_toset) {

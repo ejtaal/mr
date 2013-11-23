@@ -15,6 +15,7 @@ var project = {
 	"info": "The largest collection of Arabic Root based dictionaries, all on one page!",
 	"intro": "Arabic Almanac",
 	"title": "Arabic Almanac",
+	"version": "5.0",
 	"prefix": "aa5_"
 }
 

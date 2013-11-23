@@ -8,6 +8,7 @@ var project = {
 	"info": "Search through al-Mawrid online",
 	"intro": "Mawrid Reader",
 	"title": "al-Mawrid",
+	"version": "1",
 	"prefix": "mr_"
 }
 
