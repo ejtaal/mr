@@ -8,7 +8,7 @@ for indexfile in mr-??-indexes.js; do
 		grep "^$index\[[0-9]*\]\ *=" $indexfile | \
 			awk -F '"' '{ if ($2 != "") print $2 "|" $1 }' | grep . > "$BASE/${index}.orig"
 		sort "$BASE/${index}.orig" > "$BASE/${index}.sorted"
-		echo "Comparison for file '${index}':"
+		echo "Comparison for index: $indexfile: <<< ${index} >>>"
 		echo "======================================="
 		if cmp -s "$BASE/${index}.orig" "$BASE/${index}.sorted"; then
 			echo "Index of $(wc -l < $BASE/${index}.orig) lines looks well sorted and OK!! :)"
