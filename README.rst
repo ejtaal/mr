@@ -301,8 +301,9 @@ your phone's SD card or your desktop PC for super fast access. Download
 link:
 
 -  **Main download site @ archive.org:**
-   `Arabic\_Almanac\_v5.0.zip <http://ia700803.us.archive.org/2/items/ArabicAlmanac/Arabic_Almanac_v5.0.zip>`_
--  Secondary backup site: `here <../Arabic_Almanac_v5.0.zip>`_\ 
+   `Mawrid_Reader_v1.0.zip <https://ia600803.us.archive.org/2/items/ArabicAlmanac/Mawrid_Reader_v1.0.zip>`_
+..
+	-  Secondary backup site: `here <../Arabic_Almanac_v5.0.zip>`_\ 
 
 The size is about 2.9 GB. The zip file contains two folders, one named "aa" and one "mr"
 which you should place somewhere on your PC's drive or on your phone's
