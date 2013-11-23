@@ -3,7 +3,8 @@
 Please read below for the latest news, planned updates, download instructions and more background information on this website and the dictionaries used.
 
 .. contents::
-.. sectnum::
+.. 
+	sectnum::
 
 
 Latest news
