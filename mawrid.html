@@ -330,6 +330,15 @@ for (var key in books) {
 	if ( books[key]['columns'] < 3) $( '#' + key+'_col3').hide()
 }
 
+// JQM causes each link to work through AJAX, please
+// don't do that!!! This or setting data-ajax="false"
+// is supposed to fix that
+$(document).ready(function(){
+    $("a").each(function(){
+          $(this).attr("rel","external");
+    });
+});
+
 /*
 $(function(){
 });
