@@ -23,7 +23,7 @@ Latest news
     - UQA: Qaamoos alfaaz o Istelehaat e Qur'an
     - UQQ: Lughat al Quran, an urdu translation of AAN: Vocabulary of the Holy Quran.
     - MAW: al-Mawrid 7th edtion.
-    - LQN: LQN: Lughaat ul-Quran by Abdur Rasheed Noumani (Urdu)
+    - LQN: Lughaat ul-Quran by Abdur Rasheed Noumani (Urdu)
   
     The website is now split up in two parts, one dedicated to root based dictionaries (formerly known as Arabic Almanac) and one for dictionaries that are arranged alphabetically. You can find them here:
     
