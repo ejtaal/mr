@@ -31,6 +31,11 @@ Latest news
     - Alphabetical (al-Mawrid, etc) `http://ejtaal.net/mr <http://ejtaal.net/mr>`_
     
     The new version now has an improved settings screen, which allows better book re-ordering when using the site on mobile devices. You can now also skip to the next or previous page using a swiping action on mobile and tablet browsers as you do in many other apps.
+
+		If for some reason you encounter problems with the new version, you can go back to the old version 4 here: `Version 4 <http://ejtaal.net/aa-old>`_
+
+    
+
    
 
 What is the Mawrid Reader

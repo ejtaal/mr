@@ -18116,53 +18116,9 @@ br[1092]=Bibliography3
 br[1093]=Bibliography4
 br[1094]=Bibliography5
 */
-function mgf_get_img_url ( page) {
-	if ( page < 1) page = 1;
-	if ( page > mgf.length - 1) page = mgf.length - 1;
-	cur_mgf_page = page;
-	var p = page;
-	var prefixed_page = p;
-	if ( p < 10) prefixed_page = "000" + p;
-	else if ( p < 100) prefixed_page = "00" + p;
-	else if ( p < 1000) prefixed_page = "0" + p;
-	return "mgf/" + Math.floor(page/100) + "/mgf-" + prefixed_page + ".png";
-}
 
 var mgf=[];
-
-mgf[0] = "";
-mgf[1] = "";
-mgf[2] = "";
-mgf[3] = "";
-mgf[4] = "";
-mgf[5] = "";
-mgf[6] = "";
-mgf[7] = "";
-mgf[8] = "";
-mgf[9] = "";
-mgf[10] = "";
-mgf[11] = "";
-mgf[12] = "";
-mgf[13] = "";
-mgf[14] = "";
-mgf[15] = "";
-mgf[16] = "";
-mgf[17] = "";
-mgf[18] = "";
-mgf[19] = "";
-mgf[20] = "";
-mgf[21] = "";
-mgf[22] = "";
-mgf[23] = "";
-mgf[24] = "";
-mgf[25] = "";
-mgf[26] = "";
-mgf[27] = "";
-mgf[28] = "";
-mgf[29] = "";
-mgf[30] = "";
-mgf[31] = "";
-mgf[32] = "";
+for (i=0; i<=32; i++) mgf = "";
 mgf[33] = "ا"
 mgf[34] = "ا"
 mgf[35] = "ابق"
