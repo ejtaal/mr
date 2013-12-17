@@ -69,7 +69,7 @@ var books = {
 	"aan": { "name": "Vocab of Quran by A.A. Nadwi", "color": "slateblue",
 		"index": vq, "direction": "rtl", "columns": "2",
 		"offset": 24, "startpage": 24, "image-prefix": "aan" },
-	"kz": { "name": "Kazirski (French)", "color": "PaleGoldenrod", 
+	"kz": { "name": "Kazimirski (French)", "color": "PaleGoldenrod", 
 		"index": kz, "direction": "ltr", "columns": "2", 
 		"offset": 10, "startpage": 10, "image-prefix": "kaz" },
 	"uqq": { "name": "Qaamoos Alfaaz al Qur'an (Urdu)", "color": "palegreen",

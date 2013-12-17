@@ -14,17 +14,17 @@ var project = {
 }
 
 var books = {
+	"sh_nvd": { "name": "al-Sihah fi Lugha (NVD)", "color": "Teal",
+		"index": sh_nvd, "align": "right", "offset": 0, "startpage": 0 },
+	"sh": { "name": "al-Sihah fi Lugha", "color": "Cyan",
+		"index": sh, "align": "right", "offset": 0, "startpage": 0 },
 	"la": { "name": "Lisan ulArab", "color": "Salmon",
-		"index": la, "align": "right", "columns": "0",
-		"offset": 0, "startpage": 0, "image-prefix": "la" },
+		"index": la, "align": "right", "offset": 0, "startpage": 0 },
 	"ll_nvd": { "name": "Lane's Lexicon (NVD)", "color": "lawngreen",
-		"index": ll_nvd, "align": "left", "columns": "0",
-		"offset": 0, "startpage": 0, "image-prefix": "ll_nvd" },
+		"index": ll_nvd, "align": "left", "offset": 0, "startpage": 0 },
 	"ll_pt": { "name": "Lane's Lexicon (Perseus Tufts)", "color": "gold",
-		"index": ll_pt, "align": "left", "columns": "0",
-		"offset": 0, "startpage": 0, "image-prefix": "ll_pt" },
-	"ta_nvd": { "name": "Taj ulAroos", "color": "skyblue",
-		"index": ta_nvd, "align": "right", "columns": "0",
-		"offset": 0, "startpage": 0, "image-prefix": "ta_nvd" }
+		"index": ll_pt, "align": "left", "offset": 0, "startpage": 0 },
+	"ta_nvd": { "name": "Taj ulAroos (NVD)", "color": "skyblue",
+		"index": ta_nvd, "align": "right", "offset": 0, "startpage": 0 }
 }
 
