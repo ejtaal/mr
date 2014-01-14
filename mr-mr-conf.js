@@ -9,7 +9,8 @@ var project = {
 	"intro": "Mawrid Reader",
 	"title": "al-Mawrid",
 	"version": "1",
-	"prefix": "mr_"
+	"prefix": "mr_",
+	"icon": "mr.ico"
 }
 
 /*

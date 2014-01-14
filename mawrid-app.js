@@ -185,6 +185,15 @@ function make_suggestions( root, arr) {
 		"ي": "يوا",
 		"و": "ويا",
 		"ا": "اوي",
+		"ت": "تط",
+		"ط": "طت",
+		"د": "دذضظ",
+		"ظ": "ظز",
+		"ز": "زظ",
+		"ك": "كق",
+		"ق": "قك",
+		"ه": "هح",
+		"ح": "حه",
 		"a": "awye",
 		"w": "way",
 		"y": "ywa",
@@ -583,6 +592,10 @@ function set_title() {
 	document.title = title;
 }
 
+function user_debug_1() {
+	alert( 'Protocol = ' + document.location.protocol)
+}
+
 function parse_hash() {
 	var hashstring = window.location.hash.replace(/^#/,'');
 	var i, vars = hashstring.split(','); 
@@ -639,31 +652,34 @@ function load_book_texts() {
 		suggestions = make_suggestions( searched_word, books[book]["index"]);
 		$( '#'+book+'_suggestions').html("")
 	
-		var status_string = "";
-		if ( books[book]["wanted"] == -1) {
-			status_string = searched_word+ ": Not found unfortunately."
-			$("#"+book+"_text").html( '')
-			if ( suggestions.length > 0) {
-				status_string += " Loaded 1st suggestion '" + suggestions[0] + "' instead."
-				books[book]['current'] = books[book]["index"].indexOf( suggestions[0])
-				var url = get_text_url( book, suggestions[0])
+		// Only load the book text if it's not hidden
+		if ( books[book]['should_hide'] != 1) {
+			var status_string = "";
+			if ( books[book]["wanted"] == -1) {
+				status_string = searched_word+ ": Not found unfortunately."
+				$("#"+book+"_text").html( '')
+				if ( suggestions.length > 0) {
+					status_string += " Loaded 1st suggestion '" + suggestions[0] + "' instead."
+					books[book]['current'] = books[book]["index"].indexOf( suggestions[0])
+					var url = get_text_url( book, suggestions[0])
+					load_jsonp( url)
+				} else
+					status_string += " No suggestions found either doubly unfortunately."
+			} else if ( books[book]["wanted"] !=  books[book]["current"]) {
+				var root = books[book]["index"][ books[book]["wanted"]]
+				books[book]["current"] = books[book]["wanted"]
+				var status_string = 
+					" <b>" + root + "</b> | " +
+					books[book]["name"] + ", entry no. " + books[book]["current"] + 
+					" <small>(of " + books[book]["index"].length + ") " +
+					"</small>"
+				//debug( 'offset = ' + books[book]['offset'] + ", wanted = " + books[book]["wanted"] + 			", current = " + books[book]["current"]);
+				var url = get_text_url( book, root)
 				load_jsonp( url)
-			} else
-				status_string += " No suggestions found either doubly unfortunately."
-		} else if ( books[book]["wanted"] !=  books[book]["current"]) {
-			var root = books[book]["index"][ books[book]["wanted"]]
-			books[book]["current"] = books[book]["wanted"]
-			var status_string = 
-				" <b>" + root + "</b> | " +
-				books[book]["name"] + ", entry no. " + books[book]["current"] + 
-				" <small>(of " + books[book]["index"].length + ") " +
-				"</small>"
-			//debug( 'offset = ' + books[book]['offset'] + ", wanted = " + books[book]["wanted"] + 			", current = " + books[book]["current"]);
-			var url = get_text_url( book, root)
-			load_jsonp( url)
+			}
+			$("#"+book+"_status_line").html( status_string);
 		}
-		$("#"+book+"_status_line").html( status_string);
-		
+
 		var selected_sug = -1
 		for (var i = 0; i < suggestions.length; i++) {
 			var index = books[book]["index"].indexOf( suggestions[i])
@@ -787,11 +803,11 @@ function display_images() {
 function user_debug( text) {
 	var d = new Date(); // for now
 	var str = d.getHours()+':'+d.getMinutes()+':'+d.getSeconds() 
-		+ ' - ' + text + "\n"
+		+ ' - ' + text
 	debug( "user_debug: " + str )
 
 	if ( state['enable_debug'] == 1) {
-		$('#user_debug').val(function(index, old) { return str + old; });
+		$('#user_debug').val(function(index, old) { return str + "\n" + old; });
 		// Limit it to 100 lines:
 		var lines = $('#user_debug').val().split("\n")
 		var new_lines = lines.slice(0,100).join("\n")
@@ -870,11 +886,21 @@ function first_page_load() {
 			books[book]['name'] + ': error loading: ' + $(this).attr('src')
 		user_debug( debug_txt)
 	})
+
+	// Set favicon
+	(function() {
+	    var link = document.createElement('link');
+	    link.type = 'image/x-icon';
+	    link.rel = 'shortcut icon';
+	    link.href = project["icon"];
+	    document.getElementsByTagName('head')[0].appendChild(link);
+	}());
 		
 	enforce_settings()
 }
 
 function toggle_setting( s) {
+	//debug( s + ' = ' + state[s])
 	state[s] = (state[s] + 1) % 2
 	update_setting( s)
 	save_settings()
@@ -918,10 +944,9 @@ function enforce_settings() {
 		$("#currentmode").html("Desktop (full page)");
 	}
 
-	//if ( state['enable_debug'] == 1) {
-	//}
-
-
+	if ( state['enable_debug'] == 1) $('.debug').show()
+	else $('.debug').hide()
+		
 	if ( state['less_sensitive_swipe'] == 1) {
 		// Hopefully this will fix swipe events being perceived
 		// as being too sensitive
@@ -984,7 +1009,7 @@ function set_order_preset( preset) {
 }
 
 function close_settings() {
-	toggle_settings();
+	toggle_menu();
 	save_settings()
 }
 
@@ -1076,6 +1101,7 @@ function load_data( json) {
 
 function load_jsonp( url) {
 	//debug("loading url: "+url)
+	user_debug("Loading jsonp file " + url + " ...");
 	$.ajax({
 	    type: 'GET',
 	     url: url,
@@ -1084,11 +1110,13 @@ function load_jsonp( url) {
 	     contentType: "application/json",
 	     dataType: 'jsonp',
 	     success: function(json) {
+	        user_debug("Loaded jsonp file OK: " + url);
+			 		
 	        //debug("json loaded ok");
 	     },
 	     error: function(e) {
-	        debug(+e.message);
-	        debug("Error loading jsonp file: "+e.message);
+	        //debug(+e.message);
+	        user_debug("Error loading jsonp file: "+url + ' : ' + e.message);
 	     }
 	});
 }

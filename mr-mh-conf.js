@@ -10,7 +10,8 @@ var project = {
 	"title": "Mabhath ulTalib",
 	"version": "1.0",
 	"prefix": "mh1_",
-	"type": "text"
+	"type": "text",
+	"icon": "mh.ico"
 }
 
 var books = {

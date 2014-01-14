@@ -16,7 +16,8 @@ var project = {
 	"intro": "Arabic Almanac",
 	"title": "Arabic Almanac",
 	"version": "5.0",
-	"prefix": "aa5_"
+	"prefix": "aa5_",
+	"icon": "aa.ico"
 }
 
 /*
