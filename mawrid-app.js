@@ -46,8 +46,11 @@ if ( project["type"] == "text") {
 for (var key in presets)
 	$( "#preset-cell" ).tmpl( presets[key]).appendTo( "#preset-cells" );
 
+var book_id = 0
 for (var key in books) {
 	//debug(key)
+	//book_id++
+	books[key]["id"] = ++book_id
 	books[key]["current"] = -1 // i.e. no page has been loaded
 	books[key]["wanted"] = books[key]["offset"];
 
@@ -872,8 +875,11 @@ function first_page_load() {
 	if ( $(document.body).width() < 750) state['enable_columns'] = 1
 	else state['enable_columns'] = 0
 	
-	for (var s in state) update_setting( s)
-		
+	for (var s in state) update_setting( s);
+	
+	
+	/*
+	// Not working for some reason...
 	$('.wideview').load(function() {
 		var book = $(event.target).closest("div.book").attr("id");
 		var debug_txt = 
@@ -885,7 +891,8 @@ function first_page_load() {
 		var debug_txt = 
 			books[book]['name'] + ': error loading: ' + $(this).attr('src')
 		user_debug( debug_txt)
-	})
+	});
+	*/
 
 	// Set favicon
 	(function() {
@@ -1250,7 +1257,7 @@ function binarySearch(items, value, exact_match_fudge, new_chapter_for_letter){
 
     loop_count = 0;
     while(items[middle] != value && startIndex < stopIndex && loop_count < 100){
-        debug(middle+'='+items[middle]); 
+        //debug(middle+'='+items[middle]); 
         loop_count++; // abd shomad: Temporary countermeasure to prevent endless looping (due to index is not defined). 
         //adjust search area
         if (value < items[middle]) stopIndex = middle - 1;

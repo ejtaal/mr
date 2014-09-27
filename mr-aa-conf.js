@@ -8,15 +8,16 @@ var presets = {
 	"english": { "name": "English", "order": "hw4,ll,ls,sg,ha,br,pr,aan,vi,mgf" },
 	"fr": { "name": "French", "order": "kz" },
 	"my": { "name": "Malay", "order": "mr,mn" },
-	"in": { "name": "Indonesian", "order": "mn,mr" }
+	"in": { "name": "Indonesian", "order": "mn,mr" },
+	"eg": { "name": "Egyptian", "order": "bdw" }
 }
 
 var project = {
 	"info": "The largest collection of Arabic Root based dictionaries, all on one page!",
 	"intro": "Arabic Almanac",
 	"title": "Arabic Almanac",
-	"version": "5.0",
-	"prefix": "aa5_",
+	"version": "6.0",
+	"prefix": "aa6_",
 	"icon": "aa.ico"
 }
 
@@ -93,6 +94,9 @@ var books = {
 		"offset": 14, "startpage": 14, "image-prefix": "ums" },
 	"umj": { "name": "al-Munjid (Urdu)", "color": "slateblue",
 		"index": umj, "direction": "rtl", "columns": "3",
-		"offset": 34, "startpage": 34, "image-prefix": "umj" }
+		"offset": 34, "startpage": 34, "image-prefix": "umj" },
+	"bdw": { "name": "Hind/Badawi (Egyptian)", "color": "orangered",
+		"index": bdw, "direction": "ltr", "columns": "2",
+		"offset": 19, "startpage": 19, "image-prefix": "bdw" }
 }
 

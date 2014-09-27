@@ -134,12 +134,12 @@ td.rtl { text-align: right; }
 
 <!-- Start of book {$name} -->
  <div id="${key}" class='book'>
-	<div class='book_toggle ${key}_color' id='${key}_toggle' onclick="javascript:hide_book_build('${key}', false);"> Show ${name} [_] </div>
+	<div class='book_toggle ${key}_color' id='${key}_toggle' onclick="javascript:hide_book_build('${key}', false);"> Show ${id}. ${name} [_] </div>
 	<div id='${key}_page'>
 	<table class='navtable'>
 	<tr>
 		<td> <a href='javascript:shift_page("${key}", -1)'><div class='button ${key}_color'>&larr;</div></a> </td>
-		<td> <div class='button ${key}_color'>${name}</div></td>
+		<td> <div class='button ${key}_color'>${id}. ${name}</div></td>
 		<td> <a href="javascript:hide_book_build( '${key}', true);"><div class='button ${key}_color'>hide</div></a> </td>
 		<td> <a href='javascript:shift_page("${key}", 1)'><div class='button ${key}_color'>&rarr;</div></a> </td>
 	</tr>
@@ -186,7 +186,7 @@ td.rtl { text-align: right; }
 -->
 <script id="settings-row" type="text/x-jquery-tmpl">
 <tr class="settings-row, ${key}_color" id="${key}_setting">
-<td>${name} <small>(${key})</small>
+<td>${id}: ${name} <small>(${key})</small>
 <td><a href='javascript:move_build("${key}","top")'  title='Move this book to the top'><div class='button, ${key}_color'>&uArr;</div></a>
 <td><a href='javascript:move_build("${key}","up")'   title='Move this book up one place'><div class='button, ${key}_color'>&uarr;</div></a>
 <td><a href='javascript:move_build("${key}","down")'  title='Move this book down one place'><div class='button, ${key}_color'>&darr;</div></a>
