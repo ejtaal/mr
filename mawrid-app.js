@@ -1236,8 +1236,10 @@ function do_search( input) {
 	}
 	// Headers 
 
-	$("#searchbar").html(
-		"Searched for: <strong>" + input + "</strong> (" + search + ") |")
+	search_status = "Searched for: <strong>" + search + "</strong>";
+	if ( input != search) search_status += " (" + input + ")";
+	search_status += " |";
+	$("#searchbar").html( search_status)
 	
 	// set searched_word first because build_hash() will lead to set_title() where it is used
 	searched_word = search;
