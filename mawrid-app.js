@@ -615,6 +615,10 @@ function parse_hash() {
 				if ( project['type'] == 'text') searched_word = value
 				else do_search(value);
 			}
+			else if ( key == "BWQ" || key == "bwq" ) { 
+				if ( project['type'] == 'text') searched_bw_word = value
+				else do_bw_search(value);
+			}
 			else if ( key == "SEARCH" || key == "search" ) { searchandgo(); }
 			else {
 				if ( books.hasOwnProperty(key)) {
@@ -860,12 +864,17 @@ function first_page_load() {
 		}
 	} else parse_hash();
 	
-	var cookie = getCookie( project["prefix"]+"_state");
+	/*
+		Default cookie setting:
+			- do enable swiping for mobile devices
+			- make swipe less sensitive so pages won't skip when scrolling down
+	*/
+	var cookie = getCookie( project["prefix"]+"state");
 	if ( cookie == '' || cookie === null) 
 		state = { 
 			'fitwidth': 0,
-			'enable_swipe': 0,
-			'less_sensitive_swipe': 0,
+			'enable_swipe': 1,
+			'less_sensitive_swipe': 1,
 			'enable_debug': 0,
 			'enable_columns': 0,
 			'enable_fitwidth': 0
@@ -1021,7 +1030,7 @@ function close_settings() {
 }
 
 function save_settings() {
-	setCookie( project["prefix"]+"_state", JSON.stringify( state), 365);
+	setCookie( project["prefix"]+"state", JSON.stringify( state), 365);
 }
 
 function testing123() {
@@ -1126,6 +1135,41 @@ function load_jsonp( url) {
 	        user_debug("Error loading jsonp file: "+url + ' : ' + e.message);
 	     }
 	});
+}
+
+function do_bw_search( input) {
+	// Strictly search by Buckwalter transliteration only:
+	input = input.replace(/[إآٱأءﺀﺀﺁﺃﺅﺇﺉ]/g,"ا");
+	input = input.replace(/[ﻯ]/g,"ي");
+	input = input.replace(/[gG]/g,"غ");
+	input = input.replace(/\$/g,"ش");
+	input = input.replace(/\*/g,"ذ");
+	input = input.replace(/d/g,"د");
+	input = input.replace(/D/g,"ض");
+	input = input.replace(/z/g,"ز");
+	input = input.replace(/Z/g,"ظ");
+	input = input.replace(/s/g,"س");
+	input = input.replace(/S/g,"ص");
+	input = input.replace(/t/g,"ت");
+	input = input.replace(/T/g,"ط");
+	input = input.replace(/h/g,"ه");
+	input = input.replace(/H/g,"ح");
+	input = input.replace(/[xX]/g,"خ");
+	input = input.replace(/[vV]/g,"ث");
+	input = input.replace(/[aA]/g,"ا");
+	input = input.replace(/[bB]/g,"ب");
+	input = input.replace(/[jJ]/g,"ج");
+	input = input.replace(/[rR]/g,"ر");
+	input = input.replace(/[eE]/g,"ع");
+	input = input.replace(/[fF]/g,"ف");
+	input = input.replace(/[qQ]/g,"ق");
+	input = input.replace(/[kK]/g,"ك");
+	input = input.replace(/[lL]/g,"ل");
+	input = input.replace(/[mM]/g,"م");
+	input = input.replace(/[nN]/g,"ن");
+	input = input.replace(/[wW]/g,"و");
+	input = input.replace(/[yY]/g,"ي");
+	do_search( input)
 }
 
 function do_search( input) {

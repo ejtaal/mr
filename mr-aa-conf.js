@@ -97,6 +97,22 @@ var books = {
 		"offset": 34, "startpage": 34, "image-prefix": "umj" },
 	"bdw": { "name": "Hind/Badawi (Egyptian)", "color": "orangered",
 		"index": bdw, "direction": "ltr", "columns": "2",
-		"offset": 19, "startpage": 19, "image-prefix": "bdw" }
+		"offset": 19, "startpage": 19, "image-prefix": "bdw" },
+	"amr": { "name": "Mufradat ar Raghib Arabic", "color": "aquamarine",
+		"index": amr, "direction": "rtl", "columns": "2",
+		"offset": 7, "startpage": 7, "image-prefix": "amr" },
+	"asb": { "name": "Asaas al Balaaghah by Zamakhshari Arabic", "color": "azure",
+		"index": asb, "direction": "rtl", "columns": "2",
+		"offset": 17, "startpage": 17, "image-prefix": "asb" },
+	"auh": { "name": "AUH", "color": "azure",
+		"index": auh, "direction": "rtl", "columns": "1",
+		"offset": 37, "startpage": 37, "image-prefix": "auh" }/*,
+	"dhq": { "name": "Dictionary of the Holy Quran", "color": "azure",
+		"index": dhq, "direction": "rtl", "columns": "1",
+		"offset": 37, "startpage": 37, "image-prefix": "dhq" }*/
+	/* ,"ensi": { "name": "Ensiklopedia Al-Quran: Kajian Kosa Kata, Quraish Shihab", "color": "Khaki",
+		"index": ensi, "direction": "ltr", "columns": "2",
+		"offset": 1, "startpage": 1, "image-prefix": "ensi", "img-dev" : "img-dev" }, 
+	*/ 
 }
 

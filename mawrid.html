@@ -3,6 +3,13 @@
 <link rel="shortcut icon" href="aa.ico" />
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
 <style>
+@import url(http://fonts.googleapis.com/earlyaccess/droidarabicnaskh.css);
+
+/*
+@import url("http://fonts.googleapis.com/earlyaccess/amiri.css");
+@import url(http://fonts.googleapis.com/earlyaccess/lateef.css); 
+*/
+
 body { width: 100%; background-color: #DDD; }
 #chapters_index, #chapter_contents, table.navtable { width: 100%; }
 #chapter_contents { font-family: Simplified Arabic; }
@@ -97,7 +104,15 @@ hr { margin: 5px; }
 .cols_3_2 { left: -95%; }
 .cols_3_3 { right: 185%; }
 
+/*
 .text { max-width: 100%; display: inline-block; }
+*/
+
+.text { 
+	max-width: 800px; display: inline-block;
+	font-family: 'Droid Arabic Naskh', serif;
+	font-size: larger;
+	}
 
 table.suggestion-table { width: 100%; }
 table.suggestion-table td { width: 50%; }
@@ -271,15 +286,15 @@ _gaq.push(['_trackPageview']);
 
 <!--
 	<td><a href='javascript:toggle_menu()' title='Settings menu'><div class='button' ><span style='border-top: 3px solid black; border-bottom: 3px solid black;'><b>Menu</b></span></div></a></td>
+<br>
+<a href="/donate" style="width: 100%; color: steelblue; border: 1px solid navy;">
+ ۩۞۩ Please donate ۩۞۩
+</a>
 -->
 <center>
 <span id='statusbar'></span>
 <span id='searchbar'></span>
 <span id='version'></span> | Viewing mode: <em><span id='currentmode'></span></em>.
-<br>
-<a href="/donate" style="width: 100%; color: steelblue; border: 1px solid navy;">
- ۩۞۩ Please donate ۩۞۩
-</a>
 <hr>
 <input id='text-input-field' class='search-field' type="text" placeholder="Enter root or word to search">
 </center>

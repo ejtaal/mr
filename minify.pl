@@ -30,7 +30,7 @@ LINE: while (<STDIN>) {
 		for (my $i = 0; $i <= $empty_fields; $i++) {
 			$array .= "'',";
 		}
-	} elsif ( $line =~ m/^$var\[.*=\s*\"(.*?)\"/) {
+	} elsif ( $line =~ m/^$var\[.*=\s*[\"\'](.*?)[\"\']/) {
 		$root = $1;
 		if ( $root ne "") { $array .= "'$root',"; }
 	}
