@@ -2,9 +2,9 @@ var presets = {
 	"modern": { "name": "Modern", "order": "hw4,sg,ll,ls,ha" },
 	"default": { "name": "Default", "order": "hw4,ll,ls,la,sg,ha,br,pr,aan,mgf,vi,kz,mr,mn,uqw,umr,ums,umj,ulq,uqa,uqq" },
 	"urdu": { "name": "Urdu", "order": "uqw,umr,ums,umj,ulq,uqa,uqq" },
-	"quran": { "name": "Quran", "order": "br,pr,aan,mgf,vi,ll,ls,la,umr,ulq,uqa,uqq" },
+	"quran": { "name": "Quran", "order": "br,pr,aan,mgf,vi,dhq,ll,ls,la,amr,auh,umr,ulq,uqa,uqq" },
 	"ll_ls": { "name": "LL only", "order": "ll,ls" },
-	"arabic": { "name": "Arabic", "order": "la" },
+	"arabic": { "name": "Arabic", "order": "la,amr,asb,mht" },
 	"english": { "name": "English", "order": "hw4,ll,ls,sg,ha,br,pr,aan,vi,mgf" },
 	"fr": { "name": "French", "order": "kz" },
 	"my": { "name": "Malay", "order": "mr,mn" },
@@ -98,18 +98,28 @@ var books = {
 	"bdw": { "name": "Hind/Badawi (Egyptian)", "color": "orangered",
 		"index": bdw, "direction": "ltr", "columns": "2",
 		"offset": 19, "startpage": 19, "image-prefix": "bdw" },
-	"amr": { "name": "Mufradat ar Raghib Arabic", "color": "aquamarine",
+	"amr": { "name": "Mufradat ar Raghib (Arabic)", "color": "aquamarine",
 		"index": amr, "direction": "rtl", "columns": "2",
 		"offset": 7, "startpage": 7, "image-prefix": "amr" },
-	"asb": { "name": "Asaas al Balaaghah by Zamakhshari Arabic", "color": "azure",
+	"asb": { "name": "Asaas al Balaaghah by Zamakhshari (Arabic)", "color": "azure",
 		"index": asb, "direction": "rtl", "columns": "2",
 		"offset": 17, "startpage": 17, "image-prefix": "asb" },
-	"auh": { "name": "AUH", "color": "azure",
+	"auh": { "name": "Umdat ul Huffaaz (Arabic)", "color": "azure",
 		"index": auh, "direction": "rtl", "columns": "1",
-		"offset": 37, "startpage": 37, "image-prefix": "auh" }/*,
+		"offset": 37, "startpage": 37, "image-prefix": "auh" },
 	"dhq": { "name": "Dictionary of the Holy Quran", "color": "azure",
-		"index": dhq, "direction": "rtl", "columns": "1",
-		"offset": 37, "startpage": 37, "image-prefix": "dhq" }*/
+		"index": dhq, "direction": "ltr", "columns": "2",
+		"offset": 2, "startpage": 2, "image-prefix": "dhq" },
+	"mht": { "name": "Muheet al-Muheet (Arabic)", "color": "azure",
+		"index": mht, "direction": "rtl", "columns": "3",
+		"offset": 6, "startpage": 6, "image-prefix": "mht" }
+	/* Left to do:
+	(tla) Tasheeh Lisan ul Arab (page images and excel index ready)
+	(msb) Misbaah ul Muneer by Fuyyumi (Excel index ready)
+	(mih) Mugnee al Labeeb by Ibn e Hisham (Excel index ready for particles section only) 
+	(amj) Al-Munjid (Arabic)
+		
+	*/
 	/* ,"ensi": { "name": "Ensiklopedia Al-Quran: Kajian Kosa Kata, Quraish Shihab", "color": "Khaki",
 		"index": ensi, "direction": "ltr", "columns": "2",
 		"offset": 1, "startpage": 1, "image-prefix": "ensi", "img-dev" : "img-dev" }, 

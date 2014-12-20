@@ -2,6 +2,9 @@
 
 Please read below for the latest news, planned updates, download instructions and more background information on this website and the dictionaries used.
 
+..
+  A link to an internal target: `test <#aa>`_
+
 .. contents::
 .. 
 	sectnum::
@@ -10,6 +13,23 @@ Please read below for the latest news, planned updates, download instructions an
 Latest news
 ===========
 
+-   Version 6.0 - 18/12/2014
+
+    - Made swipe enabled again, with less sensitive setting. Feedback confirms it works better.
+		
+		Additional dictionaries:
+
+		- BDW: Hind/Badawi (Egyptian)
+		- AMR: Mufradat al Quran by Raghib (Arabic): the most famous Dictionary of The Qur'an in Arabic.  Arabic English Dictionary of Qur'anic Usage has mentioned in its introduction: "Indeed, 'al Raghib was of the opinion, expressed in the introduction to his book, that of all disciplines needed for the study of the Qur'an those concerned with the language itself should come first, and, of these, those concerned with the meanings of Qur'anic vocabulary should be considered of primary importance." He has usually 1st given the primary meanings of words and then quoted the Qur'anic Ayaat along with further explanation of the words used. 
+		- 
+
+-   Version 5.1 - 18/1/2014
+
+    - Small fixes to the interface, renamed the top buttons and disabled swipe images by default. It can be turned on in the Menu, in which there's also a fix to make it less sensitive.
+    - included different favicons for each separate mawrid reader project (Arabic Almanac, Mawrid, Mabhath)
+    - Now separate downloads are offered: the base files and each dictionary as a separate zip file. This is in preparation for a soon to be released Android app made by a volunteer. More news to follow regarding this. See the download section below
+    - A basic debugging facility in the Menu to see if images are being loaded or not.
+    
 -   Version 5.0 - 24/11/2013
 
     Further hard work by the project's volunteers has resulted in addition of the following books:
@@ -51,8 +71,10 @@ information on downloading and installing it.
 Books currently included
 ========================
 
-Root based dictionaries
-~~~~~~~~~~~~~~~~~~~~~~~
+.. _aa:
+
+Arabic Almanac: Root based dictionaries
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
 English
 *******
@@ -186,9 +208,10 @@ KAZ: Kazimirski, French Dictionnaire Arabe-Francais
 ---------------------------------------------------
 This work has been the standard dictionary for translation of Arabic into French for many years. It contains most of the known roots of the Arabic language and also includes the dialects of Algiers and Morocco. Albert de Biberstein Kazimirski (1808-1887) was a lexicographer of repute in the nineteenth century. Among his many accomplishments was the translation of the Quran into French and the production of multiple dictionaries.
 
+.. _mr:
 
-Alphabetical dictionaries
-~~~~~~~~~~~~~~~~~~~~~~~~~
+Mawrid: Alphabetical dictionaries
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
 English
 *******
@@ -204,6 +227,16 @@ LQN: Lughaat ul-Quran by Abdur Rasheed Noumani (Urdu)
 -----------------------------------------------------
 
 The largest Arabic Urdu Dictionary of The Qur'an of about 2161 pages, but it is arranged according to words instead of roots. It gives meanings and explanations of the words along with brief grammatical information. It has explained some of the important words in great detail. 
+
+.. _mh:
+
+Mabhath: Text based dictionaries
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+Lanes Lexicon
+*************
+
+By the Perseus Tuft project, text improved by br. Naveed.
 
 
 How to use
@@ -301,6 +334,10 @@ Warning! With all books visible a single search may load up to 1-2 MB of images!
 Download for offline use
 ========================
 
+Entire site
+~~~~~~~~~~~
+
+
 You can now download the entire website and install it for instance on
 your phone's SD card or your desktop PC for super fast access. Download
 link:
@@ -308,7 +345,8 @@ link:
 -  **Main download site @ archive.org:**
    `Mawrid_Reader_v1.0.zip <https://ia600803.us.archive.org/2/items/ArabicAlmanac/Mawrid_Reader_v1.0.zip>`_
 ..
-	-  Secondary backup site: `here <../Arabic_Almanac_v5.0.zip>`_\ 
+    -  Secondary backup site: `here <../Arabic_Almanac_v5.0.zip>`_\ 
+
 
 The size is about 2.9 GB. The zip file contains two folders, one named "aa" and one "mr"
 which you should place somewhere on your PC's drive or on your phone's
@@ -317,6 +355,34 @@ select the index.html file within the "aa" or "mr" folder for root based or alph
 tablets there are 2 ways you could try to get it installed: 1) Install the free Opera browser (the full one, not the Mini) to go the following url:
 `file://localhost/sdcard <file://localhost/sdcard>`_, then locate the
 "aa" or "mr" folder and click on index.html or 2) Install the free Astro file manager and navigate to the aa or mr folder that you've extracted from the zip file onto the sdcard. Tap the index.html file and it will either open in your default browser or you can choose any of the installed browser to open the file. Once in your browser you can bookmark it for quick access. I've found the Dolpin browser to have the best performance, but the Chrome or Firefox browsers should work as well.
+
+Download single dictionaries only
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+This way allows you to download only those dictionaries you wish to use. Currently the site will still assume you've got all dictionaries present so the ones you haven't downloaded will simply appear as "File not found" images.
+
+Firstly you need the base files contained in base.zip. This file contains the indexes and the site itself. Create a folder on your PC or sdcard called 'AA' or 'MR' for Arabic Almanac or Mawrid Reader respectively. Place the right base.zip and the dictionaries zip files that you've downloaded all in this folder and extract them one by one.
+
+Required to install Arabic Almanac
+**********************************
+
+- Base files (download this to get the latest indexes and website version) `base_aa.zip <./base_aa.zip>`_
+
+
+Required to install Mawrid Reader
+*********************************
+
+- Base files (download this to get the latest indexes and website version) `base_mr.zip <./base_mr.zip>`_
+
+
+Optional dictionaries
+*********************
+
+
+    
+    
+
+
 
 Future plans / Feedback
 =======================
@@ -462,13 +528,30 @@ Software used:
 -  ImageMagick, an image processing tool
 -  ReText, documentation editor
 
-Contact
-=======
+Contact / donate
+================
 
 -  My email: `ejtaal@gmail.com <mailto:ejtaal@gmail.com>`_
 -  Project hosted at: `GitHub <https://github.com/ejtaal/mr>`_
 
-© 2013 by Abdurahman Erik Taal
+If you wish to contribute to the running costs of the ejtaal.net server, you can
+use the following donate button. Jazak Allah and thank you in advance for any 
+and all amounts you wish to donate :)
 
-License: GNU GPL v3.
+.. raw:: html
+	<form action="https://www.paypal.com/cgi-bin/webscr" method="post" target="_top">
+	<input type="hidden" name="cmd" value="_donations">
+	<input type="hidden" name="business" value="ejtaal@gmail.com">
+	<input type="hidden" name="lc" value="GB">
+	<input type="hidden" name="item_name" value="ejtaal.net">
+	<input type="hidden" name="no_note" value="0">
+	<input type="hidden" name="currency_code" value="USD">
+	<input type="hidden" name="bn" value="PP-DonationsBF:btn_donate_LG.gif:NonHostedGuest">
+	<input type="image" src="https://www.paypalobjects.com/en_GB/i/btn/btn_donate_LG.gif" border="0" name="submit" alt="PayPal – The safer, easier way to pay online.">
+	<img alt="" border="0" src="https://www.paypalobjects.com/en_US/i/scr/pixel.gif" width="1" height="1">
+	</form>
+
+© 2011-2015 by Abdurahman Erik Taal
+
+Code license: GNU GPL v3.
 Dua-ware: You must make dua for everyone involved in this project at least once if you're using this software :)
