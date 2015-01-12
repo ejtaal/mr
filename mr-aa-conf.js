@@ -4,7 +4,7 @@ var presets = {
 	"urdu": { "name": "Urdu", "order": "uqw,umr,ums,umj,ulq,uqa,uqq" },
 	"quran": { "name": "Quran", "order": "br,pr,aan,mgf,vi,dhq,ll,ls,la,amr,auh,umr,ulq,uqa,uqq" },
 	"ll_ls": { "name": "LL only", "order": "ll,ls" },
-	"arabic": { "name": "Arabic", "order": "la,amr,asb,mht" },
+	"arabic": { "name": "Arabic", "order": "amj,la,tla,amr,asb,mht,auh" },
 	"english": { "name": "English", "order": "hw4,ll,ls,sg,ha,br,pr,aan,vi,mgf" },
 	"fr": { "name": "French", "order": "kz" },
 	"my": { "name": "Malay", "order": "mr,mn" },
@@ -112,11 +112,20 @@ var books = {
 		"offset": 2, "startpage": 2, "image-prefix": "dhq" },
 	"mht": { "name": "Muheet al-Muheet (Arabic)", "color": "azure",
 		"index": mht, "direction": "rtl", "columns": "3",
-		"offset": 6, "startpage": 6, "image-prefix": "mht" }
+		"offset": 6, "startpage": 6, "image-prefix": "mht" },
+	"msb": { "name": "Misbaah ul Muneer by Fuyyumi (Arabic)", "color": "azure",
+		"index": msb, "direction": "rtl", "columns": "2",
+		"offset": 8, "startpage": 8, "image-prefix": "msb" },
+	"tla": { "name": "Tasheeh Lisan ul Arab (Arabic)", "color": "azure",
+		"index": msb, "direction": "rtl", "columns": "1",
+		"offset": 8, "startpage": 6, "image-prefix": "tla" },
+	"amj": { "name": "Al-Munjid (Arabic)", "color": "azure",
+		"index": amj, "direction": "rtl", "columns": "3",
+		"offset": 1, "startpage": 1, "image-prefix": "amj" }
 	/* Left to do:
-	(tla) Tasheeh Lisan ul Arab (page images and excel index ready)
 	(msb) Misbaah ul Muneer by Fuyyumi (Excel index ready)
-	(mih) Mugnee al Labeeb by Ibn e Hisham (Excel index ready for particles section only) 
+	(tla) Tasheeh Lisan ul Arab (page images and excel index ready)
+	Maybe not: (mih) Mugnee al Labeeb by Ibn e Hisham (Excel index ready for particles section only) 
 	(amj) Al-Munjid (Arabic)
 		
 	*/
