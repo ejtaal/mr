@@ -1232,7 +1232,16 @@ function do_search( input) {
 	search = search.replace(/[yY]/g,"ي");
 	debug( "Searching for: " + search);
 	for (var key in books) { debug("searching: "+key)
-		books[key]["wanted"] = binarySearch( books[key]['index'], search, 0)
+		if ( books[key]["alpha"] == "no") {
+			results = plainSearch( books[key]['index'], search, 0)
+			if ( results["wanted"] != "" )
+				books[key]["wanted"] = results["wanted"]
+			//else can we set the status for this book somehow?
+				
+			books[key]["suggestions"] = results["suggestions"]
+		}
+		else
+			books[key]["wanted"] = binarySearch( books[key]['index'], search, 0)
 	}
 	// Headers 
 
@@ -1247,6 +1256,53 @@ function do_search( input) {
 	build_hash();
 	//parse_hash();
 	
+}
+
+function plainSearch(items, value){
+	// entries look like: ens[118]='ﺏﺎﺒﻟ ﺏﺩﺀ'
+	// so a word must be in the beginning or after a space to be a match
+	var results = []
+	results["wanted"] = ""
+	results["suggestions"] = []
+
+	debug("plain searching: "+value)
+	var re1 = new RegExp( '^'+value+' ')
+	var re2 = new RegExp( ' '+value+' ')
+	var re3 = new RegExp( ' '+value+'$')
+	for (var index in items) { 
+		if (
+			re1.test( items[index]) ||
+			re2.test( items[index]) ||
+			re3.test( items[index])) {
+			debug("found something: "+items[index])
+				if ( results["wanted"] == "" )
+					results["wanted"] = index
+				else
+					results["suggestions"].push( index)
+		}
+	}
+	// If any still empty, seek out partial matches:
+	if ( results["wanted"] == "" || results["suggestions"].length == 0) {
+		var re4 = new RegExp( '^'+value)
+		var re5 = new RegExp( ' '+value)
+		debug("Nothing found so searching without spaces now: "+value)
+		for (var index in items) { 
+			if (
+				re4.test( items[index]) ||
+				re5.test( items[index])) {
+				debug("found something: "+items[index])
+					if ( results["wanted"] == "" )
+						results["wanted"] = index
+					else
+						results["suggestions"].push( index)
+			}
+		}
+	}
+
+	debug( "results:")
+	debug( results)
+	return results
+
 }
 
 function getCookie(c_name) {
@@ -1275,6 +1331,7 @@ function setCookie(c_name,value,exdays)
 	*/
 	$.totalStorage( c_name, value);
 }
+
 
 //Copyright 2009 Nicholas C. Zakas. All rights reserved.
 //MIT-Licensed, see source file

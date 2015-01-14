@@ -4,11 +4,11 @@ var presets = {
 	"urdu": { "name": "Urdu", "order": "uqw,umr,ums,umj,ulq,uqa,uqq" },
 	"quran": { "name": "Quran", "order": "br,pr,aan,mgf,vi,dhq,ll,ls,la,amr,auh,umr,ulq,uqa,uqq" },
 	"ll_ls": { "name": "LL only", "order": "ll,ls" },
-	"arabic": { "name": "Arabic", "order": "amj,la,tla,amr,asb,mht,auh" },
+	"arabic": { "name": "Arabic", "order": "amj,la,tla,amr,asb,mht,auh,msb" },
 	"english": { "name": "English", "order": "hw4,ll,ls,sg,ha,br,pr,aan,vi,mgf" },
 	"fr": { "name": "French", "order": "kz" },
-	"my": { "name": "Malay", "order": "mr,mn" },
-	"in": { "name": "Indonesian", "order": "mn,mr" },
+	"my": { "name": "Malay", "order": "mr,ens,mn" },
+	"in": { "name": "Indonesian", "order": "mn,mr,ens" },
 	"eg": { "name": "Egyptian", "order": "bdw" }
 }
 
@@ -101,27 +101,32 @@ var books = {
 	"amr": { "name": "Mufradat ar Raghib (Arabic)", "color": "aquamarine",
 		"index": amr, "direction": "rtl", "columns": "2",
 		"offset": 7, "startpage": 7, "image-prefix": "amr" },
-	"asb": { "name": "Asaas al Balaaghah by Zamakhshari (Arabic)", "color": "azure",
+	"asb": { "name": "Asaas al Balaaghah by Zamakhshari (Arabic)", "color": "skyblue",
 		"index": asb, "direction": "rtl", "columns": "2",
 		"offset": 17, "startpage": 17, "image-prefix": "asb" },
-	"auh": { "name": "Umdat ul Huffaaz (Arabic)", "color": "azure",
+	"auh": { "name": "Umdat ul Huffaaz (Arabic)", "color": "turquoise",
 		"index": auh, "direction": "rtl", "columns": "1",
 		"offset": 37, "startpage": 37, "image-prefix": "auh" },
-	"dhq": { "name": "Dictionary of the Holy Quran", "color": "azure",
+	"dhq": { "name": "Dictionary of the Holy Quran", "color": "gold",
 		"index": dhq, "direction": "ltr", "columns": "2",
 		"offset": 2, "startpage": 2, "image-prefix": "dhq" },
-	"mht": { "name": "Muheet al-Muheet (Arabic)", "color": "azure",
+	"mht": { "name": "Muheet al-Muheet (Arabic)", "color": "DeepSkyBlue",
 		"index": mht, "direction": "rtl", "columns": "3",
 		"offset": 6, "startpage": 6, "image-prefix": "mht" },
-	"msb": { "name": "Misbaah ul Muneer by Fuyyumi (Arabic)", "color": "azure",
+	"msb": { "name": "Misbaah ul Muneer by Fuyyumi (Arabic)", "color": "DodgerBlue",
 		"index": msb, "direction": "rtl", "columns": "2",
 		"offset": 8, "startpage": 8, "image-prefix": "msb" },
-	"tla": { "name": "Tasheeh Lisan ul Arab (Arabic)", "color": "azure",
+	"tla": { "name": "Tasheeh Lisan ul Arab (Arabic)", "color": "DarkGoldenrod",
 		"index": msb, "direction": "rtl", "columns": "1",
 		"offset": 8, "startpage": 6, "image-prefix": "tla" },
-	"amj": { "name": "Al-Munjid (Arabic)", "color": "azure",
+	"amj": { "name": "Al-Munjid (Arabic)", "color": "Salmon",
 		"index": amj, "direction": "rtl", "columns": "3",
-		"offset": 1, "startpage": 1, "image-prefix": "amj" }
+		"offset": 1, "startpage": 1, "image-prefix": "amj" },
+	"ens": { "name": "Ensiklopedia Al-Quran: Kajian Kosa Kata, Quraish Shihab (Malay)", "color": "Khaki",
+		"index": ens, "direction": "ltr", "columns": "2",
+		"offset": 1, "startpage": 1, "image-prefix": "ens",
+		"alpha": "no" }
+	// "alpha": "no" means: this book is not alphabetical
 	/* Left to do:
 	(msb) Misbaah ul Muneer by Fuyyumi (Excel index ready)
 	(tla) Tasheeh Lisan ul Arab (page images and excel index ready)
@@ -129,7 +134,9 @@ var books = {
 	(amj) Al-Munjid (Arabic)
 		
 	*/
-	/* ,"ensi": { "name": "Ensiklopedia Al-Quran: Kajian Kosa Kata, Quraish Shihab", "color": "Khaki",
+	// Will require code update to handle non-alphabetic books
+	/*
+		,"ensi": { "name": "Ensiklopedia Al-Quran: Kajian Kosa Kata, Quraish Shihab", "color": "Khaki",
 		"index": ensi, "direction": "ltr", "columns": "2",
 		"offset": 1, "startpage": 1, "image-prefix": "ensi", "img-dev" : "img-dev" }, 
 	*/ 
