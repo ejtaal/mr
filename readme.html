@@ -4,7 +4,7 @@
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
 <meta name="generator" content="Docutils 0.11: http://docutils.sourceforge.net/" />
-<title></title>
+<title>Mawrid Reader: Arabic dictionary interface</title>
 <style type="text/css">
 
 /*
@@ -338,149 +338,147 @@ ul.auto-toc {
 </style>
 </head>
 <body>
-<div class="document">
+<div class="document" id="mawrid-reader-arabic-dictionary-interface">
+<h1 class="title">Mawrid Reader: Arabic dictionary interface</h1>
 
-
-<p><strong>Mawrid Reader: Arabic dictionary interface</strong></p>
+<p>Mawrid Reader is a HTML/JavaScript app for both desktop and mobile use
+for displaying and searching books. It is used by the following sub projects:</p>
+<blockquote>
+<ul class="simple">
+<li>Arabic Almanac (root based dictionaries in various languages) <a class="reference external" href="http://ejtaal.net/aa/">link to website</a></li>
+<li>Mawrid (for alphabetical disctionaries, notably al-Mawrid) <a class="reference external" href="http://ejtaal.net/mr/">link to website</a></li>
+<li>Mabhath ul Talib (root based dictionaries in text format rather than as images) <a class="reference external" href="http://ejtaal.net/mt/">link to website</a></li>
+</ul>
+</blockquote>
+<p>All of these projects can also be downloaded to your hard disk or
+smart phone's sd card, for fast offline usage. Read below for more
+information on downloading and installing it.</p>
 <p>Please read below for the latest news, planned updates, download instructions and more background information on this website and the dictionaries used.</p>
-<p><a class="reference external" href="#aa">test</a></p>
+<!-- A link to an internal target: `test <#aa>`_ -->
 <div class="contents topic" id="contents">
 <p class="topic-title first">Contents</p>
 <ul class="simple">
-<li><a class="reference internal" href="#latest-news" id="id3">Latest news</a></li>
-<li><a class="reference internal" href="#what-is-the-mawrid-reader" id="id4">What is the Mawrid Reader</a></li>
-<li><a class="reference internal" href="#books-currently-included" id="id5">Books currently included</a><ul>
-<li><a class="reference internal" href="#arabic-almanac-root-based-dictionaries" id="id6">Arabic Almanac: Root based dictionaries</a><ul>
-<li><a class="reference internal" href="#english" id="id7">English</a><ul>
-<li><a class="reference internal" href="#hw-hans-wehr" id="id8">HW: Hans Wehr</a></li>
-<li><a class="reference internal" href="#ll-ls-lane-s-lexicon-supplement" id="id9">LL/LS: Lane's Lexicon + supplement</a></li>
-<li><a class="reference internal" href="#sg-steingass" id="id10">SG: Steingass</a></li>
-<li><a class="reference internal" href="#br-brill" id="id11">BR: Brill</a></li>
-<li><a class="reference internal" href="#pr-a-dictionary-and-glossary-of-the-koran-by-john-penrice" id="id12">PR: A Dictionary and Glossary of the Koran by John Penrice</a></li>
-<li><a class="reference internal" href="#ha-hava" id="id13">HA: Hava</a></li>
-<li><a class="reference internal" href="#aan-vocabulary-of-the-holy-quran-by-dr-abdullah-abbas-nadwi" id="id14">AAN: Vocabulary Of The Holy Quran by Dr Abdullah Abbas Nadwi</a></li>
-<li><a class="reference internal" href="#vi-verbal-idoms-of-the-quraan-by-mustansir-mir" id="id15">VI: Verbal Idoms of the Quraan by Mustansir Mir</a></li>
-<li><a class="reference internal" href="#mgf-dictionary-of-the-holy-quran-by-malik-ghulam-farid-m-a" id="id16">MGF: Dictionary Of The Holy Quran, by Malik Ghulam Farid, M.A</a></li>
+<li><a class="reference internal" href="#latest-news" id="id5">Latest news</a></li>
+<li><a class="reference internal" href="#books-currently-included" id="id6">Books currently included</a><ul>
+<li><a class="reference internal" href="#arabic-almanac-root-based-dictionaries" id="id7">Arabic Almanac: Root based dictionaries</a><ul>
+<li><a class="reference internal" href="#english" id="id8">English</a><ul>
+<li><a class="reference internal" href="#hw-hans-wehr" id="id9">HW: Hans Wehr</a></li>
+<li><a class="reference internal" href="#ll-ls-lane-s-lexicon-supplement" id="id10">LL/LS: Lane's Lexicon + supplement</a></li>
+<li><a class="reference internal" href="#sg-steingass" id="id11">SG: Steingass</a></li>
+<li><a class="reference internal" href="#br-brill" id="id12">BR: Brill</a></li>
+<li><a class="reference internal" href="#pr-a-dictionary-and-glossary-of-the-koran-by-john-penrice" id="id13">PR: A Dictionary and Glossary of the Koran by John Penrice</a></li>
+<li><a class="reference internal" href="#ha-hava" id="id14">HA: Hava</a></li>
+<li><a class="reference internal" href="#aan-vocabulary-of-the-holy-quran-by-dr-abdullah-abbas-nadwi" id="id15">AAN: Vocabulary Of The Holy Quran by Dr Abdullah Abbas Nadwi</a></li>
+<li><a class="reference internal" href="#vi-verbal-idoms-of-the-quraan-by-mustansir-mir" id="id16">VI: Verbal Idoms of the Quraan by Mustansir Mir</a></li>
+<li><a class="reference internal" href="#mgf-dictionary-of-the-holy-quran-by-malik-ghulam-farid-m-a" id="id17">MGF: Dictionary Of The Holy Quran, by Malik Ghulam Farid, M.A</a></li>
+<li><a class="reference internal" href="#dhq-dictionary-of-the-holy-qur-an-by-abdul-mannan-omar" id="id18">DHQ: Dictionary of The Holy Qur'an by Abdul Mannan Omar</a></li>
 </ul>
 </li>
-<li><a class="reference internal" href="#urdu" id="id17">Urdu</a><ul>
-<li><a class="reference internal" href="#uqw-urdu-qaamoos-ul-waheed" id="id18">UQW: Urdu Qaamoos ul Waheed</a></li>
-<li><a class="reference internal" href="#umr-urdu-mufraadaat-alfaaz-al-qur-an-by-ar-raghib" id="id19">UMR: Urdu Mufraadaat Alfaaz al Qur'an by ar Raghib</a></li>
-<li><a class="reference internal" href="#ums-urdu-mukhtaar-us-sihah" id="id20">UMS: Urdu Mukhtaar us Sihah</a></li>
-<li><a class="reference internal" href="#umj-urdu-al-munjid" id="id21">UMJ: Urdu al Munjid</a></li>
-<li><a class="reference internal" href="#ulq-urdu-lughaat-ul-qur-an-by-ga-parwez" id="id22">ULQ: Urdu Lughaat ul Qur'an by GA Parwez</a></li>
-<li><a class="reference internal" href="#uqa-qaamoos-alfaaz-o-istelehaat-e-qur-an" id="id23">UQA: Qaamoos alfaaz o Istelehaat e Qur'an</a></li>
-<li><a class="reference internal" href="#uqq-urdu-qaamoos-alfaaz-al-qur-an-al-kareem" id="id24">UQQ: Urdu Qaamoos Alfaaz al Qur'an al Kareem</a></li>
+<li><a class="reference internal" href="#urdu" id="id19">Urdu</a><ul>
+<li><a class="reference internal" href="#uqw-urdu-qaamoos-ul-waheed" id="id20">UQW: Urdu Qaamoos ul Waheed</a></li>
+<li><a class="reference internal" href="#umr-urdu-mufraadaat-alfaaz-al-qur-an-by-ar-raghib" id="id21">UMR: Urdu Mufraadaat Alfaaz al Qur'an by ar Raghib</a></li>
+<li><a class="reference internal" href="#ums-urdu-mukhtaar-us-sihah" id="id22">UMS: Urdu Mukhtaar us Sihah</a></li>
+<li><a class="reference internal" href="#umj-urdu-al-munjid" id="id23">UMJ: Urdu al Munjid</a></li>
+<li><a class="reference internal" href="#ulq-urdu-lughaat-ul-qur-an-by-ga-parwez" id="id24">ULQ: Urdu Lughaat ul Qur'an by GA Parwez</a></li>
+<li><a class="reference internal" href="#uqa-qaamoos-alfaaz-o-istelehaat-e-qur-an" id="id25">UQA: Qaamoos alfaaz o Istelehaat e Qur'an</a></li>
+<li><a class="reference internal" href="#uqq-urdu-qaamoos-alfaaz-al-qur-an-al-kareem" id="id26">UQQ: Urdu Qaamoos Alfaaz al Qur'an al Kareem</a></li>
 </ul>
 </li>
-<li><a class="reference internal" href="#arabic" id="id25">Arabic</a><ul>
-<li><a class="reference internal" href="#la-lisan-al-arab" id="id26">LA: Lisan al-'Arab</a></li>
+<li><a class="reference internal" href="#arabic" id="id27">Arabic</a><ul>
+<li><a class="reference internal" href="#la-lisan-al-arab" id="id28">LA: Lisan al-'Arab</a></li>
+<li><a class="reference internal" href="#amj-al-munjid" id="id29">AMJ: Al-Munjid</a></li>
 </ul>
 </li>
-<li><a class="reference internal" href="#indonesion-malaysian" id="id27">Indonesion / Malaysian</a><ul>
-<li><a class="reference internal" href="#imn-indonesia-al-munawwir-kamus-arab-indonesia-terlengkap-oleh-kh-ahmad-warson-munawwir" id="id28">IMN: Indonesia, Al-Munawwir, Kamus Arab-Indonesia Terlengkap, oleh KH. Ahmad Warson Munawwir</a></li>
-<li><a class="reference internal" href="#mar-kamus-idris-al-marbawi-arabic-malay" id="id29">MAR: Kamus Idris Al-Marbawi (Arabic-Malay)</a></li>
+<li><a class="reference internal" href="#indonesion-malaysian" id="id30">Indonesion / Malaysian</a><ul>
+<li><a class="reference internal" href="#imn-indonesia-al-munawwir-kamus-arab-indonesia-terlengkap-oleh-kh-ahmad-warson-munawwir" id="id31">IMN: Indonesia, Al-Munawwir, Kamus Arab-Indonesia Terlengkap, oleh KH. Ahmad Warson Munawwir</a></li>
+<li><a class="reference internal" href="#mar-kamus-idris-al-marbawi-arabic-malay" id="id32">MAR: Kamus Idris Al-Marbawi (Arabic-Malay)</a></li>
+<li><a class="reference internal" href="#ens-ensiklopedia-al-quran-malay-kajian-kosa-kata-quraish-shihab" id="id33">ENS: Ensiklopedia Al-Quran (Malay): Kajian Kosa Kata, Quraish Shihab</a></li>
 </ul>
 </li>
-<li><a class="reference internal" href="#french" id="id30">French</a><ul>
-<li><a class="reference internal" href="#kaz-kazimirski-french-dictionnaire-arabe-francais" id="id31">KAZ: Kazimirski, French Dictionnaire Arabe-Francais</a></li>
-</ul>
-</li>
-</ul>
-</li>
-<li><a class="reference internal" href="#mawrid-alphabetical-dictionaries" id="id32">Mawrid: Alphabetical dictionaries</a><ul>
-<li><a class="reference internal" href="#id1" id="id33">English</a><ul>
-<li><a class="reference internal" href="#maw-al-mawrid-7th-ed-by-rowhi-baalbaki" id="id34">MAW: al-Mawrid 7th ed. by Rowhi Baalbaki</a></li>
-</ul>
-</li>
-<li><a class="reference internal" href="#id2" id="id35">Urdu</a><ul>
-<li><a class="reference internal" href="#lqn-lughaat-ul-quran-by-abdur-rasheed-noumani-urdu" id="id36">LQN: Lughaat ul-Quran by Abdur Rasheed Noumani (Urdu)</a></li>
+<li><a class="reference internal" href="#french" id="id34">French</a><ul>
+<li><a class="reference internal" href="#kaz-kazimirski-french-dictionnaire-arabe-francais" id="id35">KAZ: Kazimirski, French Dictionnaire Arabe-Francais</a></li>
 </ul>
 </li>
 </ul>
 </li>
-<li><a class="reference internal" href="#mabhath-text-based-dictionaries" id="id37">Mabhath: Text based dictionaries</a><ul>
-<li><a class="reference internal" href="#lanes-lexicon" id="id38">Lanes Lexicon</a></li>
+<li><a class="reference internal" href="#mawrid-alphabetical-dictionaries" id="id36">Mawrid: Alphabetical dictionaries</a><ul>
+<li><a class="reference internal" href="#id3" id="id37">English</a><ul>
+<li><a class="reference internal" href="#maw-al-mawrid-7th-ed-by-rowhi-baalbaki" id="id38">MAW: al-Mawrid 7th ed. by Rowhi Baalbaki</a></li>
+</ul>
+</li>
+<li><a class="reference internal" href="#id4" id="id39">Urdu</a><ul>
+<li><a class="reference internal" href="#lqn-lughaat-ul-quran-by-abdur-rasheed-noumani-urdu" id="id40">LQN: Lughaat ul-Quran by Abdur Rasheed Noumani (Urdu)</a></li>
 </ul>
 </li>
 </ul>
 </li>
-<li><a class="reference internal" href="#how-to-use" id="id39">How to use</a></li>
-<li><a class="reference internal" href="#starting-points" id="id40">Starting points:</a></li>
-<li><a class="reference internal" href="#browser-support" id="id41">Browser support</a><ul>
-<li><a class="reference internal" href="#should-work-on-most-smart-phones-tablets" id="id42">Should work on most smart phones &amp; tablets!</a></li>
-</ul>
-</li>
-<li><a class="reference internal" href="#download-for-offline-use" id="id43">Download for offline use</a><ul>
-<li><a class="reference internal" href="#entire-site" id="id44">Entire site</a></li>
-<li><a class="reference internal" href="#download-single-dictionaries-only" id="id45">Download single dictionaries only</a><ul>
-<li><a class="reference internal" href="#required-to-install-arabic-almanac" id="id46">Required to install Arabic Almanac</a></li>
-<li><a class="reference internal" href="#required-to-install-mawrid-reader" id="id47">Required to install Mawrid Reader</a></li>
-<li><a class="reference internal" href="#optional-dictionaries" id="id48">Optional dictionaries</a></li>
+<li><a class="reference internal" href="#mabhath-text-based-dictionaries" id="id41">Mabhath: Text based dictionaries</a><ul>
+<li><a class="reference internal" href="#lanes-lexicon" id="id42">Lanes Lexicon</a></li>
 </ul>
 </li>
 </ul>
 </li>
-<li><a class="reference internal" href="#future-plans-feedback" id="id49">Future plans / Feedback</a></li>
-<li><a class="reference internal" href="#older-news" id="id50">Older news</a></li>
-<li><a class="reference internal" href="#sources-and-acknowledgements" id="id51">Sources and acknowledgements</a></li>
-<li><a class="reference internal" href="#contact" id="id52">Contact</a></li>
+<li><a class="reference internal" href="#how-to-use" id="id43">How to use</a></li>
+<li><a class="reference internal" href="#starting-points" id="id44">Starting points:</a></li>
+<li><a class="reference internal" href="#browser-support" id="id45">Browser support</a><ul>
+<li><a class="reference internal" href="#should-work-on-most-smart-phones-tablets" id="id46">Should work on most smart phones &amp; tablets!</a></li>
+</ul>
+</li>
+<li><a class="reference internal" href="#download-for-offline-use" id="id47">Download for offline use</a><ul>
+<li><a class="reference internal" href="#entire-site" id="id48">Entire site</a></li>
+<li><a class="reference internal" href="#download-single-dictionaries-only" id="id49">Download single dictionaries only</a><ul>
+<li><a class="reference internal" href="#required-to-install-arabic-almanac" id="id50">Required to install Arabic Almanac</a></li>
+<li><a class="reference internal" href="#required-to-install-mawrid-reader" id="id51">Required to install Mawrid Reader</a></li>
+<li><a class="reference internal" href="#optional-dictionaries" id="id52">Optional dictionaries</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li><a class="reference internal" href="#future-plans-feedback" id="id53">Future plans / Feedback</a></li>
+<li><a class="reference internal" href="#older-news" id="id54">Older news</a></li>
+<li><a class="reference internal" href="#sources-and-acknowledgements" id="id55">Sources and acknowledgements</a></li>
+<li><a class="reference internal" href="#contact-donate" id="id56">Contact / donate</a></li>
 </ul>
 </div>
 <!-- sectnum:: -->
 <div class="section" id="latest-news">
-<h1><a class="toc-backref" href="#id3">Latest news</a></h1>
+<h1><a class="toc-backref" href="#id5">Latest news</a></h1>
 <ul>
-<li><p class="first">Version 5.1 - 18/1/2014</p>
+<li><p class="first">Version 6.0 - 31/1/2015</p>
+<blockquote>
+<blockquote>
 <ul class="simple">
-<li>Small fixes to the interface, renamed the top buttons and disabled swipe images by default. It can be turned on in the Menu, in which there's also a fix to make it less sensitive.</li>
-<li>included different favicons for each separate mawrid reader project (Arabic Almanac, Mawrid, Mabhath)</li>
-<li>Now separate downloads are offered: the base files and each dictionary as a separate zip file. This is in preparation for a soon to be released Android app made by a volunteer. More news to follow regarding this. See the download section below</li>
-<li>A basic debugging facility in the Menu to see if images are being loaded or not.</li>
+<li>Page swiping is now less sensitive by default as iOS users were reporting it was a problem in the old version. Feedback on the test version confirms it works better, but if it doesn't you can now switch swiping off altogether in the menu.</li>
+<li>Now with 10 new dictionaries:<ul>
+<li>bdw: Hind/Badawi (Egyptian)</li>
+<li>amr: Mufradat al Quran by Raghib (Arabic): the most famous Dictionary of The Qur'an in Arabic.  Arabic English Dictionary of Qur'anic Usage has mentioned in its introduction: &quot;Indeed, 'al Raghib was of the opinion, expressed in the introduction to his book, that of all disciplines needed for the study of the Qur'an those concerned with the language itself should come first, and, of these, those concerned with the meanings of Qur'anic vocabulary should be considered of primary importance.&quot; He has usually 1st given the primary meanings of words and then quoted the Qur'anic Ayaat along with further explanation of the words used.</li>
+<li>asb: Asaas al Balaaghah by Zamakhshari (Arabic)</li>
+<li>auh: Umdat ul Huffaaz (Arabic)</li>
+<li>tla: Tasheeh Lisan ul Arab (Arabic)</li>
+<li>msb: Misbaah ul Muneer by Fuyyumi (Arabic)</li>
+<li>mht: Muheet al-Muheet (Arabic)</li>
+<li>amj: Al-Munjid (Arabic)</li>
+<li>dhq: Dictionary of the Holy Quran</li>
+<li>ens: Ensiklopedia Al-Quran (Malay): Kajian Kosa Kata, Quraish Shihab</li>
 </ul>
 </li>
-<li><p class="first">Version 5.0 - 24/11/2013</p>
-<p>Further hard work by the project's volunteers has resulted in addition of the following books:</p>
-<ul class="simple">
-<li>LA: Lisan al-'Arab, by Ibn Manzur</li>
-<li>MAR: Marbawi: Arabic - Malaysian dictionary</li>
-<li>IMN: Indonesian: Kamus Al-Munawwir, Arab-Indonesia Terlengkap, oleh KH. Ahmad Warson Munawwir</li>
-<li>KAZ: Kazimirski, French Dictionnaire Arabe-Francais</li>
-<li>UQQ: Urdu Qamoos Alfaaz al-Quran: A translation of Vocabulary Of The Holy Quran by Dr Abdullah Abbas Nadwi</li>
-<li>ULQ: Lughaat ul Qur'an by GA Parwez</li>
-<li>UQA: Qaamoos alfaaz o Istelehaat e Qur'an</li>
-<li>UQQ: Lughat al Quran, an urdu translation of AAN: Vocabulary of the Holy Quran.</li>
-<li>MAW: al-Mawrid 7th edtion.</li>
-<li>LQN: Lughaat ul-Quran by Abdur Rasheed Noumani (Urdu)</li>
+<li>New beta project: Mabhath ul Talib. This is still work in progress but hopefully it is of use. More work needs to be undertaken in order to increase the number of books as well as the quality of the existing books.</li>
+<li>Now on twitter (but without much to say yet): <a class="reference external" href="https://twitter.com/ejvtaal">&#64;ejvtaal</a></li>
 </ul>
-<p>The website is now split up in two parts, one dedicated to root based dictionaries (formerly known as Arabic Almanac) and one for dictionaries that are arranged alphabetically. You can find them here:</p>
-<ul class="simple">
-<li>Root based (Hans Wehr, Lanes Lexicon, etc): <a class="reference external" href="http://ejtaal.net/aa">http://ejtaal.net/aa</a></li>
-<li>Alphabetical (al-Mawrid, etc) <a class="reference external" href="http://ejtaal.net/mr">http://ejtaal.net/mr</a></li>
-</ul>
-<p>The new version now has an improved settings screen, which allows better book re-ordering when using the site on mobile devices. You can now also skip to the next or previous page using a swiping action on mobile and tablet browsers as you do in many other apps.</p>
-<blockquote>
-<p>If for some reason you encounter problems with the new version, you can go back to the old version 4 here: <a class="reference external" href="http://ejtaal.net/aa-old">Version 4</a></p>
+</blockquote>
+<p>Older news: <a class="reference external" href="#older-news">read more...</a></p>
 </blockquote>
 </li>
 </ul>
 </div>
-<div class="section" id="what-is-the-mawrid-reader">
-<h1><a class="toc-backref" href="#id4">What is the Mawrid Reader</a></h1>
-<p>It is a HTML/JavaScript app for both desktop and mobile use that allows
-looking up Arabic roots in Hans Wehr, Lane's Lexicon and other books simultaneously.</p>
-<p>Additionally, you may download the entire website to your hard disk or
-smart phone's sd card, for fast offline usage. Read below for more
-information on downloading and installing it.</p>
-</div>
 <div class="section" id="books-currently-included">
-<h1><a class="toc-backref" href="#id5">Books currently included</a></h1>
+<h1><a class="toc-backref" href="#id6">Books currently included</a></h1>
 <div class="section" id="arabic-almanac-root-based-dictionaries">
-<span id="aa"></span><h2><a class="toc-backref" href="#id6">Arabic Almanac: Root based dictionaries</a></h2>
+<span id="aa"></span><h2><a class="toc-backref" href="#id7">Arabic Almanac: Root based dictionaries</a></h2>
 <div class="section" id="english">
-<h3><a class="toc-backref" href="#id7">English</a></h3>
+<h3><a class="toc-backref" href="#id8">English</a></h3>
 <div class="section" id="hw-hans-wehr">
-<h4><a class="toc-backref" href="#id8">HW: Hans Wehr</a></h4>
+<h4><a class="toc-backref" href="#id9">HW: Hans Wehr</a></h4>
 <p>Started around WW2 and amended a few times since then, it is a very
 concise dictionary listing some commonly found sayings. Its drawback is
 that is focuses more on the language as it is found in print today with
@@ -488,7 +486,7 @@ all sorts of modern usages, making it difficult to find meanings
 intended in older texts.</p>
 </div>
 <div class="section" id="ll-ls-lane-s-lexicon-supplement">
-<h4><a class="toc-backref" href="#id9">LL/LS: Lane's Lexicon + supplement</a></h4>
+<h4><a class="toc-backref" href="#id10">LL/LS: Lane's Lexicon + supplement</a></h4>
 <p>This is a monumental work written in the 19th century, where the author
 has gone through dozens of arabic sources and compiled a lot of relevant
 examples for each root, from Quran, Hadeeth, poetry and proverbs. It is
@@ -501,7 +499,7 @@ automatically for you depending on whether you search for a root before
 or after the letter qaf respectively.</p>
 </div>
 <div class="section" id="sg-steingass">
-<h4><a class="toc-backref" href="#id10">SG: Steingass</a></h4>
+<h4><a class="toc-backref" href="#id11">SG: Steingass</a></h4>
 <p>This dictionary seems to fill the gap between Hans Wehr and Lane's
 Lexicon in that it was also written in the 19th century and also focuses
 on classical meanings. See for example the translation of 'to plough'
@@ -510,117 +508,152 @@ present in the lexicon. <a class="reference external" href="http://en.wikipedia.
 author</a></p>
 </div>
 <div class="section" id="br-brill">
-<h4><a class="toc-backref" href="#id11">BR: Brill</a></h4>
+<h4><a class="toc-backref" href="#id12">BR: Brill</a></h4>
 <p>A very good dictionary devoted to the roots found in the Quran giving statistics and translations of every root listed.</p>
 </div>
 <div class="section" id="pr-a-dictionary-and-glossary-of-the-koran-by-john-penrice">
-<h4><a class="toc-backref" href="#id12">PR: A Dictionary and Glossary of the Koran by John Penrice</a></h4>
+<h4><a class="toc-backref" href="#id13">PR: A Dictionary and Glossary of the Koran by John Penrice</a></h4>
 <p>An older dictionary also devoted to Quranic roots authored in the 19th century.</p>
 </div>
 <div class="section" id="ha-hava">
-<h4><a class="toc-backref" href="#id13">HA: Hava</a></h4>
+<h4><a class="toc-backref" href="#id14">HA: Hava</a></h4>
 <p>A very basic dictionary focusing on some more classical meanings.</p>
 </div>
 <div class="section" id="aan-vocabulary-of-the-holy-quran-by-dr-abdullah-abbas-nadwi">
-<h4><a class="toc-backref" href="#id14">AAN: Vocabulary Of The Holy Quran by Dr Abdullah Abbas Nadwi</a></h4>
+<h4><a class="toc-backref" href="#id15">AAN: Vocabulary Of The Holy Quran by Dr Abdullah Abbas Nadwi</a></h4>
 <p>An extremely useful dictionary of the words in the Qur'an, compiled on the basis of their three-letter roots, allowing one to infer the meanings of almost all the different Qur'anic words by recognizing their root meaning. Examples of uses of the words in the Qur'an are also presented.</p>
 <p>The Compiler: Dr. Abdullah Abbas Al-Nadwi is a graduate of the Nadwatul Ulema and an MA &amp;PhD in Linguistic Philosophy, He is advisor to the Rabitah al-Alam al-Islamiyyah, Makkah, Member of the Liguistic Society Cambride and Professor at Umm al-Qura University Makkah.</p>
 </div>
 <div class="section" id="vi-verbal-idoms-of-the-quraan-by-mustansir-mir">
-<h4><a class="toc-backref" href="#id15">VI: Verbal Idoms of the Quraan by Mustansir Mir</a></h4>
+<h4><a class="toc-backref" href="#id16">VI: Verbal Idoms of the Quraan by Mustansir Mir</a></h4>
 <p>An idiom is a phrase where the words together have a different meaning to the literal dictionary meaning of the words. For example, in English there are thousands, e.g. &quot;a little bird told me&quot;, &quot;a penny for your thoughts&quot;, &quot;a picture is worth a thousand words&quot;, &quot;add fuel to the fire&quot; etc.
 Similarly, in Arabic there are also thousands. The Quran uses several hundred, thus to truly understand and study The Quran, it is very important to be able to identify, study and understand its idiomatic expressions. This book does just that. It is a very unique study (I have not come across another book that does the same in English). It is a simple list and reference for The Quran's idiomatic usage. This book is recommended for anyone wishing to undertake a deeper and more accurate study of The Quran.</p>
 </div>
 <div class="section" id="mgf-dictionary-of-the-holy-quran-by-malik-ghulam-farid-m-a">
-<h4><a class="toc-backref" href="#id16">MGF: Dictionary Of The Holy Quran, by Malik Ghulam Farid, M.A</a></h4>
+<h4><a class="toc-backref" href="#id17">MGF: Dictionary Of The Holy Quran, by Malik Ghulam Farid, M.A</a></h4>
 <p>Caution: This dictionary was written by a Qadiani / Ahmadiyah.
 However, the dictionary is useful and bias is very limited, it discusses mainly the basic root meaning in detail and also gives effects in shade when some other particles or words are combined with a derivative of such root and it contains unique and useful material on roots.</p>
 </div>
+<div class="section" id="dhq-dictionary-of-the-holy-qur-an-by-abdul-mannan-omar">
+<h4><a class="toc-backref" href="#id18">DHQ: Dictionary of The Holy Qur'an by Abdul Mannan Omar</a></h4>
+<p>Caution: This dictionary was written by a Qadiani / Ahmadiyah and bias is visible in some of the roots. However, the dictionary is still useful, and can be studied with caution and additional verification using other dictionaries. It lists multiple meanings associated with the root at the beginning, then he starts listing the various derived forms from the root. Referencing style is also vague e.g. he may list 4 books reference without making distinction which portion he took from which dictionary.</p>
+</div>
 </div>
 <div class="section" id="urdu">
-<h3><a class="toc-backref" href="#id17">Urdu</a></h3>
+<h3><a class="toc-backref" href="#id19">Urdu</a></h3>
 <div class="section" id="uqw-urdu-qaamoos-ul-waheed">
-<h4><a class="toc-backref" href="#id18">UQW: Urdu Qaamoos ul Waheed</a></h4>
+<h4><a class="toc-backref" href="#id20">UQW: Urdu Qaamoos ul Waheed</a></h4>
 <p>Primarily based on the Arabic dictionary Mu'jam al Waseet which was compiled by a team of scholars in 20th century. Qaamoos ul Waheed is one of the largest available Arabic Urdu dictionaries.</p>
 </div>
 <div class="section" id="umr-urdu-mufraadaat-alfaaz-al-qur-an-by-ar-raghib">
-<h4><a class="toc-backref" href="#id19">UMR: Urdu Mufraadaat Alfaaz al Qur'an by ar Raghib</a></h4>
+<h4><a class="toc-backref" href="#id21">UMR: Urdu Mufraadaat Alfaaz al Qur'an by ar Raghib</a></h4>
 <p>This is the Urdu translation of the very famous and useful Mufraadaat Alfaaz al Qur'an al Kareem by Raaghib Asfahaany.</p>
 </div>
 <div class="section" id="ums-urdu-mukhtaar-us-sihah">
-<h4><a class="toc-backref" href="#id20">UMS: Urdu Mukhtaar us Sihah</a></h4>
+<h4><a class="toc-backref" href="#id22">UMS: Urdu Mukhtaar us Sihah</a></h4>
 <p>Mukhtaar us Sihaah written by al Raazi is a highly condensed abridgement of As Sihaah by Al-Jawhary with minor additions by him. Many words used in the Qur'an or Hadith were chosen by al Raazi for inclusion in this book. This is the Urdu translation of the book.</p>
 </div>
 <div class="section" id="umj-urdu-al-munjid">
-<h4><a class="toc-backref" href="#id21">UMJ: Urdu al Munjid</a></h4>
+<h4><a class="toc-backref" href="#id23">UMJ: Urdu al Munjid</a></h4>
 <p>This is the Urdu translation by Ismat abu Saleem of the famous Arabic dictionary al Munjid written by Fr. Louis Ma’luf al-Yassu’i and Fr. Bernard Tottel al-Yassu’i, which has been printed, published, and distributed by a Catholic printing house since 1908. The Arabic dictionary has received some criticism from Muslim Scholars though it is still widely used. Though this is an Urdu translation by a Muslim and appears to have removed many of the concerns, caution is still advised. In Urdu, Al Munjid has been the source of 3 books. Misbaah ul Lughaat was actually based on this dictionary in which the translator removed some content and added some of his own content. The edition used in Almanac is claimed to be the 1st complete Urdu translation of Al Munjid.</p>
 </div>
 <div class="section" id="ulq-urdu-lughaat-ul-qur-an-by-ga-parwez">
-<h4><a class="toc-backref" href="#id22">ULQ: Urdu Lughaat ul Qur'an by GA Parwez</a></h4>
+<h4><a class="toc-backref" href="#id24">ULQ: Urdu Lughaat ul Qur'an by GA Parwez</a></h4>
 <p>This Arabic Urdu dictionary of the Qur'an has quoted material from some important works and many entries contain useful material. However, since the author is a Sunnah rejector, he has inserted baseless material in a few of the roots. Caution is advised. It contains some rare and useful material but this caution and his bias should be kept in mind.</p>
 </div>
 <div class="section" id="uqa-qaamoos-alfaaz-o-istelehaat-e-qur-an">
-<h4><a class="toc-backref" href="#id23">UQA: Qaamoos alfaaz o Istelehaat e Qur'an</a></h4>
+<h4><a class="toc-backref" href="#id25">UQA: Qaamoos alfaaz o Istelehaat e Qur'an</a></h4>
 <p>This dictionary is extracted from the notes on words given in the large Urdu Tafseer of The Qur'an Tadabbur e Qur'an by Amin Ahsan Islahi. The focus appears to be on giving meaning based on usage of the word in language.</p>
 </div>
 <div class="section" id="uqq-urdu-qaamoos-alfaaz-al-qur-an-al-kareem">
-<h4><a class="toc-backref" href="#id24">UQQ: Urdu Qaamoos Alfaaz al Qur'an al Kareem</a></h4>
+<h4><a class="toc-backref" href="#id26">UQQ: Urdu Qaamoos Alfaaz al Qur'an al Kareem</a></h4>
 <p>Urdu Translation of Vocabulary of The Holy Qur'an by Abdullah Abbas Nadwi. Gives meanings of the roots and their related words. A brief yet useful book. Also gives brief grammatical notes.</p>
 </div>
 </div>
 <div class="section" id="arabic">
-<h3><a class="toc-backref" href="#id25">Arabic</a></h3>
+<h3><a class="toc-backref" href="#id27">Arabic</a></h3>
 <div class="section" id="la-lisan-al-arab">
-<h4><a class="toc-backref" href="#id26">LA: Lisan al-'Arab</a></h4>
+<h4><a class="toc-backref" href="#id28">LA: Lisan al-'Arab</a></h4>
 <p>The Lisān al-ʿArab (لسان العرب, &quot;The Arab Tongue&quot;) was completed by Ibn Manzur in 1290. Occupying 20 printed book volumes (in the most frequently cited edition), it is the most well-known dictionary of the Arabic language,[3] as well as one of the most comprehensive. Ibn Manzur compiled it from other sources, to a large degree.</p>
+</div>
+<div class="section" id="amj-al-munjid">
+<h4><a class="toc-backref" href="#id29">AMJ: Al-Munjid</a></h4>
+<p>It is said that in the Arab World al-Munjid is the standard Arabic-Arabic dictionary used. It includes color Images, maps and tables.</p>
 </div>
 </div>
 <div class="section" id="indonesion-malaysian">
-<h3><a class="toc-backref" href="#id27">Indonesion / Malaysian</a></h3>
+<h3><a class="toc-backref" href="#id30">Indonesion / Malaysian</a></h3>
 <div class="section" id="imn-indonesia-al-munawwir-kamus-arab-indonesia-terlengkap-oleh-kh-ahmad-warson-munawwir">
-<h4><a class="toc-backref" href="#id28">IMN: Indonesia, Al-Munawwir, Kamus Arab-Indonesia Terlengkap, oleh KH. Ahmad Warson Munawwir</a></h4>
+<h4><a class="toc-backref" href="#id31">IMN: Indonesia, Al-Munawwir, Kamus Arab-Indonesia Terlengkap, oleh KH. Ahmad Warson Munawwir</a></h4>
 <p>Kamus Al-Munawwir merupakan sebuah kamus bahasa Arab-Indonesia yang merupakan kamus bahasa Arab terlengkap, paling tebal dan legendaris di Indonesia. Kamus ini telah banyak digunakan oleh para penuntut ilmu (thullabul Ilmi) untuk mengetahui arti kosakata Arab ke dalam bahasa Indonesia juga sebagai acuan pada bendahara kosakata terjemahan kitab kuning. Kamus ini termasuk kategori best seller, karena telah dicetak berulangkali dan dicetak sekitar 10 ribu-15 ribu eksemplar pertahun. Untuk melengkapinya kamus ini kemudian diikuti edisi Indonesia-Arab-nya. Link: <a class="reference external" href="http://id.wikipedia.org/wiki/Al-Munawwir_(kamus">http://id.wikipedia.org/wiki/Al-Munawwir_(kamus</a>)</p>
 </div>
 <div class="section" id="mar-kamus-idris-al-marbawi-arabic-malay">
-<h4><a class="toc-backref" href="#id29">MAR: Kamus Idris Al-Marbawi (Arabic-Malay)</a></h4>
+<h4><a class="toc-backref" href="#id32">MAR: Kamus Idris Al-Marbawi (Arabic-Malay)</a></h4>
 <p>Compiled by Sheikh Muhammad Idris Abdul Rauf Al-Marbawia, a Malay scholar born in Saudi Arabia. He spent most of his life facilitating the efforts of learning the Arabic books in many madrasa in Malaysia and finally in Al Azhar University in Egypt. Then, he began to compile the Arabic/Malay dictionary or more recognizable as Kamus Idris al-Marbawi, published in 1937.</p>
+</div>
+<div class="section" id="ens-ensiklopedia-al-quran-malay-kajian-kosa-kata-quraish-shihab">
+<h4><a class="toc-backref" href="#id33">ENS: Ensiklopedia Al-Quran (Malay): Kajian Kosa Kata, Quraish Shihab</a></h4>
+<p>This book is produced in an effort to explain the Qur'anic vocabulary and its guidance equipped with an
+explanation of semantic meanings. The book is based on the criticism of the Qur’anic experts who found an
+abundant confusion in the exegetical works made by the exegetes in understanding the Qur’anic vocabulary. The
+idea for this book was inspired in 1992 by Shihab as a reference for religious leaders, educators and scholars. To
+achieve these goals, the research team was formed comprising of a chief researcher and authors.</p>
+<p>The chief researcher was selected from among the Qur’anic experts; in this case Shihab was elected to assume
+the position. The group of organizers were supervised by Abd. Hafizh Dasuki and assisted by Ahmad Thib Raya.
+The authors consisted of the lecturers in the Islamic State University and Higher Education Institution who were
+studying at the post-graduate level IAIN Syarif Hidayatullah, Jakarta and IAIN Sunan Kalijaga, Yogyakarta.</p>
+<p>In 1997, the trial edition of the Qur’anic Encyclopaedia was published, entitled Ensiklopedi Al-Qur’an: Kajian
+Kosa kata dan Tafsirnya [An Encyclopaedia of the Qur’an: Study of the Vocabulary and its Exegesis]. The book
+is dissected and studied extensively in an academic symposium to which the participants were invited. Many of
+the Qur’anic experts attended along with intellectuals and Islamic civil society activists. Through criticism and
+suggestions on the trial edition, a group of researchers sought to perfect the book. After a relatively long time as
+well as the addition of new titles, a new organizers group were formed to oversee the existing data and prepare
+for publication. Members of the group in question include Shihab (Chief), Nasaruddin Umar and Muchlis Hanafi
+(Vice Chairman), Sahabuddin, Yusuf Baihaqi, and Irfan Abdullah and Salim Masud Rusydi Cahyono (Members).</p>
+<p>The result is a published on collaboration with the Lentera Hati publisher, the Centre of Qur’anic Study and
+Yayasan Paguyuban Ikhlas in 2007. An initial publication of 485 was increased to 1050 units. The book is
+arranged alphabetically by following the Indonesian language transliteration of the Arabic language. Whereas the
+form of the selected word is determined based on its usage in the Qur’an and not the original or root of the word
+(though the original word was deliberated and discussed with a variety of regular derivations). This method is
+selected for the convenience of readers</p>
+<p><a class="reference external" href="http://ccsenet.org/journal/index.php/ass/article/viewFile/39701/21983">Source</a></p>
 </div>
 </div>
 <div class="section" id="french">
-<h3><a class="toc-backref" href="#id30">French</a></h3>
+<h3><a class="toc-backref" href="#id34">French</a></h3>
 <div class="section" id="kaz-kazimirski-french-dictionnaire-arabe-francais">
-<h4><a class="toc-backref" href="#id31">KAZ: Kazimirski, French Dictionnaire Arabe-Francais</a></h4>
+<h4><a class="toc-backref" href="#id35">KAZ: Kazimirski, French Dictionnaire Arabe-Francais</a></h4>
 <p>This work has been the standard dictionary for translation of Arabic into French for many years. It contains most of the known roots of the Arabic language and also includes the dialects of Algiers and Morocco. Albert de Biberstein Kazimirski (1808-1887) was a lexicographer of repute in the nineteenth century. Among his many accomplishments was the translation of the Quran into French and the production of multiple dictionaries.</p>
 </div>
 </div>
 </div>
 <div class="section" id="mawrid-alphabetical-dictionaries">
-<h2><a class="toc-backref" href="#id32">Mawrid: Alphabetical dictionaries</a></h2>
-<div class="section" id="id1">
-<h3><a class="toc-backref" href="#id33">English</a></h3>
+<span id="mr"></span><h2><a class="toc-backref" href="#id36">Mawrid: Alphabetical dictionaries</a></h2>
+<div class="section" id="id3">
+<h3><a class="toc-backref" href="#id37">English</a></h3>
 <div class="section" id="maw-al-mawrid-7th-ed-by-rowhi-baalbaki">
-<h4><a class="toc-backref" href="#id34">MAW: al-Mawrid 7th ed. by Rowhi Baalbaki</a></h4>
+<h4><a class="toc-backref" href="#id38">MAW: al-Mawrid 7th ed. by Rowhi Baalbaki</a></h4>
 <p>This is a modern and compact Arabic English dictionary. It is arranged according to words instead of roots and is a great resource for both beginners as well as advanced learners of Modern Arabic.</p>
 </div>
 </div>
-<div class="section" id="id2">
-<h3><a class="toc-backref" href="#id35">Urdu</a></h3>
+<div class="section" id="id4">
+<h3><a class="toc-backref" href="#id39">Urdu</a></h3>
 <div class="section" id="lqn-lughaat-ul-quran-by-abdur-rasheed-noumani-urdu">
-<h4><a class="toc-backref" href="#id36">LQN: Lughaat ul-Quran by Abdur Rasheed Noumani (Urdu)</a></h4>
+<h4><a class="toc-backref" href="#id40">LQN: Lughaat ul-Quran by Abdur Rasheed Noumani (Urdu)</a></h4>
 <p>The largest Arabic Urdu Dictionary of The Qur'an of about 2161 pages, but it is arranged according to words instead of roots. It gives meanings and explanations of the words along with brief grammatical information. It has explained some of the important words in great detail.</p>
 </div>
 </div>
 </div>
 <div class="section" id="mabhath-text-based-dictionaries">
-<h2><a class="toc-backref" href="#id37">Mabhath: Text based dictionaries</a></h2>
+<span id="mh"></span><h2><a class="toc-backref" href="#id41">Mabhath: Text based dictionaries</a></h2>
 <div class="section" id="lanes-lexicon">
-<h3><a class="toc-backref" href="#id38">Lanes Lexicon</a></h3>
+<h3><a class="toc-backref" href="#id42">Lanes Lexicon</a></h3>
 <p>By the Perseus Tuft project, text improved by br. Naveed.</p>
 </div>
 </div>
 </div>
 <div class="section" id="how-to-use">
-<h1><a class="toc-backref" href="#id39">How to use</a></h1>
+<h1><a class="toc-backref" href="#id43">How to use</a></h1>
 <p>There is a really useful explanation page with screenshots here:
 <a class="reference external" href="http://revivearabic.blogspot.co.uk/p/using-arabic-almanac.html">http://revivearabic.blogspot.co.uk</a></p>
 <p>Below a short guide:</p>
@@ -664,7 +697,7 @@ forward 1 page: right arrow, g or x
 <p>If you hide a book its images are not loaded during new searches, so this will improve the load time for the books that you do want to view.</p>
 </div>
 <div class="section" id="starting-points">
-<h1><a class="toc-backref" href="#id40">Starting points:</a></h1>
+<h1><a class="toc-backref" href="#id44">Starting points:</a></h1>
 <p>Here are some links to get you started (TODO: Remaining morphology links for SG, BR, PR, HW4, AAN, VI):</p>
 <ul class="simple">
 <li><a class="reference external" href="aa.html#HW3=5,LL=1_6,LS=2,HA=11,LS_HIDE,SG=6,BR=7,PR=8,HW4=4,AAN=6,VI=17">Prefaces</a></li>
@@ -676,10 +709,10 @@ pages)</a></li>
 </ul>
 </div>
 <div class="section" id="browser-support">
-<h1><a class="toc-backref" href="#id41">Browser support</a></h1>
+<h1><a class="toc-backref" href="#id45">Browser support</a></h1>
 <p>I aim to make this website compatible with all major current desktop and mobile/tablet browsers, like Chrome, Firefox and Opera. However, I recommend against using Internet Explorer as this browser gives inconsistent behaviour when using this website.</p>
 <div class="section" id="should-work-on-most-smart-phones-tablets">
-<h2><a class="toc-backref" href="#id42">Should work on most smart phones &amp; tablets!</a></h2>
+<h2><a class="toc-backref" href="#id46">Should work on most smart phones &amp; tablets!</a></h2>
 <p>Depending on your screen resolution it will decide upon first load to
 either use full width view or single column view mode, so that it should
 select full view when you use this page on a largish desktop/tablet
@@ -689,9 +722,9 @@ always change the view manually with the 'View' button.</p>
 </div>
 </div>
 <div class="section" id="download-for-offline-use">
-<h1><a class="toc-backref" href="#id43">Download for offline use</a></h1>
+<h1><a class="toc-backref" href="#id47">Download for offline use</a></h1>
 <div class="section" id="entire-site">
-<h2><a class="toc-backref" href="#id44">Entire site</a></h2>
+<h2><a class="toc-backref" href="#id48">Entire site</a></h2>
 <p>You can now download the entire website and install it for instance on
 your phone's SD card or your desktop PC for super fast access. Download
 link:</p>
@@ -709,38 +742,72 @@ tablets there are 2 ways you could try to get it installed: 1) Install the free 
 &quot;aa&quot; or &quot;mr&quot; folder and click on index.html or 2) Install the free Astro file manager and navigate to the aa or mr folder that you've extracted from the zip file onto the sdcard. Tap the index.html file and it will either open in your default browser or you can choose any of the installed browser to open the file. Once in your browser you can bookmark it for quick access. I've found the Dolpin browser to have the best performance, but the Chrome or Firefox browsers should work as well.</p>
 </div>
 <div class="section" id="download-single-dictionaries-only">
-<h2><a class="toc-backref" href="#id45">Download single dictionaries only</a></h2>
+<h2><a class="toc-backref" href="#id49">Download single dictionaries only</a></h2>
 <p>This way allows you to download only those dictionaries you wish to use. Currently the site will still assume you've got all dictionaries present so the ones you haven't downloaded will simply appear as &quot;File not found&quot; images.</p>
 <p>Firstly you need the base files contained in base.zip. This file contains the indexes and the site itself. Create a folder on your PC or sdcard called 'AA' or 'MR' for Arabic Almanac or Mawrid Reader respectively. Place the right base.zip and the dictionaries zip files that you've downloaded all in this folder and extract them one by one.</p>
 <div class="section" id="required-to-install-arabic-almanac">
-<h3><a class="toc-backref" href="#id46">Required to install Arabic Almanac</a></h3>
+<h3><a class="toc-backref" href="#id50">Required to install Arabic Almanac</a></h3>
 <ul class="simple">
 <li>Base files (download this to get the latest indexes and website version) <a class="reference external" href="./base_aa.zip">base_aa.zip</a></li>
 </ul>
 </div>
 <div class="section" id="required-to-install-mawrid-reader">
-<h3><a class="toc-backref" href="#id47">Required to install Mawrid Reader</a></h3>
+<h3><a class="toc-backref" href="#id51">Required to install Mawrid Reader</a></h3>
 <ul class="simple">
 <li>Base files (download this to get the latest indexes and website version) <a class="reference external" href="./base_mr.zip">base_mr.zip</a></li>
 </ul>
 </div>
 <div class="section" id="optional-dictionaries">
-<h3><a class="toc-backref" href="#id48">Optional dictionaries</a></h3>
+<h3><a class="toc-backref" href="#id52">Optional dictionaries</a></h3>
 </div>
 </div>
 </div>
 <div class="section" id="future-plans-feedback">
-<h1><a class="toc-backref" href="#id49">Future plans / Feedback</a></h1>
+<h1><a class="toc-backref" href="#id53">Future plans / Feedback</a></h1>
 <ul class="simple">
+<li>Plans are forming for a version solely basedon arabic grammar books. They would include a list of particles/subject which when activated will display all relevant pages from the included books.</li>
 <li>Enhancements as well as bugs are now recorded in the Github issue list: <a class="reference external" href="https://github.com/ejtaal/mr/issues">Mawrid Reader issues</a></li>
+<li>Figure out a way to have interesting pages for a book listed, such as foreword, biographies or appendices which would normally be difficult to find using the search function.</li>
 </ul>
 <p>Contact me at <a class="reference external" href="mailto:ejtaal&#64;gmail.com">ejtaal&#64;gmail.com</a> for more details on how to help with adding further books.. You can also contact me if you wish to discuss a custom made
 version featuring your own books.</p>
 <p>I'm planning to start work soon insha Allah on a text based Arabic dictionary, you can follow my progress on Github at the <a class="reference external" href="https://github.com/ejtaal/mabhath">Mabhath</a> project. It will feature a re-designed layout and I aim to include as many dictionaries as can be found in a text format. Contact me if you have any suggestions.</p>
 </div>
 <div class="section" id="older-news">
-<h1><a class="toc-backref" href="#id50">Older news</a></h1>
+<h1><a class="toc-backref" href="#id54">Older news</a></h1>
 <ul>
+<li><p class="first">Version 5.1 - 18/1/2014</p>
+<ul class="simple">
+<li>Small fixes to the interface, renamed the top buttons and disabled swipe images by default. It can be turned on in the Menu, in which there's also a fix to make it less sensitive.</li>
+<li>included different favicons for each separate mawrid reader project (Arabic Almanac, Mawrid, Mabhath)</li>
+<li>Now separate downloads are offered: the base files and each dictionary as a separate zip file. This is in preparation for a soon to be released Android app made by a volunteer. More news to follow regarding this. See the download section below</li>
+<li>A basic debugging facility in the Menu to see if images are being loaded or not.</li>
+</ul>
+</li>
+<li><p class="first">Version 5.0 - 24/11/2013</p>
+<p>Further hard work by the project's volunteers has resulted in addition of the following books:</p>
+<ul class="simple">
+<li>LA: Lisan al-'Arab, by Ibn Manzur</li>
+<li>MAR: Marbawi: Arabic - Malaysian dictionary</li>
+<li>IMN: Indonesian: Kamus Al-Munawwir, Arab-Indonesia Terlengkap, oleh KH. Ahmad Warson Munawwir</li>
+<li>KAZ: Kazimirski, French Dictionnaire Arabe-Francais</li>
+<li>UQQ: Urdu Qamoos Alfaaz al-Quran: A translation of Vocabulary Of The Holy Quran by Dr Abdullah Abbas Nadwi</li>
+<li>ULQ: Lughaat ul Qur'an by GA Parwez</li>
+<li>UQA: Qaamoos alfaaz o Istelehaat e Qur'an</li>
+<li>UQQ: Lughat al Quran, an urdu translation of AAN: Vocabulary of the Holy Quran.</li>
+<li>MAW: al-Mawrid 7th edtion.</li>
+<li>LQN: Lughaat ul-Quran by Abdur Rasheed Noumani (Urdu)</li>
+</ul>
+<p>The website is now split up in two parts, one dedicated to root based dictionaries (formerly known as Arabic Almanac) and one for dictionaries that are arranged alphabetically. You can find them here:</p>
+<ul class="simple">
+<li>Root based (Hans Wehr, Lanes Lexicon, etc): <a class="reference external" href="http://ejtaal.net/aa">http://ejtaal.net/aa</a></li>
+<li>Alphabetical (al-Mawrid, etc) <a class="reference external" href="http://ejtaal.net/mr">http://ejtaal.net/mr</a></li>
+</ul>
+<p>The new version now has an improved settings screen, which allows better book re-ordering when using the site on mobile devices. You can now also skip to the next or previous page using a swiping action on mobile and tablet browsers as you do in many other apps.</p>
+<blockquote>
+<p>If for some reason you encounter problems with the new version, you can go back to the old version 4 here: <a class="reference external" href="http://ejtaal.net/aa-old">Version 4</a></p>
+</blockquote>
+</li>
 <li><p class="first">version 4.0 - 20/7/2013</p>
 <p>Thanks to the work of 2 very enthusiastic volunteers, we present
 version 4.0 which now includes the following 7 new books:</p>
@@ -857,7 +924,7 @@ a search.</li>
 </ul>
 </div>
 <div class="section" id="sources-and-acknowledgements">
-<h1><a class="toc-backref" href="#id51">Sources and acknowledgements</a></h1>
+<h1><a class="toc-backref" href="#id55">Sources and acknowledgements</a></h1>
 <p>This project would not have been possible without the initial help of
 certain very helpful people, namely:</p>
 <p>The indexes for both Hans Wehr (3rd print) &amp; Hava has been made possible
@@ -878,14 +945,28 @@ the code required for 4 new books, and Asim Iqbal 2nd for gathering content
 <li>ReText, documentation editor</li>
 </ul>
 </div>
-<div class="section" id="contact">
-<h1><a class="toc-backref" href="#id52">Contact</a></h1>
+<div class="section" id="contact-donate">
+<h1><a class="toc-backref" href="#id56">Contact / donate</a></h1>
 <ul class="simple">
 <li>My email: <a class="reference external" href="mailto:ejtaal&#64;gmail.com">ejtaal&#64;gmail.com</a></li>
 <li>Project hosted at: <a class="reference external" href="https://github.com/ejtaal/mr">GitHub</a></li>
 </ul>
-<p>© 2011-2014 by Abdurahman Erik Taal</p>
-<p>License: GNU GPL v3.
+<p>Running the website does cost me a monthly fee so if you
+wish to contribute towards these costs you can
+use the following donate button. Jazak Allah khairan and thank you in advance for any
+and all amounts you wish to donate :)</p>
+<form action="https://www.paypal.com/cgi-bin/webscr" method="post" target="_top">
+<input type="hidden" name="cmd" value="_donations">
+<input type="hidden" name="business" value="ejtaal@gmail.com">
+<input type="hidden" name="lc" value="GB">
+<input type="hidden" name="item_name" value="ejtaal.net">
+<input type="hidden" name="no_note" value="0">
+<input type="hidden" name="currency_code" value="USD">
+<input type="hidden" name="bn" value="PP-DonationsBF:btn_donate_LG.gif:NonHostedGuest">
+<input type="image" src="https://www.paypalobjects.com/en_GB/i/btn/btn_donate_LG.gif" border="0" name="submit" alt="PayPal – The safer, easier way to pay online.">
+<img alt="" border="0" src="https://www.paypalobjects.com/en_US/i/scr/pixel.gif" width="1" height="1">
+</form><p>© 2011-2015 by Abdurahman Erik Taal</p>
+<p>Code license: GNU GPL v3.
 Dua-ware: You must make dua for everyone involved in this project at least once if you're using this software :)</p>
 </div>
 </div>

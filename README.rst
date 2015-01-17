@@ -1,4 +1,17 @@
-**Mawrid Reader: Arabic dictionary interface**
+==========================================
+Mawrid Reader: Arabic dictionary interface
+==========================================
+
+Mawrid Reader is a HTML/JavaScript app for both desktop and mobile use
+for displaying and searching books. It is used by the following sub projects:
+
+	- Arabic Almanac (root based dictionaries in various languages) `link to website <http://ejtaal.net/aa/>`_
+	- Mawrid (for alphabetical disctionaries, notably al-Mawrid) `link to website <http://ejtaal.net/mr/>`_
+	- Mabhath ul Talib (root based dictionaries in text format rather than as images) `link to website <http://ejtaal.net/mt/>`_
+
+All of these projects can also be downloaded to your hard disk or
+smart phone's sd card, for fast offline usage. Read below for more
+information on downloading and installing it.
 
 Please read below for the latest news, planned updates, download instructions and more background information on this website and the dictionaries used.
 
@@ -13,60 +26,32 @@ Please read below for the latest news, planned updates, download instructions an
 Latest news
 ===========
 
--   Version 6.0 - 18/12/2014
+-   Version 6.0 - 31/1/2015
 
-    - Made swipe enabled again, with less sensitive setting. Feedback confirms it works better.
-		
-		Additional dictionaries:
+		- Page swiping is now less sensitive by default as iOS users were reporting it was a problem in the old version. Feedback on the test version confirms it works better, but if it doesn't you can now switch swiping off altogether in the menu.
 
-		- BDW: Hind/Badawi (Egyptian)
-		- AMR: Mufradat al Quran by Raghib (Arabic): the most famous Dictionary of The Qur'an in Arabic.  Arabic English Dictionary of Qur'anic Usage has mentioned in its introduction: "Indeed, 'al Raghib was of the opinion, expressed in the introduction to his book, that of all disciplines needed for the study of the Qur'an those concerned with the language itself should come first, and, of these, those concerned with the meanings of Qur'anic vocabulary should be considered of primary importance." He has usually 1st given the primary meanings of words and then quoted the Qur'anic Ayaat along with further explanation of the words used. 
-		- 
+		-	Now with 10 new dictionaries:
 
--   Version 5.1 - 18/1/2014
+			- bdw: Hind/Badawi (Egyptian)
+			- amr: Mufradat al Quran by Raghib (Arabic): the most famous Dictionary of The Qur'an in Arabic.  Arabic English Dictionary of Qur'anic Usage has mentioned in its introduction: "Indeed, 'al Raghib was of the opinion, expressed in the introduction to his book, that of all disciplines needed for the study of the Qur'an those concerned with the language itself should come first, and, of these, those concerned with the meanings of Qur'anic vocabulary should be considered of primary importance." He has usually 1st given the primary meanings of words and then quoted the Qur'anic Ayaat along with further explanation of the words used. 
+			- asb: Asaas al Balaaghah by Zamakhshari (Arabic)
+			- auh: Umdat ul Huffaaz (Arabic)
+			- tla: Tasheeh Lisan ul Arab (Arabic)
+			- msb: Misbaah ul Muneer by Fuyyumi (Arabic)
+			- mht: Muheet al-Muheet (Arabic)
+			- amj: Al-Munjid (Arabic)
+			- dhq: Dictionary of the Holy Quran
+			- ens: Ensiklopedia Al-Quran (Malay): Kajian Kosa Kata, Quraish Shihab
 
-    - Small fixes to the interface, renamed the top buttons and disabled swipe images by default. It can be turned on in the Menu, in which there's also a fix to make it less sensitive.
-    - included different favicons for each separate mawrid reader project (Arabic Almanac, Mawrid, Mabhath)
-    - Now separate downloads are offered: the base files and each dictionary as a separate zip file. This is in preparation for a soon to be released Android app made by a volunteer. More news to follow regarding this. See the download section below
-    - A basic debugging facility in the Menu to see if images are being loaded or not.
-    
--   Version 5.0 - 24/11/2013
+		- New beta project: Mabhath ul Talib. This is still work in progress but hopefully it is of use. More work needs to be undertaken in order to increase the number of books as well as the quality of the existing books.
 
-    Further hard work by the project's volunteers has resulted in addition of the following books:
+		- Now on twitter (but without much to say yet): `@ejvtaal <https://twitter.com/ejvtaal>`_
 
-    - LA: Lisan al-'Arab, by Ibn Manzur
-    - MAR: Marbawi: Arabic - Malaysian dictionary
-    - IMN: Indonesian: Kamus Al-Munawwir, Arab-Indonesia Terlengkap, oleh KH. Ahmad Warson Munawwir
-    - KAZ: Kazimirski, French Dictionnaire Arabe-Francais
-    - UQQ: Urdu Qamoos Alfaaz al-Quran: A translation of Vocabulary Of The Holy Quran by Dr Abdullah Abbas Nadwi
-    - ULQ: Lughaat ul Qur'an by GA Parwez
-    - UQA: Qaamoos alfaaz o Istelehaat e Qur'an
-    - UQQ: Lughat al Quran, an urdu translation of AAN: Vocabulary of the Holy Quran.
-    - MAW: al-Mawrid 7th edtion.
-    - LQN: Lughaat ul-Quran by Abdur Rasheed Noumani (Urdu)
-  
-    The website is now split up in two parts, one dedicated to root based dictionaries (formerly known as Arabic Almanac) and one for dictionaries that are arranged alphabetically. You can find them here:
-    
-    - Root based (Hans Wehr, Lanes Lexicon, etc): `http://ejtaal.net/aa <http://ejtaal.net/aa>`_ 
-    - Alphabetical (al-Mawrid, etc) `http://ejtaal.net/mr <http://ejtaal.net/mr>`_
-    
-    The new version now has an improved settings screen, which allows better book re-ordering when using the site on mobile devices. You can now also skip to the next or previous page using a swiping action on mobile and tablet browsers as you do in many other apps.
-
-		If for some reason you encounter problems with the new version, you can go back to the old version 4 here: `Version 4 <http://ejtaal.net/aa-old>`_
-
+  	Older news: `read more... <#older-news>`_
     
 
    
 
-What is the Mawrid Reader
-=========================
-
-It is a HTML/JavaScript app for both desktop and mobile use that allows
-looking up Arabic roots in Hans Wehr, Lane's Lexicon and other books simultaneously.
-
-Additionally, you may download the entire website to your hard disk or
-smart phone's sd card, for fast offline usage. Read below for more
-information on downloading and installing it.
 
 Books currently included
 ========================
@@ -146,6 +131,10 @@ MGF: Dictionary Of The Holy Quran, by Malik Ghulam Farid, M.A
 Caution: This dictionary was written by a Qadiani / Ahmadiyah.
 However, the dictionary is useful and bias is very limited, it discusses mainly the basic root meaning in detail and also gives effects in shade when some other particles or words are combined with a derivative of such root and it contains unique and useful material on roots.  
 
+DHQ: Dictionary of The Holy Qur'an by Abdul Mannan Omar
+-------------------------------------------------------
+Caution: This dictionary was written by a Qadiani / Ahmadiyah and bias is visible in some of the roots. However, the dictionary is still useful, and can be studied with caution and additional verification using other dictionaries. It lists multiple meanings associated with the root at the beginning, then he starts listing the various derived forms from the root. Referencing style is also vague e.g. he may list 4 books reference without making distinction which portion he took from which dictionary.  
+
 Urdu
 ****
 
@@ -189,6 +178,13 @@ LA: Lisan al-'Arab
 -----------------------
 The Lisān al-ʿArab (لسان العرب, "The Arab Tongue") was completed by Ibn Manzur in 1290. Occupying 20 printed book volumes (in the most frequently cited edition), it is the most well-known dictionary of the Arabic language,[3] as well as one of the most comprehensive. Ibn Manzur compiled it from other sources, to a large degree.
 
+AMJ: Al-Munjid
+--------------
+
+It is said that in the Arab World al-Munjid is the standard Arabic-Arabic dictionary used. It includes color Images, maps and tables.
+
+
+
 Indonesion / Malaysian
 **********************
 
@@ -200,6 +196,36 @@ MAR: Kamus Idris Al-Marbawi (Arabic-Malay)
 -------------------------------------------
 Compiled by Sheikh Muhammad Idris Abdul Rauf Al-Marbawia, a Malay scholar born in Saudi Arabia. He spent most of his life facilitating the efforts of learning the Arabic books in many madrasa in Malaysia and finally in Al Azhar University in Egypt. Then, he began to compile the Arabic/Malay dictionary or more recognizable as Kamus Idris al-Marbawi, published in 1937. 
 
+ENS: Ensiklopedia Al-Quran (Malay): Kajian Kosa Kata, Quraish Shihab
+---------------------------------------------------------------------
+This book is produced in an effort to explain the Qur'anic vocabulary and its guidance equipped with an
+explanation of semantic meanings. The book is based on the criticism of the Qur’anic experts who found an
+abundant confusion in the exegetical works made by the exegetes in understanding the Qur’anic vocabulary. The
+idea for this book was inspired in 1992 by Shihab as a reference for religious leaders, educators and scholars. To
+achieve these goals, the research team was formed comprising of a chief researcher and authors.
+
+The chief researcher was selected from among the Qur’anic experts; in this case Shihab was elected to assume
+the position. The group of organizers were supervised by Abd. Hafizh Dasuki and assisted by Ahmad Thib Raya.
+The authors consisted of the lecturers in the Islamic State University and Higher Education Institution who were
+studying at the post-graduate level IAIN Syarif Hidayatullah, Jakarta and IAIN Sunan Kalijaga, Yogyakarta.
+
+In 1997, the trial edition of the Qur’anic Encyclopaedia was published, entitled Ensiklopedi Al-Qur’an: Kajian
+Kosa kata dan Tafsirnya [An Encyclopaedia of the Qur’an: Study of the Vocabulary and its Exegesis]. The book
+is dissected and studied extensively in an academic symposium to which the participants were invited. Many of
+the Qur’anic experts attended along with intellectuals and Islamic civil society activists. Through criticism and
+suggestions on the trial edition, a group of researchers sought to perfect the book. After a relatively long time as
+well as the addition of new titles, a new organizers group were formed to oversee the existing data and prepare
+for publication. Members of the group in question include Shihab (Chief), Nasaruddin Umar and Muchlis Hanafi
+(Vice Chairman), Sahabuddin, Yusuf Baihaqi, and Irfan Abdullah and Salim Masud Rusydi Cahyono (Members).
+
+The result is a published on collaboration with the Lentera Hati publisher, the Centre of Qur’anic Study and
+Yayasan Paguyuban Ikhlas in 2007. An initial publication of 485 was increased to 1050 units. The book is
+arranged alphabetically by following the Indonesian language transliteration of the Arabic language. Whereas the
+form of the selected word is determined based on its usage in the Qur’an and not the original or root of the word
+(though the original word was deliberated and discussed with a variety of regular derivations). This method is
+selected for the convenience of readers
+
+`Source <http://ccsenet.org/journal/index.php/ass/article/viewFile/39701/21983>`_
 
 French
 ******
@@ -387,7 +413,9 @@ Optional dictionaries
 Future plans / Feedback
 =======================
 
+- Plans are forming for a version solely basedon arabic grammar books. They would include a list of particles/subject which when activated will display all relevant pages from the included books.
 - Enhancements as well as bugs are now recorded in the Github issue list: `Mawrid Reader issues <https://github.com/ejtaal/mr/issues>`_
+- Figure out a way to have interesting pages for a book listed, such as foreword, biographies or appendices which would normally be difficult to find using the search function.
 
 Contact me at ejtaal@gmail.com for more details on how to help with adding further books.. You can also contact me if you wish to discuss a custom made
 version featuring your own books.
@@ -397,6 +425,38 @@ I'm planning to start work soon insha Allah on a text based Arabic dictionary, y
    
 Older news
 ==========
+
+-   Version 5.1 - 18/1/2014
+
+    - Small fixes to the interface, renamed the top buttons and disabled swipe images by default. It can be turned on in the Menu, in which there's also a fix to make it less sensitive.
+    - included different favicons for each separate mawrid reader project (Arabic Almanac, Mawrid, Mabhath)
+    - Now separate downloads are offered: the base files and each dictionary as a separate zip file. This is in preparation for a soon to be released Android app made by a volunteer. More news to follow regarding this. See the download section below
+    - A basic debugging facility in the Menu to see if images are being loaded or not.
+    
+-   Version 5.0 - 24/11/2013
+
+    Further hard work by the project's volunteers has resulted in addition of the following books:
+
+    - LA: Lisan al-'Arab, by Ibn Manzur
+    - MAR: Marbawi: Arabic - Malaysian dictionary
+    - IMN: Indonesian: Kamus Al-Munawwir, Arab-Indonesia Terlengkap, oleh KH. Ahmad Warson Munawwir
+    - KAZ: Kazimirski, French Dictionnaire Arabe-Francais
+    - UQQ: Urdu Qamoos Alfaaz al-Quran: A translation of Vocabulary Of The Holy Quran by Dr Abdullah Abbas Nadwi
+    - ULQ: Lughaat ul Qur'an by GA Parwez
+    - UQA: Qaamoos alfaaz o Istelehaat e Qur'an
+    - UQQ: Lughat al Quran, an urdu translation of AAN: Vocabulary of the Holy Quran.
+    - MAW: al-Mawrid 7th edtion.
+    - LQN: Lughaat ul-Quran by Abdur Rasheed Noumani (Urdu)
+  
+    The website is now split up in two parts, one dedicated to root based dictionaries (formerly known as Arabic Almanac) and one for dictionaries that are arranged alphabetically. You can find them here:
+    
+    - Root based (Hans Wehr, Lanes Lexicon, etc): `http://ejtaal.net/aa <http://ejtaal.net/aa>`_ 
+    - Alphabetical (al-Mawrid, etc) `http://ejtaal.net/mr <http://ejtaal.net/mr>`_
+    
+    The new version now has an improved settings screen, which allows better book re-ordering when using the site on mobile devices. You can now also skip to the next or previous page using a swiping action on mobile and tablet browsers as you do in many other apps.
+
+		If for some reason you encounter problems with the new version, you can go back to the old version 4 here: `Version 4 <http://ejtaal.net/aa-old>`_
+
 
 -  version 4.0 - 20/7/2013
 
@@ -520,6 +580,7 @@ For version 4.0, Abd Shomad provided help in development by adding
 the code required for 4 new books, and Asim Iqbal 2nd for gathering content 
 ( `www <http://asimiqbal2nd.wordpress.com/>`_ ).
 
+
 Jazakum Allahu khair :)
 
 Software used:
@@ -534,11 +595,13 @@ Contact / donate
 -  My email: `ejtaal@gmail.com <mailto:ejtaal@gmail.com>`_
 -  Project hosted at: `GitHub <https://github.com/ejtaal/mr>`_
 
-If you wish to contribute to the running costs of the ejtaal.net server, you can
-use the following donate button. Jazak Allah and thank you in advance for any 
+Running the website does cost me a monthly fee so if you 
+wish to contribute towards these costs you can
+use the following donate button. Jazak Allah khairan and thank you in advance for any 
 and all amounts you wish to donate :)
 
 .. raw:: html
+
 	<form action="https://www.paypal.com/cgi-bin/webscr" method="post" target="_top">
 	<input type="hidden" name="cmd" value="_donations">
 	<input type="hidden" name="business" value="ejtaal@gmail.com">

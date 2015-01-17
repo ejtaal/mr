@@ -121,7 +121,7 @@ var books = {
 		"offset": 8, "startpage": 6, "image-prefix": "tla" },
 	"amj": { "name": "Al-Munjid (Arabic)", "color": "Salmon",
 		"index": amj, "direction": "rtl", "columns": "3",
-		"offset": 1, "startpage": 1, "image-prefix": "amj" },
+		"offset": 22, "startpage": 22, "image-prefix": "amj" },
 	"ens": { "name": "Ensiklopedia Al-Quran: Kajian Kosa Kata, Quraish Shihab (Malay)", "color": "Khaki",
 		"index": ens, "direction": "ltr", "columns": "2",
 		"offset": 1, "startpage": 1, "image-prefix": "ens",
