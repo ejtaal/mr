@@ -1,7 +1,7 @@
 
 // Some global vars that we need:
 var debugmode = false; 
-var version = "2.0 beta";
+var version = "3.0 beta";
 var title_text = project["title"] + " v" + project["version"] + " - powered by Mawrid Reader" + " v" + version;
 $("#version").append(title_text);
 var toggle = 1;
@@ -875,6 +875,7 @@ function first_page_load() {
 			'fitwidth': 0,
 			'enable_swipe': 1,
 			'less_sensitive_swipe': 1,
+			'retain_search': 1,
 			'enable_debug': 0,
 			'enable_columns': 0,
 			'enable_fitwidth': 0
@@ -1065,7 +1066,10 @@ function toggle_menu() {
 
 
 function searchandgo() {
-	//var search = document.getElementById('search').value;
+	// Some browsers don't autoselect the query in the search box, so allow
+	// people to always let it be empty:
+	if ( state['retain_search'] == 0)
+		last_input = ''
 	var input = prompt( "Enter root letters in english or arabic to search (see About section)", last_input);
 	if ( ! isUndefined( input) && input != "")
 		do_search( input);

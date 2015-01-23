@@ -149,12 +149,12 @@ td.rtl { text-align: right; }
 
 <!-- Start of book {$name} -->
  <div id="${key}" class='book'>
-	<div class='book_toggle ${key}_color' id='${key}_toggle' onclick="javascript:hide_book_build('${key}', false);"> Show ${id}. ${name} [_] </div>
+	<div class='book_toggle ${key}_color' id='${key}_toggle' onclick="javascript:hide_book_build('${key}', false);"> [ Show ${id}. ${name} <small>(${key})</small>] </div>
 	<div id='${key}_page'>
 	<table class='navtable'>
 	<tr>
 		<td> <a href='javascript:shift_page("${key}", -1)'><div class='button ${key}_color'>&larr;</div></a> </td>
-		<td> <div class='button ${key}_color'>${id}. ${name}</div></td>
+		<td> <div class='button ${key}_color'>${id}. ${name} <small>(${key})</small></div></td>
 		<td> <a href="javascript:hide_book_build( '${key}', true);"><div class='button ${key}_color'>hide</div></a> </td>
 		<td> <a href='javascript:shift_page("${key}", 1)'><div class='button ${key}_color'>&rarr;</div></a> </td>
 	</tr>
@@ -338,6 +338,13 @@ _gaq.push(['_trackPageview']);
 	<a href='javascript:toggle_setting("less_sensitive_swipe")'>
 	<div class='button' id='less_sensitive_swipe'>
 	Make swipe less sensitive
+	</div>
+	</a>
+
+	<br>
+	<a href='javascript:toggle_setting("retain_search")'>
+	<div class='button' id='retain_search'>
+	Keep old search query in search box
 	</div>
 	</a>
 
