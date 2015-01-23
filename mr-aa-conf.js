@@ -117,7 +117,7 @@ var books = {
 		"index": msb, "direction": "rtl", "columns": "2",
 		"offset": 8, "startpage": 8, "image-prefix": "msb" },
 	"tla": { "name": "Tasheeh Lisan ul Arab (Arabic)", "color": "DarkGoldenrod",
-		"index": msb, "direction": "rtl", "columns": "1",
+		"index": tla, "direction": "rtl", "columns": "1",
 		"offset": 8, "startpage": 6, "image-prefix": "tla" },
 	"amj": { "name": "Al-Munjid (Arabic)", "color": "Salmon",
 		"index": amj, "direction": "rtl", "columns": "3",
