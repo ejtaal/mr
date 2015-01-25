@@ -7,13 +7,12 @@ for displaying and searching books. It is used by the following sub projects:
 
 	- Arabic Almanac (root based dictionaries in various languages) `link to website <http://ejtaal.net/aa/>`_
 	- Mawrid (for alphabetical disctionaries, notably al-Mawrid) `link to website <http://ejtaal.net/mr/>`_
-	- Mabhath ul Talib (root based dictionaries in text format rather than as images) `link to website <http://ejtaal.net/mt/>`_
+	- Mabhath ul Talib (root based dictionaries in text format rather than as images) `link to website <http://ejtaal.net/mh/>`_
 
 All of these projects can also be downloaded to your hard disk or
 smart phone's sd card, for fast offline usage. Read below for more
-information on downloading and installing it.
-
-Please read below for the latest news, planned updates, download instructions and more background information on this website and the dictionaries used.
+information on how to use this website, how to downloading and install it and
+other background information.
 
 ..
   A link to an internal target: `test <#aa>`_
@@ -30,10 +29,10 @@ Latest news
 
 		- Page swiping is now less sensitive by default as iOS users were reporting it was a problem in the old version. Feedback on the test version confirms it works better, but if it doesn't you can now switch swiping off altogether in the menu.
 
-		-	Now with 10 new dictionaries:
+		-	Now with 10 new dictionaries (1 Egyptian, 7 Arabic, 1 English, 1 Malay/Indonesian):
 
 			- bdw: Hind/Badawi (Egyptian)
-			- amr: Mufradat al Quran by Raghib (Arabic): the most famous Dictionary of The Qur'an in Arabic.  Arabic English Dictionary of Qur'anic Usage has mentioned in its introduction: "Indeed, 'al Raghib was of the opinion, expressed in the introduction to his book, that of all disciplines needed for the study of the Qur'an those concerned with the language itself should come first, and, of these, those concerned with the meanings of Qur'anic vocabulary should be considered of primary importance." He has usually 1st given the primary meanings of words and then quoted the Qur'anic Ayaat along with further explanation of the words used. 
+			- amr: Mufradat al Quran by Raghib (Arabic)
 			- asb: Asaas al Balaaghah by Zamakhshari (Arabic)
 			- auh: Umdat ul Huffaaz (Arabic)
 			- tla: Tasheeh Lisan ul Arab (Arabic)
@@ -43,7 +42,7 @@ Latest news
 			- dhq: Dictionary of the Holy Quran
 			- ens: Ensiklopedia Al-Quran (Malay): Kajian Kosa Kata, Quraish Shihab
 
-		- New beta project: Mabhath ul Talib. This is still work in progress but hopefully it is of use. More work needs to be undertaken in order to increase the number of books as well as the quality of the existing books.
+		- New beta project: `Mabhath ul Talib <http://ejtaal.net/mh>`_. This project provides a text based interface similar to the mabheth.info website and is still work in progress but hopefully it will be of some use already. More work needs to be undertaken in order to increase the number of books as well as the quality of the existing books and the user interface. Simply type the root you wish to lookup in the search field and a drop down list should list the roots that are found in the available dictionaries.
 
 		- Now on twitter (but without much to say yet): `@ejvtaal <https://twitter.com/ejvtaal>`_
 
@@ -51,6 +50,71 @@ Latest news
     
 
    
+
+How to use
+==========
+
+There is a really useful explanation page with screenshots here:
+`http://revivearabic.blogspot.co.uk <http://revivearabic.blogspot.co.uk/p/using-arabic-almanac.html>`_
+
+Below a short guide:
+
+Click on the search button and enter the arabic root you would like to
+look up. You can use roman (english) letters in case you don't have an
+arabic keyboard. The letters will be replaced according to the following
+table:
+
+.. raw:: html
+
+   <pre>
+   Double letters:
+   th/v/V -> "ث"       gh/g/G -> "غ"
+   kh/x/X -> "خ"       sh/$ -> "ش"
+   dh/* -> "ذ"
+
+   Different cases:
+   d -> "د"            t -> "ت"
+   D -> "ض"            T -> "ط"
+   z -> "ز"            h -> "ه"
+   Z -> "ظ"            H -> "ح"
+   s -> "س"
+   S -> "ص"
+
+   All other "normal" letters:
+   a/A -> "ا"          q/Q   -> "ق"   
+   b/B -> "ب"          k/K   -> "ك"
+   j/J -> "ج"          l/L   -> "ل"
+   7 -> "ح"            m/M   -> "م"
+   r/R -> "ر"          n/N   -> "ن"
+   w/W -> "و"          y/Y   -> "ي"
+   f/F -> "ف"          e/E/3 -> "ع"
+   </pre>
+
+There are also some keyboard shortcuts you can use:
+
+.. raw:: html
+
+   <pre>
+   search (find): f
+   switch between column and full page view: v
+   make pages fit to window: w
+
+   The following keys only apply for the book you're currently looking at:
+   back 1 page: left arrow, d or z
+   forward 1 page: right arrow, g or x
+   </pre>
+   
+
+Use swiping actions to the left and right to skip to the next or previous pages if you're using this site on a phone or tablet. There are option in the menu to toggle the sensitivity or to switch swiping off altogether.
+
+If you hide a book its images are not loaded during new searches, so this will improve the load time for the books that you do want to view.
+
+
+
+
+API
+~~~
+A very basic one: You can create links to this site that will perform a search in all the books like so: "http://ejtaal.net/aa#q=bqr" or to avoid clashes between for instance 'khf' and 'k h f' you could use the 'buckwalter query' option using #bwq, which strictly follows Buckwalter transliteration. The links for the 2 given root would then be: "http://ejtaal.net/aa#bwq=xf" and "http://ejtaal.net/aa#bwq=khf".
 
 
 Books currently included
@@ -178,11 +242,38 @@ LA: Lisan al-'Arab
 -----------------------
 The Lisān al-ʿArab (لسان العرب, "The Arab Tongue") was completed by Ibn Manzur in 1290. Occupying 20 printed book volumes (in the most frequently cited edition), it is the most well-known dictionary of the Arabic language,[3] as well as one of the most comprehensive. Ibn Manzur compiled it from other sources, to a large degree.
 
+TLA: Tasheeh Lisan ul Arab (Arabic)
+-----------------------------------
+This is a short book which has posted some corrections to few of the entries of Lisaan ul Arab. This can be used along with Lisaan ul Arab for the few roots it has touched.
+
 AMJ: Al-Munjid
 --------------
 
-It is said that in the Arab World al-Munjid is the standard Arabic-Arabic dictionary used. It includes color Images, maps and tables.
+It is said that in the Arab World al-Munjid is the standard Arabic-Arabic dictionary used.It includes a chapter of Arabic saying at the end of the book as well as additional color images, maps and tables.
 
+BDW: Hind/Badawi (Egyptian)
+---------------------------
+This root based dictionary enjoys glowing reviews by those who wish to study this particular dialect of Arabic.
+
+AMR: Mufradat al Quran by Raghib (Arabic)
+-----------------------------------------
+The most famous Dictionary of The Qur'an in Arabic.  Arabic English Dictionary of Qur'anic Usage has mentioned in its introduction: "Indeed, 'al Raghib was of the opinion, expressed in the introduction to his book, that of all disciplines needed for the study of the Qur'an those concerned with the language itself should come first, and, of these, those concerned with the meanings of Qur'anic vocabulary should be considered of primary importance." He has usually 1st given the primary meanings of words and then quoted the Qur'anic Ayaat along with further explanation of the words used. 
+
+ASB: Asaas al Balaaghah by Zamakhshari (Arabic)
+-------------------------------------------------
+This is a short dictionary by Zamakhshari who is famous for his Qur'an Tafsir Kashaaf and Grammar work Mufassal. In Asaas al Balaaghah, while briefly explaining the words, he has discussed primary meanings and secondary meanings of words. He has written unique content in explanation of words.
+
+AUH: Umdat ul Huffaaz (Arabic)
+------------------------------
+He has also written a detailed Tafsir by the name of  Ad Durr ul Masoon in which he has exlpained the words used in the Ayat in some detail. In this dictionary he has explained the words under their roots using Qur'an , Ahaadith and Poetic verses.
+
+MSB: Misbaah ul Muneer by Fuyyumi (Arabic)
+------------------------------------------
+A compact Arabic to Arabic dictionary. Regarding it Lane said in his preface: "...forming a most valuable companion and supplement to the larger lexicons . Notwithstanding its title, it comprises a very large collection of classical words and phrases and significations of frequent occurrence; in many instances with more clear and full explanations than I have found elsewhere. I have therefore constantly drawn from it in composing my own lexicon."
+
+MHT: Muheet al-Muheet (Arabic)
+-------------------------------
+It was compiled in the last century. Although this book is not among the large books, it is still very useful. The primary source of this book is Qaamoos ul Muheet but the author has also consulted other important books while compiling this dictionary. He has tried to present the important material regarding the words in this dictionary. An attempt to combine the best of Qaamoos ul Muheet and his own research by Butras Bustani in a compact manner.
 
 
 Indonesion / Malaysian
@@ -264,69 +355,18 @@ Lanes Lexicon
 
 By the Perseus Tuft project, text improved by br. Naveed.
 
+Other books
+***********
 
-How to use
-==========
+More explanation to come soon.
 
-There is a really useful explanation page with screenshots here:
-`http://revivearabic.blogspot.co.uk <http://revivearabic.blogspot.co.uk/p/using-arabic-almanac.html>`_
 
-Below a short guide:
-
-Click on the search button and enter the arabic root you would like to
-look up. You can use roman (english) letters in case you don't have an
-arabic keyboard. The letters will be replaced according to the following
-table:
-
-.. raw:: html
-
-   <pre>
-   Double letters:
-   th/v/V -> "ث"       gh/g/G -> "غ"
-   kh/x/X -> "خ"       sh/$ -> "ش"
-   dh/* -> "ذ"
-
-   Different cases:
-   d -> "د"            t -> "ت"
-   D -> "ض"            T -> "ط"
-   z -> "ز"            h -> "ه"
-   Z -> "ظ"            H -> "ح"
-   s -> "س"
-   S -> "ص"
-
-   All other "normal" letters:
-   a/A -> "ا"          q/Q   -> "ق"   
-   b/B -> "ب"          k/K   -> "ك"
-   j/J -> "ج"          l/L   -> "ل"
-   7 -> "ح"            m/M   -> "م"
-   r/R -> "ر"          n/N   -> "ن"
-   w/W -> "و"          y/Y   -> "ي"
-   f/F -> "ف"          e/E/3 -> "ع"
-   </pre>
-
-There are also some keyboard shortcuts you can use:
-
-.. raw:: html
-
-   <pre>
-   search (find): f
-   switch between column and full page view: v
-   make pages fit to window: w
-
-   The following keys only apply for the book you're currently looking at:
-   back 1 page: left arrow, d or z
-   forward 1 page: right arrow, g or x
-   </pre>
-   
-Use swiping actions to the left and right to skip to the next or previous pages if you're using the app on a phone or tablet.
-
-Click on the 3 bar button on the top left to bring up a menu which allows you to change the order in which the books are displayed.
-
-If you hide a book its images are not loaded during new searches, so this will improve the load time for the books that you do want to view.
 
 
 Starting points:
 ================
+
+(This section is outdated. It should be replaced by new functionality that allows accessing the non-indexed parts of books, such as the introduction, prefaces, biographies etc.)
 
 Here are some links to get you started (TODO: Remaining morphology links for SG, BR, PR, HW4, AAN, VI):
 
@@ -369,9 +409,9 @@ your phone's SD card or your desktop PC for super fast access. Download
 link:
 
 -  **Main download site @ archive.org:**
-   `Mawrid_Reader_v1.0.zip <https://ia600803.us.archive.org/2/items/ArabicAlmanac/Mawrid_Reader_v1.0.zip>`_
+   `Mawrid_Reader_v2.0.zip <https://ia600803.us.archive.org/2/items/ArabicAlmanac/Mawrid_Reader_v1.0.zip>`_
 ..
-    -  Secondary backup site: `here <../Arabic_Almanac_v5.0.zip>`_\ 
+    -  Secondary backup site: `here <../>`_\ 
 
 
 The size is about 2.9 GB. The zip file contains two folders, one named "aa" and one "mr"
@@ -382,28 +422,29 @@ tablets there are 2 ways you could try to get it installed: 1) Install the free 
 `file://localhost/sdcard <file://localhost/sdcard>`_, then locate the
 "aa" or "mr" folder and click on index.html or 2) Install the free Astro file manager and navigate to the aa or mr folder that you've extracted from the zip file onto the sdcard. Tap the index.html file and it will either open in your default browser or you can choose any of the installed browser to open the file. Once in your browser you can bookmark it for quick access. I've found the Dolpin browser to have the best performance, but the Chrome or Firefox browsers should work as well.
 
-Download single dictionaries only
-~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
-
-This way allows you to download only those dictionaries you wish to use. Currently the site will still assume you've got all dictionaries present so the ones you haven't downloaded will simply appear as "File not found" images.
-
-Firstly you need the base files contained in base.zip. This file contains the indexes and the site itself. Create a folder on your PC or sdcard called 'AA' or 'MR' for Arabic Almanac or Mawrid Reader respectively. Place the right base.zip and the dictionaries zip files that you've downloaded all in this folder and extract them one by one.
-
-Required to install Arabic Almanac
-**********************************
-
-- Base files (download this to get the latest indexes and website version) `base_aa.zip <./base_aa.zip>`_
-
-
-Required to install Mawrid Reader
-*********************************
-
-- Base files (download this to get the latest indexes and website version) `base_mr.zip <./base_mr.zip>`_
-
-
-Optional dictionaries
-*********************
-
+.. 
+	Download single dictionaries only
+	~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+	
+	This way allows you to download only those dictionaries you wish to use. Currently the site will still assume you've got all dictionaries present so the ones you haven't downloaded will simply appear as "File not found" images.
+	
+	Firstly you need the base files contained in base.zip. This file contains the indexes and the site itself. Create a folder on your PC or sdcard called 'AA' or 'MR' for Arabic Almanac or Mawrid Reader respectively. Place the right base.zip and the dictionaries zip files that you've downloaded all in this folder and extract them one by one.
+	
+	Required to install Arabic Almanac
+	**********************************
+	
+	- Base files (download this to get the latest indexes and website version) `base_aa.zip <./base_aa.zip>`_
+	
+	
+	Required to install Mawrid Reader
+	*********************************
+	
+	- Base files (download this to get the latest indexes and website version) `base_mr.zip <./base_mr.zip>`_
+	
+	
+	Optional dictionaries
+	*********************
+	
 
     
     
@@ -413,7 +454,7 @@ Optional dictionaries
 Future plans / Feedback
 =======================
 
-- Plans are forming for a version solely basedon arabic grammar books. They would include a list of particles/subject which when activated will display all relevant pages from the included books.
+- Plans are forming for a version solely based on arabic grammar books. They would include a list of particles/subject which when activated will display all relevant pages from the included books.
 - Enhancements as well as bugs are now recorded in the Github issue list: `Mawrid Reader issues <https://github.com/ejtaal/mr/issues>`_
 - Figure out a way to have interesting pages for a book listed, such as foreword, biographies or appendices which would normally be difficult to find using the search function.
 
@@ -562,8 +603,12 @@ Older news
 Sources and acknowledgements
 ============================
 
-This project would not have been possible without the initial help of
-certain very helpful people, namely:
+First of all I'd like to say thanks to thank every one who has taken
+time to send a few words of appreciation. I'm honestly humbled by seeing
+how many people and institutes are making use of this project.
+
+Then there are some people who have contributed a lot of their time helping 
+to improve the project, namely:
 
 The indexes for both Hans Wehr (3rd print) & Hava has been made possible
 by using data generously provided by a fan of this website.
@@ -583,21 +628,18 @@ the code required for 4 new books, and Asim Iqbal 2nd for gathering content
 
 Jazakum Allahu khair :)
 
-Software used:
 
--  scantailor, a useful tool to prepare the image files of the books
--  ImageMagick, an image processing tool
--  ReText, documentation editor
+Contact / donate / license
+===========================
 
-Contact / donate
-================
-
--  My email: `ejtaal@gmail.com <mailto:ejtaal@gmail.com>`_
 -  Project hosted at: `GitHub <https://github.com/ejtaal/mr>`_
 
-Running the website does cost me a monthly fee so if you 
-wish to contribute towards these costs you can
-use the following donate button. Jazak Allah khairan and thank you in advance for any 
+Kindly direct any donations you wish to make to those less fortunate in the world. I especially like UWT for their 100% donation
+policy which means they pass on all money to the final recipients. Their website can be found here:
+`Ummah Welfare Trust <http://www.uwt.org/>`_
+
+If you'd like to contribute towards the running cost of the website you can
+use the following donate button. Jazak Allah khairan and many thanks in advance for any 
 and all amounts you wish to donate :)
 
 .. raw:: html
@@ -616,5 +658,62 @@ and all amounts you wish to donate :)
 
 © 2011-2015 by Abdurahman Erik Taal
 
+My email: `ejtaal@gmail.com <mailto:ejtaal@gmail.com>`_
+
 Code license: GNU GPL v3.
 Dua-ware: You must make dua for everyone involved in this project at least once if you're using this software :)
+
+Software used
+=============
+
+-  scantailor, a useful tool to prepare the image files of the books
+-  ImageMagick, an image processing tool
+-  ReText, documentation editor
+
+Stats
+=====
+
+Relative popularity of individual books
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+I've determined this by this command:
+
+awk '{ print $7 }' /var/log/apache2/ejtaal.net-access.log.1 | grep '/aa/img' | cut -f 4 -d '/' | sort | uniq -c | sort -n
+
+The following data is for December 2014:
+
+  40391 ls
+  87929 pr
+  90147 vi
+  93186 uqa
+  95664 uqq
+  97338 mar
+  98802 umr
+  98853 aan
+  99284 ums
+  99599 umj
+  99995 mgf
+ 100810 ulq
+ 101269 imn
+ 101632 uqw
+ 103220 sg
+ 103831 ha
+ 104405 kaz
+ 105281 br
+ 105905 la
+ 121140 ll
+ 191958 hw4
+
+Most popular pages/roots
+~~~~~~~~~~~~~~~~~~~~~~~~~
+
+Of December 2014: 
+Hans Wehr: hw4-0718.png  (عرض)
+Lanes Lexicon: ll-2670.png ﴾قوض﴿
+
+
+
+
+
+
+
