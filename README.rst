@@ -11,7 +11,7 @@ for displaying and searching books. It is used by the following sub projects:
 
 All of these projects can also be downloaded to your hard disk or
 smart phone's sd card, for fast offline usage. Read below for more
-information on how to use this website, how to downloading and install it and
+information on how to use this website, where to download it and
 other background information.
 
 ..
@@ -108,8 +108,6 @@ There are also some keyboard shortcuts you can use:
 Use swiping actions to the left and right to skip to the next or previous pages if you're using this site on a phone or tablet. There are option in the menu to toggle the sensitivity or to switch swiping off altogether.
 
 If you hide a book its images are not loaded during new searches, so this will improve the load time for the books that you do want to view.
-
-
 
 
 API
@@ -408,19 +406,26 @@ You can now download the entire website and install it for instance on
 your phone's SD card or your desktop PC for super fast access. Download
 link:
 
--  **Main download site @ archive.org:**
+(New link coming in a day or 2 after the new version is uploaded)
+
+
+ -  Link for the previous version (2.0) **Main download site @ archive.org:**
    `Mawrid_Reader_v2.0.zip <https://ia600803.us.archive.org/2/items/ArabicAlmanac/Mawrid_Reader_v1.0.zip>`_
 ..
     -  Secondary backup site: `here <../>`_\ 
 
 
-The size is about 2.9 GB. The zip file contains two folders, one named "aa" and one "mr"
-which you should place somewhere on your PC's drive or on your phone's
-SD card. For desktops you should then be able to do "File->Open" and
-select the index.html file within the "aa" or "mr" folder for root based or alphabetical dictionaries respectively. On smart phones &
-tablets there are 2 ways you could try to get it installed: 1) Install the free Opera browser (the full one, not the Mini) to go the following url:
+The size is about 4 GB. The zip file contains three folders: "aa", "mr" and "mh".
+Copy these from your pc to the SD card on your phone/tablet/phablet for a superfast and
+compact reference for use on the go. For desktops you should then be able to do "File->Open" 
+and select the index.html or mawrid.html file within the aa, mr, or mh folder for root based (Almanac), alphabetical dictionaries (Mawrid etc) and text based (Mabhath) respectively. On smart phones &
+tablets there are 2 ways you could try to access these books from your SD card: 
+
+-	1) Install the free Opera browser (the full one, not the Mini) then go the following url:
 `file://localhost/sdcard <file://localhost/sdcard>`_, then locate the
-"aa" or "mr" folder and click on index.html or 2) Install the free Astro file manager and navigate to the aa or mr folder that you've extracted from the zip file onto the sdcard. Tap the index.html file and it will either open in your default browser or you can choose any of the installed browser to open the file. Once in your browser you can bookmark it for quick access. I've found the Dolpin browser to have the best performance, but the Chrome or Firefox browsers should work as well.
+"aa" or "mr" folder and click on index.html 
+
+- or 2) Install the free Astro file manager and navigate to the aa or mr folder that you've extracted from the zip file onto the sdcard. Tap the index.html file and it will either open in your default browser or you can choose any of the installed browser to open the file. Once in your browser you can bookmark it for quick access. I've found the Dolphin browser to have the best performance, but the Chrome or Firefox browsers should work as well.
 
 .. 
 	Download single dictionaries only
@@ -446,22 +451,15 @@ tablets there are 2 ways you could try to get it installed: 1) Install the free 
 	*********************
 	
 
-    
-    
-
-
-
 Future plans / Feedback
 =======================
 
 - Plans are forming for a version solely based on arabic grammar books. They would include a list of particles/subject which when activated will display all relevant pages from the included books.
 - Enhancements as well as bugs are now recorded in the Github issue list: `Mawrid Reader issues <https://github.com/ejtaal/mr/issues>`_
-- Figure out a way to have interesting pages for a book listed, such as foreword, biographies or appendices which would normally be difficult to find using the search function.
+- Figure out a way to have interesting pages for a book listed, such as foreword, biographies or appendices.
 
-Contact me at ejtaal@gmail.com for more details on how to help with adding further books.. You can also contact me if you wish to discuss a custom made
-version featuring your own books.
-
-I'm planning to start work soon insha Allah on a text based Arabic dictionary, you can follow my progress on Github at the `Mabhath <https://github.com/ejtaal/mabhath>`_ project. It will feature a re-designed layout and I aim to include as many dictionaries as can be found in a text format. Contact me if you have any suggestions.
+Contact me at ejtaal@gmail.com for more details on how to help with adding further books.
+.. You can also contact me if you wish to discuss a custom made version featuring your own books.
 
    
 Older news
@@ -656,11 +654,11 @@ and all amounts you wish to donate :)
 	<img alt="" border="0" src="https://www.paypalobjects.com/en_US/i/scr/pixel.gif" width="1" height="1">
 	</form>
 
-© 2011-2015 by Abdurahman Erik Taal
 
 My email: `ejtaal@gmail.com <mailto:ejtaal@gmail.com>`_
 
 Code license: GNU GPL v3.
+© 2011-2015 by Abdurahman Erik Taal
 Dua-ware: You must make dua for everyone involved in this project at least once if you're using this software :)
 
 Software used

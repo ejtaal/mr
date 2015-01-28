@@ -46,6 +46,7 @@ if ( project["type"] == "text") {
 for (var key in presets)
 	$( "#preset-cell" ).tmpl( presets[key]).appendTo( "#preset-cells" );
 
+$( "#all_books" ).html("");
 var book_id = 0
 for (var key in books) {
 	//debug(key)
@@ -846,24 +847,6 @@ function debug( text) {
 function isUndefined(x) { return x == null && x !== null; }
 
 function first_page_load() {
-
-	
-	// Set default hash value, and show About if this appears to be the first visit
-	if ( window.location.hash.replace(/^#/,'') == "") { 
-		var mr_last_hash = getCookie( project["prefix"]+"last_hash");
-		debug( mr_last_hash);
-		if ( isUndefined(mr_last_hash) || mr_last_hash == "" || mr_last_hash == null) {
-			debug('hash = empty, first visit?')
-			window.location.hash = starting_hash;
-			// Then set the books to default order
-			set_order_preset("default");
-			//toggle_about();
-			//parse_hash();
-		} else {
-			window.location.hash = mr_last_hash;
-		}
-	} else parse_hash();
-	
 	/*
 		Default cookie setting:
 			- do enable swiping for mobile devices
@@ -886,6 +869,26 @@ function first_page_load() {
 	else state['enable_columns'] = 0
 	
 	for (var s in state) update_setting( s);
+	
+	enforce_settings()
+	
+	// Set default hash value, and show About if this appears to be the first visit
+	if ( window.location.hash.replace(/^#/,'') == "") { 
+		var mr_last_hash = getCookie( project["prefix"]+"last_hash");
+		debug( mr_last_hash);
+		if ( isUndefined(mr_last_hash) || mr_last_hash == "" || mr_last_hash == null) {
+			debug('hash = empty, first visit?')
+			window.location.hash = starting_hash;
+			// Then set the books to default order
+			set_order_preset("default");
+			//toggle_about();
+			//parse_hash();
+		} else {
+			window.location.hash = mr_last_hash;
+		}
+	} else parse_hash();
+
+	
 	
 	
 	/*
@@ -913,7 +916,8 @@ function first_page_load() {
 	    document.getElementsByTagName('head')[0].appendChild(link);
 	}());
 		
-	enforce_settings()
+	
+	
 }
 
 function toggle_setting( s) {
