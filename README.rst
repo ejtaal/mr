@@ -45,6 +45,8 @@ Latest news
 		- New beta project: `Mabhath ul Talib <http://ejtaal.net/mh>`_. This project provides a text based interface similar to the mabheth.info website and is still work in progress but hopefully it will be of some use already. More work needs to be undertaken in order to increase the number of books as well as the quality of the existing books and the user interface. Simply type the root you wish to lookup in the search field and a drop down list should list the roots that are found in the available dictionaries.
 
 		- Now on twitter (but without much to say yet): `@ejvtaal <https://twitter.com/ejvtaal>`_
+		
+		- Now supports query links from external websites using "#bwq". See API below for more info.
 
   	Older news: `read more... <#older-news>`_
     
@@ -333,7 +335,7 @@ English
 
 MAW: al-Mawrid 7th ed. by Rowhi Baalbaki 
 ----------------------------------------
-This is a modern and compact Arabic English dictionary. It is arranged according to words instead of roots and is a great resource for both beginners as well as advanced learners of Modern Arabic. 
+This is a modern and compact Arabic English dictionary. It is arranged according to words instead of roots and is a great resource for both beginners and advanced learners of Modern Arabic. 
 
 Urdu
 ****
@@ -360,20 +362,19 @@ More explanation to come soon.
 
 
 
+..
+	Starting points:
+	================
+	(This section is outdated. It should be replaced by new functionality that allows accessing the non-indexed parts of books, such as the introduction, prefaces, biographies etc.)
+	Here are some links to get you started (TODO: Remaining morphology links for SG, BR, PR, HW4, AAN, VI):
+	-  `Prefaces <aa.html#HW3=5,LL=1_6,LS=2,HA=11,LS_HIDE,SG=6,BR=7,PR=8,HW4=4,AAN=6,VI=17>`_
+	-  `Morphology <aa.html#HW3=13,LL=1_29,LS=2,HA=19,LS_HIDE>`_
+	-  `Abbreviations <aa.html#HW3=16,LL=1_30,LS=2,HA=20,LS_HIDE,SG=18,BR=25,PR_HIDE,HW4=12,AAN=12,VI=13>`_
+	-  `First page of content <aa.html#HW3=19,LL=1_38,LS=3,HA=21,SG=20,BR=27,PR=10,HW4=14,AAN=24,VI=51>`_
+	-  `Lane's Lexicon Editor's preface and memoir (about 40
+		 pages) <aa.html#HW3=5,LL=5_5,LS=2,HA=11,HW_HIDE,LS_HIDE,HA_HIDE,SG_HIDE,BR_HIDE,PR_HIDE,HW4_HIDE,AAN_HIDE,VI_HIDE>`_
 
-Starting points:
-================
 
-(This section is outdated. It should be replaced by new functionality that allows accessing the non-indexed parts of books, such as the introduction, prefaces, biographies etc.)
-
-Here are some links to get you started (TODO: Remaining morphology links for SG, BR, PR, HW4, AAN, VI):
-
--  `Prefaces <aa.html#HW3=5,LL=1_6,LS=2,HA=11,LS_HIDE,SG=6,BR=7,PR=8,HW4=4,AAN=6,VI=17>`_
--  `Morphology <aa.html#HW3=13,LL=1_29,LS=2,HA=19,LS_HIDE>`_
--  `Abbreviations <aa.html#HW3=16,LL=1_30,LS=2,HA=20,LS_HIDE,SG=18,BR=25,PR_HIDE,HW4=12,AAN=12,VI=13>`_
--  `First page of content <aa.html#HW3=19,LL=1_38,LS=3,HA=21,SG=20,BR=27,PR=10,HW4=14,AAN=24,VI=51>`_
--  `Lane's Lexicon Editor's preface and memoir (about 40
-   pages) <aa.html#HW3=5,LL=5_5,LS=2,HA=11,HW_HIDE,LS_HIDE,HA_HIDE,SG_HIDE,BR_HIDE,PR_HIDE,HW4_HIDE,AAN_HIDE,VI_HIDE>`_
 
 Browser support
 ===============
@@ -409,7 +410,7 @@ link:
 (New link coming in a day or 2 after the new version is uploaded)
 
 
- -  Link for the previous version (2.0) **Main download site @ archive.org:**
+ -  Old link for the previous version (2.0): **Main download site @ archive.org:**
    `Mawrid_Reader_v2.0.zip <https://ia600803.us.archive.org/2/items/ArabicAlmanac/Mawrid_Reader_v1.0.zip>`_
 ..
     -  Secondary backup site: `here <../>`_\ 
@@ -421,11 +422,9 @@ compact reference for use on the go. For desktops you should then be able to do 
 and select the index.html or mawrid.html file within the aa, mr, or mh folder for root based (Almanac), alphabetical dictionaries (Mawrid etc) and text based (Mabhath) respectively. On smart phones &
 tablets there are 2 ways you could try to access these books from your SD card: 
 
--	1) Install the free Opera browser (the full one, not the Mini) then go the following url:
-`file://localhost/sdcard <file://localhost/sdcard>`_, then locate the
-"aa" or "mr" folder and click on index.html 
+-	1) Install the free Opera browser (the full one, not the Mini) then go the following url: `file://localhost/sdcard <file://localhost/sdcard>`_, then locate the "aa" or "mr" folder and click on index.html 
 
-- or 2) Install the free Astro file manager and navigate to the aa or mr folder that you've extracted from the zip file onto the sdcard. Tap the index.html file and it will either open in your default browser or you can choose any of the installed browser to open the file. Once in your browser you can bookmark it for quick access. I've found the Dolphin browser to have the best performance, but the Chrome or Firefox browsers should work as well.
+- or 2) Install the free Astro file manager and navigate to the aa, mr or mh folder that you've extracted from the zip file onto the sdcard. Tap the index.html or mawrid.html file and it will either open in your default browser or you can choose any of the installed browsers to open the file. Once in your browser you can bookmark it for quick access. I've found the Dolphin browser to have the best performance, but the Chrome or Firefox browsers should work as well.
 
 .. 
 	Download single dictionaries only
@@ -454,7 +453,7 @@ tablets there are 2 ways you could try to access these books from your SD card:
 Future plans / Feedback
 =======================
 
-- Plans are forming for a version solely based on arabic grammar books. They would include a list of particles/subject which when activated will display all relevant pages from the included books.
+- Plans are forming for a version solely based on arabic grammar books. They would include a list of particles/subjects which when activated will display all relevant pages from the included books.
 - Enhancements as well as bugs are now recorded in the Github issue list: `Mawrid Reader issues <https://github.com/ejtaal/mr/issues>`_
 - Figure out a way to have interesting pages for a book listed, such as foreword, biographies or appendices.
 
@@ -668,17 +667,16 @@ Software used
 -  ImageMagick, an image processing tool
 -  ReText, documentation editor
 
-Stats
-=====
+Some random stats
+=================
 
 Relative popularity of individual books
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
-I've determined this by this command:
-
-awk '{ print $7 }' /var/log/apache2/ejtaal.net-access.log.1 | grep '/aa/img' | cut -f 4 -d '/' | sort | uniq -c | sort -n
+.. this command: awk '{ print $7 }' /var/log/apache2/ejtaal.net-access.log.1 | grep '/aa/img' | cut -f 4 -d '/' | sort | uniq -c | sort -n
 
 The following data is for December 2014:
+::
 
   40391 ls
   87929 pr
@@ -706,8 +704,10 @@ Most popular pages/roots
 ~~~~~~~~~~~~~~~~~~~~~~~~~
 
 Of December 2014: 
-Hans Wehr: hw4-0718.png  (عرض)
-Lanes Lexicon: ll-2670.png ﴾قوض﴿
+
+- Hans Wehr: hw4-0718.png  (عرض)
+
+- Lanes Lexicon: ll-2670.png ﴾قوض﴿
 
 
 
