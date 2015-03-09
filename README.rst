@@ -407,9 +407,9 @@ You can now download the entire website and install it for instance on
 your phone's SD card or your desktop PC for super fast access. Download
 link:
 
-(New link coming in a day or 2 after the new version is uploaded)
 
-
+ -  Version 3 beta (includes Arabic Almanic v6):
+   `Mawrid_reader_v3.0Beta.zip <https://ia600803.us.archive.org/2/items/ArabicAlmanac/Mawrid_reader_v3.0Beta.zip>`_
  -  Old link for the previous version (2.0): **Main download site @ archive.org:**
    `Mawrid_Reader_v2.0.zip <https://ia600803.us.archive.org/2/items/ArabicAlmanac/Mawrid_Reader_v1.0.zip>`_
 ..
@@ -420,11 +420,7 @@ The size is about 4 GB. The zip file contains three folders: "aa", "mr" and "mh"
 Copy these from your pc to the SD card on your phone/tablet/phablet for a superfast and
 compact reference for use on the go. For desktops you should then be able to do "File->Open" 
 and select the index.html or mawrid.html file within the aa, mr, or mh folder for root based (Almanac), alphabetical dictionaries (Mawrid etc) and text based (Mabhath) respectively. On smart phones &
-tablets there are 2 ways you could try to access these books from your SD card: 
-
--	1) Install the free Opera browser (the full one, not the Mini) then go the following url: `file://localhost/sdcard <file://localhost/sdcard>`_, then locate the "aa" or "mr" folder and click on index.html 
-
-- or 2) Install the free Astro file manager and navigate to the aa, mr or mh folder that you've extracted from the zip file onto the sdcard. Tap the index.html or mawrid.html file and it will either open in your default browser or you can choose any of the installed browsers to open the file. Once in your browser you can bookmark it for quick access. I've found the Dolphin browser to have the best performance, but the Chrome or Firefox browsers should work as well.
+tablets the best way is to install the free Astro file manager and navigate to the aa, mr or mh folder that you've extracted from the zip file onto the sdcard. Tap the index.html or mawrid.html file and it should let you open in any of the browsers you have installed. I recommend Firefox as it seems to work without any issues. 
 
 .. 
 	Download single dictionaries only
