@@ -2,9 +2,9 @@ var presets = {
 	"modern": { "name": "Modern", "order": "hw4,sg,ll,ls,ha" },
 	"default": { "name": "Default", "order": "hw4,ll,ls,la,sg,ha,br,pr,aan,mgf,vi,kz,mr,mn,uqw,umr,ums,umj,ulq,uqa,uqq" },
 	"urdu": { "name": "Urdu", "order": "uqw,umr,ums,umj,ulq,uqa,uqq" },
-	"quran": { "name": "Quran", "order": "br,pr,aan,mgf,vi,dhq,ll,ls,la,amr,auh,umr,ulq,uqa,uqq" },
+	"quran": { "name": "Quran", "order": "br,pr,aan,mgf,vi,dhq,ll,ls,mis,la,amr,auh,umr,ulq,uqa,uqq" },
 	"ll_ls": { "name": "LL only", "order": "ll,ls" },
-	"arabic": { "name": "Arabic", "order": "amj,la,tla,amr,asb,mht,auh,msb" },
+	"arabic": { "name": "Arabic", "order": "amj,la,tla,amr,asb,mht,auh,msb,mis" },
 	"english": { "name": "English", "order": "hw4,ll,ls,sg,ha,br,pr,aan,vi,mgf" },
 	"fr": { "name": "French", "order": "kz" },
 	"my": { "name": "Malay", "order": "mr,ens,mn" },
@@ -125,6 +125,10 @@ var books = {
 	"ens": { "name": "Ensiklopedia Al-Quran: Kajian Kosa Kata, Quraish Shihab (Malay)", "color": "Khaki",
 		"index": ens, "direction": "ltr", "columns": "2",
 		"offset": 1, "startpage": 1, "image-prefix": "ens",
+		"alpha": "no" },
+	"mis": { "name": "Mujam istiqaqy alMuassal lilAlfadh ilQuran ilKareem (Arabic)", "color": "violet",
+		"index": mis, "direction": "ltr", "columns": "1",
+		"offset": 1, "startpage": 1, "image-prefix": "mis",
 		"alpha": "no" }
 	// "alpha": "no" means: this book is not alphabetical
 	/* Left to do:
