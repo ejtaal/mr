@@ -1,7 +1,7 @@
 
 // Some global vars that we need:
 var debugmode = false; 
-var version = "3.0 beta";
+var version = "3.1";
 var title_text = project["title"] + " v" + project["version"] + " - powered by Mawrid Reader" + " v" + version;
 $("#version").append(title_text);
 var toggle = 1;

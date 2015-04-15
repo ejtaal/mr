@@ -25,6 +25,12 @@ other background information.
 Latest news
 ===========
 
+-   Version 6.1 - 15/4/2015
+	
+	- At the request of `The Qur'an Project <http://quranproject.org/>`_ a new book is now available:
+		
+		- mis: Mujam istiqaqy alMuassal lilAlfadh ilQuran ilKareem (Arabic)
+
 -   Version 6.0 - 31/1/2015
 
 		- Page swiping is now less sensitive by default as iOS users were reporting it was a problem in the old version. Feedback on the test version confirms it works better, but if it doesn't you can now switch swiping off altogether in the menu.
@@ -56,7 +62,7 @@ Latest news
 How to use
 ==========
 
-There is a really useful explanation page with screenshots here:
+A volunteer has made a really useful explanation page with screenshots here:
 `http://revivearabic.blogspot.co.uk <http://revivearabic.blogspot.co.uk/p/using-arabic-almanac.html>`_
 
 Below a short guide:
@@ -408,10 +414,12 @@ your phone's SD card or your desktop PC for super fast access. Download
 link:
 
 
- -  Version 3 beta (includes Arabic Almanic v6):
+ - Latest version:
+   Version 3.1 (includes Arabic Almanic v6.1):
+   `Mawrid_Reader_v3.1.zip <https://ia600803.us.archive.org/2/items/ArabicAlmanac/Mawrid_Reader_v3.1.zip>`_
+ -  Old link for the previous version:
+    Version 3 beta (includes Arabic Almanic v6):
    `Mawrid_reader_v3.0Beta.zip <https://ia600803.us.archive.org/2/items/ArabicAlmanac/Mawrid_reader_v3.0Beta.zip>`_
- -  Old link for the previous version (2.0): **Main download site @ archive.org:**
-   `Mawrid_Reader_v2.0.zip <https://ia600803.us.archive.org/2/items/ArabicAlmanac/Mawrid_Reader_v1.0.zip>`_
 ..
     -  Secondary backup site: `here <../>`_\ 
 
