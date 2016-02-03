@@ -4,7 +4,7 @@ var presets = {
 	"urdu": { "name": "Urdu", "order": "uqw,umr,ums,umj,ulq,uqa,uqq" },
 	"quran": { "name": "Quran", "order": "br,pr,aan,mgf,vi,dhq,ll,ls,mis,la,amr,auh,umr,ulq,uqa,uqq" },
 	"ll_ls": { "name": "LL only", "order": "ll,ls" },
-	"arabic": { "name": "Arabic", "order": "amj,la,tla,amr,asb,mht,auh,msb,mis" },
+	"arabic": { "name": "Arabic", "order": "amj,la,ayn,tla,amr,asb,mht,auh,msb,mis" },
 	"english": { "name": "English", "order": "hw4,ll,ls,sg,ha,br,pr,aan,vi,mgf" },
 	"fr": { "name": "French", "order": "kz" },
 	"my": { "name": "Malay", "order": "mr,ens,mn" },
@@ -16,7 +16,7 @@ var project = {
 	"info": "The largest collection of Arabic Root based dictionaries, all on one page!",
 	"intro": "Arabic Almanac",
 	"title": "Arabic Almanac",
-	"version": "6.1",
+	"version": "6.2",
 	"prefix": "aa6_",
 	"icon": "aa.ico"
 }
@@ -129,20 +129,43 @@ var books = {
 	"mis": { "name": "Mujam istiqaqy alMuassal lilAlfadh ilQuran ilKareem (Arabic)", "color": "violet",
 		"index": mis, "direction": "ltr", "columns": "1",
 		"offset": 1, "startpage": 1, "image-prefix": "mis",
-		"alpha": "no" }
+		"alpha": "no" },
 	// "alpha": "no" means: this book is not alphabetical
-	/* Left to do:
-	(msb) Misbaah ul Muneer by Fuyyumi (Excel index ready)
-	(tla) Tasheeh Lisan ul Arab (page images and excel index ready)
-	Maybe not: (mih) Mugnee al Labeeb by Ibn e Hisham (Excel index ready for particles section only) 
-	(amj) Al-Munjid (Arabic)
-		
-	*/
-	// Will require code update to handle non-alphabetic books
-	/*
-		,"ensi": { "name": "Ensiklopedia Al-Quran: Kajian Kosa Kata, Quraish Shihab", "color": "Khaki",
-		"index": ensi, "direction": "ltr", "columns": "2",
-		"offset": 1, "startpage": 1, "image-prefix": "ensi", "img-dev" : "img-dev" }, 
-	*/ 
+	"qab": { "name": "Quranic Arabic, by Mohd Yaehia (Bangla)", "color": "white",
+		"index": qab, "direction": "ltr", "columns": "1",
+		"offset": 1, "startpage": 1, "image-prefix": "qab",
+		"alpha": "yes" },
+	"ayn": { "name": "Kitab al Ayn by ...", "color": "white",
+		"index": ayn, "direction": "ltr", "columns": "1",
+		"offset": 1, "startpage": 1, "image-prefix": "ayn",
+		"alpha": "yes" },
+	"cqk": { "name": "Concordance of Quran by H. Kennis (Eng)", "color": "white",
+		"index": cqk, "direction": "ltr", "columns": "1",
+		"offset": 1, "startpage": 1, "image-prefix": "cqk",
+		"alpha": "no" },
+	"cql": { "name": "Concordance of Quran by L. Bakhtiar (Eng)", "color": "white",
+		"index": cql, "direction": "ltr", "columns": "2",
+		"offset": 1, "startpage": 1, "image-prefix": "cql",
+		"alpha": "no" },
+	"cqm": { "name": "Mu'jam Almufahras lil Alfaz il Quran by ... (Ar)", "color": "white",
+		"index": cqm, "direction": "rtl", "columns": "2",
+		"offset": 1, "startpage": 1, "image-prefix": "cqm",
+		"alpha": "yes" },
+	"elq": { "name": "Lughat ul Quran by G. A. Parwez (Eng)", "color": "white",
+		"index": elq, "direction": "ltr", "columns": "1",
+		"offset": 1, "startpage": 1, "image-prefix": "elq",
+		"alpha": "no" },
+	"mml": { "name": "Kitab al Ayn by ...", "color": "white",
+		"index": mml, "direction": "ltr", "columns": "1",
+		"offset": 1, "startpage": 1, "image-prefix": "mml",
+		"alpha": "no" },
+	"mmt": { "name": "Mufradaat Ut Talib (Ar)", "color": "white",
+		"index": mmt, "direction": "ltr", "columns": "1",
+		"offset": 1, "startpage": 1, "image-prefix": "mmt",
+		"alpha": "yes" },
+	"mqf": { "name": "Kitab al Ayn by ...", "color": "white",
+		"index": mqf, "direction": "ltr", "columns": "1",
+		"offset": 1, "startpage": 1, "image-prefix": "mqf",
+		"alpha": "no" }
 }
 
