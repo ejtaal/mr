@@ -25,6 +25,20 @@ other background information.
 Latest news
 ===========
 
+-   Version 6.2 - x/2/2016
+	
+	- Thanks to volunteers, 9 new books now available:
+		
+		- qab: Quranic Arabic, by Mohd Yaehia (Bangla)
+		- ayn: Kitab ul Ayn by al Khaleel
+		- cqk: Concordance of Quran by H. Kennis (Eng)
+		- cql: Concordance of Quran by L. Bakhtiar (Eng)
+		- cqm: alMu'jam alMufahras lil Alfaz ilQuran by F. A. Baqy (Ar)
+		- elq: Lughat ul Quran by G. A. Parwez (Eng)
+		- mml: Maqayis al Lughah by Ibn e Faris (Ar)
+		- mmt: Mu'jam Mufradaat Ut Talib (Ar)
+		- mqf: Mufradaat ul Qur'an by Farahi (Ar)
+
 -   Version 6.1 - 15/4/2015
 	
 	- At the request of `The Qur'an Project <http://quranproject.org/>`_ a new book is now available:
@@ -205,6 +219,18 @@ DHQ: Dictionary of The Holy Qur'an by Abdul Mannan Omar
 -------------------------------------------------------
 Caution: This dictionary was written by a Qadiani / Ahmadiyah and bias is visible in some of the roots. However, the dictionary is still useful, and can be studied with caution and additional verification using other dictionaries. It lists multiple meanings associated with the root at the beginning, then he starts listing the various derived forms from the root. Referencing style is also vague e.g. he may list 4 books reference without making distinction which portion he took from which dictionary.  
 
+CQL: Concordance of The Sublime Qur'an by Laleh Bakhtiar
+--------------------------------------------------------
+Concordance of the Qur'an in English. The meanings and context examples are provided using author's own translation. Meanings of the derived words are provided followed by Surah numbers and Ayat numbers along with brief selections from the Ayat translation. Particles and some related words are not included in this concordance. 
+
+CQK: A Concordance of The Qur'an by Hanna E. Kassis
+---------------------------------------------------
+Another Concordance of the Qur'an in English. The meanings and context examples are provided using Arberry's translation.  Meanings of the derived words are provided followed by Surah numbers and Ayat numbers along with brief selections from the Ayat translation. Particles and some related words are not included in this concordance. For some words, all occurrences have not been provided in this concordance and some words are left out completely.
+
+ELQ: Lughaat ul Qur'an English Translation
+------------------------------------------
+This is the English translation of Lughaat ul Qur'an ULQ included already in Arabic Almanac. The dictionary has quoted material from some important works and many entries contain useful material. However, since the author is a Sunnah rejector, he has inserted baseless material in a few of the roots. Caution is advised. It contains some rare and useful material but this caution and his bias should be kept in mind.
+
 Urdu
 ****
 
@@ -254,7 +280,6 @@ This is a short book which has posted some corrections to few of the entries of 
 
 AMJ: Al-Munjid
 --------------
-
 It is said that in the Arab World al-Munjid is the standard Arabic-Arabic dictionary used.It includes a chapter of Arabic saying at the end of the book as well as additional color images, maps and tables.
 
 BDW: Hind/Badawi (Egyptian)
@@ -280,6 +305,27 @@ A compact Arabic to Arabic dictionary. Regarding it Lane said in his preface: ".
 MHT: Muheet al-Muheet (Arabic)
 -------------------------------
 It was compiled in the last century. Although this book is not among the large books, it is still very useful. The primary source of this book is Qaamoos ul Muheet but the author has also consulted other important books while compiling this dictionary. He has tried to present the important material regarding the words in this dictionary. An attempt to combine the best of Qaamoos ul Muheet and his own research by Butras Bustani in a compact manner.
+
+MML : Maqayis al Lughah by Ibn e Faris
+--------------------------------------
+The unique feature of this famous dictionary is that it gives basic meanings of the root itself. It also gives concise notes in the explanation of words. 
+
+AYN: Kitab ul 'Ayn by Al Khaleel
+--------------------------------
+One of the earliest dictionaries of Arabic. The meanings provided for words are usually substantiated using Qur'an, Hadith, poetry etc. The author has tried to explain the words unambiguously. 
+
+MQF: Mufradaat ul Qur'an by Farahi
+----------------------------------
+This is a dictionary of selected words from The Qur'an and has useful and unique material in the explanation of some words. 
+
+CQM: Al Mu'jam al Mufahras li Alfaz al Qur'an il Kareem by Fawad Abdul Baqy
+---------------------------------------------------------------------------
+Concordance of The Qur'an in Arabic. The different derived words from the same root are sorted together and these words are also sub-sorted based on combinations with particles and related words.  A few words from each Ayat are selected for each occurrence along with the Surah number, Surah name and Ayat number. Using these, users can study all occurrences of a word and can then study further using the Surah numbers and Ayat numbers in various Tafaasir and Qur'anic studies books. While dictionaries give meanings of the words, concordance works like these give actual usage and context for the words. Particles and some related words are not included in this concordance. 
+
+MMT: Mu'jam Mufradaat al-Taalib
+-------------------------------
+If you are a student of Arabic language learning how to speak and write and looking for an easy Arabic to Arabic dictionary, then Mu'jam Mufradaat al-Taalib is the perfect dictionary for you. Accessible and user friendly, this concise dictionary provides a clear explanation of each word with synonyms; verbs with their appropriate prepositions; and an extensive list of antonyms for common Arabic words as an appendix. In addition a popular proverb is included on every page. All this will aid students in building a robust and comprehensive Arabic vocabulary. No wonder the author called this amazing dictionary 'Lexicon of students' vocabulary.' - Mujahid Ali, Head of Arabic language, Ebrahim College.
+
 
 
 Indonesion / Malaysian
@@ -330,6 +376,13 @@ French
 KAZ: Kazimirski, French Dictionnaire Arabe-Francais
 ---------------------------------------------------
 This work has been the standard dictionary for translation of Arabic into French for many years. It contains most of the known roots of the Arabic language and also includes the dialects of Algiers and Morocco. Albert de Biberstein Kazimirski (1808-1887) was a lexicographer of repute in the nineteenth century. Among his many accomplishments was the translation of the Quran into French and the production of multiple dictionaries.
+
+Bangla
+******
+
+QAB: Qur'anic Arabic / Qura'niya Avidhan by Abu Hena and Mohammad Yeahia
+------------------------------------------------------------------------
+This is a Quranic Arabic dictionary based on the dictionary by Penrice. This is the first to be included for the benefit of Bangla readers.
 
 .. _mr:
 
@@ -407,6 +460,8 @@ Download for offline use
 
 Entire site
 ~~~~~~~~~~~
+
+TODO: https://archive.org/download/ArabicAlmanac/ArabicAlmanac_archive.torrent
 
 
 You can now download the entire website and install it for instance on
