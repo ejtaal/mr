@@ -10,7 +10,7 @@ var presets = {
 	"fr": { "name": "French", "order": "kz" },
 	"my": { "name": "Malay", "order": "mr,ens,mn" },
 	"in": { "name": "Indonesian", "order": "mn,mr,ens" },
-	"eg": { "name": "Egyptian", "order": "bdw" }
+	"eg": { "name": "Egyptian", "order": "bdw" },
 	"ba": { "name": "Bangla", "order": "qab" }
 }
 
