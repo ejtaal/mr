@@ -141,7 +141,7 @@ var books = {
 		"index": ayn, "direction": "ltr", "columns": "1",
 		"offset": 1, "startpage": 1, "image-prefix": "ayn",
 		"alpha": "yes" },
-	"cqk": { "name": "Concordance of Quran by H. Kennis (Eng)", "color": "Plum",
+	"cqk": { "name": "Concordance of Quran by H. Kassis (Eng)", "color": "Plum",
 		"index": cqk, "direction": "ltr", "columns": "1",
 		"offset": 1, "startpage": 1, "image-prefix": "cqk",
 		"alpha": "no" },

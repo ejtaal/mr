@@ -31,7 +31,7 @@ Latest news
 		
 		- qab: Quranic Arabic, by Mohd Yaehia (Bangla)
 		- ayn: Kitab ul Ayn by al Khaleel
-		- cqk: Concordance of Quran by H. Kennis (Eng)
+		- cqk: Concordance of Quran by H. Kassis (Eng)
 		- cql: Concordance of Quran by L. Bakhtiar (Eng)
 		- cqm: alMu'jam alMufahras lil Alfaz ilQuran by F. A. Baqy (Ar)
 		- elq: Lughat ul Quran by G. A. Parwez (Eng)
