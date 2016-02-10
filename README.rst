@@ -7,12 +7,19 @@ for displaying and searching books. It is used by the following sub projects:
 
 	- Arabic Almanac (root based dictionaries in various languages) `link to website <http://ejtaal.net/aa/>`_
 	- Mawrid (for alphabetical disctionaries, notably al-Mawrid) `link to website <http://ejtaal.net/mr/>`_
+
+Proposed projects under development:
+
 	- Mabhath ul Talib (root based dictionaries in text format rather than as images) `link to website <http://ejtaal.net/mh/>`_
+	- Arabic particles tool
+	- I'raab alQuran
 
 All of these projects can also be downloaded to your hard disk or
 smart phone's sd card, for fast offline usage. Read below for more
 information on how to use this website, where to download it and
 other background information.
+
+Follow me on twitter for the latest news about projects on ejtaal.net: `@ejvtaal <https://twitter.com/ejvtaal>`_
 
 ..
   A link to an internal target: `test <#aa>`_
@@ -27,7 +34,7 @@ Latest news
 
 -   Version 6.2 - x/2/2016
 	
-	- Thanks to volunteers, 9 new books now available:
+	- Thanks to volunteers, 9 new books are now available:
 		
 		- qab: Quranic Arabic, by Mohd Yaehia (Bangla)
 		- ayn: Kitab ul Ayn by al Khaleel
