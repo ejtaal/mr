@@ -1245,11 +1245,12 @@ function do_search( input) {
 			if ( results["wanted"] != "" )
 				books[key]["wanted"] = results["wanted"]
 			//else can we set the status for this book somehow?
-				
+			//XXX Maybe hide the book in particle tool at least if not found?
 			books[key]["suggestions"] = results["suggestions"]
 		}
 		else
 			books[key]["wanted"] = binarySearch( books[key]['index'], search, 0)
+		//debug( "book['"+key+"']['wanted'] = " + books[key]["wanted"])
 	}
 	// Headers 
 
@@ -1282,7 +1283,7 @@ function plainSearch(items, value){
 			re1.test( items[index]) ||
 			re2.test( items[index]) ||
 			re3.test( items[index])) {
-			debug("found something: "+items[index])
+			debug("found something: "+items[index] + " @ index[" + index + "]")
 				if ( results["wanted"] == "" )
 					results["wanted"] = index
 				else
@@ -1298,7 +1299,7 @@ function plainSearch(items, value){
 			if (
 				re4.test( items[index]) ||
 				re5.test( items[index])) {
-				debug("found something: "+items[index])
+				debug("found something: "+items[index] + " @ index[" + index + "]")
 					if ( results["wanted"] == "" )
 						results["wanted"] = index
 					else
@@ -1388,8 +1389,9 @@ function binarySearch(items, value, exact_match_fudge, new_chapter_for_letter){
 		if ( middle == 0) retval = 0;
 		if ( middle > items.length-1) middle = items.length-1;
 		if ( items[middle] == value) {
-			// Trace back to a max of 20 items to get the first occurance of items[middle] == value
-			for (i = 1; i < 20; i++) {
+			// Trace back to a max of 20 items to get the first occurrence of items[middle] == value
+			//debug("Tracing back...")
+			for (i = 1; i < middle; i++) {
 				if ( items[middle-i] != value) {
 					// Give the first match if searching for the start of a chapter
 					if ( value.length == 1 && exact_match_fudge == -1)
