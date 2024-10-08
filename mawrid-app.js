@@ -1,12 +1,20 @@
 
 // Some global vars that we need:
 var debugmode = false; 
-var version = "3.1";
+var version = "4.0 - beta";
 var title_text = project["title"] + " v" + project["version"] + " - powered by Mawrid Reader" + " v" + version;
 $("#version").append(title_text);
 var toggle = 1;
 var starting_hash = "#";
 var state = {};
+
+// Available configurations and descriptions
+var confs = [
+	{ "aa": "Root based Arabic dictionaries in various languages" },
+	{ "mr": "Root based Arabic dictionaries in various languages" }
+	]
+// default configuration from the above
+var requested_conf = "aa"
 
 //var all_roots = {};
 
@@ -552,6 +560,8 @@ function set_hash( s) {
 function build_hash() {
 	var new_hash = "#"
 
+	new_hash += "conf=" + requested_conf + ','
+
 	$('#all_books').children().each(function(){
 		var book = $(this).attr('id');
  		//debug( id);
@@ -612,6 +622,13 @@ function parse_hash() {
 			var key = keyValuePair[0];
 			var value = keyValuePair[1];
 			//debug( "Var found: " + keyValuePair[0] + ' = ' + keyValuePair[1] );
+			if ( key == "conf" ) { 
+				old_conf = requested_conf;
+				requested_conf = value;
+				if ( old_conf != requested_conf) {
+					// Somehow reload new configuration
+				}
+			}
 			if ( key == "Q" || key == "q" ) { 
 				if ( project['type'] == 'text') searched_word = value
 				else do_search(value);
