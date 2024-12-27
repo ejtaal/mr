@@ -2,7 +2,7 @@
 // Some global vars that we need:
 var debugmode = false; 
 var version = "4.0 - beta";
-var title_text = project["title"] + " v" + project["version"] + " - powered by Mawrid Reader" + " v" + version;
+var title_text = '... ' + " - powered by Mawrid Reader" + " v" + version;
 $("#version").append(title_text);
 var toggle = 1;
 var starting_hash = "#";
@@ -11,123 +11,16 @@ var state = {};
 // Available configurations and descriptions
 var confs = [
 	{ "aa": "Root based Arabic dictionaries in various languages" },
-	{ "mr": "Root based Arabic dictionaries in various languages" }
+	{ "mr": "Regular (non-root based) Arabic dictionaries in various languages" }
 	]
 // default configuration from the above
 var requested_conf = "aa"
 
 //var all_roots = {};
 
-if ( project["type"] == "text") {
+// reload_page()
 
-	$("#text-input-field").show()
-	$("#text-input-field").keypress(function(e) {
-		code= (e.keyCode ? e.keyCode : e.which);
-		if (code == 13) {
-			$(".ui-menu-item").hide();
-			text_search( buckwalter( 'encode', $("#text-input-field").val() ));
-			build_hash()
-		}
-	});
-	$("#text-input-field").autocomplete({
-		source: function( request, callback){
-			var t = request.term;
-			suggest_completions( t, callback)
-		},
-		select: function (a, b) {
-			$(this).val(b.item.value);
-			text_search( buckwalter( 'encode', $("#text-input-field").val() ));
-			build_hash()
-		},
-		delay: 0
-	})
-  .data( "ui-autocomplete" )._renderItem = function( ul, item ) {
-    return $( "<li>" )
-      .append( "<a><table class='suggestion-table'><tr><td>(" + item.count + ")</td><td class='rtl'>" + item.label + "</td></tr></table></a>" )
-      .appendTo( ul );
-  };
-	set_title()
-      //.append( "<a><tablediv class='suggestion-label'>" + item.label + "</div><div class='suggestion_count'>(" + item.count + ")</span></a>" )
-}
-
-// Initiate books array with extra needed vars:
-for (var key in presets)
-	$( "#preset-cell" ).tmpl( presets[key]).appendTo( "#preset-cells" );
-
-$( "#all_books" ).html("");
-var book_id = 0
-for (var key in books) {
-	//debug(key)
-	//book_id++
-	books[key]["id"] = ++book_id
-	books[key]["current"] = -1 // i.e. no page has been loaded
-	books[key]["wanted"] = books[key]["offset"];
-
-	if ( project["type"] == "text") {
-		// Do something
-		template = "text-book-template"
-		for (i = 0; i < books[key]["index"].length; i++) {
-			//all_roots[books[key]["index"][i]]
-		}
-	} else {
-		template = "image-book-template"
-		// Images based dictionaries assumed. Will there be a point in the future
-		// where text and image dictionaries can be mixed? Perhaps...
-		// Set up the right column order for viewing on mobiles
-		books[key]["col1_id"] = 1
-		books[key]["col2_id"] = 2
-		books[key]["col3_id"] = 3
-		if ( books[key]['columns'] == 1) {
-			$( '#' + key+'col_2').hide()
-			$( books[key]['columns']+'col_3').hide()
-		}
-		else if ( books[key]['columns'] == 2) {
-			$( books[key]['columns']+'col_3').hide()
-			if ( books[key]['direction'] == 'rtl') {
-				books[key]["col1_id"] = 2
-				books[key]["col2_id"] = 1
-			}
-		}
-		else if ( books[key]['columns'] == 3) {
-			if ( books[key]['direction'] == 'rtl') {
-				books[key]["col1_id"] = 3
-				books[key]["col2_id"] = 2
-				books[key]["col3_id"] = 1
-			}
-		}
-	}
-
-	var book = books[key]
-//	for (var prop in book)
-//		if (book.hasOwnProperty(prop)) debug(key + "." + prop + " = " + book[prop])
-	$( "#"+template ).tmpl( books[key]).appendTo( "#all_books" );
-	$("#"+key+"_toggle").hide()
-
-	// Settings must be set for both text and image based dicts
-	$( "#settings-row" ).tmpl( books[key]).appendTo( "#settings_rows" );
-	starting_hash += key + '=' + books[key]["offset"] + ',';
-	$("."+key+"_color").css('background-color', books[key]["color"])
-	$("#"+key+"_wideviewimg").css('border', '3px solid ' + books[key]["color"])
-
-	if ( books[key]['columns'] < 2) $( '#' + key+'_col2').hide()
-	if ( books[key]['columns'] < 3) $( '#' + key+'_col3').hide()
-}
-
-
-// JQM causes each link to work through AJAX, please
-// don't do that!!! This or setting data-ajax="false"
-// is supposed to fix that
-$(document).ready(function(){
-    $("a").each(function(){
-          $(this).attr("rel","external");
-    });
-	// Do page_load once
-	first_page_load();
-});
-
-starting_hash = starting_hash.replace(/,$/,'')
-debug("starting_hash = " + starting_hash)
-var initial_book_order = presets["default"];
+var initial_book_order = "";
 //var aa_book_order = initial_book_order;
 
 var toggle_view_auto = 1;
@@ -136,7 +29,8 @@ var fitwidth = false;
 var last_input = "";
 var searched_word = "";
 // This is the base directory under which all image directories will be placed:
-var img_base_dir = "img/";
+var img_base_dir = "../aa-data/img/";
+//var img_base_dir = "img/";
 var text_base_dir = "text/";
 
 // Only allow .dev classes to show up when we're not live:
@@ -176,7 +70,6 @@ function swipe_it( event ){
 $( window ).hashchange(function() {
 	parse_hash();
 });
-parse_hash();
 
 $(".swipe").click(function(){
 	searchandgo()
@@ -564,17 +457,17 @@ function build_hash() {
 
 	$('#all_books').children().each(function(){
 		var book = $(this).attr('id');
- 		//debug( id);
-			new_hash += book + "="
-			if (books[book]["should_hide"] == 1) new_hash += "h"
-			new_hash += books[book]["wanted"] + ','
+ 		// debug( book);
+		new_hash += book + "="
+		if (books[book]["should_hide"] == 1) new_hash += "h"
+		new_hash += books[book]["wanted"] + ','
 	})
 
 	if ( project['type'] == 'text' && searched_word != '')
 		new_hash += 'q=' + searched_word
 	
 	new_hash = new_hash.replace(/,$/,'')
-	//debug("new_hash = " + new_hash);
+	debug("new_hash = " + new_hash);
 
 	window.location.hash = new_hash;
 	setCookie( project["prefix"]+"last_hash", window.location.hash, 365);
@@ -587,7 +480,8 @@ function set_title() {
 	if ( searched_word == "" ) {
 		$('#all_books').children().each(function(){
 			var id = $(this).attr('id');
-	 		//debug( id);
+	 		// debug( 'CCC')
+			// debug( id);
 			var add_text = "";
 			if ( ! books[id]["should_hide"]) add_text = id + ": " + books[id]["index"][books[id]["current"]]
 			if ( add_text != "") 
@@ -610,7 +504,177 @@ function user_debug_1() {
 	alert( 'Protocol = ' + document.location.protocol)
 }
 
+var presets = []
+var project = []
+var books = []
+
+function switch_config( c) {
+	debug( 'XXXXX')
+	// debug( c)
+	// debug( all_presets[c])
+	presets = all_presets[c]
+	debug(presets)
+	project = all_project[c]
+	books = all_books[c]
+
+	title_text = project["title"] + " v" + project["version"] + " - powered by Mawrid Reader" + " v" + version;
+
+	// debug('LLL')
+	// debug(books)
+
+	// Initiate books array with extra needed vars:
+	$( "#all_books" ).html("");
+	var book_id = 0
+	for (var key in books) {
+		// debug('FFF')
+		// debug(books[key])
+		//book_id++
+		books[key]["key"] = key
+		books[key]["id"] = ++book_id
+		books[key]["current"] = -1 // i.e. no page has been loaded
+		books[key]["wanted"] = books[key]["offset"];
+
+		if ( project["type"] == "text") {
+			// Do something
+			template = "text-book-template"
+			for (i = 0; i < books[key]["index"].length; i++) {
+				//all_roots[books[key]["index"][i]]
+			}
+		} else {
+			template = "image-book-template"
+			// Images based dictionaries assumed. Will there be a point in the future
+			// where text and image dictionaries can be mixed? Perhaps...
+			// Set up the right column order for viewing on mobiles
+			books[key]["col1_id"] = 1
+			books[key]["col2_id"] = 2
+			books[key]["col3_id"] = 3
+			if ( books[key]['columns'] == 1) {
+				$( '#' + key+'col_2').hide()
+				$( books[key]['columns']+'col_3').hide()
+			}
+			else if ( books[key]['columns'] == 2) {
+				$( books[key]['columns']+'col_3').hide()
+				if ( books[key]['direction'] == 'rtl') {
+					books[key]["col1_id"] = 2
+					books[key]["col2_id"] = 1
+				}
+			}
+			else if ( books[key]['columns'] == 3) {
+				if ( books[key]['direction'] == 'rtl') {
+					books[key]["col1_id"] = 3
+					books[key]["col2_id"] = 2
+					books[key]["col3_id"] = 1
+				}
+			}
+		}
+	
+		// var book = books[key]
+	//	for (var prop in book)
+	//		if (book.hasOwnProperty(prop)) debug(key + "." + prop + " = " + book[prop])
+		$( "#"+template ).tmpl( books[key]).appendTo( "#all_books" );
+		$("#"+key+"_toggle").hide()
+	
+		// Settings must be set for both text and image based dicts
+		$( "#settings-row" ).tmpl( books[key]).appendTo( "#settings_rows" );
+		starting_hash += key + '=' + books[key]["offset"] + ',';
+		$("."+key+"_color").css('background-color', books[key]["color"])
+		$("#"+key+"_wideviewimg").css('border', '3px solid ' + books[key]["color"])
+	
+		if ( books[key]['columns'] < 2) $( '#' + key+'_col2').hide()
+		if ( books[key]['columns'] < 3) $( '#' + key+'_col3').hide()
+	}
+	debug( 'YYY')
+	debug(presets)
+	
+	$( "#preset-cells" ).html("");
+	for (var key in presets) {
+		// debug('PRESET')
+		// debug(key)
+		presets[key]["key"] = key
+		$( "#preset-cell" ).tmpl( presets[key]).appendTo( "#preset-cells" );
+
+	}
+
+
+
+	// debug( books)
+	// reload_page()
+	// parse_hash();
+
+}
+
+function reload_page() {
+	// debug( 'YYY')
+	// debug( books)
+	/*
+		Run this when first setting a desired configuration.
+		Run it again if the config changes so new books,
+		presets etc are initialized
+
+	TODO: clear out books in DOM, config?
+	build_hash?
+	set_title?
+	*/
+	if ( project["type"] == "text") {
+
+		$("#text-input-field").show()
+		$("#text-input-field").keypress(function(e) {
+			code= (e.keyCode ? e.keyCode : e.which);
+			if (code == 13) {
+				$(".ui-menu-item").hide();
+				text_search( buckwalter( 'encode', $("#text-input-field").val() ));
+				build_hash()
+			}
+		});
+		$("#text-input-field").autocomplete({
+			source: function( request, callback){
+				var t = request.term;
+				suggest_completions( t, callback)
+			},
+			select: function (a, b) {
+				$(this).val(b.item.value);
+				text_search( buckwalter( 'encode', $("#text-input-field").val() ));
+				build_hash()
+			},
+			delay: 0
+		})
+	    .data( "ui-autocomplete" )._renderItem = function( ul, item ) {
+		return $( "<li>" )
+		  .append( "<a><table class='suggestion-table'><tr><td>(" + item.count + ")</td><td class='rtl'>" + item.label + "</td></tr></table></a>" )
+		  .appendTo( ul );
+	  	};
+		
+		// console.log(books)
+		set_title()
+		  //.append( "<a><tablediv class='suggestion-label'>" + item.label + "</div><div class='suggestion_count'>(" + item.count + ")</span></a>" )
+	}
+	
+
+	
+
+	
+	// JQM causes each link to work through AJAX, please
+	// don't do that!!! This or setting data-ajax="false"
+	// is supposed to fix that
+	$(document).ready(function(){
+		$("a").each(function(){
+			  $(this).attr("rel","external");
+		});
+		// Do page_load once
+		// first_page_load();
+		// reload_page();
+	});
+	
+	starting_hash = starting_hash.replace(/,$/,'')
+	debug("starting_hash = " + starting_hash)
+
+	initial_book_order = presets["default"];
+	title_text = project["title"] + " v" + project["version"] + " - powered by Mawrid Reader" + " v" + version;
+
+}
+
 function parse_hash() {
+	debug('PARSING HASH')
 	var hashstring = window.location.hash.replace(/^#/,'');
 	var i, vars = hashstring.split(','); 
 	if (vars.length > 0) { 
@@ -627,6 +691,8 @@ function parse_hash() {
 				requested_conf = value;
 				if ( old_conf != requested_conf) {
 					// Somehow reload new configuration
+					debug('SWITCHING CONFIG')
+					switch_config( requested_conf)
 				}
 			}
 			if ( key == "Q" || key == "q" ) { 
@@ -652,7 +718,9 @@ function parse_hash() {
 					book_index = $('#'+key).index()
 					//debug("index: " + book_index + ", arrayindex = " + i)
 					// Only move books around if order has changed:
-					if ( book_index != i) move(key, "top");
+					// i - 1 because we now have mandatory extra value
+					// in the hash: 'conf'
+					if ( book_index != i - 1) move(key, "top");
 					//move_to_top(key+"_setting");
 				}
 			}
@@ -849,7 +917,10 @@ function debug( text) {
 	var msecs = time % 1000;
 	var time_info = date.toString().replace(/(..:..) /,"$1"+"."+msecs+" ")
 	
-	var str = time_info + " - [" + text + "] "
+	var oCallStackTrack = new Error();
+    // console.log(oCallStackTrack.stack.replace('Error', 'Call Stack:'), 
+	var str = time_info + " - [" + text + "] " + '\n' +
+	oCallStackTrack.stack.replace('Error', 'Call Stack:')
 
 	if (debugmode) { 
 	  document.getElementById("debug").innerHTML += "<br>" + str
@@ -864,6 +935,8 @@ function debug( text) {
 function isUndefined(x) { return x == null && x !== null; }
 
 function first_page_load() {
+	switch_config( requested_conf)
+
 	/*
 		Default cookie setting:
 			- do enable swiping for mobile devices
@@ -1033,6 +1106,8 @@ function update_settings_order( order_toset) {
 }
 
 function set_order_preset( preset) {
+	// debug('BBB')
+	// debug(presets)
 	var i, order = presets[preset]['order'].split(',')
 
 	for (var key in books) books[key]['should_hide'] = 1
@@ -1041,6 +1116,8 @@ function set_order_preset( preset) {
 	  for (i = order.length - 1; i >= 0; i--) {
 			hide_book( order[i], false)
 			move( order[i], "top")
+			debug('move to top')
+			debug( order[i])
 		}
 	}
 	build_hash()
@@ -1429,6 +1506,13 @@ function binarySearch(items, value, exact_match_fudge, new_chapter_for_letter){
 		debug( 'search = ' + value + ' retval = ' + retval + ' which is: ' + items[retval]);
 		return retval;
 }
+
+
+// main()
+
+first_page_load();
+
+
 
 
 //==========================================================
