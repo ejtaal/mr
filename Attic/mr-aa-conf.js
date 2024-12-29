@@ -11,14 +11,15 @@ var presets = {
 	"my": { "name": "Malay", "order": "mr,ens,mn" },
 	"in": { "name": "Indonesian", "order": "mn,mr,ens" },
 	"eg": { "name": "Egyptian", "order": "bdw" },
-	"ba": { "name": "Bangla", "order": "qab" }
+	"ba": { "name": "Bangla", "order": "qab" },
+	"de": { "name": "German", "order": "hw5de" }
 }
 
 var project = {
 	"info": "The largest collection of Arabic Root based dictionaries, all on one page!",
 	"intro": "Arabic Almanac",
 	"title": "Arabic Almanac",
-	"version": "6.2",
+	"version": "6.3",
 	"prefix": "aa6_",
 	"icon": "aa.ico"
 }
@@ -168,6 +169,9 @@ var books = {
 	"mqf": { "name": "Mufradaat ul Qur'an by Farahi (Ar)", "color": "MistyRose",
 		"index": mqf, "direction": "ltr", "columns": "1",
 		"offset": 1, "startpage": 1, "image-prefix": "mqf",
-		"alpha": "no" }
+		"alpha": "no" },
+	"hw5de": { "name": "Hans Wehr 5th ed. (German)", "color": "Salmon",
+		"index": hw5de, "direction": "ltr", "columns": "2",
+		"offset": 1, "startpage": 1, "image-prefix": "hw5de" },
 }
 
